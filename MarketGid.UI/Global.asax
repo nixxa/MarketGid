@@ -1,1 +1,1 @@
-<%@ Application Inherits="MarketGid.UI.MvcApplication" %>
+﻿<%@ Application Codebehind="Global.asax.cs" Inherits="MarketGid.UI.MvcApplication" Language="C#" %>
