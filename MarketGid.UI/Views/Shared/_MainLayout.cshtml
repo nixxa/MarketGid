@@ -6,6 +6,7 @@
 	<title></title>
 	<link href="~/Content/bootstrap.css" rel="stylesheet" />
 	<link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+	<link href="~/Content/m-buttons.css" rel="stylesheet" />
 	<link href="~/Content/styles.css" rel="stylesheet" />
 	<script type="text/javascript" src="~/Scripts/jquery-1.9.1.js"></script>
 	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
@@ -14,5 +15,19 @@
 	<div class="container">
 		@RenderBody()
 	</div>
+
+	<script type="text/javascript">
+		var timedout = false;
+
+		$(document).ready(function () {
+			setInterval(sessionTimedout, 30000);
+		});
+
+		function sessionTimedout() {
+			if (timedout)
+				window.location.href = "/Home/Timedout";
+			timedout = true;
+		}
+	</script>
 </body>
 </html>

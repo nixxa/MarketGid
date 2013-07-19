@@ -1,0 +1,48 @@
+﻿@{
+	Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+<div class="main-header">
+	<img src="~/Content/images/ppl2.jpg" />
+</div>
+<div class="main-content">
+	<div class="title">
+		<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
+		<a href="#" class="btn-home"><img src="~/Content/images/home.png" /></a>
+	</div>
+	<div class="main-container">
+		<div class="left-column">
+			<div class="panel" id="information">
+
+			</div>
+			<div class="panel" id="offers">
+
+			</div>
+		</div>
+		<div class="right-column">
+			<div class="map">
+
+			</div>
+			<div class="tiles">
+				<ul class="thumbnails">
+					<li class="tile">Tile 1</li>
+					<li class="tile">Tile 1</li>
+					<li class="tile">Tile 1</li>
+					<li class="tile">Tile 1</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="main-footer">
+	<img src="~/Content/images/mosf2.jpg" />
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$('#information').click(function () {
+			$('#information').toggleClass('opened');
+		});
+		$('#offers').click(function () {
+			$('#offers').toggleClass('opened');
+		});
+	});
+</script>
