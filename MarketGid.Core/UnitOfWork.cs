@@ -88,8 +88,8 @@ namespace MarketGid.Core
 		public void SaveOrUpdate<T>(T obj) where T : class
 		{
 			var props = typeof(T).GetProperties();
-			var primaryKeys = props.Where(p => p.CustomAttributes.Any(a => a.AttributeType == typeof(PrimaryKeyAttribute))).ToList();
-			var identityFields = props.Where(p => p.CustomAttributes.Any(a => a.AttributeType == typeof(IdentityAttribute))).ToList();
+			var primaryKeys = props.Where(p => p.GetCustomAttributes(typeof(PrimaryKeyAttribute), true).Any()).ToList();
+			var identityFields = props.Where(p => p.GetCustomAttributes(typeof(IdentityAttribute), true).Any()).ToList();
 			
 			//Для таблиц состоящих только из первичного ключа
 			if (props.Count() == primaryKeys.Count())

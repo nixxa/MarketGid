@@ -1,1 +1,36 @@
-﻿<h2>Welcome!</h2>
+﻿@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="logo">
+	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
+</div>
+<div class="content">
+	<img id="adImage" src="@ViewData["imageSource"]" />
+</div>
+<div class="footer">
+	<span>
+		Навигация по МОСФИЛЬМУ <img src="~/Content/images/black_arrow_rigth.png" />
+	</span>
+	<span class="help-message">
+		Коснитесь экрана, что бы начать работу
+	</span>
+</div>
+<script type="text/javascript">
+	$(document).ready(function () {
+		setInterval(function () { rotate(); }, 2000);
+		$(document).click(function () {
+			window.location.href = '/Main/Index';
+		});
+	});
+
+	function rotate() {
+		$.ajax({
+			type: 'POST',
+			url: '/Home/Rotate',
+			dataType: 'json',
+			success: function (data) {
+				$('#adImage').attr('src', data.imageSource);
+			}
+		});
+	}
+</script>

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace MarketGid.UI
+namespace MvcApplication1
 {
 	public class RouteConfig
 	{
