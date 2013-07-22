@@ -10,7 +10,7 @@ using Autofac.Configuration;
 using Autofac.Integration.Mvc;
 using MarketGid.Core;
 
-namespace MvcApplication1
+namespace MarketGid.UI
 {
 	public class MvcApplication : System.Web.HttpApplication
 	{
