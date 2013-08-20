@@ -160,13 +160,13 @@ namespace MarketGid.Core
 		
 		private static ConcurrentDictionary<Type, IPropertyAccessor> _typesCache = new ConcurrentDictionary<Type, IPropertyAccessor>();
 		
-		private object GetDefault(Type type)
+		private static object GetDefault(Type type)
 		{
 			if (type.IsValueType) return Activator.CreateInstance(type);
 			return null;
 		}
 		
-		private IPropertyAccessor CreateAccessor(PropertyInfo propertyInfo)
+		private static IPropertyAccessor CreateAccessor(PropertyInfo propertyInfo)
 		{
 			return (IPropertyAccessor) Activator.CreateInstance(
 				typeof(DelegatePropertyAccessor<,>).MakeGenericType

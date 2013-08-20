@@ -6,28 +6,93 @@
 </div>
 <div class="main-content">
 	<div class="title">
-		<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
-		<a href="#" class="btn-home"><img src="~/Content/images/home.png" /></a>
+		<a href="/"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> МОСФИЛЬМ
 	</div>
 	<div class="main-container">
-		<div class="left-column">
-			<div class="panel" id="information">
-
-			</div>
-			<div class="panel" id="offers">
-
-			</div>
-			<div class="button" id="search">
-				<a href="#"><img src="~/Content/images/search.png" /></a>
-			</div>
-		</div>
-		<div class="right-column">
-			<div class="map">
-
-			</div>
-			<div class="tiles">
-
-			</div>
+		<div class="main-menu" style="padding-left: 110px;">
+			<form class="form-inline" style="margin-left: 0px;">
+				<input type="text" style="width: 885px; height: auto; font-size: 1.9em; line-height: normal; color: white" placeholder="Введите название или услугу..." id="ipad" />
+				
+			</form>
+			<ul class="thumbnails">
+				<li class="mgid-tile-large">
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile-large">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile-large">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				<li class="mgid-tile">
+		
+					<div class="thumbnail mgid-thumb">
+						<h3>Thumbnail label</h3>
+						<p>Thumbnail caption...</p>
+					</div>
+				</li>
+				
+			</ul>
 		</div>
 	</div>
 </div>
@@ -36,11 +101,52 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
-		$('#information').click(function () {
-			$('#information').toggleClass('opened');
+		// init thumbnails
+		$('.mgid-thumb').mousedown( function () {
+			$(this).toggleClass('clicked');
 		});
-		$('#offers').click(function () {
-			$('#offers').toggleClass('opened');
+		$('.mgid-thumb').mouseup( function () {
+			$(this).toggleClass('clicked');
+			window.location.href = '@Url.Content("~/map/item/1")';
+		});
+	
+		// init virtual keyboard
+		$('#ipad').keyboard({ 
+ 		    display: { 
+		        'bksp'   :  "\u2190", 
+		        'accept' : 'Поиск', 
+		        'default': 'ABC', 
+		        'meta1'  : '.?123', 
+		        'meta2'  : '#+=',
+		        'enter'  : 'Поиск'
+		    }, 
+		    layout: 'custom', 
+		    customLayout: { 
+		        'default': [ 
+		            'q w e r t y u i o p {bksp}', 
+		            'a s d f g h j k l {accept}', 
+		            '{s} z x c v b n m , . {s}', 
+		            '{meta1} {space} {meta1}' 
+		        ], 
+		        'shift': [ 
+		            'Q W E R T Y U I O P {bksp}', 
+		            'A S D F G H J K L {accept}', 
+		            '{s} Z X C V B N M ! ? {s}', 
+		            '{meta1} {space} {meta1}' 
+		        ], 
+		        'meta1': [ 
+		            '1 2 3 4 5 6 7 8 9 0 {bksp}', 
+		            '- / : ; ( ) \u20ac & @@ {accept}', 
+		            '{meta2} . , ? ! \' " {meta2}', 
+		            '{default} {space} {default}' 
+		        ], 
+		        'meta2': [ 
+		            '[ ] { } # % ^ * + = {bksp}', 
+		            '_ \\ | ~ < > $ \u00a3 \u00a5 {accept}', 
+		            '{meta1} . , ? ! \' " {meta1}', 
+		            '{default} {space} {default}' 
+		        ] 
+		    } 
 		});
 	});
 </script>

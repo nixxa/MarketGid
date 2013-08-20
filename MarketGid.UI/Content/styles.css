@@ -1,0 +1,146 @@
+﻿body {
+	font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+	color: #fff;
+}
+
+header, footer, nav, section {
+	display: block;
+}
+
+.container {
+	width: 1080px !important;
+	height: 1920px !important;
+	margin: 0px 0px 0px 0px !important;
+	padding: 0px 0px 0px 0px !important;
+	background-image: url('images/background.png');
+}
+
+/*
+	BEGIN Lock screen classes
+*/
+.logo {
+	font-size: 58pt;
+	font-weight: bold;
+	height: 90px;
+	background-color: #F8F600;
+	padding: 10px;
+}
+	.logo img {
+		margin: 10px;
+	}
+
+.content {
+	padding: 20px 20px 20px 20px;
+}
+
+.footer {
+	font-size: 38pt;
+	font-weight: bold;
+	height: 220px;
+	padding: 10px;
+	color: #000;
+	background-image: url('images/plan3.jpg');
+	background-position-x: right;
+	background-repeat: no-repeat;
+}
+	.footer span {
+		padding: 20px 10px 20px 10px;
+	}
+	.footer img {
+		vertical-align: sub;
+	}
+	.footer .help-message {
+		float: left;
+		position: relative;
+		top: 50%;
+		font-size: 20pt;
+		color: #404040;
+	}
+
+/*
+	Main view classes
+*/
+
+.main-header {
+	height: 385px;
+	padding: 20px;
+}
+
+.main-content {
+	height: 1070px;
+	padding: 0px 20px 0px 20px;
+}
+	.main-content .title {
+		font-size: 38pt;
+		background-color: #F8F600;
+		font-weight: bold;
+		color: black;
+		height: 84px;
+	}
+		.main-content .title img {
+			padding: 10px;
+		}
+	.main-content .main-container {
+		padding: 0px 0px 0px 0px;
+		background-color: rgba(248, 246, 0, 0.35);
+		height: 986px;
+	}
+		.main-content .main-container .main-menu {
+			padding: 20px;
+			opacity: 1;
+		}
+		.main-content .main-container .left-column {
+			width: 100px;
+			float: left;
+		}
+			.main-content .main-container .left-column .panel {
+				background-color: #2776EC;
+				height: 400px;
+				margin-bottom: 10px;
+			}
+				.main-content .main-container .left-column .panel.opened {
+					width: 400px !important;
+				}
+		.main-content .main-container .right-column {
+			width: 930px;
+			float: right;
+		}
+
+.main-footer {
+	height: 385px;
+	padding: 20px;
+}
+
+.mgid-tile {
+	width: 210px;
+	margin-left: 20px !important;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+	.mgid-tile .mgid-thumb {
+		border: 0px;
+		height: 140px;
+		background: #4682B4;
+		padding: 10px 20px 10px 20px;
+	}
+	.mgid-tile .clicked {
+		background: #2C5372;
+	}
+
+.mgid-tile-large {
+	width: 286px;
+	margin-left: 20px !important;
+	margin-right: 0px;
+	margin-bottom: 20px;
+	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+	.mgid-tile-large .mgid-thumb {
+		border: 0px;
+		height: 140px;
+		background: #2E8B57;
+		padding: 10px 20px 10px 20px;
+	}
+	.mgid-tile-large .clicked {
+		background: #19492E;
+	}

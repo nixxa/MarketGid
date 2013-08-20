@@ -4,10 +4,15 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width" />
 	<title></title>
-	<link href="~/Content/css/modern.css" rel="stylesheet" />
-	<link href="~/Content/css/styles.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap.css" rel="stylesheet" />
+	<link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
+	<link href="~/Content/ui-darkness/jquery-ui-1.10.3.css" rel="stylesheet" />
+	<link href="~/Content/styles.css" rel="stylesheet" />
+	<link href="~/Content/keyboard.css" rel="stylesheet" />
 	<script type="text/javascript" src="~/Scripts/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-ui-1.10.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery.keyboard.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -24,7 +29,7 @@
 		function sessionTimedout() {
 			if (timedout)
 				window.location.href = "/Home/Timedout";
-			timedout = true;
+			//timedout = true;
 		}
 	</script>
 </body>
