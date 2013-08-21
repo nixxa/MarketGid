@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MvcApplication1</RootNamespace>
-    <AssemblyName>MvcApplication1</AssemblyName>
+    <RootNamespace>MarketGid.UI</RootNamespace>
+    <AssemblyName>MarketGid.UI</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -113,6 +113,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\MapController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -174,6 +175,13 @@
     <Content Include="Content\ui-darkness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\keyboard.css" />
     <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Scripts\kineticjs-4.6.0.js" />
+    <Content Include="Scripts\kineticjs-4.6.0.min.js" />
+    <Content Include="App_Data\ads.config" />
+    <Content Include="App_Data\categories.config" />
+    <Content Include="App_Data\kiosk.config" />
+    <Content Include="App_Data\specialOffers.config" />
+    <Content Include="App_Data\objects.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

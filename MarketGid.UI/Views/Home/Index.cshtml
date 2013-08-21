@@ -17,7 +17,7 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
-		setInterval(function () { rotate(); }, 2000);
+		setTimeout(function () { rotate(); }, @ViewData["duration"]);
 		$(document).click(function () {
 			window.location.href = '/Main/Index';
 		});
@@ -30,6 +30,7 @@
 			dataType: 'json',
 			success: function (data) {
 				$('#adImage').attr('src', data.imageSource);
+				setTimeout(function () { rotate(); }, data.duration);
 			}
 		});
 	}

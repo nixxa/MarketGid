@@ -8,6 +8,8 @@ namespace MarketGid.Core
 		protected override void Load (ContainerBuilder builder)
 		{
 			base.Load (builder);
+
+			builder.RegisterType<XmlUnitOfWorkFactory> ().As<IUnitOfWorkFactory> ();
 		}
 	}
 }

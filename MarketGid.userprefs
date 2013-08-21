@@ -1,8 +1,14 @@
 ﻿<Properties GitUserInfo="UsingGIT">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.Core\UnitOfWork.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Controllers\BaseController.cs">
     <Files>
-      <File FileName="MarketGid.Core\UnitOfWork.cs" Line="64" Column="32" />
+      <File FileName="MarketGid.UI\Views\Map\Index.cshtml" Line="73" Column="33" />
+      <File FileName="MarketGid.UI\Content\styles.css" Line="157" Column="28" />
+      <File FileName="MarketGid.UI\Views\Shared\_MainLayout.cshtml" Line="16" Column="55" />
+      <File FileName="MarketGid.UI\Controllers\HomeController.cs" Line="18" Column="23" />
+      <File FileName="MarketGid.UI\App_Data\ads.config" Line="1" Column="1" />
+      <File FileName="MarketGid.Core\Models\Advertisement.cs" Line="23" Column="19" />
+      <File FileName="MarketGid.UI\Controllers\BaseController.cs" Line="8" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -87,6 +87,7 @@ header, footer, nav, section {
 	}
 		.main-content .main-container .main-menu {
 			padding: 20px;
+			height: 946px;
 			opacity: 1;
 		}
 		.main-content .main-container .left-column {
@@ -144,3 +145,14 @@ header, footer, nav, section {
 	.mgid-tile-large .clicked {
 		background: #19492E;
 	}
+
+.mgid-panel {
+	background-color: #2776EC;
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 96px;
+}
+
+.mgid-map {
+	background-color: #EDEDED;
+}

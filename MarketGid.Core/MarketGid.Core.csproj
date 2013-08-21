@@ -52,7 +52,13 @@
     <Compile Include="Reflection\IPropertyAccessor.cs" />
     <Compile Include="Reflection\DelegatePropertyAccessor.cs" />
     <Compile Include="IoC\CoreModule.cs" />
+    <Compile Include="Models\Advertisement.cs" />
+    <Compile Include="XmlUnitOfWorkFactory.cs" />
+    <Compile Include="XmlUnitOfWork.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
 </Project>

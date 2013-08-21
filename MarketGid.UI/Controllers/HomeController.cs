@@ -3,35 +3,65 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MarketGid.Core;
 
-namespace MvcApplication1.Controllers
+namespace MarketGid.UI.Controllers
 {
-	public class HomeController : Controller
+	/// <summary>
+	/// Контроллер для страницы ~/home
+	/// </summary>
+	public class HomeController : BaseController
 	{
+		/// <summary>
+		/// c-tor
+		/// </summary>
+		/// <param name="factory">Factory.</param>
+		public HomeController(IUnitOfWorkFactory factory) : base(factory)
+		{
+		}
+
+		/// <summary>
+		/// Страница блокировки
+		/// </summary>
 		public ActionResult Index()
 		{
-			ViewData["imageSource"] = UrlHelper.GenerateContentUrl(_links[_currentIndex], this.HttpContext);
-			return View();
-		}
+			using (var db = Factory.Create()) 
+			{
+				var advertisement = db.Query<Advertisement> ().First (item => item.Place == PLACE_NAME);
+				ViewData["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
+				ViewData ["duration"] = advertisement.Duration.TotalMilliseconds;
+			}
 
-		public JsonResult Rotate()
-		{
-			_currentIndex += 1;
-			if (_currentIndex >= _links.Length) _currentIndex = 0;
-			return Json(new { imageSource = UrlHelper.GenerateContentUrl(_links[_currentIndex], this.HttpContext) });
-		}
-
-		public ActionResult Timedout()
-		{
-			_currentIndex = 0;
-			ViewData["imageSource"] = UrlHelper.GenerateContentUrl(_links[_currentIndex], this.HttpContext);
 			return View("Index");
 		}
 
-		private static int _currentIndex = 0;
-		private string[] _links = new string[] {
-			"~/Content/images/ppl1.jpg",
-			"~/Content/images/mosf1.jpg"
-		};
+		/// <summary>
+		/// Возвращает следующий рекламный материал
+		/// </summary>
+		public JsonResult Rotate()
+		{
+			using (var db = Factory.Create())
+			{
+				var collection = db.Query<Advertisement> ().Where (item => item.Place == PLACE_NAME);
+
+				_currentIndex += 1;
+				if (_currentIndex > collection.Count ()) _currentIndex = 1;
+
+				var advertisement = collection.Skip (_currentIndex > 0 ? _currentIndex - 1 : 0).First ();
+				return Json(new { imageSource = UrlHelper.GenerateContentUrl(advertisement.Uri, this.HttpContext), duration = advertisement.Duration.TotalMilliseconds });
+			}
+		}
+
+		/// <summary>
+		/// Переход к первоначальному экрану
+		/// </summary>
+		public ActionResult Timedout()
+		{
+			_currentIndex = 1;
+			return Index();
+		}
+
+		private const string PLACE_NAME = "LockScreen";
+		private static int _currentIndex = 1;
 	}
 }
