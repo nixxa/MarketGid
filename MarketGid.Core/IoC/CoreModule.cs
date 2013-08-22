@@ -9,7 +9,7 @@ namespace MarketGid.Core
 		{
 			base.Load (builder);
 
-			builder.RegisterType<XmlUnitOfWorkFactory> ().As<IUnitOfWorkFactory> ();
+			builder.RegisterType<FileUnitOfWorkFactory> ().As<IUnitOfWorkFactory> ();
 		}
 	}
 }

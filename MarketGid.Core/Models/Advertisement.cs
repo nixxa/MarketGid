@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 using System.Xml;
 using System.ComponentModel;
 
-namespace MarketGid.Core
+namespace MarketGid.Core.Models
 {
 	/// <summary>
 	/// Рекламное объявление
@@ -21,15 +21,7 @@ namespace MarketGid.Core
 		/// <summary>
 		/// Время показа
 		/// </summary>
-		[XmlIgnore]
 		public TimeSpan Duration;
-
-		[Browsable (false), EditorBrowsable(EditorBrowsableState.Never), XmlElement("Duration")]
-		public string DurationString
-		{
-			get { return XmlConvert.ToString (Duration); }
-			set { Duration = TimeSpan.Parse(value); }
-		}
 		/// <summary>
 		/// Место показа
 		/// </summary>

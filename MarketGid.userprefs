@@ -1,15 +1,35 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Controllers\BaseController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Views\Main\_Category.cshtml">
     <Files>
-      <File FileName="MarketGid.UI\Views\Map\Index.cshtml" Line="73" Column="33" />
-      <File FileName="MarketGid.UI\Content\styles.css" Line="157" Column="28" />
-      <File FileName="MarketGid.UI\Views\Shared\_MainLayout.cshtml" Line="16" Column="55" />
-      <File FileName="MarketGid.UI\Controllers\HomeController.cs" Line="18" Column="23" />
       <File FileName="MarketGid.UI\App_Data\ads.config" Line="1" Column="1" />
-      <File FileName="MarketGid.Core\Models\Advertisement.cs" Line="23" Column="19" />
-      <File FileName="MarketGid.UI\Controllers\BaseController.cs" Line="8" Column="26" />
+      <File FileName="MarketGid.UI\Views\Main\Index.cshtml" Line="1" Column="1" />
+      <File FileName="MarketGid.UI\Controllers\MainController.cs" Line="1" Column="1" />
+      <File FileName="MarketGid.Core\FileUnitOfWork.cs" Line="1" Column="1" />
+      <File FileName="MarketGid.UI\Views\Main\_Category.cshtml" Line="13" Column="65" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="MarketGid.Core" expanded="True" />
+          <Node name="MarketGid.UI" expanded="True">
+            <Node name="App_Data" expanded="True" />
+            <Node name="Controllers" expanded="True" />
+            <Node name="Views" expanded="True">
+              <Node name="Main" expanded="True">
+                <Node name="_Category.cshtml" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />

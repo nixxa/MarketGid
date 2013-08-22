@@ -1,103 +1,36 @@
-Ôªø@{
+@using MarketGid.Core.Models
+
+@{
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 <div class="main-header">
-	<img src="~/Content/images/ppl2.jpg" />
+	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" />
 </div>
 <div class="main-content">
 	<div class="title">
-		<a href="/"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> –ú–û–°–§–ò–õ–¨–ú
+		<a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> ÃŒ—‘»À‹Ã
 	</div>
 	<div class="main-container">
 		<div class="main-menu" style="padding-left: 110px;">
 			<form class="form-inline" style="margin-left: 0px;">
-				<input type="text" style="width: 885px; height: auto; font-size: 1.9em; line-height: normal; color: white" placeholder="–í–≤–µ–¥–∏—Ç–µ –Ω–∞–∑–≤–∞–Ω–∏–µ –∏–ª–∏ —É—Å–ª—É–≥—É..." id="ipad" />
+				<input type="text" style="width: 885px; height: auto; font-size: 1.9em; line-height: normal; color: white" placeholder="¬‚Â‰ËÚÂ Ì‡Á‚‡ÌËÂ ËÎË ÛÒÎÛ„Û..." id="ipad" />
 				
 			</form>
 			<ul class="thumbnails">
-				<li class="mgid-tile-large">
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile-large">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile-large">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				<li class="mgid-tile">
-		
-					<div class="thumbnail mgid-thumb">
-						<h3>Thumbnail label</h3>
-						<p>Thumbnail caption...</p>
-					</div>
-				</li>
-				
+				@foreach (Category category in ViewBag.Categories) {
+					<li class="mgid-tile">
+						<div class="thumbnail mgid-thumb" data-category="@category.Id">
+							<h3>@category.Name</h3>
+							<p></p>
+						</div>
+					</li>
+				}
 			</ul>
 		</div>
 	</div>
 </div>
 <div class="main-footer">
-	<img src="~/Content/images/mosf2.jpg" />
+	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" />
 </div>
 <script type="text/javascript">
 	$(document).ready(function () {
@@ -107,18 +40,22 @@
 		});
 		$('.mgid-thumb').mouseup( function () {
 			$(this).toggleClass('clicked');
-			window.location.href = '@Url.Content("~/map/item/1")';
+			$.get('@Url.Content("~/main/category/")' + $(this).data('category'), function (data) {
+				$('.thumbnails').html(data);
+				$('#back-link').attr('href', '@Url.Content("~/main/index")');
+			});
+			//window.location.href = '@Url.Content("~/map/item/1")';
 		});
 	
 		// init virtual keyboard
 		$('#ipad').keyboard({ 
  		    display: { 
 		        'bksp'   :  "\u2190", 
-		        'accept' : '–ü–æ–∏—Å–∫', 
+		        'accept' : 'œÓËÒÍ', 
 		        'default': 'ABC', 
 		        'meta1'  : '.?123', 
 		        'meta2'  : '#+=',
-		        'enter'  : '–ü–æ–∏—Å–∫'
+		        'enter'  : 'œÓËÒÍ'
 		    }, 
 		    layout: 'custom', 
 		    customLayout: { 
