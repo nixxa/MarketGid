@@ -1,12 +1,9 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Views\Main\_Category.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Controllers\MainController.cs">
     <Files>
-      <File FileName="MarketGid.UI\App_Data\ads.config" Line="1" Column="1" />
-      <File FileName="MarketGid.UI\Views\Main\Index.cshtml" Line="1" Column="1" />
-      <File FileName="MarketGid.UI\Controllers\MainController.cs" Line="1" Column="1" />
-      <File FileName="MarketGid.Core\FileUnitOfWork.cs" Line="1" Column="1" />
-      <File FileName="MarketGid.UI\Views\Main\_Category.cshtml" Line="13" Column="65" />
+      <File FileName="MarketGid.UI\Controllers\MainController.cs" Line="31" Column="5" />
+      <File FileName="MarketGid.Core\FileUnitOfWork.cs" Line="60" Column="35" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,11 +11,12 @@
           <Node name="MarketGid.Core" expanded="True" />
           <Node name="MarketGid.UI" expanded="True">
             <Node name="App_Data" expanded="True" />
-            <Node name="Controllers" expanded="True" />
+            <Node name="Content" expanded="True" />
+            <Node name="Controllers" expanded="True">
+              <Node name="MainController.cs" selected="True" />
+            </Node>
             <Node name="Views" expanded="True">
-              <Node name="Main" expanded="True">
-                <Node name="_Category.cshtml" selected="True" />
-              </Node>
+              <Node name="Main" expanded="True" />
             </Node>
           </Node>
         </State>

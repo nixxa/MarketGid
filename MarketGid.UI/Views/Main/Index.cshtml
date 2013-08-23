@@ -4,7 +4,7 @@
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 <div class="main-header">
-	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" />
+	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" />
 </div>
 <div class="main-content">
 	<div class="title">
@@ -30,23 +30,50 @@
 	</div>
 </div>
 <div class="main-footer">
-	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" />
+	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
 </div>
 <script type="text/javascript">
-	$(document).ready(function () {
-		// init thumbnails
+	function initThumbs()
+	{
 		$('.mgid-thumb').mousedown( function () {
 			$(this).toggleClass('clicked');
 		});
 		$('.mgid-thumb').mouseup( function () {
 			$(this).toggleClass('clicked');
+			fadeOut('.thumbnails');
 			$.get('@Url.Content("~/main/category/")' + $(this).data('category'), function (data) {
 				$('.thumbnails').html(data);
-				$('#back-link').attr('href', '@Url.Content("~/main/index")');
+				//initThumbs();
+				$('#back-link').attr('href', '#');
+				$('#back-link').data('state', 'onpage');
+				fadeIn('.thumbnails');
 			});
 			//window.location.href = '@Url.Content("~/map/item/1")';
 		});
-	
+	}
+
+	$(document).ready(function () {
+		// init link
+		$('#back-link').data('state', 'outpage');
+		$('#back-link').click(function () {
+			var link = $(this);
+			if (link.data('state') == 'onpage') {
+				fadeOut('.thumbnails');
+				$.get('@Url.Content("~/main/category/")', function (data) {
+					$('.thumbnails').html(data);
+					initThumbs();
+					link.attr('href', '@Url.Content("~/home")');
+					link.data('state', 'outpage');
+					fadeIn('.thumbnails');
+				});
+			} else {
+				fadeOut('body');
+			}
+		});
+
+		// init thumbnails
+		initThumbs();
+
 		// init virtual keyboard
 		$('#ipad').keyboard({ 
  		    display: { 

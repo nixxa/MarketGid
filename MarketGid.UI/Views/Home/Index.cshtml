@@ -2,14 +2,14 @@
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="logo">
-	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" style="height: 85px;" /> МОСФИЛЬМ
+	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
 </div>
 <div class="content">
-	<img id="adImage" src="@ViewData["imageSource"]" />
+	<img id="adImage" src="@ViewData["imageSource"]" alt="advertise" />
 </div>
 <div class="footer">
 	<span>
-		Навигация по МОСФИЛЬМУ <img src="~/Content/images/black_arrow_rigth.png" />
+		Навигация по МОСФИЛЬМУ <a href="~/main"><img src="~/Content/images/black_arrow_rigth.png" alt="arrow" /></a>
 	</span>
 	<span class="help-message">
 		Коснитесь экрана, что бы начать работу
@@ -19,6 +19,7 @@
 	$(document).ready(function () {
 		setTimeout(function () { rotate(); }, @ViewData["duration"]);
 		$(document).click(function () {
+			$('body').addClass('animated fadeOut');
 			window.location.href = '/Main/Index';
 		});
 	});

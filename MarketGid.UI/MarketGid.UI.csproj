@@ -183,6 +183,7 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\Main\_Category.cshtml" />
+    <Content Include="Content\animate.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

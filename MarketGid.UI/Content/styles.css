@@ -27,11 +27,16 @@ header, footer, nav, section {
 }
 	.logo img {
 		margin: 10px;
+		height: 85px;
 	}
 
 .content {
 	padding: 20px 20px 20px 20px;
 }
+	.content #adImage {
+		height: 1530px;
+		width: 1040px;
+	}
 
 .footer {
 	font-size: 38pt;

@@ -36,12 +36,23 @@ namespace MarketGid.UI.Controllers
             return View();
         }
 
-		public ActionResult Category(int id)
+		public ActionResult Category(int? id)
 		{
 			using (var db = Factory.Create())
 			{
-				Category category = db.Query<Category> ().SingleOrDefault (c => c.Id == id);
-				ViewBag.Category = category;
+				if (id.HasValue)
+				{
+					Category category = db.Query<Category> ().SingleOrDefault (c => c.Id == id);
+					ViewBag.Category = category;
+				}
+				else
+				{
+					ViewBag.Category = new Category 
+					{ 
+						Children = db.Query<Category> ().Where (c => c.Level == 0).ToList (),
+						Objects = new List<MapObject> (),
+					};
+				}
 			}
 			return PartialView("_Category");
 		}
