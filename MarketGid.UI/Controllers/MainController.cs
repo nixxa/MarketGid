@@ -25,8 +25,8 @@ namespace MarketGid.UI.Controllers
         {
 			using (var db = Factory.Create())
 			{
-				var topAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Place == TOP_PLACE_NAME);
-				var bottomAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Place == BOTTOM_PLACE_NAME);
+				var topAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (TOP_PLACE_NAME));
+				var bottomAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (BOTTOM_PLACE_NAME));
 				var categories = db.Query<Category> ().Where (c => c.Level == 0);
 
 				ViewBag.TopAdvertisement = topAdvertisement;
@@ -53,6 +53,24 @@ namespace MarketGid.UI.Controllers
 						Objects = new List<MapObject> (),
 					};
 				}
+			}
+			return PartialView("_Category");
+		}
+
+		public ActionResult Find(string q)
+		{
+			if (string.IsNullOrWhiteSpace (q))
+				return Category (null);
+
+			using (var db = Factory.Create())
+			{
+				ViewBag.Category = new Category ();
+				ViewBag.Category.Children = db.Query<Category> ().Where (c => c.Name.Contains (q)).ToList ();
+				ViewBag.Category.Objects = db.Query<MapObject> ().Where (o => 
+				    (!string.IsNullOrEmpty (o.Name) && o.Name.IndexOf (q, StringComparison.InvariantCultureIgnoreCase) >= 0) 
+				    || (!string.IsNullOrEmpty (o.Description) && o.Description.IndexOf (q, StringComparison.InvariantCultureIgnoreCase) >= 0)
+				    || (!string.IsNullOrEmpty (o.TileDescription) && o.TileDescription.IndexOf (q, StringComparison.InvariantCultureIgnoreCase) >= 0))
+					.ToList ();
 			}
 			return PartialView("_Category");
 		}

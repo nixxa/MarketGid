@@ -28,7 +28,7 @@ namespace MarketGid.UI.Controllers
 		{
 			using (var db = Factory.Create()) 
 			{
-				var advertisement = db.Query<Advertisement> ().First (item => item.Place == PLACE_NAME);
+				var advertisement = db.Query<Advertisement> ().First (item => item.Places.Contains (PLACE_NAME));
 				ViewData["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
 				ViewData ["duration"] = advertisement.Duration.TotalMilliseconds;
 			}
@@ -43,7 +43,7 @@ namespace MarketGid.UI.Controllers
 		{
 			using (var db = Factory.Create())
 			{
-				var collection = db.Query<Advertisement> ().Where (item => item.Place == PLACE_NAME);
+				var collection = db.Query<Advertisement> ().Where (item => item.Places.Contains (PLACE_NAME));
 
 				_currentIndex += 1;
 				if (_currentIndex > collection.Count ()) _currentIndex = 1;

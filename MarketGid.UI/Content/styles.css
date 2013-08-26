@@ -75,14 +75,14 @@ header, footer, nav, section {
 	height: 1070px;
 	padding: 0px 20px 0px 20px;
 }
-	.main-content .title {
+	.main-content .main-content-title {
 		font-size: 38pt;
 		background-color: #F8F600;
 		font-weight: bold;
 		color: black;
 		height: 84px;
 	}
-		.main-content .title img {
+		.main-content .main-content-title img {
 			padding: 10px;
 		}
 	.main-content .main-container {
@@ -115,6 +115,11 @@ header, footer, nav, section {
 .main-footer {
 	height: 385px;
 	padding: 20px;
+}
+
+.mgid-large-text {
+	font-size: 1.5em;
+	line-height: 1.5em;
 }
 
 .mgid-tile {
@@ -153,11 +158,35 @@ header, footer, nav, section {
 
 .mgid-panel {
 	background-color: #2776EC;
-	padding-left: 10px;
-	padding-right: 10px;
+	margin-top: 20px;
+	padding-top:  10px;
+	padding-left: 20px;
+	padding-right: 20px;
 	height: 96px;
+	box-shadow: 0 10px 10px rgba(0,0,0,0.35);
+	border-top: solid 5px #0B22B7;
 }
+	.mgid-panel span#description {
+		display: none;
+	}
+	.mgid-panel.visible {
+		height: 600px;
+		position: relative;
+		top: -504px;
+	}
+	.mgid-panel.visible span#description {
+		display: block;
+		margin-top:  20px;
+	}
 
 .mgid-map {
 	background-color: #EDEDED;
+}
+
+.mgid-keyboard {
+	width: 885px !important; 
+	height: auto !important; 
+	font-size: 1.9em !important; 
+	line-height: normal !important; 
+	color: white !important;
 }

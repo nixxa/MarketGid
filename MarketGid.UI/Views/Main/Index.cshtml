@@ -3,19 +3,17 @@
 @{
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
+
 <div class="main-header">
 	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" />
 </div>
 <div class="main-content">
-	<div class="title">
-		<a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> МОСФИЛЬМ
+	<div class="main-content-title">
+		<a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">МОСФИЛЬМ</span>
 	</div>
 	<div class="main-container">
 		<div class="main-menu" style="padding-left: 110px;">
-			<form class="form-inline" style="margin-left: 0px;">
-				<input type="text" style="width: 885px; height: auto; font-size: 1.9em; line-height: normal; color: white" placeholder="Введите название или услугу..." id="ipad" />
-				
-			</form>
+			<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
 			<ul class="thumbnails">
 				@foreach (Category category in ViewBag.Categories) {
 					<li class="mgid-tile">
@@ -32,24 +30,39 @@
 <div class="main-footer">
 	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
 </div>
+
 <script type="text/javascript">
-	function initThumbs()
-	{
+	var titleBranch = [ 'МОСФИЛЬМ' ];
+
+	// добавляет обработчик события 'mousedown' & 'mouseup' для тайлов
+	// По клику будут получаться данные по адресу ~/main/category/{id}
+	function initThumbs() {
 		$('.mgid-thumb').mousedown( function () {
 			$(this).toggleClass('clicked');
 		});
 		$('.mgid-thumb').mouseup( function () {
+			if ($(this).hasClass('clicked') == false) return;
+			var subTitle = $(this).find('h3:first-child').text();
 			$(this).toggleClass('clicked');
 			fadeOut('.thumbnails');
-			$.get('@Url.Content("~/main/category/")' + $(this).data('category'), function (data) {
-				$('.thumbnails').html(data);
-				//initThumbs();
-				$('#back-link').attr('href', '#');
-				$('#back-link').data('state', 'onpage');
-				fadeIn('.thumbnails');
-			});
-			//window.location.href = '@Url.Content("~/map/item/1")';
+			if ( $(this).data('category') != undefined) {
+				$.get('@Url.Content("~/main/category/")' + $(this).data('category'), function (data) {
+					$('.thumbnails').html(data);
+					initThumbs();
+					$('#back-link').attr('href', '#');
+					$('#back-link').data('state', 'onpage');
+					titleBranch.push(subTitle);
+					displayTitle();
+					fadeIn('.thumbnails');
+				});
+			} else if ( $(this).data('object') != undefined) {
+				window.location.href = '@Url.Content("~/map/item/")' + $(this).data('object');
+			}
 		});
+	}
+
+	function displayTitle () {
+		$('#title').text(titleBranch.join(' \\ '));
 	}
 
 	$(document).ready(function () {
@@ -58,6 +71,8 @@
 		$('#back-link').click(function () {
 			var link = $(this);
 			if (link.data('state') == 'onpage') {
+				titleBranch.pop();
+				displayTitle();
 				fadeOut('.thumbnails');
 				$.get('@Url.Content("~/main/category/")', function (data) {
 					$('.thumbnails').html(data);
@@ -79,7 +94,7 @@
  		    display: { 
 		        'bksp'   :  "\u2190", 
 		        'accept' : 'Поиск', 
-		        'default': 'ABC', 
+		        'default': 'АБВ', 
 		        'meta1'  : '.?123', 
 		        'meta2'  : '#+=',
 		        'enter'  : 'Поиск'
@@ -87,16 +102,16 @@
 		    layout: 'custom', 
 		    customLayout: { 
 		        'default': [ 
-		            'q w e r t y u i o p {bksp}', 
-		            'a s d f g h j k l {accept}', 
-		            '{s} z x c v b n m , . {s}', 
-		            '{meta1} {space} {meta1}' 
+		            'й ц у к е н г ш щ з х {bksp}', 
+		            'ф ы в а п р о л д ж {accept}', 
+		            'я ч с м и т ь б ю э ъ .', 
+		            '{s} {meta1} {space} {meta1}' 
 		        ], 
 		        'shift': [ 
-		            'Q W E R T Y U I O P {bksp}', 
-		            'A S D F G H J K L {accept}', 
-		            '{s} Z X C V B N M ! ? {s}', 
-		            '{meta1} {space} {meta1}' 
+		            'Й Ц У К Е Н Г Ш Щ З Х {bksp}', 
+		            'Ф Ы В А П Р О Л Д Ж {accept}', 
+		            'Я Ч С М И Т Ь Б Ю Э Ъ .', 
+		            '{s} {meta1} {space} {meta1}' 
 		        ], 
 		        'meta1': [ 
 		            '1 2 3 4 5 6 7 8 9 0 {bksp}', 
@@ -110,7 +125,16 @@
 		            '{meta1} . , ? ! \' " {meta1}', 
 		            '{default} {space} {default}' 
 		        ] 
-		    } 
+		    },
+			accepted : function(e, keyboard, el) {
+				if (el.value == '') return;
+				fadeOut('.thumbnails');
+				$.get('@Url.Content("~/main/find?q=")' + el.value, function (data) {
+					$('.thumbnails').html(data);
+					initThumbs();
+					fadeIn('.thumbnails');
+				});
+			}
 		});
 	});
 </script>

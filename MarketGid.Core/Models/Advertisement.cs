@@ -2,6 +2,7 @@ using System;
 using System.Xml.Serialization;
 using System.Xml;
 using System.ComponentModel;
+using System.Collections.Generic;
 
 namespace MarketGid.Core.Models
 {
@@ -25,7 +26,7 @@ namespace MarketGid.Core.Models
 		/// <summary>
 		/// Место показа
 		/// </summary>
-		public string Place;
+		public List<string> Places;
 	}
 }
 
