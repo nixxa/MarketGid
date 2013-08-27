@@ -181,6 +181,8 @@ header, footer, nav, section {
 
 .mgid-map {
 	background-color: #EDEDED;
+	height: 820px;
+	width: 910px;
 }
 
 .mgid-keyboard {

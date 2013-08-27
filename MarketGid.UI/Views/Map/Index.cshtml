@@ -12,8 +12,7 @@
 	</div>
 	<div class="main-container">
 		<div class="main-menu" style="padding-left: 110px;">
-			<div style="height: 820px;">
-				<canvas id="map" width="910" height="820" class="mgid-map"></canvas>
+			<div id="map" class="mgid-map">
 			</div>
 			<div class="mgid-panel">
 				<h2><img src="~/Content/images/white_arrow_up.png" alt="btn" /> Информация</h2>
@@ -27,6 +26,9 @@
 <div class="main-footer">
 	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
 </div>
+
+<script type="text/javascript" src="~/Scripts/paths.js"></script>
+<script type="text/javascript" src="~/Scripts/map.js"></script>
 
 <script type="text/javascript">
 	
@@ -45,44 +47,6 @@
 			togglePanel();
 		});
 
-
-		var canvas = document.getElementById('map');
-		var context = canvas.getContext('2d');
-		
-		// width: 910, height: 820
-		
-		// butt line cap (top line)
-		context.beginPath();
-		context.shadowColor = '#999';
-		context.shadowBlur = 20;
-		context.shadowOffsetX = 5;
-		context.shadowOffsetY = 15;		
-
-		context.moveTo(200, canvas.height / 2 - 50);
-		context.lineTo(canvas.width - 200, canvas.height / 2 - 50);
-		context.lineWidth = 20;
-		context.strokeStyle = '#0000ff';
-		context.lineCap = 'butt';
-		context.stroke();
-
-		// round line cap (middle line)
-		context.beginPath();
-		context.moveTo(200, canvas.height / 2);
-		context.lineTo(canvas.width - 200, canvas.height / 2);
-		context.lineWidth = 20;
-		context.strokeStyle = '#0000ff';
-		context.lineCap = 'round';
-		context.stroke();
-
-		// square line cap (bottom line)
-		context.beginPath();
-		context.moveTo(200, canvas.height / 2 + 50);
-		context.lineTo(canvas.width - 200, canvas.height / 2 + 50);
-		context.lineWidth = 20;
-		context.strokeStyle = '#0000ff';
-		context.lineCap = 'square';
-		context.stroke();
-		
-
+		Map.init();
 	});
 </script>
