@@ -188,6 +188,8 @@
     <Content Include="Content\maps\map.png" />
     <None Include="Content\maps\map.svg" />
     <Content Include="Scripts\paths.js" />
+    <Content Include="Scripts\edges.js" />
+    <Content Include="Scripts\graph.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

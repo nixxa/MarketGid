@@ -36,6 +36,7 @@ namespace MarketGid.UI.Controllers
 				ViewBag.TopAdvertisement = topAdvertisement;
 				ViewBag.BottomAdvertisement = bottomAdvertisement;
 				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+				ViewBag.Kiosk = db.Query<Kiosk> ().First ();
 			}
 
 			return View ("Index");

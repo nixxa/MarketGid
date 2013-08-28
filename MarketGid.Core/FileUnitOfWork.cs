@@ -45,6 +45,16 @@ namespace MarketGid.Core
 				_objects.Add (typeof(MapObject), mapObjects);
 			}
 
+			// Load kiosk
+			Kiosk kiosk = null;
+			using (var reader = new StreamReader (basePath + "/App_Data/kiosk.config"))
+			{
+				string data = reader.ReadToEnd ();
+				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				kiosk = JsonConvert.DeserializeObject<Kiosk> (data);
+				_objects.Add (typeof(Kiosk), new [] { kiosk });
+			}
+
 			// organize categories
 			foreach (var category in categories.Where (c => c.ParentId.HasValue))
 			{

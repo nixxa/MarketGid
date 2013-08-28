@@ -1,6 +1,5 @@
-/// <reference path="jquery-1.9.1.js" />
+/// <reference path="_references.js" />
 /// <reference path="kineticjs-4.6.0.js" />
-/// <reference path="paths.js" />
 
 // width: 910, height: 820
 
@@ -10,26 +9,49 @@ var Map = {
 	 * Settings object
 	 */
 	Settings: {
-		globalScale: 1.5
+		globalScale: 1.5,
+		x: 0,
+		y: 0,
+		kioskPointRadius: 5,
+		kioskPointColor: 'black',
+		kioskPointBgColor: 'white',
+		activeObjectBgColor: '#F87E0F',
+		activeObjectOpacity: 1,
+		inactiveObjectBgColor: '#eee',
+		inactiveObjectOpacity: 0.4,
+		pathColor: '#5735FF',
+		pathOpacity: 0.75,
+		pathWidth: 8
 	},
 
 	Objects: {},
 
 	stage: null,
 	mapLayer: null,
-	topLayer: null,
+	navLayer: null,
 	backgroundLayer: null,
-	startObject: null,
 	tooltip: null,
 	selectedObject: null,
 	route: null,
+	startObject: null,
 
 	/**
 	 * Init map and draw objects
 	 */
-	init: function () {
+	init: function (options) {
+		if (options != undefined) {
+			if (options.x != undefined) {
+				Map.Settings.x = options.x * Map.Settings.globalScale;
+			}
+			if (options.y != undefined) {
+				Map.Settings.y = options.y * Map.Settings.globalScale;
+			}
+		}
+
 		Map.setupObjects();
 		Map.setupTooltip();
+
+		Graph.init(options);
 
 		// init kinetic stage
 		Map.stage = new Kinetic.Stage({
@@ -47,18 +69,16 @@ var Map = {
 			scale: Map.Settings.globalScale
 		});
 
-		//Map.topLayer = new Kinetic.Layer({
-		//	scale: Map.Settings.globalScale
-		//});
+		Map.navLayer = new Kinetic.Layer({
+			scale: Map.Settings.globalScale
+		});
 
 		Map.drawBackground();
 		Map.drawObjects();
 
 		Map.stage.add(Map.backgroundLayer);
 		Map.stage.add(Map.mapLayer);
-		//Map.stage.add(Map.topLayer);
-
-		Map.mapLayer.draw();
+		Map.stage.add(Map.navLayer);
 	},
 
 	/**
@@ -66,19 +86,11 @@ var Map = {
 	 */
 	setupObjects: function () {
 		for (id in PathData) {
-			if (id == 'Kiosk') {
-				Map.startObject = new Kinetic.Path({
-					scale: Map.Settings.globalScale,
-					data: PathData[id].path,
-					id: id
-				});
-				continue;
-			}
 			var pathObject = new Kinetic.Path({
 				scale: Map.Settings.globalScale,
 				data: PathData[id].path,
-				fill: '#808080',
-				opacity: 0.4,
+				fill: Map.Settings.inactiveObjectBgColor,
+				opacity: Map.Settings.inactiveObjectOpacity,
 				stroke: 'black',
 				strokeWidth: 1,
 				id: id
@@ -88,23 +100,25 @@ var Map = {
 				color: null
 			};
 		}
-
-		Map.Objects['Kiosk'] = {
-			path: new Kinetic.Circle({
-				fill: 'white',
-				stroke: 'black',
-				strokeWidth: 1,
-				x: Map.startObject.dataArray[0].points[0] * Map.Settings.globalScale,
-				y: Map.startObject.dataArray[0].points[1] * Map.Settings.globalScale,
-				radius: 5
-			})
-		};
 	},
 
 	setupTooltip: function () {
+		Map.startObject = new Kinetic.Circle({
+			fill: Map.Settings.kioskPointBgColor,
+			stroke: Map.Settings.kioskPointColor,
+			strokeWidth: 1,
+			x: Map.Settings.x,
+			y: Map.Settings.y,
+			radius: Map.Settings.kioskPointRadius,
+			shadowOffset: 3,
+			shadowColor: 'black',
+			shadowBlur: 6,
+			shadowOpacity: 0.5
+		});
+
 		Map.tooltip = new Kinetic.Label({
-			x: Map.startObject.dataArray[0].points[0] * Map.Settings.globalScale,
-			y: Map.startObject.dataArray[0].points[1] * Map.Settings.globalScale,
+			x: Map.Settings.x,
+			y: Map.Settings.y,
 			opacity: 0.75
 		});
 
@@ -152,81 +166,71 @@ var Map = {
 
 			(function (path) {
 				path.on('click', function () {
-					path.setFill('#eee');
-					path.setOpacity(0.3);
+					path.setFill(Map.Settings.activeObjectBgColor);
+					path.setStroke('black');
+					path.setStrokeWidth(1);
+					path.setOpacity(Map.Settings.activeObjectOpacity);
+					path.setShadowColor('black');
+					path.setShadowBlur(10);
+					path.setShadowOffset(10);
+					path.setShadowOpacity(0.5);
 
 					if (Map.selectedObject == null) {
 						Map.selectedObject = path;
 					} else if (Map.selectedObject != path) {
-						Map.selectedObject.setFill('#808080');
-						Map.selectedObject.setOpacity(0.4);
+						Map.selectedObject.setFill(Map.Settings.inactiveObjectBgColor);
+						Map.selectedObject.setStrokeWidth(1);
+						Map.selectedObject.setOpacity(Map.Settings.inactiveObjectOpacity);
+						Map.selectedObject.setShadowOffset(0);
+						Map.selectedObject.setShadowOpacity(0);
+						Map.selectedObject.setShadowBlur(0);
 						Map.selectedObject = path;
 					}
 
-					if (Map.route != null) {
-						Map.route.remove();
-						Map.route = null;
-					}
+					// clear navLayer
+					Map.stage.remove(Map.navLayer);
+					Map.navLayer.removeChildren();
 
-					//var points = [];
-					//points = points.concat(Map.startObject.dataArray[0].points);
-					//points = points.concat(path.dataArray[0].points);
+					// get path points
+					var points = Graph.navigateTo(path);
 
-					//var box = Map.getPoints(path);
+					// create path line and finish circle
+					Map.navLayer.add(new Kinetic.Line({
+						points: points,
+						stroke: Map.Settings.pathColor,
+						strokeWidth: Map.Settings.pathWidth,
+						lineJoin: 'round',
+						lineCap: 'round',
+						opacity: Map.Settings.pathOpacity,
+						shadowOffset: 3,
+						shadowColor: 'black',
+						shadowBlur: 6,
+						shadowOpacity: 0.5
+					}));
+					Map.navLayer.add(new Kinetic.Circle({
+						x: points[0],
+						y: points[1],
+						radius: Map.Settings.kioskPointRadius,
+						fill: Map.Settings.kioskPointBgColor,
+						stroke: Map.Settings.kioskPointColor,
+						strokeWidth: 1,
+						shadowOffset: 3,
+						shadowColor: 'black',
+						shadowBlur: 6,
+						shadowOpacity: 0.5
+					}));
+					Map.setupTooltip();
+					Map.navLayer.add(Map.startObject);
+					Map.navLayer.add(Map.tooltip);
 
-					//Map.route = new Kinetic.Line({
-					//	stroke: 'black',
-					//	strokeWidth: 2,
-					//	lineCap: 'round',
-					//	lineJoin: 'round',
-					//	points: points,
-					//	scale: Map.Settings.globalScale
-					//});
-					//Map.mapLayer.add(Map.route);
+					Map.stage.add(Map.navLayer);
 
-					Map.mapLayer.draw();
+					Map.mapLayer.drawScene();
 				});
 			})(path);
 		}
 
-		Map.mapLayer.add(Map.tooltip);
-	},
-
-	min: function (shapePoints) {
-		var xcoords = [];
-		var ycoords = [];
-		for (var p in shapePoints)
-		{
-			if (shapePoints[p].points.length == 0) continue;
-			xcoords = xcoords.concat(shapePoints[p].points[0]);
-			ycoords = ycoords.concat(shapePoints[p].points[1]);
-		}
-		return { x: Math.min.apply(null, xcoords), y: Math.min.apply(null, ycoords) };
-	},
-
-	max: function (shapePoints) {
-		var xcoords = [];
-		var ycoords = [];
-		for (var p in shapePoints)
-		{
-			if (shapePoints[p].points.length == 0) continue;
-			xcoords = xcoords.concat(shapePoints[p].points[0]);
-			ycoords = ycoords.concat(shapePoints[p].points[1]);
-		}
-		return { x: Math.max.apply(null, xcoords), y: Math.max.apply(null, ycoords) };
-	},
-
-	getPoints: function (path) {
-		var points = [];
-		for (var p in path.dataArray)
-		{
-			if (path.dataArray[p].points.length == 0) continue;
-			points = points.concat({ x: path.dataArray[p].points[0], y: path.dataArray[p].points[1] });
-		}
-		return points;
-	},
-
-	getIntersectPoint: function (box, line) {
-		
+		Map.navLayer.add(Map.startObject);
+		Map.navLayer.add(Map.tooltip);
 	}
 }

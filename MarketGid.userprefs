@@ -1,22 +1,30 @@
 ﻿<Properties GitUserInfo="UsingGIT">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.UI\Controllers\MainController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="MarketGid.Core\Models\Kiosk.cs">
     <Files>
-      <File FileName="MarketGid.UI\Controllers\MainController.cs" Line="31" Column="5" />
-      <File FileName="MarketGid.Core\FileUnitOfWork.cs" Line="60" Column="35" />
+      <File FileName="MarketGid.UI\Controllers\MainController.cs" Line="63" Column="24" />
+      <File FileName="MarketGid.Core\FileUnitOfWork.cs" Line="49" Column="6" />
+      <File FileName="MarketGid.UI\Controllers\BaseController.cs" Line="1" Column="1" />
+      <File FileName="MarketGid.UI\Controllers\MapController.cs" Line="13" Column="16" />
+      <File FileName="c:\Projects\MarketGid\Solution\MarketGid.UI\Controllers\HomeController.cs" Line="29" Column="38" />
+      <File FileName="MarketGid.Core\Models\Kiosk.cs" Line="3" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="MarketGid.Core" expanded="True" />
+          <Node name="MarketGid.Core" expanded="True" selected="True">
+            <Node name="Models" expanded="True" />
+          </Node>
           <Node name="MarketGid.UI" expanded="True">
             <Node name="App_Data" expanded="True" />
-            <Node name="Content" expanded="True" />
-            <Node name="Controllers" expanded="True">
-              <Node name="MainController.cs" selected="True" />
+            <Node name="Content" expanded="True">
+              <Node name="maps" expanded="True" />
             </Node>
+            <Node name="Controllers" expanded="True" />
+            <Node name="Scripts" expanded="True" />
             <Node name="Views" expanded="True">
               <Node name="Main" expanded="True" />
+              <Node name="Map" expanded="True" />
             </Node>
           </Node>
         </State>
