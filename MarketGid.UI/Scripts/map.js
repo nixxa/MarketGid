@@ -93,7 +93,7 @@ var Map = {
 		Map.stage.add(Map.mapLayer);
 		Map.stage.add(Map.navLayer);
 
-		Map.stage._mousemove = function () {};
+		//Map.stage._mousemove = function () {};
 	},
 
 	/**
