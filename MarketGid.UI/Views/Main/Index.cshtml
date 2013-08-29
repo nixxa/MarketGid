@@ -1,4 +1,4 @@
-@using MarketGid.Core.Models
+п»ї@using MarketGid.Core.Models
 
 @{
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
@@ -9,11 +9,11 @@
 </div>
 <div class="main-content">
 	<div class="main-content-title">
-		<a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">МОСФИЛЬМ</span>
+		<a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">РњРћРЎР¤РР›Р¬Рњ</span>
 	</div>
 	<div class="main-container">
-		<div class="main-menu" style="padding-left: 110px;">
-			<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
+		<div class="main-menu" style="padding-left: 110px;" id="container">
+			<input type="text" class="mgid-keyboard" placeholder="Р’РІРµРґРёС‚Рµ РЅР°Р·РІР°РЅРёРµ РёР»Рё СѓСЃР»СѓРіСѓ..." id="ipad" />
 			<ul class="thumbnails">
 				@foreach (Category category in ViewBag.Categories) {
 					<li class="mgid-tile">
@@ -32,109 +32,17 @@
 </div>
 
 <script type="text/javascript">
-	var titleBranch = [ 'МОСФИЛЬМ' ];
-
-	// добавляет обработчик события 'mousedown' & 'mouseup' для тайлов
-	// По клику будут получаться данные по адресу ~/main/category/{id}
-	function initThumbs() {
-		$('.mgid-thumb').mousedown( function () {
-			$(this).toggleClass('clicked');
-		});
-		$('.mgid-thumb').mouseup( function () {
-			if ($(this).hasClass('clicked') == false) return;
-			var subTitle = $(this).find('h3:first-child').text();
-			$(this).toggleClass('clicked');
-			fadeOut('.thumbnails');
-			if ( $(this).data('category') != undefined) {
-				$.get('@Url.Content("~/main/category/")' + $(this).data('category'), function (data) {
-					$('.thumbnails').html(data);
-					initThumbs();
-					$('#back-link').attr('href', '#');
-					$('#back-link').data('state', 'onpage');
-					titleBranch.push(subTitle);
-					displayTitle();
-					fadeIn('.thumbnails');
-				});
-			} else if ( $(this).data('object') != undefined) {
-				window.location.href = '@Url.Content("~/map/item/")' + $(this).data('object');
-			}
-		});
-	}
-
-	function displayTitle () {
-		$('#title').text(titleBranch.join(' \\ '));
-	}
-
 	$(document).ready(function () {
-		// init link
-		$('#back-link').data('state', 'outpage');
-		$('#back-link').click(function () {
-			var link = $(this);
-			if (link.data('state') == 'onpage') {
-				titleBranch.pop();
-				displayTitle();
-				fadeOut('.thumbnails');
-				$.get('@Url.Content("~/main/category/")', function (data) {
-					$('.thumbnails').html(data);
-					initThumbs();
-					link.attr('href', '@Url.Content("~/home")');
-					link.data('state', 'outpage');
-					fadeIn('.thumbnails');
-				});
-			} else {
-				fadeOut('body');
-			}
-		});
-
-		// init thumbnails
-		initThumbs();
-
-		// init virtual keyboard
-		$('#ipad').keyboard({ 
- 		    display: { 
-		        'bksp'   :  "\u2190", 
-		        'accept' : 'Поиск', 
-		        'default': 'АБВ', 
-		        'meta1'  : '.?123', 
-		        'meta2'  : '#+=',
-		        'enter'  : 'Поиск'
-		    }, 
-		    layout: 'custom', 
-		    customLayout: { 
-		        'default': [ 
-		            'й ц у к е н г ш щ з х {bksp}', 
-		            'ф ы в а п р о л д ж {accept}', 
-		            'я ч с м и т ь б ю э ъ .', 
-		            '{s} {meta1} {space} {meta1}' 
-		        ], 
-		        'shift': [ 
-		            'Й Ц У К Е Н Г Ш Щ З Х {bksp}', 
-		            'Ф Ы В А П Р О Л Д Ж {accept}', 
-		            'Я Ч С М И Т Ь Б Ю Э Ъ .', 
-		            '{s} {meta1} {space} {meta1}' 
-		        ], 
-		        'meta1': [ 
-		            '1 2 3 4 5 6 7 8 9 0 {bksp}', 
-		            '- / : ; ( ) \u20ac & @@ {accept}', 
-		            '{meta2} . , ? ! \' " {meta2}', 
-		            '{default} {space} {default}' 
-		        ], 
-		        'meta2': [ 
-		            '[ ] { } # % ^ * + = {bksp}', 
-		            '_ \\ | ~ < > $ \u00a3 \u00a5 {accept}', 
-		            '{meta1} . , ? ! \' " {meta1}', 
-		            '{default} {space} {default}' 
-		        ] 
-		    },
-			accepted : function(e, keyboard, el) {
-				if (el.value == '') return;
-				fadeOut('.thumbnails');
-				$.get('@Url.Content("~/main/find?q=")' + el.value, function (data) {
-					$('.thumbnails').html(data);
-					initThumbs();
-					fadeIn('.thumbnails');
-				});
-			}
+		Menu.init({
+			mainMenuUri: '@Url.Content("~/main/category/")',
+			subMenuUri: '@Url.Content("~/main/category/")',
+			objectUri: '@Url.Content("~/map/item/")',
+			homeUri: '@Url.Content("~/home")',
+			findUri: '@Url.Content("~/main/find?q=")',
+			thumbnailsContainer: '.thumbnails',
+			thumbnails: '.mgid-thumb',
+			backButton: '#back-link',
+			title: '#title'
 		});
 	});
 </script>

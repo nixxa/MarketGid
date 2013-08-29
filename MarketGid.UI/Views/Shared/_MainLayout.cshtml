@@ -5,16 +5,17 @@
 	<meta name="viewport" content="width=device-width" />
 	<title></title>
 	<link href="~/Content/bootstrap.css" rel="stylesheet" />
-	<link href="~/Content/bootstrap-responsive.css" rel="stylesheet" />
 	<link href="~/Content/ui-darkness/jquery-ui-1.10.3.css" rel="stylesheet" />
 	<link href="~/Content/animate.css" rel="stylesheet" />
 	<link href="~/Content/styles.css" rel="stylesheet" />
 	<link href="~/Content/keyboard.css" rel="stylesheet" />
-	<script type="text/javascript" src="~/Scripts/jquery-1.9.1.js"></script>
+	<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery-ui-1.10.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery.keyboard.js"></script>
 	<script type="text/javascript" src="~/Scripts/kineticjs-4.6.0.js"></script>
+	<script type="text/javascript" src="~/Scripts/animation.js"></script>
+	<script type="text/javascript" src="~/Scripts/menu.js"></script>
 </head>
 <body class="animated fadeIn">
 	<div class="container">
@@ -32,22 +33,6 @@
 			if (timedout)
 				window.location.href = "/Home/Timedout";
 			//timedout = true;
-		}
-
-		function fadeIn(elem) {
-			var jelem = $(elem);
-			if (jelem.hasClass('animated')) jelem.removeClass('animated');
-			if (jelem.hasClass('fadeOut')) jelem.removeClass('fadeOut');
-			if (jelem.hasClass('fadeIn')) jelem.removeClass('fadeIn');
-			jelem.addClass('animated fadeIn');
-		}
-
-		function fadeOut(elem) {
-			var jelem = $(elem);
-			if (jelem.hasClass('animated')) jelem.removeClass('animated');
-			if (jelem.hasClass('fadeOut')) jelem.removeClass('fadeOut');
-			if (jelem.hasClass('fadeIn')) jelem.removeClass('fadeIn');
-			jelem.addClass('animated fadeOut');
 		}
 	</script>
 </body>

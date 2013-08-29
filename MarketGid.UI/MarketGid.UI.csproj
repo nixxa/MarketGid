@@ -134,8 +134,6 @@
     <Content Include="Content\styles.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
-    <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -190,6 +188,12 @@
     <Content Include="Scripts\paths.js" />
     <Content Include="Scripts\edges.js" />
     <Content Include="Scripts\graph.js" />
+    <Content Include="Views\Map\_MapObject.cshtml" />
+    <Content Include="Scripts\menu.js" />
+    <Content Include="Scripts\animation.js" />
+    <Content Include="Scripts\jquery.linq-vsdoc.js" />
+    <Content Include="Scripts\jquery.linq.js" />
+    <Content Include="Scripts\jquery.linq.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

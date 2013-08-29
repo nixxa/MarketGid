@@ -27,7 +27,7 @@ namespace MarketGid.UI.Controllers
 		{
 			if (!id.HasValue)
 				return Redirect ("~/");
-			using (var db = Factory.Create())
+			using (var db = Factory.Create()) 
 			{
 				var topAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (TOP_PLACE_NAME));
 				var bottomAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (BOTTOM_PLACE_NAME));
@@ -40,6 +40,11 @@ namespace MarketGid.UI.Controllers
 			}
 
 			return View ("Index");
+		}
+
+		public ActionResult ItemPartial(int? id)
+		{
+			return View ("_MapObject");
 		}
 
 		const string TOP_PLACE_NAME = "MapScreenTop";
