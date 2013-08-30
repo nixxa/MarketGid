@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketGid.Core", "MarketGid
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketGid.UI", "MarketGid.UI\MarketGid.UI.csproj", "{6E63DDAE-A8D5-4AE5-A2CB-A08374A0DE20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarketGid.Mapper", "MarketGid.Mapper\MarketGid.Mapper.csproj", "{78BDC94C-831D-4894-82AD-6EE5F6306887}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,11 +21,15 @@ Global
 		{6E63DDAE-A8D5-4AE5-A2CB-A08374A0DE20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E63DDAE-A8D5-4AE5-A2CB-A08374A0DE20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E63DDAE-A8D5-4AE5-A2CB-A08374A0DE20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78BDC94C-831D-4894-82AD-6EE5F6306887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78BDC94C-831D-4894-82AD-6EE5F6306887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78BDC94C-831D-4894-82AD-6EE5F6306887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78BDC94C-831D-4894-82AD-6EE5F6306887}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = MarketGid.Mapper\MarketGid.Mapper.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = MarketGid.UI\MarketGid.UI.csproj
 	EndGlobalSection
 EndGlobal
