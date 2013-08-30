@@ -166,7 +166,13 @@ header, footer, nav, section {
 	box-shadow: 0 10px 10px rgba(0,0,0,0.35);
 	border-top: solid 5px #0B22B7;
 }
-	.mgid-panel span#description {
+	.mgid-panel li {
+		line-height: 1.2em !important;
+	}
+	.mgid-panel p {
+		line-height: 1.2em !important;
+	}
+	.mgid-panel div#description {
 		display: none;
 	}
 	.mgid-panel.visible {
@@ -174,9 +180,10 @@ header, footer, nav, section {
 		position: relative;
 		top: -504px;
 	}
-	.mgid-panel.visible span#description {
+	.mgid-panel.visible div#description {
 		display: block;
 		margin-top:  20px;
+		height: 485px;
 	}
 
 .mgid-map {

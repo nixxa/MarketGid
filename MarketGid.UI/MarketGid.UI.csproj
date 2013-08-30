@@ -197,6 +197,8 @@
     <Content Include="Scripts\jquery.linq-vsdoc.js" />
     <Content Include="Scripts\jquery.linq.js" />
     <Content Include="Scripts\jquery.linq.min.js" />
+    <Content Include="Scripts\antiscroll.js" />
+    <Content Include="Content\antiscroll.css" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

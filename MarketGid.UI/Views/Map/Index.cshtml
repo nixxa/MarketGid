@@ -16,9 +16,13 @@
 			</div>
 			<div class="mgid-panel">
 				<h2><img src="~/Content/images/white_arrow_up.png" alt="btn" /> Информация</h2>
-				<span id="description">
-				@Html.Raw(ViewBag.MapObject.Description)
-				</span>
+				<div id="description" class="antiscroll-wrap">
+					<div class="antiscroll-inner">
+						<div style="padding:  10px;">
+						@Html.Raw(ViewBag.MapObject.Description)
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -43,6 +47,8 @@
 		panel.toggleClass('visible mgid-large-text');
 		if (panel.hasClass('visible')) {
 			panel.find('img:first-child').attr('src', '@Url.Content("~/Content/images/white_arrow_down.png")');
+			$('.antiscroll-wrap').antiscroll({ autoHide: false });
+			panel.find('.antiscroll-inner').css('height', '485px');
 		} else {
 			panel.find('img:first-child').attr('src', '@Url.Content("~/Content/images/white_arrow_up.png")');
 		}
@@ -55,5 +61,9 @@
 
 		Map.init(kioskOptions);
 		Map.navigateTo('@ViewBag.MapObject.Name');
+	});
+
+	$(function () {
+		//
 	});
 </script>
