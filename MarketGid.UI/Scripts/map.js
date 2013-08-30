@@ -250,6 +250,9 @@ var Map = {
 		// get path points
 		var points = Graph.navigateTo(path);
 
+		var x = points[points.length-2];
+		var y = points[points.length-1];
+
 		// create path line and finish circle
 		Map.navLayer.add(new Kinetic.Line({
 			points: points,
@@ -264,8 +267,8 @@ var Map = {
 			shadowOpacity: 0.5
 		}));
 		Map.navLayer.add(new Kinetic.Circle({
-			x: points[0],
-			y: points[1],
+			x: x,
+			y: y,
 			radius: Map.Settings.kioskPointRadius,
 			fill: Map.Settings.kioskPointBgColor,
 			stroke: Map.Settings.kioskPointColor,
@@ -279,7 +282,7 @@ var Map = {
 		// setup start point tooltip
 		Map.navLayer.add(Map.startObject);
 
-		var rect = { x1: points[0] - 150 / 2, y1: points[1] + 10, x2: points[0] + 150/2, y2: points[1] + 30, d: 'down' };
+		var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150/2, y2: y + 30, d: 'down' };
 		if (Map.checkCollide(points, rect)) {
 			Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'up', bgColor: 'black' }));
 		} else {
@@ -296,11 +299,11 @@ var Map = {
 			}
 		}
 		if (mapObject != null) text = mapObject.name;
-		rect = { x1: points[0] - 250 / 2, y1: points[1] + 10, x2: points[0] + 250/2, y2: points[1] + 30, d: 'down' };
+		rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250/2, y2: y + 30, d: 'down' };
 		if (Map.checkCollide(points, rect)) {
-			Map.navLayer.add(Map.setupTooltip({ x: points[0], y: points[1], text: text, pointerDirection: 'down', bgColor: 'black' }));
+			Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' }));
 		} else {
-			Map.navLayer.add(Map.setupTooltip({ x: points[0], y: points[1], text: text, pointerDirection: 'up', bgColor: 'black' }));
+			Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' }));
 		}
 
 		// show navLayer

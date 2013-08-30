@@ -58,6 +58,7 @@ var Graph = {
 			);
 
             var g = new Edge(begin, end, null);
+			g.length = Graph.getDistance(begin, end);
             Graph.Edges.push(g);
 
             g.beginVertex = Graph.connectVertex(begin, g);
@@ -163,61 +164,38 @@ var Graph = {
             }
         }
         var currentVertex = Graph.StartVertex;
+
         // build path from StartVertex to targetVertex
-        var allPaths = [];
-        var path = [];
-        var visited = [];
-        Graph.findTarget(currentVertex, targetVertex, path, visited);
-        path.push(currentVertex);
-        //while (Graph.findTarget(currentVertex, targetVertex, path, visited)) {
-        //    path.push(currentVertex);
-        //    allPaths.push({ p: path, l: Graph.length(path) });
-        //    path = [];
-        //}
-        //var minLength = 10000000;
-        //for (var i = 0; i < allPaths.length; i++) {
-        //    if (allPaths[i].l < minLength) {
-        //        minLength = allPaths[i].l;
-        //        path = allPaths[i].p;
-        //    }
-        //}
+		var map = { };
+		for (var i = 0; i < Graph.Vertexes.length; i++) {
+			var vertex = Graph.Vertexes[i];
+			map[vertex.id] = {};
+			for (var k = 0; k < vertex.outgoingEdges.length; k++) {
+				var endVertex = vertex.outgoingEdges[k].endVertex;
+				if (vertex == endVertex) {
+					endVertex = vertex.outgoingEdges[k].beginVertex;
+				}
+				map[vertex.id][endVertex.id] = vertex.outgoingEdges[k].length;
+			}
+		}
+
+		// find shortest path
+		var graphd = new GraphD(map);
+		var vertexes = graphd.findShortestPath(currentVertex.id, targetVertex.id);
+
+		// fill array of vertexes
+		var path = [];
+		for (var i = 0; i < vertexes.length; i++) {
+			path.push(Graph.findVertexById(vertexes[i]));
+		}
+
         // show path
         var points = [];
         for (var i = 0; i < path.length; i++) {
-            //points = points.concat(path[i].shape.attrs.points);
             points = points.concat([path[i].position.x, path[i].position.y]);
         }
         points = Graph.distinct(points);
         return points;
-    },
-
-    findTarget: function (sourceVertex, targetVertex, path, visited) {
-        if (sourceVertex == targetVertex) {
-            path.push(targetVertex);
-            return true;
-        }
-        visited.push(sourceVertex);
-        for (var i = 0; i < sourceVertex.outgoingEdges.length; i++) {
-            var edge = sourceVertex.outgoingEdges[i];
-            var vertex = edge.endVertex;
-            if (vertex == sourceVertex) {
-                vertex = edge.beginVertex;
-            }
-            if (vertex == targetVertex) {
-                path.push(vertex);
-                //path.push(edge);
-                return true;
-            }
-            if (indexOf.call(visited, vertex) >= 0) {
-                continue;
-            }
-            if (Graph.findTarget(vertex, targetVertex, path, visited)) {
-                //path.push(edge);
-                path.push(vertex);
-                return true;
-            }
-        }
-        return false;
     },
 
     /**
@@ -249,16 +227,15 @@ var Graph = {
         return Math.sqrt(Math.pow(Math.abs(left.x - right.x), 2) + Math.pow(Math.abs(left.y - right.y), 2));
     },
 
-    /**
-    * Подсчитывает длину маршрута
-    */
-    length: function (path) {
-        var length = 0;
-        for (var i = 0; i < path.length - 1; i++) {
-            length = length + Graph.getDistance(path[i].position, path[i + 1].position);
-        }
-        return length;
-    }
+	/**
+	 * Возвращает вершину по ее ID
+	 */
+	findVertexById: function (vertexId) {
+		for (var i = 0; i < Graph.Vertexes.length; i++) {
+			if (Graph.Vertexes[i].id == vertexId) return Graph.Vertexes[i];
+		}
+		return null;
+	}
 };
 
 function Point(x, y) {
@@ -273,32 +250,183 @@ function Edge(begin, end, shape) {
 	this.beginVertex = null;
 	this.endVertex = null;
 	this.shape = shape;
+	this.length = 0;
 };
 
 function Vertex() {
+	this.id = 'v' + Graph.Vertexes.length;
 	this.position = null;
 	this.incomingEdges = [];
 	this.outgoingEdges = [];
 	this.shape = null;
 };
 
-var indexOf = function(needle) {
-    if(typeof Array.prototype.indexOf === 'function') {
-        indexOf = Array.prototype.indexOf;
-    } else {
-        indexOf = function(needle) {
-            var i = -1, index = -1;
+//var indexOf = function(needle) {
+//    if(typeof Array.prototype.indexOf === 'function') {
+//        indexOf = Array.prototype.indexOf;
+//    } else {
+//        indexOf = function(needle) {
+//            var i = -1, index = -1;
 
-            for(i = 0; i < this.length; i++) {
-                if(this[i] === needle) {
-                    index = i;
-                    break;
-                }
-            }
+//            for(i = 0; i < this.length; i++) {
+//                if(this[i] === needle) {
+//                    index = i;
+//                    break;
+//                }
+//            }
 
-            return index;
-        };
-    }
+//            return index;
+//        };
+//    }
 
-    return indexOf.call(this, needle);
-};
+//    return indexOf.call(this, needle);
+//};
+
+/**
+ * Алгоритм Дейкстры
+ */
+var GraphD = (function (undefined) {
+
+	var extractKeys = function (obj) {
+		var keys = [], key;
+		for (key in obj) {
+		    Object.prototype.hasOwnProperty.call(obj,key) && keys.push(key);
+		}
+		return keys;
+	}
+
+	var sorter = function (a, b) {
+		return parseFloat (a) - parseFloat (b);
+	}
+
+	var findPaths = function (map, start, end, infinity) {
+		infinity = infinity || Infinity;
+
+		var costs = {},
+		    open = {'0': [start]},
+		    predecessors = {},
+		    keys;
+
+		var addToOpen = function (cost, vertex) {
+			var key = "" + cost;
+			if (!open[key]) open[key] = [];
+			open[key].push(vertex);
+		}
+
+		costs[start] = 0;
+
+		while (open) {
+			if(!(keys = extractKeys(open)).length) break;
+
+			keys.sort(sorter);
+
+			var key = keys[0],
+			    bucket = open[key],
+			    node = bucket.shift(),
+			    currentCost = parseFloat(key),
+			    adjacentNodes = map[node] || {};
+
+			if (!bucket.length) delete open[key];
+
+			for (var vertex in adjacentNodes) {
+			    if (Object.prototype.hasOwnProperty.call(adjacentNodes, vertex)) {
+					var cost = adjacentNodes[vertex],
+					    totalCost = cost + currentCost,
+					    vertexCost = costs[vertex];
+
+					if ((vertexCost === undefined) || (vertexCost > totalCost)) {
+						costs[vertex] = totalCost;
+						addToOpen(totalCost, vertex);
+						predecessors[vertex] = node;
+					}
+				}
+			}
+		}
+
+		if (costs[end] === undefined) {
+			return null;
+		} else {
+			return predecessors;
+		}
+
+	}
+
+	var extractShortest = function (predecessors, end) {
+		var nodes = [],
+		    u = end;
+
+		while (u) {
+			nodes.push(u);
+			predecessor = predecessors[u];
+			u = predecessors[u];
+		}
+
+		nodes.reverse();
+		return nodes;
+	}
+
+	var findShortestPath = function (map, nodes) {
+		var start = nodes.shift(),
+		    end,
+		    predecessors,
+		    path = [],
+		    shortest;
+
+		while (nodes.length) {
+			end = nodes.shift();
+			predecessors = findPaths(map, start, end);
+
+			if (predecessors) {
+				shortest = extractShortest(predecessors, end);
+				if (nodes.length) {
+					path.push.apply(path, shortest.slice(0, -1));
+				} else {
+					return path.concat(shortest);
+				}
+			} else {
+				return null;
+			}
+
+			start = end;
+		}
+	}
+
+	var toArray = function (list, offset) {
+		try {
+			return Array.prototype.slice.call(list, offset);
+		} catch (e) {
+			var a = [];
+			for (var i = offset || 0, l = list.length; i < l; ++i) {
+				a.push(list[i]);
+			}
+			return a;
+		}
+	}
+
+	var GraphD = function (map) {
+		this.map = map;
+	}
+
+	GraphD.prototype.findShortestPath = function (start, end) {
+		if (Object.prototype.toString.call(start) === '[object Array]') {
+			return findShortestPath(this.map, start);
+		} else if (arguments.length === 2) {
+			return findShortestPath(this.map, [start, end]);
+		} else {
+			return findShortestPath(this.map, toArray(arguments));
+		}
+	}
+
+	GraphD.findShortestPath = function (map, start, end) {
+		if (Object.prototype.toString.call(start) === '[object Array]') {
+			return findShortestPath(map, start);
+		} else if (arguments.length === 3) {
+			return findShortestPath(map, [start, end]);
+		} else {
+			return findShortestPath(map, toArray(arguments, 1));
+		}
+	}
+
+	return GraphD;
+
+})();
