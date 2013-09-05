@@ -24,9 +24,9 @@ var Map = {
 		// прозрачность активного объекта
 		activeObjectOpacity: 1,
 		// цвет неактивного объекта
-		inactiveObjectBgColor: '#eee',
+		inactiveObjectBgColor: '#dedede',
 		// прозрачность неактивного объекта
-		inactiveObjectOpacity: 0.4,
+		inactiveObjectOpacity: 0.5,
 		// цвет маршрута
 		pathColor: '#5735FF',
 		// прозрачность проложенного маршрута
@@ -70,8 +70,8 @@ var Map = {
 		Map.stage = new Kinetic.Stage({
 			container: 'map',
 			width: 910,
-			height: 820,
-			draggable: true
+			height: 820
+			//draggable: true
 		});
 
 		Map.backgroundLayer = new Kinetic.Layer({
@@ -106,8 +106,8 @@ var Map = {
 				data: PathData[id].path,
 				fill: Map.Settings.inactiveObjectBgColor,
 				opacity: Map.Settings.inactiveObjectOpacity,
-				stroke: Map.Settings.borderColor,
-				strokeWidth: 1,
+				//stroke: Map.Settings.borderColor,
+				//strokeWidth: 1,
 				id: id
 			});
 			Map.Objects[id] = {
@@ -236,6 +236,7 @@ var Map = {
 		} else if (Map.selectedObject != path) {
 			Map.selectedObject.setFill(Map.Settings.inactiveObjectBgColor);
 			Map.selectedObject.setStrokeWidth(1);
+			Map.selectedObject.setStroke('transparent');
 			Map.selectedObject.setOpacity(Map.Settings.inactiveObjectOpacity);
 			Map.selectedObject.setShadowOffset(0);
 			Map.selectedObject.setShadowOpacity(0);

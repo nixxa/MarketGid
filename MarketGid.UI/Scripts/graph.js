@@ -42,8 +42,8 @@ var Graph = {
         }
 
         // init edges & vertexes
-        for (var i = 0; i < EdgeData.length; i++) {
-            var edge = EdgeData[i];
+        for (var i = 0; i < EdgesData.length; i++) {
+            var edge = EdgesData[i];
             var path = new Kinetic.Path({
                 data: edge.path,
                 scale: Map.Settings.globalScale
