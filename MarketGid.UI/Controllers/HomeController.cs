@@ -49,7 +49,10 @@ namespace MarketGid.UI.Controllers
 				if (_currentIndex > collection.Count ()) _currentIndex = 1;
 
 				var advertisement = collection.Skip (_currentIndex > 0 ? _currentIndex - 1 : 0).First ();
-				return Json(new { imageSource = UrlHelper.GenerateContentUrl(advertisement.Uri, this.HttpContext), duration = advertisement.Duration.TotalMilliseconds });
+				return Json(new { 
+					imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
+					duration = advertisement.Duration.TotalMilliseconds 
+				});
 			}
 		}
 

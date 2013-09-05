@@ -5,324 +5,401 @@
 
 var Map = {
 
-	/**
-	 * Settings object
-	 */
-	Settings: {
-		// масштаб
-		globalScale: 1.5,
-		// координаты киоска
-		x: 0,
-		y: 0,
-		// фоновое изображение
-		backgroundImage: '/Content/maps/map.png',
-		kioskPointRadius: 5,
-		kioskPointColor: 'black',
-		kioskPointBgColor: 'white',
-		// цвет активного объекта
-		activeObjectBgColor: '#F87E0F',
-		// прозрачность активного объекта
-		activeObjectOpacity: 1,
-		// цвет неактивного объекта
-		inactiveObjectBgColor: '#dedede',
-		// прозрачность неактивного объекта
-		inactiveObjectOpacity: 0.5,
-		// цвет маршрута
-		pathColor: '#5735FF',
-		// прозрачность проложенного маршрута
-		pathOpacity: 0.75,
-		// цвет проложенного маршрута
-		pathWidth: 8,
-		// цвет всех границ объектов
-		borderColor: 'black',
-		// цвет всех теней
-		shadowColor: 'black'
-	},
+    /**
+    * Settings object
+    */
+    Settings: {
+        // масштаб
+        globalScale: 1.5,
+        // координаты киоска
+        x: 0,
+        y: 0,
+        // фоновое изображение
+        backgroundImage: '/Content/maps/map.png',
+        kioskPointRadius: 5,
+        kioskPointColor: 'black',
+        kioskPointBgColor: 'white',
+        // цвет активного объекта
+        activeObjectBgColor: '#F87E0F',
+        // прозрачность активного объекта
+        activeObjectOpacity: 1,
+        // цвет неактивного объекта
+        inactiveObjectBgColor: '#dedede',
+        // прозрачность неактивного объекта
+        inactiveObjectOpacity: 0.5,
+        // цвет маршрута
+        pathColor: '#5735FF',
+        // прозрачность проложенного маршрута
+        pathOpacity: 0.75,
+        // цвет проложенного маршрута
+        pathWidth: 8,
+        // цвет всех границ объектов
+        borderColor: 'black',
+        // цвет всех теней
+        shadowColor: 'black'
+    },
 
-	Objects: {},
-	stage: null,
-	mapLayer: null,
-	navLayer: null,
-	backgroundLayer: null,
-	tooltip: null,
-	selectedObject: null,
-	route: null,
-	startObject: null,
+    Objects: {},
+    stage: null,
+    mapLayer: null,
+    navLayer: null,
+    backgroundLayer: null,
+    tooltip: null,
+    selectedObject: null,
+    route: null,
+    startObject: null,
+    navObjectName: null,
 
-	/**
-	 * Init map and draw objects
-	 */
-	init: function (options) {
-		if (options != undefined) {
-			if (options.x != undefined) {
-				Map.Settings.x = options.x * Map.Settings.globalScale;
-			}
-			if (options.y != undefined) {
-				Map.Settings.y = options.y * Map.Settings.globalScale;
-			}
-		}
+    /**
+    * Init map and draw objects
+    */
+    init: function (options) {
+        if (options != undefined) {
+            if (options.x != undefined) {
+                Map.Settings.x = options.x * Map.Settings.globalScale;
+            }
+            if (options.y != undefined) {
+                Map.Settings.y = options.y * Map.Settings.globalScale;
+            }
+        }
 
-		Map.setupObjects();
+        //Map.setupObjects();
 
-		Graph.init(options);
+        Graph.init(options);
 
-		// init kinetic stage
-		Map.stage = new Kinetic.Stage({
-			container: 'map',
-			width: 910,
-			height: 820
-			//draggable: true
-		});
+        // init kinetic stage
+        Map.stage = new Kinetic.Stage({
+            container: 'map',
+            width: 910,
+            height: 820
+            //draggable: true
+        });
 
-		Map.backgroundLayer = new Kinetic.Layer({
-			scale: Map.Settings.globalScale
-		});
+        Map.show();
 
-		Map.mapLayer = new Kinetic.Layer({
-			scale: Map.Settings.globalScale
-		});
+        //Map.stage._mousemove = function () {};
+    },
 
-		Map.navLayer = new Kinetic.Layer({
-			scale: Map.Settings.globalScale
-		});
+    /**
+    * Очищает карту
+    */
+    clear: function () {
+        Map.Objects = {};
+        Map.backgroundLayer.remove();
+        Map.mapLayer.remove();
+        Map.navLayer.remove();
+    },
 
-		Map.drawBackground();
-		Map.drawObjects();
+    /**
+    * Load objects data and create Kinetic.Path objects
+    */
+    setupObjects: function () {
+        for (id in PathData) {
+            var pathObject = new Kinetic.Path({
+                scale: Map.Settings.globalScale,
+                data: PathData[id].path,
+                fill: Map.Settings.inactiveObjectBgColor,
+                opacity: Map.Settings.inactiveObjectOpacity,
+                //stroke: Map.Settings.borderColor,
+                //strokeWidth: 1,
+                id: id
+            });
+            Map.Objects[id] = {
+                path: pathObject,
+                name: PathData[id].name,
+                color: null
+            };
+        }
 
-		Map.stage.add(Map.backgroundLayer);
-		Map.stage.add(Map.mapLayer);
-		Map.stage.add(Map.navLayer);
+        Map.startObject = new Kinetic.Circle({
+            fill: Map.Settings.kioskPointBgColor,
+            stroke: Map.Settings.kioskPointColor,
+            strokeWidth: 1,
+            x: Map.Settings.x,
+            y: Map.Settings.y,
+            radius: Map.Settings.kioskPointRadius,
+            shadowOffset: 3,
+            shadowColor: Map.Settings.shadowColor,
+            shadowBlur: 6,
+            shadowOpacity: 0.5
+        });
+    },
 
-		//Map.stage._mousemove = function () {};
-	},
+    setupTooltip: function (options) {
+        if (options == undefined) {
+            options = { x: Map.Settings.x, y: Map.Settings.y, pointerDirection: 'down' };
+        }
+        if (options.pointerDirection == undefined) {
+            options.pointerDirection = 'down';
+        }
+        if (options.bgColor == undefined) {
+            options.bgColor = 'black';
+        }
 
-	/**
-	 * Load objects data and create Kinetic.Path objects
-	 */
-	setupObjects: function () {
-		for (id in PathData) {
-			var pathObject = new Kinetic.Path({
-				scale: Map.Settings.globalScale,
-				data: PathData[id].path,
-				fill: Map.Settings.inactiveObjectBgColor,
-				opacity: Map.Settings.inactiveObjectOpacity,
-				//stroke: Map.Settings.borderColor,
-				//strokeWidth: 1,
-				id: id
-			});
-			Map.Objects[id] = {
-				path: pathObject,
-				name: PathData[id].name,
-				color: null
-			};
-		}
+        var tooltip = new Kinetic.Label({
+            x: options.x,
+            y: options.y,
+            opacity: 0.75
+        });
 
-		Map.startObject = new Kinetic.Circle({
-			fill: Map.Settings.kioskPointBgColor,
-			stroke: Map.Settings.kioskPointColor,
-			strokeWidth: 1,
-			x: Map.Settings.x,
-			y: Map.Settings.y,
-			radius: Map.Settings.kioskPointRadius,
-			shadowOffset: 3,
-			shadowColor: Map.Settings.shadowColor,
-			shadowBlur: 6,
-			shadowOpacity: 0.5
-		});
-	},
+        tooltip.add(new Kinetic.Tag({
+            fill: options.bgColor,
+            pointerDirection: options.pointerDirection,
+            pointerWidth: 10,
+            pointerHeight: 10,
+            lineJoin: 'round',
+            shadowColor: 'black',
+            shadowBlur: 10,
+            shadowOffset: 10,
+            shadowOpacity: 0.5
+        }));
 
-	setupTooltip: function (options) {
-		if (options == undefined) {
-			options = { x: Map.Settings.x, y: Map.Settings.y, pointerDirection: 'down' };
-		}
-		if (options.pointerDirection == undefined) {
-			options.pointerDirection = 'down';
-		}
-		if (options.bgColor == undefined) {
-			options.bgColor = 'black';
-		}
+        tooltip.add(new Kinetic.Text({
+            text: options.text,
+            fontFamily: 'Calibri',
+            fontSize: 18,
+            padding: 5,
+            fill: 'white'
+        }));
+        return tooltip;
+    },
 
-		var tooltip = new Kinetic.Label({
-			x: options.x,
-			y: options.y,
-			opacity: 0.75
-		});
+    /**
+    * Draw background image
+    */
+    drawBackground: function () {
+        var imgObj = new Image();
+        imgObj.onload = function () {
+            var img = new Kinetic.Image({
+                image: imgObj,
+                scale: Map.Settings.globalScale
+            });
+            Map.backgroundLayer.add(img);
+            Map.backgroundLayer.draw();
+        };
+        imgObj.src = Map.Settings.backgroundImage;
+    },
 
-		tooltip.add(new Kinetic.Tag({
-			fill: options.bgColor,
-			pointerDirection: options.pointerDirection,
-			pointerWidth: 10,
-			pointerHeight: 10,
-			lineJoin: 'round',
-			shadowColor: 'black',
-			shadowBlur: 10,
-			shadowOffset: 10,
-			shadowOpacity: 0.5
-		}));
-      
-		tooltip.add(new Kinetic.Text({
-			text: options.text,
-			fontFamily: 'Calibri',
-			fontSize: 18,
-			padding: 5,
-			fill: 'white'
-		}));
-		return tooltip;
-	},
+    /**
+    * Отображает все объекты на карте
+    */
+    drawObjects: function () {
+        for (t in Map.Objects) {
+            var path = Map.Objects[t].path;
+            path.on('mousedown touchstart', Map.showPath);
+            Map.mapLayer.add(path);
+        }
 
-	/**
-	 * Draw background image
-	 */
-	drawBackground: function () {
-		var imgObj = new Image();
-		imgObj.onload = function () {
-			var img = new Kinetic.Image({
-				image: imgObj,
-				scale: Map.Settings.globalScale
-			});
-			Map.backgroundLayer.add(img);
-			Map.backgroundLayer.draw();
-		};
-		imgObj.src = Map.Settings.backgroundImage;
-	},
+        Map.navLayer.add(Map.startObject);
 
-	/**
-	 * Отображает все объекты на карте
-	 */
-	drawObjects: function () {
-		for (t in Map.Objects) {
-			var path = Map.Objects[t].path;
-			path.on ('mousedown', Map.showPath);
-			Map.mapLayer.add(path);
-		}
+        var tooltip = Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь' });
+        Map.navLayer.add(tooltip);
+    },
 
-		Map.navLayer.add(Map.startObject);
+    /**
+    * Отображает путь к именованному объекту
+    */
+    navigateTo: function (objectName) {
+        var mapObject = null;
 
-		var tooltip = Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь' });
-		Map.navLayer.add(tooltip);
-	},
+        for (var key in Map.Objects) {
+            if (Map.Objects[key].name == objectName) {
+                mapObject = Map.Objects[key];
+                break;
+            }
+        }
 
-	/**
-	 * Отображает путь к именованному объекту
-	 */
-	navigateTo: function (objectName) {
-		var mapObject = null;
+        if (mapObject != null) {
+            Map.showPath({ targetNode: mapObject.path });
+        }
 
-		for (var key in Map.Objects) {
-			if (Map.Objects[key].name == objectName) {
-				mapObject = Map.Objects[key];
-				break;
-			}
-		}
+        Map.navObjectName = objectName;
+    },
 
-		if (mapObject != null) {
-			Map.showPath({ targetNode: mapObject.path });
-		}
-	},
+    /**
+    * отображает объекты на карте
+    */
+    show: function () {
+        Map.setupObjects();
 
-	showPath: function (evt) {
-		var path = evt.targetNode;
-		path.setFill(Map.Settings.activeObjectBgColor);
-		path.setStroke(Map.Settings.borderColor);
-		path.setStrokeWidth(1);
-		path.setOpacity(Map.Settings.activeObjectOpacity);
-		path.setShadowColor(Map.Settings.shadowColor);
-		path.setShadowBlur(10);
-		path.setShadowOffset(10);
-		path.setShadowOpacity(0.5);
+        Map.backgroundLayer = new Kinetic.Layer({
+            scale: Map.Settings.globalScale
+        });
 
-		if (Map.selectedObject == null) {
-			Map.selectedObject = path;
-		} else if (Map.selectedObject != path) {
-			Map.selectedObject.setFill(Map.Settings.inactiveObjectBgColor);
-			Map.selectedObject.setStrokeWidth(1);
-			Map.selectedObject.setStroke('transparent');
-			Map.selectedObject.setOpacity(Map.Settings.inactiveObjectOpacity);
-			Map.selectedObject.setShadowOffset(0);
-			Map.selectedObject.setShadowOpacity(0);
-			Map.selectedObject.setShadowBlur(0);
-			Map.selectedObject = path;
-		}
+        Map.mapLayer = new Kinetic.Layer({
+            scale: Map.Settings.globalScale
+        });
 
-		// clear navLayer
-		Map.stage.remove(Map.navLayer);
-		Map.navLayer.removeChildren();
+        Map.navLayer = new Kinetic.Layer({
+            scale: Map.Settings.globalScale
+        });
 
-		// get path points
-		var points = Graph.navigateTo(path);
+        Map.drawBackground();
+        Map.drawObjects();
 
-		var x = points[points.length-2];
-		var y = points[points.length-1];
+        Map.stage.add(Map.backgroundLayer);
+        Map.stage.add(Map.mapLayer);
+        Map.stage.add(Map.navLayer);
+    },
 
-		// create path line and finish circle
-		Map.navLayer.add(new Kinetic.Line({
-			points: points,
-			stroke: Map.Settings.pathColor,
-			strokeWidth: Map.Settings.pathWidth,
-			lineJoin: 'round',
-			lineCap: 'round',
-			opacity: Map.Settings.pathOpacity,
-			shadowOffset: 3,
-			shadowColor: Map.Settings.shadowColor,
-			shadowBlur: 6,
-			shadowOpacity: 0.5
-		}));
-		Map.navLayer.add(new Kinetic.Circle({
-			x: x,
-			y: y,
-			radius: Map.Settings.kioskPointRadius,
-			fill: Map.Settings.kioskPointBgColor,
-			stroke: Map.Settings.kioskPointColor,
-			strokeWidth: 1,
-			shadowOffset: 3,
-			shadowColor: Map.Settings.borderColor,
-			shadowBlur: 6,
-			shadowOpacity: 0.5
-		}));
-		
-		// setup start point tooltip
-		Map.navLayer.add(Map.startObject);
+    showPath: function (evt) {
+        var path = evt.targetNode;
+        path.setFill(Map.Settings.activeObjectBgColor);
+        path.setStroke(Map.Settings.borderColor);
+        path.setStrokeWidth(1);
+        path.setOpacity(Map.Settings.activeObjectOpacity);
+        path.setShadowColor(Map.Settings.shadowColor);
+        path.setShadowBlur(10);
+        path.setShadowOffset(10);
+        path.setShadowOpacity(0.5);
 
-		var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150/2, y2: y + 30, d: 'down' };
-		if (Map.checkCollide(points, rect)) {
-			Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'up', bgColor: 'black' }));
-		} else {
-			Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'down', bgColor: 'black' }));
-		}
+        if (Map.selectedObject == null) {
+            Map.selectedObject = path;
+        } else if (Map.selectedObject != path) {
+            Map.selectedObject.setFill(Map.Settings.inactiveObjectBgColor);
+            Map.selectedObject.setStrokeWidth(1);
+            Map.selectedObject.setStroke('transparent');
+            Map.selectedObject.setOpacity(Map.Settings.inactiveObjectOpacity);
+            Map.selectedObject.setShadowOffset(0);
+            Map.selectedObject.setShadowOpacity(0);
+            Map.selectedObject.setShadowBlur(0);
+            Map.selectedObject = path;
+        }
 
-		// setup end point tooltip
-		var mapObject = null;
-		var text = 'Искомый объект';
-		for (var key in Map.Objects) {
-			if (Map.Objects[key].path == path) {
-				mapObject = Map.Objects[key];
-				break;
-			}
-		}
-		if (mapObject != null) text = mapObject.name;
-		rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250/2, y2: y + 30, d: 'down' };
-		if (Map.checkCollide(points, rect)) {
-			Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' }));
-		} else {
-			Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' }));
-		}
+        // clear navLayer
+        Map.stage.remove(Map.navLayer);
+        Map.navLayer.removeChildren();
 
-		// show navLayer
-		Map.stage.add(Map.navLayer);
+        // get path points
+        var points = Graph.navigateTo(path);
 
-		Map.mapLayer.drawScene();		
-	},
+        var x = points[points.length - 2];
+        var y = points[points.length - 1];
 
-	checkCollide: function (points, object) {
-		var collide = false;
-		for (var i = 0; i < points.length; ) {
-			if (points[i] >= object.x1 && points[i] <= object.x2 && points[i+1] >= object.y1 && points[i+1] <= object.y2)
-			{
-				collide = true;
-				break;
-			}
-			i = i + 2;
-		}
-		return collide;
-	}
+        // create path line and finish circle
+        Map.navLayer.add(new Kinetic.Line({
+            points: points,
+            stroke: Map.Settings.pathColor,
+            strokeWidth: Map.Settings.pathWidth,
+            lineJoin: 'round',
+            lineCap: 'round',
+            opacity: Map.Settings.pathOpacity,
+            shadowOffset: 3,
+            shadowColor: Map.Settings.shadowColor,
+            shadowBlur: 6,
+            shadowOpacity: 0.5
+        }));
+        Map.navLayer.add(new Kinetic.Circle({
+            x: x,
+            y: y,
+            radius: Map.Settings.kioskPointRadius,
+            fill: Map.Settings.kioskPointBgColor,
+            stroke: Map.Settings.kioskPointColor,
+            strokeWidth: 1,
+            shadowOffset: 3,
+            shadowColor: Map.Settings.borderColor,
+            shadowBlur: 6,
+            shadowOpacity: 0.5
+        }));
+
+        // setup start point tooltip
+        Map.navLayer.add(Map.startObject);
+
+        var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150 / 2, y2: y + 30, d: 'down' };
+        if (Map.checkCollide(points, rect)) {
+            Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'up', bgColor: 'black' }));
+        } else {
+            Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'down', bgColor: 'black' }));
+        }
+
+        // setup end point tooltip
+        var mapObject = null;
+        var text = 'Искомый объект';
+        for (var key in Map.Objects) {
+            if (Map.Objects[key].path == path) {
+                mapObject = Map.Objects[key];
+                break;
+            }
+        }
+        if (mapObject != null) text = mapObject.name;
+        rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 30, d: 'down' };
+        if (Map.checkCollide(points, rect)) {
+            Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' }));
+        } else {
+            Map.navLayer.add(Map.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' }));
+        }
+
+        // show navLayer
+        Map.stage.add(Map.navLayer);
+
+        Map.mapLayer.drawScene();
+    },
+
+    checkCollide: function (points, object) {
+        var collide = false;
+        for (var i = 0; i < points.length; ) {
+            if (points[i] >= object.x1 && points[i] <= object.x2 && points[i + 1] >= object.y1 && points[i + 1] <= object.y2) {
+                collide = true;
+                break;
+            }
+            i = i + 2;
+        }
+        return collide;
+    },
+
+    /**
+    * Увеличить масштаб
+    */
+    scaleUp: function () {
+        Map.Settings.globalScale = Map.Settings.globalScale + 0.1;
+        Map.clear();
+        Map.show();
+        if (Map.navObjectName != null) {
+            Map.navigateTo(Map.navObjectName);
+        }
+    },
+
+    /**
+    * Уменьшить масштаб
+    */
+    scaleDown: function () {
+        Map.Settings.globalScale = Map.Settings.globalScale - 0.1;
+        Map.clear();
+        Map.show();
+        if (Map.navObjectName != null) {
+            Map.navigateTo(Map.navObjectName);
+        }
+    },
+
+    /**
+    * Сдвинуть карту вверх
+    */
+    moveUp: function () {
+        Map.stage.move(0, -100);
+        Map.stage.draw();
+    },
+
+    /**
+    * Сдвинуть карту вниз
+    */
+    moveDown: function () {
+        Map.stage.move(0, 100);
+        Map.stage.draw();
+    },
+
+    /**
+    * Сдвинуть карту влево
+    */
+    moveLeft: function () {
+        Map.stage.move(-100, 0);
+        Map.stage.draw();
+    },
+
+    /**
+    * Сдвинуть карту вправо
+    */
+    moveRight: function () {
+        Map.stage.move(100, 0);
+        Map.stage.draw();
+    }
 }

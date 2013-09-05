@@ -116,6 +116,9 @@ header, footer, nav, section {
 	height: 385px;
 	padding: 20px;
 }
+    .main-footer > img {
+        position: absolute;
+    }
 
 .mgid-large-text {
 	font-size: 1.5em;
@@ -191,6 +194,16 @@ header, footer, nav, section {
 	height: 820px;
 	width: 910px;
 }
+
+.mgid-map-control-panel {
+    position: relative; 
+    float: right; 
+    top: -65%; 
+    padding-right: 20px;
+}
+    .mgid-map-control-panel > img {
+        margin-top: 20px;
+    }
 
 .mgid-keyboard {
 	width: 885px !important; 
