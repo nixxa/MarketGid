@@ -187,6 +187,7 @@ header, footer, nav, section {
 		display: block;
 		margin-top:  20px;
 		height: 485px;
+		overflow: hidden;
 	}
 
 .mgid-map {
@@ -198,11 +199,14 @@ header, footer, nav, section {
 .mgid-map-control-panel {
     position: relative; 
     float: right; 
-    top: -65%; 
-    padding-right: 20px;
+    top: -424px; 
+    padding: 20px;
+	background-color: rgba(128,128,128,0.6);
+	text-align: center;
+	box-sizing: border-box;
 }
     .mgid-map-control-panel > img {
-        margin-top: 20px;
+        display: block;
     }
 
 .mgid-keyboard {

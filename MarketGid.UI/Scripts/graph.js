@@ -68,6 +68,14 @@ var Graph = {
         Graph.StartVertex = Graph.findVertex(Graph.Settings.start);
     },
 
+	/**
+	 * Очищает массивы верщин и граней
+	 */
+	clear: function () {
+		Graph.Edges = [];
+		Graph.Vertexes = [];
+	},
+
     connectVertex: function (point, edge) {
         var vertex = Graph.findVertex(point);
         if (vertex == null) {

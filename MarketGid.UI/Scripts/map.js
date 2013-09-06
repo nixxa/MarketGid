@@ -49,6 +49,7 @@ var Map = {
     route: null,
     startObject: null,
     navObjectName: null,
+	originalOptions: null,
 
     /**
     * Init map and draw objects
@@ -61,6 +62,7 @@ var Map = {
             if (options.y != undefined) {
                 Map.Settings.y = options.y * Map.Settings.globalScale;
             }
+			Map.originalOptions = options;
         }
 
         //Map.setupObjects();
@@ -115,8 +117,8 @@ var Map = {
             fill: Map.Settings.kioskPointBgColor,
             stroke: Map.Settings.kioskPointColor,
             strokeWidth: 1,
-            x: Map.Settings.x,
-            y: Map.Settings.y,
+            x: Map.originalOptions.x * Map.Settings.globalScale,
+            y: Map.originalOptions.y * Map.Settings.globalScale,
             radius: Map.Settings.kioskPointRadius,
             shadowOffset: 3,
             shadowColor: Map.Settings.shadowColor,
@@ -127,7 +129,7 @@ var Map = {
 
     setupTooltip: function (options) {
         if (options == undefined) {
-            options = { x: Map.Settings.x, y: Map.Settings.y, pointerDirection: 'down' };
+            options = { x: Map.originalOptions.x * Map.Settings.globalScale, y: Map.originalOptions.y * Map.Settings.globalScale, pointerDirection: 'down' };
         }
         if (options.pointerDirection == undefined) {
             options.pointerDirection = 'down';
@@ -192,7 +194,7 @@ var Map = {
 
         Map.navLayer.add(Map.startObject);
 
-        var tooltip = Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь' });
+        var tooltip = Map.setupTooltip({ x: Map.originalOptions.x * Map.Settings.globalScale, y: Map.originalOptions.y * Map.Settings.globalScale, text: 'Вы здесь' });
         Map.navLayer.add(tooltip);
     },
 
@@ -307,9 +309,23 @@ var Map = {
 
         var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150 / 2, y2: y + 30, d: 'down' };
         if (Map.checkCollide(points, rect)) {
-            Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'up', bgColor: 'black' }));
+            Map.navLayer.add(
+				Map.setupTooltip({
+					x: Map.originalOptions.x * Map.Settings.globalScale, 
+					y: Map.originalOptions.y * Map.Settings.globalScale, 
+					text: 'Вы здесь', 
+					pointerDirection: 'up', 
+					bgColor: 'black'
+				}));
         } else {
-            Map.navLayer.add(Map.setupTooltip({ x: Map.Settings.x, y: Map.Settings.y, text: 'Вы здесь', pointerDirection: 'down', bgColor: 'black' }));
+            Map.navLayer.add(
+				Map.setupTooltip({ 
+					x: Map.originalOptions.x * Map.Settings.globalScale, 
+					y: Map.originalOptions.y * Map.Settings.globalScale, 
+					text: 'Вы здесь', 
+					pointerDirection: 'down', 
+					bgColor: 'black' 
+				}));
         }
 
         // setup end point tooltip
@@ -353,6 +369,8 @@ var Map = {
     scaleUp: function () {
         Map.Settings.globalScale = Map.Settings.globalScale + 0.1;
         Map.clear();
+		Graph.clear();
+		Graph.init(Map.originalOptions);
         Map.show();
         if (Map.navObjectName != null) {
             Map.navigateTo(Map.navObjectName);
@@ -365,6 +383,8 @@ var Map = {
     scaleDown: function () {
         Map.Settings.globalScale = Map.Settings.globalScale - 0.1;
         Map.clear();
+		Graph.clear();
+		Graph.init(Map.originalOptions);
         Map.show();
         if (Map.navObjectName != null) {
             Map.navigateTo(Map.navObjectName);
