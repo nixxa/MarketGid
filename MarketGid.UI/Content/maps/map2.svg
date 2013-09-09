@@ -15,7 +15,7 @@
    inkscape:version="0.48.4 r9939"
    width="420"
    height="596"
-   sodipodi:docname="map.svg">
+   sodipodi:docname="map2.svg">
   <metadata
      id="metadata2991">
     <rdf:RDF>
@@ -66,17 +66,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
+     inkscape:window-width="1486"
+     inkscape:window-height="882"
      id="namedview2987"
      showgrid="true"
-     inkscape:zoom="5.6568543"
-     inkscape:cx="120.18912"
-     inkscape:cy="485.06009"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer12"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="73.707336"
+     inkscape:cy="157.15729"
+     inkscape:window-x="75"
+     inkscape:window-y="42"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-nodes="false"
@@ -157,18 +157,27 @@
        orientation="0,1"
        position="318,128.75"
        id="guide3275" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="127.375,362.375"
+       id="guide3122" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="139.9375,340.625"
+       id="guide3125" />
   </sodipodi:namedview>
   <image
-     width="420"
-     height="596"
-     xlink:href="map.png"
-     id="image2993"
+     sodipodi:absref="C:\Projects\MarketGid\Solution\MarketGid.UI\Content\maps\map2.png"
+     xlink:href="map2.png"
+     y="0"
      x="-0.78949904"
-     y="0" />
+     id="image2993"
+     height="596"
+     width="420" />
   <g
      inkscape:groupmode="layer"
      id="layer1"
-     inkscape:label="Студия записи музыки №1"
+     inkscape:label="O19"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -185,7 +194,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Студия записи музыки №2"
+     inkscape:label="O18"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.99228948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -197,7 +206,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="Студия озвучивания №11"
+     inkscape:label="O17"
      sodipodi:insensitive="true">
     <path
        style="fill:none;stroke:#000000;stroke-width:0.99701548px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -209,7 +218,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="Студия перезаписи №5"
+     inkscape:label="O16"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -222,7 +231,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer5"
-     inkscape:label="Микшерская студия записи №2"
+     inkscape:label="O15"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -235,7 +244,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer6"
-     inkscape:label="Студия записи шумов №4"
+     inkscape:label="O14"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -248,7 +257,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer7"
-     inkscape:label="Студия перезаписи малая №205"
+     inkscape:label="O13"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -261,7 +270,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer8"
-     inkscape:label="Телекино (ПК)"
+     inkscape:label="O12"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -274,7 +283,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer9"
-     inkscape:label="Студия перезаписи №6"
+     inkscape:label="O11"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -287,7 +296,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer10"
-     inkscape:label="Студия перезаписи №7"
+     inkscape:label="O10"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -300,8 +309,9 @@
   <g
      inkscape:groupmode="layer"
      id="layer14"
-     inkscape:label="Студия перезаписи №7"
-     sodipodi:insensitive="true">
+     inkscape:label="O9"
+     sodipodi:insensitive="true"
+     style="display:inline">
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 49.630057,254.37904 33.764349,0.13258 0,85.16217 -33.720155,-0.22097 0,-31.8198 3.933282,-0.0442 -0.04419,-19.88738 -4.02167,-0.0884 z"
@@ -311,7 +321,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer15"
-     inkscape:label="Студия записи шумов №8"
+     inkscape:label="O8"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -324,7 +334,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer16"
-     inkscape:label="Студия озвучивания №9"
+     inkscape:label="O7"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -337,7 +347,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer17"
-     inkscape:label="Студия озвучивания №10"
+     inkscape:label="O6"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -349,7 +359,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer18"
-     inkscape:label="Павильон №8"
+     inkscape:label="O5"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -361,7 +371,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer19"
-     inkscape:label="Павильон №9"
+     inkscape:label="O4"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -374,7 +384,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer20"
-     inkscape:label="Павильон №10"
+     inkscape:label="O3"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -386,7 +396,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer21"
-     inkscape:label="Мастеринговый просмотровый зал №18"
+     inkscape:label="O2"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -399,7 +409,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer22"
-     inkscape:label="Павильон №1"
+     inkscape:label="O1"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -412,7 +422,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer23"
-     inkscape:label="Павильон №13, 1 этаж"
+     inkscape:label="Компьютерная реставрация №402"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -425,7 +435,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer24"
-     inkscape:label="Павильон №13, 2 этаж"
+     inkscape:label="Компьютерная графика №447"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -438,7 +448,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer25"
-     inkscape:label="Павильон №14"
+     inkscape:label="Павильон №7"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -451,7 +461,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer26"
-     inkscape:label="Павильон №5"
+     inkscape:label="Павильон №6"
      style="display:inline"
      sodipodi:insensitive="true">
     <path
@@ -462,19 +472,6 @@
        sodipodi:nodetypes="cccccccc" />
   </g>
   <g
-     inkscape:groupmode="layer"
-     id="layer13"
-     inkscape:label="Киоск"
-     sodipodi:insensitive="true">
-    <rect
-       style="fill:#008000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       id="rect4586"
-       width="3.9585717"
-       height="3.6540663"
-       x="228.07463"
-       y="179.08119" />
-  </g>
-    <g
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="Маршруты"

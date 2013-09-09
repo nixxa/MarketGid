@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace MarketGid.Core.Models
 {
@@ -15,6 +15,10 @@ namespace MarketGid.Core.Models
 		/// The y.
 		/// </summary>
 		public double Y;
+		/// <summary>
+		/// Имя карты
+		/// </summary>
+		public string Map;
 	}
 }
 

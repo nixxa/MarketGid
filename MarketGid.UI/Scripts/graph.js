@@ -28,6 +28,11 @@ var Graph = {
     */
     StartVertex: null,
 
+	/**
+	 * Map names
+	 */
+	MapNames: [],
+
     /**
     * Inialize object
     */
@@ -57,15 +62,29 @@ var Graph = {
 				path.dataArray[1].points[1] * Map.Settings.globalScale
 			);
 
-            var g = new Edge(begin, end, null);
+            var g = new Edge(begin, end, null, edge.map);
 			g.length = Graph.getDistance(begin, end);
             Graph.Edges.push(g);
 
             g.beginVertex = Graph.connectVertex(begin, g);
             g.endVertex = Graph.connectVertex(end, g);
+
+			if (Graph.MapNames.indexOf(edge.map) < 0) {
+				Graph.MapNames.push(edge.map);
+			}
         }
 
         Graph.StartVertex = Graph.findVertex(Graph.Settings.start);
+
+		var liftPoint = EdgesData.liftPoint;
+		var junctions = [];
+		for (var i = 0; i < Graph.MapNames.length; i++) {
+			var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
+			if (liftVertex == null) {
+				continue;
+			}
+			junctions.push(liftVertex);
+		}
     },
 
 	/**
@@ -88,9 +107,12 @@ var Graph = {
         return vertex;
     },
 
-    findVertex: function (point) {
+    findVertex: function (point, mapName) {
         for (var i = 0; i < Graph.Vertexes.length; i++) {
             var vertex = Graph.Vertexes[i];
+			if (mapName != undefined && mapName != '' && vertex.mapName != mapName) {
+				continue;
+			}
             if (Math.abs(vertex.position.x - point.x) <= Graph.Settings.delta && Math.abs(vertex.position.y - point.y) <= Graph.Settings.delta) {
                 return vertex;
             }
@@ -103,6 +125,7 @@ var Graph = {
         vertex.position = point;
         vertex.incomingEdges.push(edge);
         vertex.outgoingEdges.push(edge);
+		vertex.mapName = edge.mapName;
         return vertex;
     },
 
@@ -251,7 +274,7 @@ function Point(x, y) {
 	this.y = y;
 };
 
-function Edge(begin, end, shape) {
+function Edge(begin, end, shape, mapName) {
 	this.weight = 1;
 	this.begin = begin;
 	this.end = end;
@@ -259,6 +282,7 @@ function Edge(begin, end, shape) {
 	this.endVertex = null;
 	this.shape = shape;
 	this.length = 0;
+	this.mapName = mapName;
 };
 
 function Vertex() {
@@ -267,6 +291,7 @@ function Vertex() {
 	this.incomingEdges = [];
 	this.outgoingEdges = [];
 	this.shape = null;
+	this.mapName = '';
 };
 
 //var indexOf = function(needle) {

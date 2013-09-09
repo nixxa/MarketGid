@@ -10,7 +10,7 @@ var Map = {
     */
     Settings: {
         // масштаб
-        globalScale: 1.5,
+        globalScale: 1.2,
         // координаты киоска
         x: 0,
         y: 0,

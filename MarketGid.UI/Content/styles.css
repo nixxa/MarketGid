@@ -194,20 +194,29 @@ header, footer, nav, section {
 	/*background-color: #EDEDED;*/
 	height: 820px;
 	width: 910px;
+	border-right: 4px solid #F8F600;
 }
 
 .mgid-map-control-panel {
     position: relative; 
     float: right; 
-    top: -424px; 
+    top: -820px; 
+	height: 820px;
     padding: 20px;
 	background-color: rgba(128,128,128,0.6);
 	text-align: center;
 	box-sizing: border-box;
 }
-    .mgid-map-control-panel > img {
-        display: block;
-    }
+	.mgid-map-control-panel .mgid-map-control-btn {
+		margin-bottom: 10px;
+		color: #333333;
+		font-weight: bold;
+	}
+		.mgid-map-control-panel .mgid-map-control-btn > img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
 
 .mgid-keyboard {
 	width: 885px !important; 

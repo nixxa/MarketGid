@@ -15,12 +15,35 @@
 			<div id="map" class="mgid-map">
 			</div>
             <div class="mgid-map-control-panel">
-                <img class="mgid-map-plus" src="~/Content/images/black_plus.png" alt="plus" />
-                <img class="mgid-map-minus" src="~/Content/images/black_minus.png" alt="minus" />
-                <img class="mgid-map-up" src="~/Content/images/black_arrow_up.png" alt="up" />
-                <img class="mgid-map-down" src="~/Content/images/black_arrow_down.png" alt="midownnus" />
-                <img class="mgid-map-left" src="~/Content/images/black_arrow_left.png" alt="left" />
-                <img class="mgid-map-right" src="~/Content/images/black_arrow_rigth.png" alt="right" />
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-plus" src="~/Content/images/black_plus.png" alt="plus" />
+					Увеличить
+				</div>
+                
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-minus" src="~/Content/images/black_minus.png" alt="minus" />
+					Уменьшить
+				</div>
+                
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-up" src="~/Content/images/black_arrow_up.png" alt="up" />
+					Вверх
+				</div>
+                
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-down" src="~/Content/images/black_arrow_down.png" alt="midownnus" />
+					Вниз
+				</div>
+                
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-left" src="~/Content/images/black_arrow_left.png" alt="left" />
+					Влево
+				</div>
+                
+				<div class="mgid-map-control-btn">
+					<img class="mgid-map-right" src="~/Content/images/black_arrow_rigth.png" alt="right" />
+					Вправо
+				</div>
             </div>
 			<div class="mgid-panel">
 				<h2><img src="~/Content/images/white_arrow_up.png" alt="btn" /> Информация</h2>
@@ -47,7 +70,8 @@
 <script type="text/javascript">
 	var kioskOptions = {
 		x: @ViewBag.Kiosk.X,
-		y: @ViewBag.Kiosk.Y
+		y: @ViewBag.Kiosk.Y,
+		map: '@ViewBag.Kiosk.Map'
 	};
 	
 	function togglePanel() {
