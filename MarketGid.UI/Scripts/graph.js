@@ -6,6 +6,7 @@ var Graph = {
     * Settings
     */
     Settings: {
+		globalScale: 1.2,
         delta: 5,
         vertexRadius: 5,
         color: '#5735FF',
@@ -38,11 +39,14 @@ var Graph = {
     */
     init: function (options) {
         if (options != undefined) {
+			if (options.globalScale != undefined) {
+				Graph.Settings.globalScale = options.globalScale;
+			}
             if (options.x != undefined) {
-                Graph.Settings.start.x = options.x * Map.Settings.globalScale;
+                Graph.Settings.start.x = options.x * Graph.Settings.globalScale;
             }
             if (options.y != undefined) {
-                Graph.Settings.start.y = options.y * Map.Settings.globalScale;
+                Graph.Settings.start.y = options.y * Graph.Settings.globalScale;
             }
         }
 
@@ -51,15 +55,15 @@ var Graph = {
             var edge = EdgesData[i];
             var path = new Kinetic.Path({
                 data: edge.path,
-                scale: Map.Settings.globalScale
+                scale: Graph.Settings.globalScale
             });
             var begin = new Point(
-				path.dataArray[0].points[0] * Map.Settings.globalScale,
-				path.dataArray[0].points[1] * Map.Settings.globalScale
+				path.dataArray[0].points[0] * Graph.Settings.globalScale,
+				path.dataArray[0].points[1] * Graph.Settings.globalScale
 			);
             var end = new Point(
-				path.dataArray[1].points[0] * Map.Settings.globalScale,
-				path.dataArray[1].points[1] * Map.Settings.globalScale
+				path.dataArray[1].points[0] * Graph.Settings.globalScale,
+				path.dataArray[1].points[1] * Graph.Settings.globalScale
 			);
 
             var g = new Edge(begin, end, null, edge.map);
@@ -76,14 +80,26 @@ var Graph = {
 
         Graph.StartVertex = Graph.findVertex(Graph.Settings.start);
 
-		var liftPoint = EdgesData.liftPoint;
-		var junctions = [];
-		for (var i = 0; i < Graph.MapNames.length; i++) {
-			var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
-			if (liftVertex == null) {
-				continue;
+		// соединяем вместе карты маршрутов разных этажей через точки пересечения (лифты, эскалаторы, лестницы)
+		for (var j = 0; j < JunctionData.length; j++) {
+			var liftPoint = new Point(JunctionData[j].x, JunctionData[j].y);
+			var junctions = [];
+			for (var i = 0; i < Graph.MapNames.length; i++) {
+				var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
+				if (liftVertex == null) {
+					continue;
+				}
+				for (var k = 0; k < junctions.length; k++) {
+					junctions[k].incomingEdges = junctions[k].incomingEdges.concat(liftVertex.incomingEdges);
+					junctions[k].outgoingEdges = junctions[k].outgoingEdges.concat(liftVertex.outgoingEdges);
+				}
+				junctions.push(liftVertex);
+				
+				if (junctions.length > 0) {
+					liftVertex.incomingEdges = junctions[0].incomingEdges;
+					liftVertex.outgoingEdges = junctions[0].outgoingEdges;
+				}
 			}
-			junctions.push(liftVertex);
 		}
     },
 
@@ -177,17 +193,21 @@ var Graph = {
     /**
     * Draw path to target shape
     */
-    navigateTo: function (target) {
-        // find target vertex
+    navigateTo: function (target, mapName) {
+        // Ищем вершину, расстояние от которой до всех точек фигуры target будет минимальным
         var targetVertex = null;
         var minimalPath = 10000000;
         for (var i = 0; i < Graph.Vertexes.length; i++) {
+			// пропускаем вершины с других карт
+			if (Graph.Vertexes[i].mapName != mapName) {
+				continue;
+			}
             var point = Graph.Vertexes[i].position;
             var pathLength = 0;
             for (var k = 0; k < target.dataArray.length; k++) {
                 var p = target.dataArray[k].points;
                 if (p.length == 0) continue;
-                pathLength = pathLength + Graph.getDistance(point, { x: p[0] * Map.Settings.globalScale, y: p[1] * Map.Settings.globalScale });
+                pathLength = pathLength + Graph.getDistance(point, { x: p[0] * Graph.Settings.globalScale, y: p[1] * Graph.Settings.globalScale });
             }
             if (pathLength < minimalPath) {
                 minimalPath = pathLength;

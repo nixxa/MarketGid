@@ -64,15 +64,11 @@
 
 <script type="text/javascript" src="~/Scripts/edges.js"></script>
 <script type="text/javascript" src="~/Scripts/paths.js"></script>
+<script type="text/javascript" src="~/Scripts/junctions.js"></script>
 <script type="text/javascript" src="~/Scripts/map.js"></script>
 <script type="text/javascript" src="~/Scripts/graph.js"></script>
 
 <script type="text/javascript">
-	var kioskOptions = {
-		x: @ViewBag.Kiosk.X,
-		y: @ViewBag.Kiosk.Y,
-		map: '@ViewBag.Kiosk.Map'
-	};
 	
 	function togglePanel() {
 		var panel = $('.mgid-panel');
@@ -91,26 +87,33 @@
 			togglePanel();
 		});
 
-		Map.init(kioskOptions);
-		Map.navigateTo('@ViewBag.MapObject.Name');
+		var kioskOptions = {
+			x: @ViewBag.Kiosk.X,
+			y: @ViewBag.Kiosk.Y,
+			mapName: 'map1',
+			backgroundImage: '/content/maps/map.png'
+		};
+
+		var map = new Map(kioskOptions);
+		map.navigateTo('@ViewBag.MapObject.Name');
 
         $('.mgid-map-plus') .click(function () {
-            Map.scaleUp();
+            map.scaleUp();
         });
         $('.mgid-map-minus').click(function () {
-            Map.scaleDown();
+            map.scaleDown();
         });
         $('.mgid-map-up')   .click(function () {
-            Map.moveUp();
+            map.moveUp();
         });
         $('.mgid-map-down') .click(function () {
-            Map.moveDown();
+            map.moveDown();
         });
         $('.mgid-map-left') .click(function () {
-            Map.moveLeft();
+            map.moveLeft();
         });
         $('.mgid-map-right').click(function () {
-            Map.moveRight();
+            map.moveRight();
         });
 	});
 </script>
