@@ -200,6 +200,8 @@
     <Content Include="Scripts\antiscroll.js" />
     <Content Include="Content\antiscroll.css" />
     <None Include="Scripts\junctions.js" />
+    <None Include="Scripts\map-manager.js" />
+    <None Include="Scripts\maps.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

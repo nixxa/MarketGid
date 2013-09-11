@@ -51,13 +51,14 @@ function Map(options) {
     this.route = null;
     this.startObject = null;
     this.navObjectName = null;
-	this.originalOptions = null;
+	//this.originalOptions = null;
 
     /**
     * Init map and draw objects
 	* @private
     */
     this.init = function (options) {
+		var visible = false;
         if (options != undefined) {
             if (options.x != undefined) {
                 this.Settings.x = options.x * this.Settings.globalScale;
@@ -71,21 +72,20 @@ function Map(options) {
 			if (options.backgroundImage != undefined) {
 				this.Settings.backgroundImage = options.backgroundImage;
 			}
+			if (options.visible != undefined) {
+				visible = options.visible;
+			}
 
-			this.originalOptions = options;
+			//this.originalOptions = options;
         }
 
         Graph.init(options);
 
-        // init kinetic stage
-        this.stage = new Kinetic.Stage({
-            container: 'map',
-            width: 910,
-            height: 820
-            //draggable: true
-        });
+        this.setupObjects();
 
-        this.show();
+		if (visible) {
+			this.show();
+		}
 
         //Map.stage._mousemove = function () {};
 		return this;
@@ -100,7 +100,18 @@ function Map(options) {
         this.backgroundLayer.remove();
         this.mapLayer.remove();
         this.navLayer.remove();
-    },
+    };
+	
+	/**
+	 * Устанавливает стартовую точки для навигации
+	 * @public
+	 */
+	this.setStartPosition = function (point) {
+		this.Settings.x = point.x * this.Settings.globalScale;
+		this.Settings.y = point.y * this.Settings.globalScale;
+		
+		this.startObject = this.setupStartObject();
+	};
 
     /**
     * Load objects data and create Kinetic.Path objects
@@ -128,19 +139,23 @@ function Map(options) {
             };
         }
 
-        this.startObject = new Kinetic.Circle({
+		this.startObject = this.setupStartObject();
+    };
+	
+	this.setupStartObject = function () {
+        return new Kinetic.Circle({
             fill: this.Settings.kioskPointBgColor,
             stroke: this.Settings.kioskPointColor,
             strokeWidth: 1,
-            x: this.originalOptions.x * this.Settings.globalScale,
-            y: this.originalOptions.y * this.Settings.globalScale,
+            x: this.Settings.x,
+            y: this.Settings.y,
             radius: this.Settings.kioskPointRadius,
             shadowOffset: 3,
             shadowColor: this.Settings.shadowColor,
             shadowBlur: 6,
             shadowOpacity: 0.5
         });
-    };
+	};
 
 	/**
 	 * Создает тултип
@@ -148,7 +163,7 @@ function Map(options) {
 	 */
     this.setupTooltip = function (options) {
         if (options == undefined) {
-            options = { x: this.originalOptions.x * this.Settings.globalScale, y: this.originalOptions.y * this.Settings.globalScale, pointerDirection: 'down' };
+            options = { x: this.Settings.x, y: this.Settings.y, pointerDirection: 'down' };
         }
         if (options.pointerDirection == undefined) {
             options.pointerDirection = 'down';
@@ -216,25 +231,25 @@ function Map(options) {
             });
             this.mapLayer.add(path);
         }
-
-        this.navLayer.add(this.startObject);
-
-        var tooltip = this.setupTooltip(
-		{ 
-			x: this.originalOptions.x * this.Settings.globalScale, 
-			y: this.originalOptions.y * this.Settings.globalScale, 
-			text: 'Вы здесь' 
-		});
-        this.navLayer.add(tooltip);
     };
 
-    /**
-     * Отображает путь к именованному объекту
+	/**
+	 * Проверяет, есть ли объект на карте
 	 * @public
 	 * @param objectName - имя объекта
-     */
-    this.navigateTo = function (objectName) {
-        var mapObject = null;
+	 */
+	this.contains = function (objectName) {
+        var mapObject = this.findObject(objectName);
+		return mapObject != null;
+	};
+	
+	/**
+	 * Ищет объект по имени
+	 * @public
+	 * @param objectName - имя объекта
+	 */
+	this.findObject = function (objectName) {
+		var mapObject = null;
 
         for (var key in this.Objects) {
             if (this.Objects[key].name == objectName) {
@@ -242,9 +257,20 @@ function Map(options) {
                 break;
             }
         }
+		
+		return mapObject;
+	};
+	
+    /**
+     * Отображает путь к именованному объекту
+	 * @public
+	 * @param objectName - имя объекта
+     */
+    this.navigateTo = function (objectName) {
+        var mapObject = this.findObject(objectName);
 
         if (mapObject != null) {
-            this.showPath({ targetNode: mapObject.path }, mapObject.map);
+            this.showPath({ targetNode: mapObject.path }, this.Settings.mapName);
         }
 
         this.navObjectName = objectName;
@@ -255,7 +281,13 @@ function Map(options) {
 	 * @public
      */
     this.show = function () {
-        this.setupObjects();
+        // init kinetic stage
+        this.stage = new Kinetic.Stage({
+            container: 'map',
+            width: 910,
+            height: 820
+            //draggable: true
+        });
 
         this.backgroundLayer = new Kinetic.Layer({
             scale: this.Settings.globalScale
@@ -276,6 +308,14 @@ function Map(options) {
         this.stage.add(this.mapLayer);
         this.stage.add(this.navLayer);
     };
+	
+	/**
+	 * Скрывает объекты карты
+	 * @public
+	 */
+	this.hide = function () {
+		this.stage.remove();
+	};
 
 	/**
 	 * Отображает путь на карте
@@ -285,18 +325,38 @@ function Map(options) {
 	 */
     this.showPath = function (evt, mapName) {
         var path = evt.targetNode;
-        path.setFill(this.Settings.activeObjectBgColor);
-        path.setStroke(this.Settings.borderColor);
-        path.setStrokeWidth(1);
-        path.setOpacity(this.Settings.activeObjectOpacity);
-        path.setShadowColor(this.Settings.shadowColor);
-        path.setShadowBlur(10);
-        path.setShadowOffset(10);
-        path.setShadowOpacity(0.5);
+		this.showSelectedShape(path);
+
+        // clear navLayer
+        this.stage.remove(Map.navLayer);
+        this.navLayer.remove();
+		this.navLayer = new Kinetic.Layer({
+            scale: this.Settings.globalScale
+        });
+
+        // get path points
+		if (mapName == undefined) {
+			mapName = this.Settings.mapName;
+		}
+		Graph.StartVertex = Graph.findVertex({ x: this.Settings.x, y: this.Settings.y }, mapName);
+        var vertexes = Graph.navigateTo(path, mapName);
+		
+		this.showRoute(vertexes, mapName, path);
+    };
+
+	this.showSelectedShape = function (selectedShape) {
+        selectedShape.setFill(this.Settings.activeObjectBgColor);
+        selectedShape.setStroke(this.Settings.borderColor);
+        selectedShape.setStrokeWidth(1);
+        selectedShape.setOpacity(this.Settings.activeObjectOpacity);
+        selectedShape.setShadowColor(this.Settings.shadowColor);
+        selectedShape.setShadowBlur(10);
+        selectedShape.setShadowOffset(10);
+        selectedShape.setShadowOpacity(0.5);
 
         if (this.selectedObject == null) {
-            this.selectedObject = path;
-        } else if (this.selectedObject != path) {
+            this.selectedObject = selectedShape;
+        } else if (this.selectedObject != selectedShape) {
             this.selectedObject.setFill(this.Settings.inactiveObjectBgColor);
             this.selectedObject.setStrokeWidth(1);
             this.selectedObject.setStroke('transparent');
@@ -304,18 +364,25 @@ function Map(options) {
             this.selectedObject.setShadowOffset(0);
             this.selectedObject.setShadowOpacity(0);
             this.selectedObject.setShadowBlur(0);
-            this.selectedObject = path;
+            this.selectedObject = selectedShape;
         }
-
-        // clear navLayer
-        this.stage.remove(Map.navLayer);
-        this.navLayer.removeChildren();
-
-        // get path points
-		if (mapName == undefined) {
-			mapName = this.Settings.mapName;
-		}
-        var points = Graph.navigateTo(path, mapName);
+		this.selectedObject.getLayer().drawScene();
+	};
+	
+	/**
+	 * Отображает маршрут с тултипами начальной и конечной точек
+	 * @public
+	 */
+	this.showRoute = function (vertexes, mapName, targetShape, tooltips) {
+        // show route
+        var points = [];
+        for (var i = 0; i < vertexes.length; i++) {
+			if (vertexes[i].mapName != mapName) {
+				continue;
+			}
+            points = points.concat([vertexes[i].position.x, vertexes[i].position.y]);
+        }
+        points = Graph.distinct(points);
 
         var x = points[points.length - 2];
         var y = points[points.length - 1];
@@ -348,51 +415,87 @@ function Map(options) {
 
         // setup start point tooltip
         this.navLayer.add(this.startObject);
+		
+		var text = 'Вы здесь';
+		if (tooltips != undefined) {
+			if (tooltips.start != undefined) {
+				text = tooltips.start;
+			}
+		}
 
+		var tooltip = null;
         var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150 / 2, y2: y + 30, d: 'down' };
         if (this.checkCollide(points, rect)) {
-            this.navLayer.add(
+			tooltip =
 				this.setupTooltip({
-					x: this.originalOptions.x * this.Settings.globalScale, 
-					y: this.originalOptions.y * this.Settings.globalScale, 
-					text: 'Вы здесь', 
+					x: this.Settings.x, 
+					y: this.Settings.y, 
+					text: text, 
 					pointerDirection: 'up', 
 					bgColor: 'black'
-				}));
+				});
         } else {
-            this.navLayer.add(
+            tooltip =
 				this.setupTooltip({ 
-					x: this.originalOptions.x * this.Settings.globalScale, 
-					y: this.originalOptions.y * this.Settings.globalScale, 
-					text: 'Вы здесь', 
+					x: this.Settings.x, 
+					y: this.Settings.y, 
+					text: text, 
 					pointerDirection: 'down', 
 					bgColor: 'black' 
-				}));
+				});
         }
-
+		if (tooltips != undefined && tooltips.startAction != undefined) {
+			tooltip.on('mousedown touchstart', function (evt) {
+				tooltips.startAction(evt);
+			});
+		}
+		this.navLayer.add(tooltip);
+		
         // setup endpoint tooltip
         var mapObject = null;
-        var text = 'Искомый объект';
-        for (var key in this.Objects) {
-            if (this.Objects[key].path == path) {
-                mapObject = this.Objects[key];
-                break;
-            }
-        }
+        text = 'Искомый объект';
+		if (tooltips != undefined) {
+			if (tooltips.stop != undefined) {
+				text = tooltips.stop;
+			}
+		}
+		
+		if (targetShape != undefined && targetShape != null)
+		{
+			for (var key in this.Objects) {
+				if (this.Objects[key].path == targetShape) {
+					mapObject = this.Objects[key];
+					break;
+				}
+			}
+		}
         if (mapObject != null) text = mapObject.name;
         rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 30, d: 'down' };
+		
         if (this.checkCollide(points, rect)) {
-            this.navLayer.add(this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' }));
+            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' });
         } else {
-            this.navLayer.add(this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' }));
+            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' });
         }
-
+		this.navLayer.add(tooltip);
+		
+		if (tooltips != undefined && tooltips.stopAction != undefined) {
+			tooltip.on('mousedown touchstart', function (evt) {
+				tooltips.stopAction(evt);
+			});
+		}
+		
         // show navLayer
         this.stage.add(this.navLayer);
 
-        this.mapLayer.drawScene();
-    };
-
+        this.mapLayer.draw();
+		this.navLayer.draw();
+	};
+	
+	/**
+	 * Проверяет наличие коллизий м/у объектом и точкой (находится ли точка внутри объекта)
+	 * @private
+	 */
     this.checkCollide = function (points, object) {
         var collide = false;
         for (var i = 0; i < points.length; ) {
@@ -410,19 +513,14 @@ function Map(options) {
 	* @public
     */
     this.scaleUp = function () {
+		var oldScale = this.Settings.globalScale;
         this.Settings.globalScale = this.Settings.globalScale + 0.1;
-        this.clear();
+		var newScale = this.Settings.globalScale;
 
-		var options = this.originalOptions;
-		options.globalScale = this.Settings.globalScale;
-
-		Graph.clear();
-		Graph.init(options);
-
-        this.show();
-        if (this.navObjectName != null) {
-            this.navigateTo(this.navObjectName);
-        }
+		this.Settings.x = (this.Settings.x / oldScale) * newScale;
+		this.Settings.y = (this.Settings.y / oldScale) * newScale;
+		
+		this.setupObjects();
     };
 
     /**
@@ -430,19 +528,14 @@ function Map(options) {
 	* @public
     */
     this.scaleDown = function () {
+		var oldScale = this.Settings.globalScale;
         this.Settings.globalScale = this.Settings.globalScale - 0.1;
-        this.clear();
+		var newScale = this.Settings.globalScale;
 
-		var options = this.originalOptions;
-		options.globalScale = this.Settings.globalScale;
-
-		Graph.clear();
-		Graph.init(options);
-
-        this.show();
-        if (this.navObjectName != null) {
-            this.navigateTo(this.navObjectName);
-        }
+		this.Settings.x = (this.Settings.x / oldScale) * this.Settings.globalScale;
+		this.Settings.y = (this.Settings.y / oldScale) * this.Settings.globalScale;
+		
+		this.setupObjects();
     };
 
     /**

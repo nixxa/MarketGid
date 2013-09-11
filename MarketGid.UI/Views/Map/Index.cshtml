@@ -65,8 +65,10 @@
 <script type="text/javascript" src="~/Scripts/edges.js"></script>
 <script type="text/javascript" src="~/Scripts/paths.js"></script>
 <script type="text/javascript" src="~/Scripts/junctions.js"></script>
+<script type="text/javascript" src="~/Scripts/maps.js"></script>
 <script type="text/javascript" src="~/Scripts/map.js"></script>
 <script type="text/javascript" src="~/Scripts/graph.js"></script>
+<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
 
 <script type="text/javascript">
 	
@@ -90,30 +92,31 @@
 		var kioskOptions = {
 			x: @ViewBag.Kiosk.X,
 			y: @ViewBag.Kiosk.Y,
-			mapName: 'map1',
-			backgroundImage: '/content/maps/map.png'
+			mapName: 'map'
 		};
 
-		var map = new Map(kioskOptions);
-		map.navigateTo('@ViewBag.MapObject.Name');
-
+		var mapManager = new MapManager({
+			kioskPosition: kioskOptions
+		});
+		mapManager.navigateTo('@ViewBag.MapObject.Name', kioskOptions);
+		
         $('.mgid-map-plus') .click(function () {
-            map.scaleUp();
+            mapManager.scaleUp();
         });
         $('.mgid-map-minus').click(function () {
-            map.scaleDown();
+            mapManager.scaleDown();
         });
         $('.mgid-map-up')   .click(function () {
-            map.moveUp();
+            mapManager.moveUp();
         });
         $('.mgid-map-down') .click(function () {
-            map.moveDown();
+            mapManager.moveDown();
         });
         $('.mgid-map-left') .click(function () {
-            map.moveLeft();
+            mapManager.moveLeft();
         });
         $('.mgid-map-right').click(function () {
-            map.moveRight();
+            mapManager.moveRight();
         });
 	});
 </script>

@@ -43,10 +43,10 @@ var Graph = {
 				Graph.Settings.globalScale = options.globalScale;
 			}
             if (options.x != undefined) {
-                Graph.Settings.start.x = options.x * Graph.Settings.globalScale;
+                Graph.Settings.start.x = options.x;
             }
             if (options.y != undefined) {
-                Graph.Settings.start.y = options.y * Graph.Settings.globalScale;
+                Graph.Settings.start.y = options.y;
             }
         }
 
@@ -78,11 +78,11 @@ var Graph = {
 			}
         }
 
-        Graph.StartVertex = Graph.findVertex(Graph.Settings.start);
+        //Graph.StartVertex = Graph.findVertex(Graph.Settings.start);
 
 		// соединяем вместе карты маршрутов разных этажей через точки пересечения (лифты, эскалаторы, лестницы)
 		for (var j = 0; j < JunctionData.length; j++) {
-			var liftPoint = new Point(JunctionData[j].x, JunctionData[j].y);
+			var liftPoint = new Point(JunctionData[j].x * Graph.Settings.globalScale, JunctionData[j].y * Graph.Settings.globalScale);
 			var junctions = [];
 			for (var i = 0; i < Graph.MapNames.length; i++) {
 				var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
@@ -105,14 +105,19 @@ var Graph = {
 
 	/**
 	 * Очищает массивы верщин и граней
+	 * @public
 	 */
 	clear: function () {
 		Graph.Edges = [];
 		Graph.Vertexes = [];
 	},
 
+	/**
+	 * Создает новую вершину, если ее еще нет и присоединяет к вершине ребра графа
+	 * @private
+	 */
     connectVertex: function (point, edge) {
-        var vertex = Graph.findVertex(point);
+        var vertex = Graph.findVertex(point, edge.mapName);
         if (vertex == null) {
             vertex = Graph.createVertex(point, edge);
             Graph.Vertexes.push(vertex);
@@ -123,6 +128,10 @@ var Graph = {
         return vertex;
     },
 
+	/**
+	 * Ищет вершину на указанной карте. Если карта не задана, ищет по всем картам.
+	 * @private
+	 */
     findVertex: function (point, mapName) {
         for (var i = 0; i < Graph.Vertexes.length; i++) {
             var vertex = Graph.Vertexes[i];
@@ -136,6 +145,10 @@ var Graph = {
         return null;
     },
 
+	/**
+	 * Создает вершину
+	 * @private
+	 */
     createVertex: function (point, edge) {
         var vertex = new Vertex();
         vertex.position = point;
@@ -191,7 +204,9 @@ var Graph = {
     },
 
     /**
-    * Draw path to target shape
+    * Find path to target shape
+	* @public
+	* @return Массив вершин маршрута
     */
     navigateTo: function (target, mapName) {
         // Ищем вершину, расстояние от которой до всех точек фигуры target будет минимальным
@@ -239,14 +254,7 @@ var Graph = {
 		for (var i = 0; i < vertexes.length; i++) {
 			path.push(Graph.findVertexById(vertexes[i]));
 		}
-
-        // show path
-        var points = [];
-        for (var i = 0; i < path.length; i++) {
-            points = points.concat([path[i].position.x, path[i].position.y]);
-        }
-        points = Graph.distinct(points);
-        return points;
+		return path;
     },
 
     /**

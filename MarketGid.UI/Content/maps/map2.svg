@@ -70,13 +70,13 @@
      inkscape:window-height="882"
      id="namedview2987"
      showgrid="true"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="73.707336"
-     inkscape:cy="157.15729"
+     inkscape:zoom="22.627418"
+     inkscape:cx="323.28949"
+     inkscape:cy="286.99617"
      inkscape:window-x="75"
      inkscape:window-y="42"
-     inkscape:window-maximized="0"
-     inkscape:current-layer="layer1"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer12"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-nodes="false"
@@ -169,11 +169,11 @@
   <image
      sodipodi:absref="C:\Projects\MarketGid\Solution\MarketGid.UI\Content\maps\map2.png"
      xlink:href="map2.png"
-     y="0"
-     x="-0.78949904"
-     id="image2993"
+     width="420"
      height="596"
-     width="420" />
+     id="image2993"
+     x="-0.78949904"
+     y="0" />
   <g
      inkscape:groupmode="layer"
      id="layer1"
@@ -475,8 +475,7 @@
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="Маршруты"
-     style="display:inline"
-     sodipodi:insensitive="true">
+     style="display:inline">
     <path
        style="fill:none;stroke:#008000;stroke-width:1.01317132px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 151.94826,181.55473 0,-14.69125"
@@ -674,8 +673,8 @@
        id="path3154"
        inkscape:connector-curvature="0" />
     <path
-       style="color:#000000;fill:none;stroke:#008000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 312.1875,404 -4.125,0"
+       style="color:#000000;fill:none;stroke:#008000;stroke-width:1.07905948px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 312.68119,404.39775 -4.80302,0"
        id="path3156"
        inkscape:connector-curvature="0" />
     <path
@@ -754,8 +753,8 @@
        id="path3291"
        inkscape:connector-curvature="0" />
     <path
-       style="color:#000000;fill:none;stroke:#008000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 254.03125,403.57477 0,18.31921"
+       style="color:#000000;fill:none;stroke:#008000;stroke-width:0.97099042;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 254.03125,404.47415 0,17.27176"
        id="path3293"
        inkscape:connector-curvature="0" />
     <path
