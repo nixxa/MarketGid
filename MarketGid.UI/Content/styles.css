@@ -168,6 +168,7 @@ header, footer, nav, section {
 	height: 96px;
 	box-shadow: 0 10px 10px rgba(0,0,0,0.35);
 	border-top: solid 5px #0B22B7;
+	z-index: 100;
 }
 	.mgid-panel li {
 		line-height: 1.2em !important;
@@ -196,16 +197,19 @@ header, footer, nav, section {
 	width: 910px;
 	border-right: 4px solid #F8F600;
 }
+	.mgid-map > div {
+		top: -820px;
+	}
 
 .mgid-map-control-panel {
     position: relative; 
     float: right; 
-    top: -820px; 
 	height: 820px;
     padding: 20px;
 	background-color: rgba(128,128,128,0.6);
 	text-align: center;
 	box-sizing: border-box;
+	z-index: 99;
 }
 	.mgid-map-control-panel .mgid-map-control-btn {
 		margin-bottom: 10px;
