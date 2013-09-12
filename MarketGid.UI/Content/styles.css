@@ -7,6 +7,11 @@ header, footer, nav, section {
 	display: block;
 }
 
+* {
+	-ms-touch-action: none;
+	-ms-content-zooming: none;
+}
+
 .container {
 	width: 1080px !important;
 	height: 1920px !important;
@@ -196,9 +201,13 @@ header, footer, nav, section {
 	height: 820px;
 	width: 910px;
 	border-right: 4px solid #F8F600;
+	-ms-touch-action: pinch-zoom;
+	-ms-content-zooming: zoom;
 }
 	.mgid-map > div {
 		top: -820px;
+		-ms-touch-action: pinch-zoom;
+		-ms-content-zooming: zoom;
 	}
 
 .mgid-map-control-panel {
