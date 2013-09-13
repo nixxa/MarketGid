@@ -328,12 +328,13 @@ function Map(options) {
 		this.showSelectedShape(path);
 
         // clear navLayer
-        this.stage.remove(Map.navLayer);
         this.navLayer.remove();
-		this.navLayer = new Kinetic.Layer({
-            scale: this.Settings.globalScale
-        });
-
+		this.navLayer.clear();
+		
+		while (this.navLayer.getChildren().length > 0) {
+			this.navLayer.children[0].remove();
+		}
+		
         // get path points
 		if (mapName == undefined) {
 			mapName = this.Settings.mapName;
@@ -488,8 +489,8 @@ function Map(options) {
         // show navLayer
         this.stage.add(this.navLayer);
 
-        this.mapLayer.draw();
-		this.navLayer.draw();
+        //this.mapLayer.batchDraw();
+		//this.navLayer.batchDraw();
 	};
 	
 	/**
