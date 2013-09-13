@@ -86,6 +86,7 @@ header, footer, nav, section {
 		font-weight: bold;
 		color: black;
 		height: 84px;
+		overflow: hidden;
 	}
 		.main-content .main-content-title img {
 			padding: 10px;

@@ -425,7 +425,7 @@ function Map(options) {
 		}
 
 		var tooltip = null;
-        var rect = { x1: x - 150 / 2, y1: y + 10, x2: x + 150 / 2, y2: y + 30, d: 'down' };
+        var rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 60, d: 'down' };
         if (this.checkCollide(points, rect)) {
 			tooltip =
 				this.setupTooltip({
@@ -471,7 +471,7 @@ function Map(options) {
 			}
 		}
         if (mapObject != null) text = mapObject.name;
-        rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 30, d: 'down' };
+        rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 60, d: 'down' };
 		
         if (this.checkCollide(points, rect)) {
             tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' });
@@ -488,9 +488,6 @@ function Map(options) {
 		
         // show navLayer
         this.stage.add(this.navLayer);
-
-        //this.mapLayer.batchDraw();
-		//this.navLayer.batchDraw();
 	};
 	
 	/**
@@ -500,7 +497,11 @@ function Map(options) {
     this.checkCollide = function (points, object) {
         var collide = false;
         for (var i = 0; i < points.length; ) {
-            if (points[i] >= object.x1 && points[i] <= object.x2 && points[i + 1] >= object.y1 && points[i + 1] <= object.y2) {
+			var leftBottom = { x: points[i] - 5, y: points[i+1] - 5 };
+			var leftTop = { x: points[i] - 5, y: points[i+1] + 5 };
+			var rightTop = { x: points[i] + 5, y: points[i+1] + 5 };
+			var rightBottom = { x: points[i] + 5, y: points[i+1] - 5 };
+			if (this.pointInRect(leftTop, object) || this.pointInRect(leftBottom, object) || this.pointInRect(rightTop, object) || this.pointInRect(rightBottom, object)) {
                 collide = true;
                 break;
             }
@@ -508,6 +509,10 @@ function Map(options) {
         }
         return collide;
     };
+	
+	this.pointInRect = function (point, rect) {
+		return point.x >= rect.x1 && point.x <= rect.x2 && point.y >= rect.y1 && point.y <= rect.y2;
+	};
 
     /**
     * Увеличить масштаб
