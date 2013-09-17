@@ -17,6 +17,7 @@ header, footer, nav, section {
 	height: 1920px !important;
 	margin: 0px 0px 0px 0px !important;
 	padding: 0px 0px 0px 0px !important;
+	background-color: #390700;
 	background-image: url('images/background.png');
 }
 
@@ -29,6 +30,7 @@ header, footer, nav, section {
 	height: 90px;
 	background-color: #F8F600;
 	padding: 10px;
+	color: #333333;
 }
 	.logo img {
 		margin: 10px;
@@ -172,7 +174,7 @@ header, footer, nav, section {
 	padding-left: 20px;
 	padding-right: 20px;
 	height: 96px;
-	box-shadow: 0 10px 10px rgba(0,0,0,0.35);
+	box-shadow: 0 5px 5px rgba(0,0,0,0.35);
 	border-top: solid 5px #0B22B7;
 	z-index: 100;
 }
