@@ -1,10 +1,14 @@
 ﻿body {
-	font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;
+	/*font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;*/
 	color: #fff;
 }
 
 header, footer, nav, section {
 	display: block;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
 }
 
 * {
@@ -17,6 +21,7 @@ header, footer, nav, section {
 	height: 1920px !important;
 	margin: 0px 0px 0px 0px !important;
 	padding: 0px 0px 0px 0px !important;
+	background-color: #390700;
 	background-image: url('images/background.png');
 }
 
@@ -25,10 +30,10 @@ header, footer, nav, section {
 */
 .logo {
 	font-size: 58pt;
-	font-weight: bold;
 	height: 90px;
 	background-color: #F8F600;
 	padding: 10px;
+	color: #333333;
 }
 	.logo img {
 		margin: 10px;
@@ -45,7 +50,6 @@ header, footer, nav, section {
 
 .footer {
 	font-size: 38pt;
-	font-weight: bold;
 	height: 220px;
 	padding: 10px;
 	color: #000;
@@ -81,15 +85,28 @@ header, footer, nav, section {
 	padding: 0px 20px 0px 20px;
 }
 	.main-content .main-content-title {
-		font-size: 38pt;
+		font-size: 32pt;
 		background-color: #F8F600;
-		font-weight: bold;
 		color: black;
 		height: 84px;
-		overflow: hidden;
+		/*overflow: hidden;*/
 	}
 		.main-content .main-content-title img {
-			padding: 10px;
+			/*padding: 10px;*/
+			/*vertical-align: baseline;*/
+		}
+		.main-content .main-content-title ul {
+			/*padding: 0px;*/
+			background-color: #F8F600;
+			line-height: 40px;
+		}
+		.main-content .main-content-title ul > li > a {
+			text-decoration: none;
+			text-shadow: none;
+			color: #333333;
+		}
+		.main-content .main-content-title ul > li > ul > li {
+			line-height: 40px;
 		}
 	.main-content .main-container {
 		padding: 0px 0px 0px 0px;
@@ -172,7 +189,7 @@ header, footer, nav, section {
 	padding-left: 20px;
 	padding-right: 20px;
 	height: 96px;
-	box-shadow: 0 10px 10px rgba(0,0,0,0.35);
+	box-shadow: 0 5px 5px rgba(0,0,0,0.35);
 	border-top: solid 5px #0B22B7;
 	z-index: 100;
 }
