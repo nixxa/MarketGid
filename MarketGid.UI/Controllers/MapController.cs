@@ -44,6 +44,17 @@ namespace MarketGid.UI.Controllers
 
 		public ActionResult ItemPartial(int? id)
 		{
+			using (var db = Factory.Create()) 
+			{
+				var topAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (TOP_PLACE_NAME));
+				var bottomAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (BOTTOM_PLACE_NAME));
+				var categories = db.Query<Category> ().Where (c => c.Level == 0);
+
+				ViewBag.TopAdvertisement = topAdvertisement;
+				ViewBag.BottomAdvertisement = bottomAdvertisement;
+				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+				ViewBag.Kiosk = db.Query<Kiosk> ().First ();
+			}
 			return View ("_MapObject");
 		}
 

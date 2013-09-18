@@ -9,18 +9,7 @@
 </div>
 <div class="main-content">
 	<div class="main-content-title">
-		
-		<ul class="breadcrumb">
-			<li><a href="#"><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
-			<li><a href="#">МОСФИЛЬМ</a></li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Студии</a>
-				<ul class="dropdown-menu">
-					<li>Павильоны</li>
-					<li>Охрана</li>
-				</ul>
-			</li>
-		</ul>
+		@Html.Partial("_Title")
 		<!--a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">МОСФИЛЬМ</span-->
 	</div>
 	<div class="main-container">
@@ -43,18 +32,23 @@
 	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
 </div>
 
+<script type="text/javascript" src="~/Scripts/map.js"></script>
+<script type="text/javascript" src="~/Scripts/graph.js"></script>
+<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		Menu.init({
 			mainMenuUri: '@Url.Content("~/main/category/")',
 			subMenuUri: '@Url.Content("~/main/category/")',
-			objectUri: '@Url.Content("~/map/item/")',
+			titleUri: '@Url.Content("~/main/title")',
+			objectUri: '@Url.Content("~/map/itemPartial/")',
 			homeUri: '@Url.Content("~/home")',
 			findUri: '@Url.Content("~/main/find?q=")',
 			thumbnailsContainer: '.thumbnails',
 			thumbnails: '.mgid-thumb',
 			backButton: '#back-link',
-			title: '#title'
+			title: '.main-content-title'
 		});
 	});
 </script>

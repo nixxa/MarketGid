@@ -5,6 +5,8 @@
 	int count = 0;
 }
 
+<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
+<ul class="thumbnails">
 @foreach (Category category in ViewBag.Category.Children) {
 	count += 1;
 	if (count >= MAX_TOTAL) 
@@ -31,3 +33,4 @@
 		</div>
 	</li>
 }
+</ul>

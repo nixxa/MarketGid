@@ -21,6 +21,10 @@ namespace MarketGid.UI.Controllers
 		{
 		}
 
+		/// <summary>
+		/// Главное меню
+		/// </summary>
+		/// <returns></returns>
         public ActionResult Index()
         {
 			using (var db = Factory.Create())
@@ -36,6 +40,11 @@ namespace MarketGid.UI.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Дочерние категории
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 		public ActionResult Category(int? id)
 		{
 			using (var db = Factory.Create())
@@ -56,7 +65,47 @@ namespace MarketGid.UI.Controllers
 			}
 			return PartialView("_Category");
 		}
+		
+		/// <summary>
+		/// Меню страницы
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public ActionResult Title(int? id, int? objectId)
+		{
+			using (var db = Factory.Create())
+			{
+				if (id.HasValue)
+				{
+					Category category = db.Query<Category> ().SingleOrDefault (c => c.Id == id);
+					ViewBag.Category = category;
+				}
+				else
+				{
+					ViewBag.Category = new Category 
+					{ 
+						Children = db.Query<Category> ().Where (c => c.Level == 0).ToList (),
+						Objects = new List<MapObject> (),
+					};
+				}
+				if (objectId.HasValue) {
+					var mapObject = db.Query<MapObject> ().SingleOrDefault (o => o.Id == objectId.Value);
+					if (mapObject != null) 
+					{
+						ViewBag.Category = mapObject.Category;
+						ViewBag.MapObject = mapObject;
+					}
+				}
+					ViewBag.AllCategories = db.Query<Category> ().ToList();
+			}
+			return PartialView("_Title");
+		}
 
+		/// <summary>
+		/// Результаты поиска
+		/// </summary>
+		/// <param name="q"></param>
+		/// <returns></returns>
 		public ActionResult Find(string q)
 		{
 			if (string.IsNullOrWhiteSpace (q))

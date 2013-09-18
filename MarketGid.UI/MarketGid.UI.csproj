@@ -202,6 +202,7 @@
     <None Include="Scripts\junctions.js" />
     <None Include="Scripts\map-manager.js" />
     <None Include="Scripts\maps.js" />
+    <None Include="Views\Main\_Title.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

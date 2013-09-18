@@ -1,0 +1,63 @@
+﻿@using MarketGid.Core.Models
+@{
+	IEnumerable<Category> categories = ViewBag.AllCategories;
+}
+<ul class="breadcrumb">
+	@if (ViewBag.Category == null) {
+		<li><a href="~/"><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+		<li><a href="#">МОСФИЛЬМ</a></li>
+	} else {
+		if (ViewBag.MapObject == null) {
+			<li><a href="#" 
+				   onclick="Menu.showCategory('@(ViewBag.Category.Parent == null ? "" : ViewBag.Category.Parent.Id.ToString())'); return false;"
+				><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+		} else {
+			<li><a href="#" 
+				   onclick="Menu.showCategory('@ViewBag.MapObject.Category.Id'); return false;"
+				><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+		}
+		@:<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown" id="mgid-menu-mosfilm">МОСФИЛЬМ</a> <b class="caret"></b>
+			<ul class="dropdown-menu">
+				@foreach (var category in categories.Where(c => c.Level == 0)) {
+					<li><a href="#"
+					 		onclick="Menu.showCategory('@category.Id'); return false;"
+						>@category.Name</a></li>
+				}
+			</ul>
+		@:</li><li class="dropdown">
+		for (int i = 0; i < ViewBag.Category.Branch.Count - 1; i++) {
+			if (i > 0)
+			{
+				@:<li class="dropdown">
+			}
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">@ViewBag.Category.Branch[i].Name</a> <b class="caret"></b>
+			<ul class="dropdown-menu">
+				@foreach (var category in ViewBag.Category.Branch[i].Children)
+				{
+					<li><a href="#" onclick="Menu.showCategory('@category.Id'); return false;">@category.Name</a></li>
+				}
+			</ul>
+			i = i + 1;
+			@:</li><li class="dropdown">
+		}
+		if (ViewBag.MapObject == null) {
+			<a href="#">@ViewBag.Category.Branch[ViewBag.Category.Branch.Count - 1].Name</a>@:</li>
+		} else {
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">@ViewBag.Category.Branch[ViewBag.Category.Branch.Count - 1].Name</a> <b class="caret"></b>
+			<ul class="dropdown-menu">
+				@foreach (var obj in ViewBag.MapObject.Category.Objects) {
+					<li><a href="#" onclick="Menu.showObject('@obj.Id'); return false;">@obj.Name</a></li>
+				}
+			</ul>
+			@:</li><li><a href="#">@ViewBag.MapObject.Name</a></li>
+		}
+	}
+</ul>
+
+<script type="text/javascript">
+	if ($('.breadcrumb').height() > 64) {
+		$('#mgid-menu-mosfilm').text('...');
+	}
+</script>
+

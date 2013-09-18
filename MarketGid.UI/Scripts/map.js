@@ -301,9 +301,25 @@ function Map(options) {
             scale: this.Settings.globalScale
         });
 
+		// центрируем карту
+		var minLeft = 1000, maxRight = 1;
+		for (var key in this.Objects) {
+			var left = 1000, right = 1;
+			for (var k = 0; k < this.Objects[key].path.dataArray.length; k++) {
+				if (this.Objects[key].path.dataArray.length == 0) continue;
+				if (this.Objects[key].path.dataArray[k].points.length == 0) continue;
+				left = Math.min(left, this.Objects[key].path.dataArray[k].points[0]);
+				right = Math.max(right, this.Objects[key].path.dataArray[k].points[0]);
+			}
+			minLeft = Math.min(minLeft, left);
+			maxRight = Math.max(maxRight, right);
+		}
+		
         this.drawBackground();
         this.drawObjects();
 
+		this.stage.move(910/2 - (maxRight - minLeft), 0);
+		
         this.stage.add(this.backgroundLayer);
         this.stage.add(this.mapLayer);
         this.stage.add(this.navLayer);
