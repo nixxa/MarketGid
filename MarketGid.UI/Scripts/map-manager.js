@@ -140,6 +140,9 @@ function MapManager (options) {
     this.scaleUp = function () {
         var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
 		var oldScale = currentMap.Settings.globalScale;
+		var oldX = currentMap.Settings.x;
+		var oldY = currentMap.Settings.y;
+		
 		for (var i = 0; i < this.maps.length; i++) {
 			this.maps[i].scaleUp();
 		}
@@ -151,6 +154,10 @@ function MapManager (options) {
 		}
 		
 		this.showRoute(this.currentMapName, this.targetName);
+
+		//var deltaX = Math.abs(500 * newScale - 500);
+		//var deltaY = Math.abs(410 * newScale - 410);
+		//currentMap.move(-deltaX, -deltaY);
     };
 
     /**
@@ -160,6 +167,9 @@ function MapManager (options) {
     this.scaleDown = function () {
         var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
 		var oldScale = currentMap.Settings.globalScale;
+		var oldX = currentMap.Settings.x;
+		var oldY = currentMap.Settings.y;
+		
 		for (var i = 0; i < this.maps.length; i++) {
 			this.maps[i].scaleDown();
 		}
@@ -171,6 +181,11 @@ function MapManager (options) {
 		}
 		
 		this.showRoute(this.currentMapName, this.targetName);
+		
+		//var deltaX = Math.abs(500 * oldScale - 500);
+		//var deltaY = Math.abs(410 * oldScale - 410);
+		//currentMap.move(deltaX, deltaY);
+
     };
 
     /**

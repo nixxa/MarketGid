@@ -2,7 +2,7 @@
 /// <reference path="graph.js" />
 /// <reference path="kineticjs-4.6.0.js" />
 
-// width: 910, height: 820
+// width: 1000, height: 820
 
 function Map(options) {
 
@@ -15,6 +15,8 @@ function Map(options) {
         // координаты киоска
         x: 0,
         y: 0,
+		width: 1000,
+		height: 820,
 		mapName: '',
         // фоновое изображение
         backgroundImage: '',
@@ -226,7 +228,7 @@ function Map(options) {
         for (t in this.Objects) {
             var path = this.Objects[t].path;
 			var self = this;
-            path.on('mousedown touchstart', function (evt) {
+            path.on('click tap', function (evt) {
             	self.showPath(evt);
             });
             this.mapLayer.add(path);
@@ -284,9 +286,9 @@ function Map(options) {
         // init kinetic stage
         this.stage = new Kinetic.Stage({
             container: 'map',
-            width: 910,
-            height: 820
-            //draggable: true
+            width: this.Settings.width,
+            height: this.Settings.height,
+            draggable: true
         });
 
         this.backgroundLayer = new Kinetic.Layer({
@@ -318,7 +320,7 @@ function Map(options) {
         this.drawBackground();
         this.drawObjects();
 
-		this.stage.move(910/2 - (maxRight - minLeft), 0);
+		this.stage.move(this.Settings.width/2 - (maxRight - minLeft), 0);
 		
         this.stage.add(this.backgroundLayer);
         this.stage.add(this.mapLayer);
@@ -554,8 +556,8 @@ function Map(options) {
         this.Settings.globalScale = this.Settings.globalScale - 0.1;
 		var newScale = this.Settings.globalScale;
 
-		this.Settings.x = (this.Settings.x / oldScale) * this.Settings.globalScale;
-		this.Settings.y = (this.Settings.y / oldScale) * this.Settings.globalScale;
+		this.Settings.x = (this.Settings.x / oldScale) * newScale;
+		this.Settings.y = (this.Settings.y / oldScale) * newScale;
 		
 		this.setupObjects();
     };
@@ -583,7 +585,7 @@ function Map(options) {
 	* @public
     */
     this.moveLeft = function () {
-        this.stage.move(-100, 0);
+		this.stage.move(-100, 0);
         this.stage.draw();
     };
 
@@ -595,6 +597,16 @@ function Map(options) {
         this.stage.move(100, 0);
         this.stage.draw();
     };
+	
+	/**
+	* Сдвинуть карту на указанные значения
+	*/
+	this.move = function (x,y) {
+		if (x != undefined && y != undefined) {
+			this.stage.move(x,y);
+			this.stage.draw();
+		}
+	};
 
 	return this.init(options);
 }

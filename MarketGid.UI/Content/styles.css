@@ -85,7 +85,7 @@ h1, h2, h3, h4 {
 	padding: 0px 20px 0px 20px;
 }
 	.main-content .main-content-title {
-		font-size: 24pt;
+		font-size: 23pt;
 		background-color: #F8F600;
 		color: black;
 		height: 84px;
@@ -190,7 +190,7 @@ h1, h2, h3, h4 {
 }
 
 .mgid-tile {
-	width: 210px;
+	width: 232px;
 	margin-left: 20px !important;
 	margin-right: 0px;
 	margin-bottom: 20px;
@@ -201,6 +201,10 @@ h1, h2, h3, h4 {
 		height: 140px;
 		background: #4682B4;
 		padding: 10px 20px 10px 20px;
+	}
+	.mgid-tile .mgid-thumb > h4 {
+		line-height: 30px;
+		font-size: 16pt;
 	}
 	.mgid-tile .clicked {
 		background: #2C5372;
@@ -234,6 +238,10 @@ h1, h2, h3, h4 {
 	border-top: solid 5px #0B22B7;
 	z-index: 100;
 }
+	.mgid-panel .mgid-panel-header > small {
+		color: #fff !important;
+		text-decoration: underline !important;
+	}
 	.mgid-panel li {
 		line-height: 1.2em !important;
 	}
@@ -258,7 +266,7 @@ h1, h2, h3, h4 {
 .mgid-map {
 	/*background-color: #EDEDED;*/
 	height: 820px;
-	width: 910px;
+	width: 1000px;
 	border-right: 4px solid #F8F600;
 	-ms-touch-action: pinch-zoom;
 	-ms-content-zooming: zoom;
@@ -291,7 +299,7 @@ h1, h2, h3, h4 {
 		}
 
 .mgid-keyboard {
-	width: 885px !important; 
+	width: 975px !important; 
 	height: auto !important; 
 	font-size: 1.9em !important; 
 	line-height: normal !important; 
