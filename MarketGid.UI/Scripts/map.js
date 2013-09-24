@@ -11,7 +11,7 @@ function Map(options) {
     */
     this.Settings = {
         // масштаб
-        globalScale: 1.2,
+        //globalScale: 1.2,
         // координаты киоска
         x: 0,
         y: 0,
@@ -53,6 +53,7 @@ function Map(options) {
     this.route = null;
     this.startObject = null;
     this.navObjectName = null;
+	this.bounds = { left: 0, top: 0, right: 0, bottom: 0};
 	//this.originalOptions = null;
 
     /**
@@ -109,8 +110,8 @@ function Map(options) {
 	 * @public
 	 */
 	this.setStartPosition = function (point) {
-		this.Settings.x = point.x * this.Settings.globalScale;
-		this.Settings.y = point.y * this.Settings.globalScale;
+		this.Settings.x = point.x;// * this.Settings.globalScale;
+		this.Settings.y = point.y;// * this.Settings.globalScale;
 		
 		this.startObject = this.setupStartObject();
 	};
@@ -126,22 +127,39 @@ function Map(options) {
 				continue;
 			}
             var pathObject = new Kinetic.Path({
-                scale: this.Settings.globalScale,
                 data: PathData[id].path,
                 fill: this.Settings.inactiveObjectBgColor,
                 opacity: this.Settings.inactiveObjectOpacity,
-                //stroke: Map.Settings.borderColor,
-                //strokeWidth: 1,
                 id: id
             });
             this.Objects[id] = {
                 path: pathObject,
                 name: PathData[id].name,
-                color: null
+                color: null,
+				objectId: PathData[id].objectId
             };
         }
 
 		this.startObject = this.setupStartObject();
+		
+		var minLeft = 1000, maxRight = 1, minTop = 1000, maxBottom = 1;
+		for (var key in this.Objects) {
+			var left = 1000, right = 1, top = 1000, bottom = 1;
+			for (var k = 0; k < this.Objects[key].path.dataArray.length; k++) {
+				if (this.Objects[key].path.dataArray.length == 0) continue;
+				if (this.Objects[key].path.dataArray[k].points.length == 0) continue;
+				left = Math.min(left, this.Objects[key].path.dataArray[k].points[0]);
+				right = Math.max(right, this.Objects[key].path.dataArray[k].points[0]);
+				top = Math.min(left, this.Objects[key].path.dataArray[k].points[1]);
+				bottom = Math.max(right, this.Objects[key].path.dataArray[k].points[1]);
+			}
+			minLeft = Math.min(minLeft, left);
+			maxRight = Math.max(maxRight, right);
+			minTop = Math.min(minTop, top);
+			maxBottom = Math.max(maxBottom, bottom);
+		}
+		
+		this.bounds = { left: minLeft, top: minTop, right: maxRight, bottom: maxBottom };
     };
 	
 	this.setupStartObject = function () {
@@ -187,8 +205,8 @@ function Map(options) {
             pointerHeight: 10,
             lineJoin: 'round',
             shadowColor: 'black',
-            shadowBlur: 10,
-            shadowOffset: 10,
+            shadowBlur: 5,
+            shadowOffset: 5,
             shadowOpacity: 0.5
         }));
 
@@ -211,8 +229,7 @@ function Map(options) {
 		var self = this;
         imgObj.onload = function () {
             var img = new Kinetic.Image({
-                image: imgObj,
-                scale: self.Settings.globalScale
+                image: imgObj
             });
             self.backgroundLayer.add(img);
             self.backgroundLayer.draw();
@@ -263,6 +280,23 @@ function Map(options) {
 		return mapObject;
 	};
 	
+	/**
+	* Ищет объект по его координатам
+	* @private
+	*/
+	this.findByPath = function (objectPath) {
+		var mapObject = null;
+		
+		for (var key in this.Objects) {
+            if (this.Objects[key].path == objectPath) {
+                mapObject = this.Objects[key];
+                break;
+            }
+        }
+		
+		return mapObject;
+	};
+	
     /**
      * Отображает путь к именованному объекту
 	 * @public
@@ -284,44 +318,38 @@ function Map(options) {
      */
     this.show = function () {
         // init kinetic stage
-        this.stage = new Kinetic.Stage({
-            container: 'map',
-            width: this.Settings.width,
-            height: this.Settings.height,
-            draggable: true
-        });
-
-        this.backgroundLayer = new Kinetic.Layer({
-            scale: this.Settings.globalScale
-        });
-
-        this.mapLayer = new Kinetic.Layer({
-            scale: this.Settings.globalScale
-        });
-
-        this.navLayer = new Kinetic.Layer({
-            scale: this.Settings.globalScale
-        });
-
-		// центрируем карту
-		var minLeft = 1000, maxRight = 1;
-		for (var key in this.Objects) {
-			var left = 1000, right = 1;
-			for (var k = 0; k < this.Objects[key].path.dataArray.length; k++) {
-				if (this.Objects[key].path.dataArray.length == 0) continue;
-				if (this.Objects[key].path.dataArray[k].points.length == 0) continue;
-				left = Math.min(left, this.Objects[key].path.dataArray[k].points[0]);
-				right = Math.max(right, this.Objects[key].path.dataArray[k].points[0]);
-			}
-			minLeft = Math.min(minLeft, left);
-			maxRight = Math.max(maxRight, right);
+		if (this.stage == null) {
+			this.stage = new Kinetic.Stage({
+				container: 'map',
+				width: this.Settings.width,
+				height: this.Settings.height,
+				draggable: true
+			});
+		} else {
+			this.stage.show();
 		}
-		
+
+		if (this.backgroundLayer == null) {
+			this.backgroundLayer = new Kinetic.Layer();
+		} else {
+			this.clearLayer(this.backgroundLayer);
+		}
+
+		if (this.mapLayer == null) {
+			this.mapLayer = new Kinetic.Layer();
+		} else {
+			this.clearLayer(this.mapLayer);
+		}
+
+		if (this.navLayer == null) {
+			this.navLayer = new Kinetic.Layer();
+		} else {
+			this.clearLayer(this.navLayer);
+		}
+
         this.drawBackground();
         this.drawObjects();
 
-		this.stage.move(this.Settings.width/2 - (maxRight - minLeft), 0);
-		
         this.stage.add(this.backgroundLayer);
         this.stage.add(this.mapLayer);
         this.stage.add(this.navLayer);
@@ -333,8 +361,17 @@ function Map(options) {
 	 */
 	this.hide = function () {
 		this.stage.remove();
+		this.stage = null;
+		//this.stage.hide();
 	};
 
+	this.clearLayer = function (layer) {
+		layer.clear();
+		while (layer.getChildren().length > 0) {
+			layer.children[0].remove();
+		}
+	};
+	
 	/**
 	 * Отображает путь на карте
 	 * @private
@@ -347,11 +384,7 @@ function Map(options) {
 
         // clear navLayer
         this.navLayer.remove();
-		this.navLayer.clear();
-		
-		while (this.navLayer.getChildren().length > 0) {
-			this.navLayer.children[0].remove();
-		}
+		this.clearLayer(this.navLayer);
 		
         // get path points
 		if (mapName == undefined) {
@@ -361,31 +394,43 @@ function Map(options) {
         var vertexes = Graph.navigateTo(path, mapName);
 		
 		this.showRoute(vertexes, mapName, path);
+		
+		var mapObject = this.findByPath(path);
+		if (mapObject != null && this.objectSelected != undefined && this.objectSelected != null) {
+			this.objectSelected.apply(this, [mapObject]);
+		}
     };
 
 	this.showSelectedShape = function (selectedShape) {
-        selectedShape.setFill(this.Settings.activeObjectBgColor);
-        selectedShape.setStroke(this.Settings.borderColor);
-        selectedShape.setStrokeWidth(1);
-        selectedShape.setOpacity(this.Settings.activeObjectOpacity);
-        selectedShape.setShadowColor(this.Settings.shadowColor);
-        selectedShape.setShadowBlur(10);
-        selectedShape.setShadowOffset(10);
-        selectedShape.setShadowOpacity(0.5);
-
-        if (this.selectedObject == null) {
-            this.selectedObject = selectedShape;
-        } else if (this.selectedObject != selectedShape) {
-            this.selectedObject.setFill(this.Settings.inactiveObjectBgColor);
-            this.selectedObject.setStrokeWidth(1);
-            this.selectedObject.setStroke('transparent');
-            this.selectedObject.setOpacity(this.Settings.inactiveObjectOpacity);
-            this.selectedObject.setShadowOffset(0);
-            this.selectedObject.setShadowOpacity(0);
-            this.selectedObject.setShadowBlur(0);
-            this.selectedObject = selectedShape;
-        }
-		this.selectedObject.getLayer().drawScene();
+		var oldSelected = this.selectedObject;
+		var newSelected = selectedShape;
+	
+		// скрываем старый объект
+		if (oldSelected != null) {
+			oldSelected.setFill(this.Settings.inactiveObjectBgColor);
+			oldSelected.setStrokeWidth(1);
+			oldSelected.setStroke('transparent');
+			oldSelected.setOpacity(this.Settings.inactiveObjectOpacity);
+			oldSelected.setShadowOffset(0);
+			oldSelected.setShadowOpacity(0);
+			oldSelected.setShadowBlur(0);
+			oldSelected.getLayer().drawScene();
+		}
+	
+		// показываем новый объект
+		if (newSelected != null) {
+			newSelected.setFill(this.Settings.activeObjectBgColor);
+			newSelected.setStroke(this.Settings.borderColor);
+			newSelected.setStrokeWidth(1);
+			newSelected.setOpacity(this.Settings.activeObjectOpacity);
+			newSelected.setShadowColor(this.Settings.shadowColor);
+			newSelected.setShadowBlur(5);
+			newSelected.setShadowOffset(5);
+			newSelected.setShadowOpacity(0.5);
+			newSelected.getLayer().drawScene();
+		}
+		
+		this.selectedObject = newSelected;
 	};
 	
 	/**
@@ -479,12 +524,20 @@ function Map(options) {
 			}
 		}
 		
-		if (targetShape != undefined && targetShape != null)
+		// select target shape
+		if (targetShape != undefined)
 		{
-			for (var key in this.Objects) {
-				if (this.Objects[key].path == targetShape) {
-					mapObject = this.Objects[key];
-					break;
+			if (targetShape != null) {
+				for (var key in this.Objects) {
+					if (this.Objects[key].path == targetShape) {
+						mapObject = this.Objects[key];
+						break;
+					}
+				}
+			} else {
+				// targetShape is on another map. Clear current selectedObject
+				if (this.selectedObject != null) {
+					this.showSelectedShape(null);
 				}
 			}
 		}

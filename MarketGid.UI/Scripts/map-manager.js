@@ -7,6 +7,10 @@ function MapManager (options) {
 	this.route = [];
 	this.routeMaps = [];
 	this.targetName = '';
+	this.zoomFactor = 0.25;
+	this.scale = 1.0;
+	this.origin = { x: 0, y: 0 };
+	this.objectSelected = null;
 
 	/**
 	 * Инициализирует объект
@@ -26,6 +30,8 @@ function MapManager (options) {
 		var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == mapName; } );
 		currentMap.setStartPosition(this.kioskPosition);
 		
+		this.scale = 1.3;
+		
 		return this;
 	};
 	
@@ -34,15 +40,22 @@ function MapManager (options) {
 	 * @private
 	 */
 	this.setupMaps = function () {
+		var self = this;
 		for (var i = 0; i < MapsData.length; i++) {
 			var mapData = MapsData[i];
-			this.maps.push(
-				new Map({ 
-						mapName: mapData.name, 
-						backgroundImage: mapData.backgroundImage,
-						visible: false
-				})
-			);
+			var map = new Map({ 
+				mapName: mapData.name, 
+				backgroundImage: mapData.backgroundImage,
+				centered: false,
+				scale: 1.0
+			});
+			map.objectSelected = function (obj) {
+				// вызываем обработчик события 'objectSelected'
+				if (self.objectSelected != null) {
+					self.objectSelected.apply(self, [obj]);
+				}
+			}
+			this.maps.push(map);
 		}
 	};
 	
@@ -76,7 +89,7 @@ function MapManager (options) {
 			if (this.routeMaps.indexOf(this.route[i].mapName) >= 0) continue;
 			this.routeMaps.push(this.route[i].mapName);
 		}
-		
+
 		this.showRoute(this.currentMapName, targetName);
 	};
 	
@@ -86,6 +99,9 @@ function MapManager (options) {
 		
 		if (currentMap != null && targetMap != null) {
 			currentMap.hide();
+			currentMap.centered = false;
+			currentMap.scale = 1.0;
+			currentMap.origin = { x: 0, y: 0 };
 			targetMap.show();
 			this.currentMapName = mapName;
 		}
@@ -100,8 +116,8 @@ function MapManager (options) {
 		for (var i = 0; i < this.route.length; i++) {
 			if (startPosition == null && this.route[i].mapName == mapName) {
 				startPosition = {
-					x: this.route[i].position.x / currentMap.Settings.globalScale,
-					y: this.route[i].position.y / currentMap.Settings.globalScale
+					x: this.route[i].position.x,
+					y: this.route[i].position.y
 				};
 				break;
 			}
@@ -120,16 +136,26 @@ function MapManager (options) {
 		if (mapIndex < this.routeMaps.length - 1) {
 			tooltips.stop = 'Эскалатор на этаж №2\nНажмите для продолжения', 
 			tooltips.stopAction = function () {
-				self.selectMap(self.routeMaps[self.routeMaps.indexOf(mapName) + 1]);
-				self.showRoute(self.routeMaps[self.routeMaps.indexOf(mapName) + 1], targetName);
+				var selectedMapName = self.routeMaps[self.routeMaps.indexOf(mapName) + 1];
+				self.selectMap(selectedMapName);
+				self.showRoute(selectedMapName, targetName);
 			};
 		}
 		
 		currentMap.setStartPosition(startPosition);
 		currentMap.show();
 		currentMap.showRoute(this.route, mapName, targetShape, tooltips);
-		if (targetShape != null) {
-			currentMap.showSelectedShape(targetShape);
+		currentMap.showSelectedShape(targetShape);
+		// центрируем карту
+		if ( ! currentMap.centered ) {
+			var size = currentMap.stage.getSize();
+			currentMap.stage.move(size.width/2 - (currentMap.bounds.right/2 + currentMap.bounds.left/2), size.height/2 - (currentMap.bounds.bottom/2 + currentMap.bounds.top/2));
+			currentMap.stage.draw();
+			currentMap.centered = true;
+		}
+		// увеличиваем или уменьшаем карту
+		if ( currentMap.scale != this.scale ) {
+			this.scaleUp(this.scale);
 		}
 	};
 	
@@ -137,55 +163,54 @@ function MapManager (options) {
     * Увеличить масштаб
 	* @public
     */
-    this.scaleUp = function () {
+    this.scaleUp = function (newscale) {
         var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
-		var oldScale = currentMap.Settings.globalScale;
-		var oldX = currentMap.Settings.x;
-		var oldY = currentMap.Settings.y;
 		
-		for (var i = 0; i < this.maps.length; i++) {
-			this.maps[i].scaleUp();
-		}
-		var newScale = currentMap.Settings.globalScale;
+		if (currentMap == null) return;
+		if (currentMap.stage == null) return;
 		
-		for (var i = 0; i < this.route.length; i++) {
-			this.route[i].position.x = this.route[i].position.x / oldScale * newScale;
-			this.route[i].position.y = this.route[i].position.y / oldScale * newScale;
+		var scale = currentMap.stage.getScale();
+		if (newscale == undefined) {
+			newscale = scale.x + this.zoomFactor;
 		}
 		
-		this.showRoute(this.currentMapName, this.targetName);
-
-		//var deltaX = Math.abs(500 * newScale - 500);
-		//var deltaY = Math.abs(410 * newScale - 410);
-		//currentMap.move(-deltaX, -deltaY);
+		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
+		currentMap.origin.x = this.kioskPosition.x / scale.x + currentMap.origin.x - this.kioskPosition.x / newscale;
+		currentMap.origin.y = this.kioskPosition.y / scale.y + currentMap.origin.y - this.kioskPosition.y / newscale;
+		
+		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
+		currentMap.stage.setScale({x: newscale, y: newscale });
+		currentMap.stage.draw();
+		
+		currentMap.scale = newscale;
+		this.scale = newscale;
     };
 
     /**
     * Уменьшить масштаб
 	* @public
     */
-    this.scaleDown = function () {
+    this.scaleDown = function (newscale) {
         var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
-		var oldScale = currentMap.Settings.globalScale;
-		var oldX = currentMap.Settings.x;
-		var oldY = currentMap.Settings.y;
-		
-		for (var i = 0; i < this.maps.length; i++) {
-			this.maps[i].scaleDown();
-		}
-		var newScale = currentMap.Settings.globalScale;
-		
-		for (var i = 0; i < this.route.length; i++) {
-			this.route[i].position.x = this.route[i].position.x / oldScale * newScale;
-			this.route[i].position.y = this.route[i].position.y / oldScale * newScale;
-		}
-		
-		this.showRoute(this.currentMapName, this.targetName);
-		
-		//var deltaX = Math.abs(500 * oldScale - 500);
-		//var deltaY = Math.abs(410 * oldScale - 410);
-		//currentMap.move(deltaX, deltaY);
 
+		if (currentMap == null) return;
+		if (currentMap.stage == null) return;
+		
+		var scale = currentMap.stage.getScale();
+		if (newscale == undefined) {
+			newscale = scale.x - this.zoomFactor;
+		}
+		
+		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
+		currentMap.origin.x = this.kioskPosition.x / scale.x + currentMap.origin.x - this.kioskPosition.x / newscale;
+		currentMap.origin.y = this.kioskPosition.y / scale.y + currentMap.origin.y - this.kioskPosition.y / newscale;
+		
+		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
+		currentMap.stage.setScale({x: newscale, y: newscale });
+		currentMap.stage.draw();
+		
+		currentMap.scale = newscale;
+		this.scale = newscale;
     };
 
     /**

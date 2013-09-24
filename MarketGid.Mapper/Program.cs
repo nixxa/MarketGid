@@ -1,11 +1,14 @@
 ﻿using System;
-using System.Linq;
-using Mono.Options;
 using System.Collections.Generic;
-using System.Xml.Linq;
-using Newtonsoft.Json;
 using System.IO;
+using System.Linq;
 using System.Text;
+using System.Xml.Linq;
+
+using MarketGid.Core.Models;
+using Mono.Options;
+using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace MarketGid.Mapper
 {
@@ -21,18 +24,21 @@ namespace MarketGid.Mapper
 		public static void Main (string[] args)
 		{
 			bool verbose = false;
-			string sourceFilenames = string.Empty;
-			string objectsFilename = string.Empty;
-			string edgesFilename = string.Empty;
-			string mapsFilename = string.Empty;
+			string sourceMapsFilenames = string.Empty;
+			string sourceObjectsFilename = string.Empty;
+			
+			string outObjectsFilename = string.Empty;
+			string outEdgesFilename = string.Empty;
+			string outMapsFilename = string.Empty;
 
 			List<string> extra = null;
 
 			var p = new OptionSet () {
-				{ "s|source=", "source filenames, comma separated. All must be an SVG format", v => sourceFilenames = v },
-				{ "o|objects=", "output objects filename.", v => objectsFilename = v },
-				{ "r|routes=", "output routes edges filename.", v => edgesFilename = v },
-				{ "m|maps=", "output maps filename.", v => mapsFilename = v },
+				{ "sm|sourcemaps=", "source maps filenames, comma separated. All must be an SVG format", v => sourceMapsFilenames = v },
+				{ "so|sourceobjects=", "source objects filename. Must be in JSON format", v => sourceObjectsFilename = v },
+				{ "o|objects=", "output objects filename.", v => outObjectsFilename = v },
+				{ "r|routes=", "output routes edges filename.", v => outEdgesFilename = v },
+				{ "m|maps=", "output maps filename.", v => outMapsFilename = v },
 				{ "v", "verbose output", v => verbose = (v != null) }
 			};
 
@@ -46,7 +52,25 @@ namespace MarketGid.Mapper
 				return;
 			}
 			
-			string[] filenames = sourceFilenames.Split(',');
+			// load objects
+			MapObject[] mapObjects = null;
+			if (!File.Exists(sourceObjectsFilename)) 
+			{
+				sourceObjectsFilename = AppDomain.CurrentDomain.BaseDirectory + @"\" + sourceObjectsFilename;
+				if (!File.Exists(sourceObjectsFilename))
+				{
+					Console.WriteLine("Source objects JSON data not found");
+					return;
+				}
+			}
+			using (var reader = new StreamReader (sourceObjectsFilename))
+			{
+				string data = reader.ReadToEnd ();
+				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				mapObjects = JsonConvert.DeserializeObject<MapObject[]> (data);
+			}
+			
+			string[] filenames = sourceMapsFilenames.Split(',');
 			List<PathData> list = new List<PathData> ();
 			List<PathData> routes = new List<PathData> ();
 			List<MapData> maps = new List<MapData> ();
@@ -100,14 +124,21 @@ namespace MarketGid.Mapper
 					
 					// добавляем в объекты
 					string objectPath = pathElem.Attribute ("d").Value;
-					list.Add (new PathData { name = objectName, path = objectPath, map = mapName });
+					var mapObject = mapObjects.FirstOrDefault(m => string.Equals(m.Name, objectName, StringComparison.InvariantCultureIgnoreCase));
+					list.Add (new PathData 
+					{ 
+						name = objectName, 
+						path = objectPath, 
+						map = mapName, 
+						objectId = (mapObject != null ? mapObject.Id : 0) 
+					});
 				}
 			}
 
 			// создаем файл с объектами
 			string pathData = JsonConvert.SerializeObject (list, Formatting.Indented);
 			pathData = "var PathData = " + pathData + ";";
-			using (StreamWriter writer = new StreamWriter (objectsFilename, false, Encoding.UTF8))
+			using (StreamWriter writer = new StreamWriter (outObjectsFilename, false, Encoding.UTF8))
 			{
 				writer.WriteLine (pathData);
 			}
@@ -115,7 +146,7 @@ namespace MarketGid.Mapper
 			// создаем файл с маршрутами
 			pathData = JsonConvert.SerializeObject (routes, Formatting.Indented);
 			pathData = "var EdgesData = " + pathData + ";";
-			using (StreamWriter writer = new StreamWriter (edgesFilename, false, Encoding.UTF8))
+			using (StreamWriter writer = new StreamWriter (outEdgesFilename, false, Encoding.UTF8))
 			{
 				writer.WriteLine (pathData);
 			}
@@ -123,7 +154,7 @@ namespace MarketGid.Mapper
 			// создаем файл с описанием карт
 			pathData = JsonConvert.SerializeObject (maps, Formatting.Indented);
 			pathData = "var MapsData = " + pathData + ";";
-			using (StreamWriter writer = new StreamWriter (mapsFilename, false, Encoding.UTF8))
+			using (StreamWriter writer = new StreamWriter (outMapsFilename, false, Encoding.UTF8))
 			{
 				writer.WriteLine (pathData);
 			}
@@ -138,6 +169,7 @@ namespace MarketGid.Mapper
 		public string path;
 		public string name;
 		public string map;
+		public long objectId;
 	}
 	
 	class MapData

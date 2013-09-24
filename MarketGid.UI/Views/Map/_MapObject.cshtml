@@ -32,14 +32,7 @@
 <div id="map" class="mgid-map">
 </div>
 <div class="mgid-panel">
-	<h2 class="mgid-panel-header"><img src="~/Content/images/white_arrow_up.png" alt="btn" /> @ViewBag.MapObject.Name <small>подробнее</small></h2>
-	<div id="description">
-		<div style="width: 950px; height: 485px; overflow: hidden;">
-			<div style="padding: 10px; width: 850px; height: 485px; box-sizing: border-box;">
-			@Html.Raw(ViewBag.MapObject.Description)
-			</div>
-		</div>
-	</div>
+	@Html.Partial("_Details")
 </div>
 
 <script type="text/javascript" src="~/Scripts/edges.js"></script>
@@ -60,7 +53,7 @@
 		panel.toggleClass('visible mgid-large-text');
 		if (panel.hasClass('visible')) {
 			panel.find('img:first-child').attr('src', '@Url.Content("~/Content/images/white_arrow_down.png")');
-			panel.find('.mgid-panel-header small').text('кратко');
+			panel.find('.mgid-panel-header small').text('скрыть');
 			//$('.antiscroll-wrap').antiscroll({ autoHide: false });
 			//panel.find('.antiscroll-wrap').css('height', '485px').css('width', '850px');
 		} else {
@@ -78,6 +71,12 @@
 			kioskPosition: kioskOptions
 		});
 		mapManager.navigateTo('@ViewBag.MapObject.Name', kioskOptions);
+		mapManager.objectSelected = function (obj) {
+			if (obj != null && obj.objectId != undefined) {
+				Menu.showObjectTitle(obj.objectId);
+				Menu.showObjectDetails(obj.objectId);
+			}
+		};
 		
         $('.mgid-map-plus') .click(function () {
             mapManager.scaleUp();

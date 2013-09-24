@@ -58,6 +58,15 @@ namespace MarketGid.UI.Controllers
 			return View ("_MapObject");
 		}
 
+		public ActionResult ItemDetails(int? id)
+		{
+			using (var db = Factory.Create()) 
+			{
+				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+			}
+			return View ("_Details");
+		}
+
 		const string TOP_PLACE_NAME = "MapScreenTop";
 		const string BOTTOM_PLACE_NAME = "MapScreenBottom";
     }

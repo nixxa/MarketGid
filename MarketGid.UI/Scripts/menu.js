@@ -7,6 +7,7 @@ var Menu = {
 		mainMenuUri: '',
 		subMenuUri: '',
 		objectUri: '',
+		objectDetailsUri: '',
 		homeUri: '',
 		findUri: '',
 		thumbnailsContainer: '',
@@ -23,6 +24,7 @@ var Menu = {
 			if (options.mainMenuUri != undefined) Menu.Settings.mainMenuUri = options.mainMenuUri;
 			if (options.subMenuUri != undefined) Menu.Settings.subMenuUri = options.subMenuUri;
 			if (options.objectUri != undefined) Menu.Settings.objectUri = options.objectUri;
+			if (options.objectDetailsUri != undefined) Menu.Settings.objectDetailsUri = options.objectDetailsUri;
 			if (options.homeUri != undefined) Menu.Settings.homeUri = options.homeUri;
 			if (options.findUri != undefined) Menu.Settings.findUri = options.findUri;
 			if (options.thumbnailsContainer != undefined) Menu.Settings.thumbnailsContainer = options.thumbnailsContainer;
@@ -58,14 +60,17 @@ var Menu = {
 	showCategory: function (id) {
 		var cont = $('#container');
 		Animation.fadeOut(Menu.Settings.thumbnailsContainer);
-		$.get(Menu.Settings.subMenuUri + id, function (data) {
+		$.post(Menu.Settings.subMenuUri + id, function (data) {
 			cont.html(data);
 			Menu.initThumbs();
 			Menu.initKeyboard();
 			Animation.fadeIn(Menu.Settings.thumbnailsContainer);
 		});
-		$.get(Menu.Settings.titleUri + '?id=' + id, function (data) {
+		$.post(Menu.Settings.titleUri + '?id=' + id, function (data) {
 			Menu.title.html(data);
+			if ($('.breadcrumb').height() > 65) {
+				$('#mgid-menu-mosfilm').text('...');
+			}
 		});
 	},
 	
@@ -73,16 +78,30 @@ var Menu = {
 		var cont = $('#container');
 		if (name == undefined) {
 			Animation.fadeOut(cont);
-			$.get(Menu.Settings.objectUri + id, function (data) {
+			$.post(Menu.Settings.objectUri + id, function (data) {
 				cont.html(data);
 				Animation.fadeIn(cont);
 			});
 		} else {
 			mapManager.navigateTo(name, kioskOptions);
 		}
-		$.get(Menu.Settings.titleUri + '?objectId=' + id, function (data) {
+		Menu.showObjectTitle(id);
+		Menu.showObjectDetails(id);
+	},
+	
+	showObjectTitle: function (objectId) {
+		$.post(Menu.Settings.titleUri + '?objectId=' + objectId, function (data) {
 			Menu.title.html(data);
+			if ($('.breadcrumb').height() > 65) {
+				$('#mgid-menu-mosfilm').text('...');
+			}
 		});
+	},
+	
+	showObjectDetails: function (objectId) {
+		$.post(Menu.Settings.objectDetailsUri + '?id=' + objectId, function (data) {
+			$('.mgid-panel').html(data);
+		});	
 	},
 
 	initKeyboard: function () {

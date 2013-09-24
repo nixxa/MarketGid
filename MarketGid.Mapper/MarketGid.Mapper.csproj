@@ -66,4 +66,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MarketGid.Core\MarketGid.Core.csproj">
+      <Project>{15F763C0-6D6F-4D5F-9F9D-096763ADE792}</Project>
+      <Name>MarketGid.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

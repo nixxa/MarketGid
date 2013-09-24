@@ -6,7 +6,7 @@ var Graph = {
     * Settings
     */
     Settings: {
-		globalScale: 1.2,
+		//globalScale: 1.2,
         delta: 5,
         vertexRadius: 5,
         color: '#5735FF',
@@ -54,16 +54,16 @@ var Graph = {
         for (var i = 0; i < EdgesData.length; i++) {
             var edge = EdgesData[i];
             var path = new Kinetic.Path({
-                data: edge.path,
-                scale: Graph.Settings.globalScale
+                //scale: Graph.Settings.globalScale,
+                data: edge.path
             });
             var begin = new Point(
-				path.dataArray[0].points[0] * Graph.Settings.globalScale,
-				path.dataArray[0].points[1] * Graph.Settings.globalScale
+				path.dataArray[0].points[0], // * Graph.Settings.globalScale,
+				path.dataArray[0].points[1] // * Graph.Settings.globalScale
 			);
             var end = new Point(
-				path.dataArray[1].points[0] * Graph.Settings.globalScale,
-				path.dataArray[1].points[1] * Graph.Settings.globalScale
+				path.dataArray[1].points[0], // * Graph.Settings.globalScale,
+				path.dataArray[1].points[1] // * Graph.Settings.globalScale
 			);
 
             var g = new Edge(begin, end, null, edge.map);
@@ -82,7 +82,10 @@ var Graph = {
 
 		// соединяем вместе карты маршрутов разных этажей через точки пересечения (лифты, эскалаторы, лестницы)
 		for (var j = 0; j < JunctionData.length; j++) {
-			var liftPoint = new Point(JunctionData[j].x * Graph.Settings.globalScale, JunctionData[j].y * Graph.Settings.globalScale);
+			var liftPoint = new Point(
+				JunctionData[j].x, // * Graph.Settings.globalScale, 
+				JunctionData[j].y  // * Graph.Settings.globalScale
+			);
 			var junctions = [];
 			for (var i = 0; i < Graph.MapNames.length; i++) {
 				var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
@@ -222,7 +225,12 @@ var Graph = {
             for (var k = 0; k < target.dataArray.length; k++) {
                 var p = target.dataArray[k].points;
                 if (p.length == 0) continue;
-                pathLength = pathLength + Graph.getDistance(point, { x: p[0] * Graph.Settings.globalScale, y: p[1] * Graph.Settings.globalScale });
+                pathLength = pathLength + Graph.getDistance(
+					point, 
+					{ 
+						x: p[0], // * Graph.Settings.globalScale, 
+						y: p[1]  //* Graph.Settings.globalScale 
+					});
             }
             if (pathLength < minimalPath) {
                 minimalPath = pathLength;
