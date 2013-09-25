@@ -8,9 +8,13 @@
 		<li><a href="#">МОСФИЛЬМ</a></li>
 	} else {
 		if (ViewBag.MapObject == null) {
-			<li><a href="#" 
-				   onclick="Menu.showCategory('@(ViewBag.Category.Parent == null ? "" : ViewBag.Category.Parent.Id.ToString())'); return false;"
-				><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+			if (ViewBag.Category.Id == 0) {
+				<li><a href="~/"><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+			} else {
+				<li><a href="#" 
+					   onclick="Menu.showCategory('@(ViewBag.Category.Parent == null ? "" : ViewBag.Category.Parent.Id.ToString())'); return false;"
+					><img src="~/Content/images/black_arrow_left.png" alt="Back" style="display: inline-block;" /></a></li>
+			}
 		} else {
 			<li><a href="#" 
 				   onclick="Menu.showCategory('@ViewBag.MapObject.Category.Id'); return false;"
@@ -38,7 +42,6 @@
 					<li><a href="#" onclick="Menu.showCategory('@category.Id'); return false;">@category.Name</a></li>
 				}
 			</ul>
-			i = i + 1;
 			@:</li><li class="dropdown">
 		}
 		if (ViewBag.MapObject == null) {

@@ -100,6 +100,35 @@ namespace MarketGid.UI.Controllers
 			}
 			return PartialView("_Title");
 		}
+		
+		/// <summary>
+		/// Карта с маршрутом до объекта
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public ActionResult Object(int? id)
+		{
+			using (var db = Factory.Create()) 
+			{
+				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+				ViewBag.Kiosk = db.Query<Kiosk> ().First ();
+			}
+			return PartialView ("_MapObject");
+		}
+
+		/// <summary>
+		/// Описание объекта
+		/// </summary>
+		/// <param name="id"></param>
+		/// <returns></returns>
+		public ActionResult ObjectDetails(int? id)
+		{
+			using (var db = Factory.Create()) 
+			{
+				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+			}
+			return PartialView ("_Details");
+		}
 
 		/// <summary>
 		/// Результаты поиска

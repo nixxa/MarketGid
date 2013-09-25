@@ -111,7 +111,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +170,6 @@
     <Content Include="Content\ui-darkness\images\ui-icons_cccccc_256x240.png" />
     <Content Include="Content\ui-darkness\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\keyboard.css" />
-    <Content Include="Views\Map\Index.cshtml" />
     <Content Include="Scripts\kineticjs-4.6.0.js" />
     <Content Include="Scripts\kineticjs-4.6.0.min.js" />
     <Content Include="App_Data\ads.config" />
@@ -191,7 +189,6 @@
     <Content Include="Scripts\paths.js" />
     <Content Include="Scripts\edges.js" />
     <Content Include="Scripts\graph.js" />
-    <Content Include="Views\Map\_MapObject.cshtml" />
     <Content Include="Scripts\menu.js" />
     <Content Include="Scripts\animation.js" />
     <Content Include="Scripts\jquery.linq-vsdoc.js" />
@@ -202,14 +199,14 @@
     <None Include="Scripts\junctions.js" />
     <None Include="Scripts\map-manager.js" />
     <None Include="Scripts\maps.js" />
+    <None Include="Views\Main\_Details.cshtml" />
+    <None Include="Views\Main\_MapObject.cshtml" />
     <None Include="Views\Main\_Title.cshtml" />
-    <Content Include="Views\Map\_Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Content\ui-darkness\" />
-    <Folder Include="Views\Map\" />
     <Folder Include="Content\maps\" />
   </ItemGroup>
   <ItemGroup>

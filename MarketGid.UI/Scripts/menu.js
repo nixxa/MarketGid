@@ -1,4 +1,4 @@
-/// <reference path="jquery-2.0.3.vsdoc.js" />
+﻿/// <reference path="jquery-2.0.3.vsdoc.js" />
 /// <reference path="animation.js" />
 
 var Menu = {
@@ -57,6 +57,12 @@ var Menu = {
 		});
 	},
 	
+	catTitle: function () {
+		if ($('.breadcrumb').height() > 65) {
+			$('#mgid-menu-mosfilm').text('...');
+		}
+	},
+	
 	showCategory: function (id) {
 		var cont = $('#container');
 		Animation.fadeOut(Menu.Settings.thumbnailsContainer);
@@ -68,9 +74,7 @@ var Menu = {
 		});
 		$.post(Menu.Settings.titleUri + '?id=' + id, function (data) {
 			Menu.title.html(data);
-			if ($('.breadcrumb').height() > 65) {
-				$('#mgid-menu-mosfilm').text('...');
-			}
+			Menu.catTitle();
 		});
 	},
 	
@@ -92,9 +96,7 @@ var Menu = {
 	showObjectTitle: function (objectId) {
 		$.post(Menu.Settings.titleUri + '?objectId=' + objectId, function (data) {
 			Menu.title.html(data);
-			if ($('.breadcrumb').height() > 65) {
-				$('#mgid-menu-mosfilm').text('...');
-			}
+			Menu.catTitle();
 		});
 	},
 	
@@ -144,11 +146,13 @@ var Menu = {
 		    },
 			accepted : function(e, keyboard, el) {
 				if (el.value == '') return;
-				Animation.fadeOut(Menu.Settings.thumbnailsContainer);
+				var cont = $('#container');
+				Animation.fadeOut(cont);
 				$.get(Menu.Settings.findUri + el.value, function (data) {
-					Menu.thumbnailsContainer.html(data);
+					cont.html(data);
 					Menu.initThumbs();
-					Animation.fadeIn(Menu.Settings.thumbnailsContainer);
+					Menu.initKeyboard();
+					Animation.fadeIn(cont);
 				});
 			}
 		});
