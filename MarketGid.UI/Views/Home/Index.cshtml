@@ -15,6 +15,9 @@
 		Коснитесь экрана, что бы начать работу
 	</span>
 </div>
+
+@section scripts {
+
 <script type="text/javascript">
 	$(document).ready(function () {
 		setTimeout(function () { rotate(); }, @ViewData["duration"]);
@@ -22,17 +25,24 @@
 			$('body').addClass('animated fadeOut');
 			window.location.href = '/Main/Index';
 		});
+		
+		// отсылаем данные в GA
+		if (_gaq) {
+			_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewData["imageName"]']);
+		}
 	});
 
 	function rotate() {
-		$.ajax({
-			type: 'POST',
-			url: '/Home/Rotate',
-			dataType: 'json',
-			success: function (data) {
-				$('#adImage').attr('src', data.imageSource);
-				setTimeout(function () { rotate(); }, data.duration);
+		$.post('/Home/Rotate', function (data) {
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackEvent', 'Images', 'Show', data.name]);
 			}
+		
+			$('#adImage').attr('src', data.imageSource);
+			setTimeout(function () { rotate(); }, data.duration);
 		});
 	}
 </script>
+
+}

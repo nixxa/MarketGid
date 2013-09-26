@@ -67,12 +67,20 @@ var Menu = {
 		var cont = $('#container');
 		Animation.fadeOut(Menu.Settings.thumbnailsContainer);
 		$.post(Menu.Settings.subMenuUri + id, function (data) {
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackPageview', Menu.Settings.subMenuUri + id]);
+			}
 			cont.html(data);
 			Menu.initThumbs();
 			Menu.initKeyboard();
 			Animation.fadeIn(Menu.Settings.thumbnailsContainer);
 		});
 		$.post(Menu.Settings.titleUri + '?id=' + id, function (data) {
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackPageview', Menu.Settings.titleUri + '?id=' + id]);
+			}		
 			Menu.title.html(data);
 			Menu.catTitle();
 		});
@@ -83,6 +91,10 @@ var Menu = {
 		if (name == undefined) {
 			Animation.fadeOut(cont);
 			$.post(Menu.Settings.objectUri + id, function (data) {
+				// отсылаем данные в GA
+				if (_gaq) {
+					_gaq.push(['_trackPageview', Menu.Settings.objectUri + id]);
+				}
 				cont.html(data);
 				Animation.fadeIn(cont);
 			});
@@ -95,6 +107,10 @@ var Menu = {
 	
 	showObjectTitle: function (objectId) {
 		$.post(Menu.Settings.titleUri + '?objectId=' + objectId, function (data) {
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackPageview', Menu.Settings.titleUri + '?objectId=' + objectId]);
+			}
 			Menu.title.html(data);
 			Menu.catTitle();
 		});
@@ -102,6 +118,10 @@ var Menu = {
 	
 	showObjectDetails: function (objectId) {
 		$.post(Menu.Settings.objectDetailsUri + '?id=' + objectId, function (data) {
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackPageview', Menu.Settings.objectDetailsUri + '?id=' + objectId]);
+			}		
 			$('.mgid-panel').html(data);
 		});	
 	},
@@ -149,6 +169,10 @@ var Menu = {
 				var cont = $('#container');
 				Animation.fadeOut(cont);
 				$.get(Menu.Settings.findUri + el.value, function (data) {
+					// отсылаем данные в GA
+					if (_gaq) {
+						_gaq.push(['_trackPageview', Menu.Settings.findUri + el.value]);
+					}
 					cont.html(data);
 					Menu.initThumbs();
 					Menu.initKeyboard();

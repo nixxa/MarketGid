@@ -15,6 +15,7 @@
 	<div class="container">
 		@RenderBody()
 	</div>
+	
 	<script type="text/javascript">
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-44339793-1']);
@@ -26,5 +27,7 @@
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
 	</script>
+	
+	@RenderSection("scripts", false)
 </body>
 </html>

@@ -30,6 +30,7 @@ namespace MarketGid.UI.Controllers
 			{
 				var advertisement = db.Query<Advertisement> ().First (item => item.Places.Contains (PLACE_NAME));
 				ViewData["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
+				ViewData["imageName"] = advertisement.Name;
 				ViewData ["duration"] = advertisement.Duration.TotalMilliseconds;
 			}
 
@@ -51,6 +52,7 @@ namespace MarketGid.UI.Controllers
 				var advertisement = collection.Skip (_currentIndex > 0 ? _currentIndex - 1 : 0).First ();
 				return Json(new { 
 					imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
+					name = advertisement.Name,
 					duration = advertisement.Duration.TotalMilliseconds 
 				});
 			}
