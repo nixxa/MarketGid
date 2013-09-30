@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Xml.Serialization;
 using System.Xml;
 using System.ComponentModel;
@@ -15,6 +15,10 @@ namespace MarketGid.Core.Models
 		/// Идентификатор
 		/// </summary>
 		public int Id;
+		/// <summary>
+		/// Наименование объявления (показывается в статистике)
+		/// </summary>
+		public string Name;
 		/// <summary>
 		/// Путь к данным (картинка, видео, текст и т.д.)
 		/// </summary>
