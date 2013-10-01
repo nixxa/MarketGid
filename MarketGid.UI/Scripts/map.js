@@ -126,18 +126,69 @@ function Map(options) {
 			if (PathData[id].map != this.Settings.mapName) {
 				continue;
 			}
-            var pathObject = new Kinetic.Path({
-                data: PathData[id].path,
-                fill: this.Settings.inactiveObjectBgColor,
-                opacity: this.Settings.inactiveObjectOpacity,
-                id: id
-            });
-            this.Objects[id] = {
-                path: pathObject,
-                name: PathData[id].name,
-                color: null,
-				objectId: PathData[id].objectId
-            };
+			// если объект - фигура, добавляем
+			if (PathData[id].path != undefined && PathData[id].path != null) {
+				var pathObject = new Kinetic.Path({
+					data: PathData[id].path,
+					fill: PathData[id].bgColor,
+					opacity: PathData[id].opacity,
+					stroke: PathData[id].borderColor,
+					strokeWidth: PathData[id].borderWidth,
+					lineJoin: PathData[id].borderJoin,
+					id: id
+				});
+				this.Objects[id] = {
+					path: pathObject,
+					name: PathData[id].name,
+					bgColor: PathData[id].bgColor,
+					objectId: PathData[id].objectId
+				};
+			}
+			// если объект - текст, добавляем
+			if (PathData[id].text != undefined && PathData[id].text != null) {
+				var scaleX = scaleY = 1.0;
+				var angle = null;
+				
+				if (PathData[id].matrix != undefined && PathData[id].matrix != null) {
+					var tf = new Kinetic.Transform();
+					tf.m = PathData[id].matrix.split(',');
+					
+					var translation = tf.getTranslation();
+					var m = tf.getMatrix(); // or tf.m
+					scaleX = Math.sqrt(m[0]*m[0] + m[1]*m[1]);
+					scaleY = Math.sqrt(m[2]*m[2] + m[3]*m[3]);
+					
+					if (m[0]*m[3] - m[1]*m[2] < 0) {
+						scaleY = -scaleY;
+					}
+					if (m[0] < 0) {
+						scaleX = -scaleX;
+						scaleY = -scaleY;
+					}
+					var angle = Math.acos(m[3] / scaleY);
+					if (m[2]/scaleY > 0) {
+						angle = -angle;
+					}					
+				}
+				
+				var textObject = new Kinetic.Text({
+					x: PathData[id].x + translation.x,
+					y: PathData[id].y + translation.y - PathData[id].fontSize,
+					fontSize: PathData[id].fontSize,
+					fontFamily: PathData[id].fontFamily,
+					fontWeight: PathData[id].fontWeight,
+					fill: PathData[id].color,
+					opacity: PathData[id].opacity,
+					text: PathData[id].text,
+					scaleX: scaleX,
+					scaleY: scaleY
+				});
+				textObject.rotate(angle);
+				this.Objects[id] = {
+					text: textObject,
+					objectId: PathData[id].objectId
+				};
+			}
         }
 
 		this.startObject = this.setupStartObject();
@@ -145,6 +196,9 @@ function Map(options) {
 		var minLeft = 1000, maxRight = 1, minTop = 1000, maxBottom = 1;
 		for (var key in this.Objects) {
 			var left = 1000, right = 1, top = 1000, bottom = 1;
+			if (this.Objects[key].path == undefined || this.Objects[key].path == null) {
+				continue;
+			}
 			for (var k = 0; k < this.Objects[key].path.dataArray.length; k++) {
 				if (this.Objects[key].path.dataArray.length == 0) continue;
 				if (this.Objects[key].path.dataArray[k].points.length == 0) continue;
@@ -244,11 +298,17 @@ function Map(options) {
     this.drawObjects = function () {
         for (t in this.Objects) {
             var path = this.Objects[t].path;
-			var self = this;
-            path.on('click tap', function (evt) {
-            	self.showPath(evt);
-            });
-            this.mapLayer.add(path);
+			if (path != undefined) {
+				var self = this;
+				path.on('click tap', function (evt) {
+					self.showPath(evt);
+				});
+				this.mapLayer.add(path);
+			}
+			var text = this.Objects[t].text;
+			if (text != undefined) {
+				this.mapLayer.add(text);
+			}
         }
     };
 

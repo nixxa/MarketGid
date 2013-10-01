@@ -38,17 +38,17 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1366"
-     inkscape:window-height="706"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
      id="namedview2987"
      showgrid="true"
-     inkscape:zoom="0.25"
-     inkscape:cx="1047.7351"
-     inkscape:cy="1492.866"
+     inkscape:zoom="0.50000001"
+     inkscape:cx="1310.2368"
+     inkscape:cy="594.16106"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer331"
+     inkscape:current-layer="layer2"
      inkscape:snap-grids="false"
      inkscape:snap-to-guides="true"
      showguides="true"
@@ -1906,8 +1906,20 @@
      id="layer1"
      inkscape:label="Стены"
      style="display:inline"
-     sodipodi:insensitive="true"
-     transform="translate(210,91.5)">
+     transform="translate(210,91.5)"
+     sodipodi:insensitive="true">
+    <path
+       style="fill:#b091dc;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline"
+       d="m 239.12195,169.71025 0.70711,-258.093968 2059.58364,-2.06112 0,259.999998 z"
+       id="path4237"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
+    <path
+       style="color:#000000;fill:#cca7ff;fill-opacity:0.6627451;stroke:#cca7ff;stroke-width:0.48447958px;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.6627451;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 610.5,3151.5104 1984.2396,-639.9538 -3e-4,302.6417 L 610.5,3480.9436 z"
+       id="path6028"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        style="fill:none;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="m 200.39733,3076.5689 c 0.10159,-13.5122 0.10159,-13.5122 0.10159,-13.5122 l -21.13188,0 0,-105.6087 -12.29307,0 0,0"
@@ -2271,26 +2283,8 @@
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccc" />
     <path
-       style="fill:#cca7ff;fill-opacity:0.66331655;stroke:none"
-       d="m 40,3149 480,0 2080,-652 219.8959,0 0.4645,242.8284 L 508,3481 37,3481 z"
-       id="path4223"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccccc" />
-    <text
-       xml:space="preserve"
-       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0.69346732;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="120.50829"
-       y="3362.2712"
-       id="text4225"
-       sodipodi:linespacing="125%"
-       transform="matrix(0.94784689,-0.318726,0.318726,0.94784689,0,0)"><tspan
-         sodipodi:role="line"
-         id="tspan4227"
-         x="120.50829"
-         y="3362.2712">ул. Барклая</tspan></text>
-    <path
        style="fill:#cca7ff;fill-opacity:0.6627451;stroke:none"
-       d="m 2598.0104,2496.9424 -0.018,-2305.73538 222.126,-1.19232 0.5303,2307.643 z"
+       d="m 2594.4749,2814.1983 3.5175,-2622.86597 222.126,-1.31763 0.5303,2550.1806 z"
        id="path4229"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
@@ -2312,12 +2306,6 @@
          id="tspan4235"
          x="-2376.4802"
          y="-57.372581">ул. Багратионовский проезд</tspan></text>
-    <path
-       style="fill:#b091dc;fill-opacity:1;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="M 239.7092,169.15509 240.41631,-88.938881 2300,-91 l 0,260 z"
-       id="path4237"
-       inkscape:connector-curvature="0"
-       sodipodi:nodetypes="ccccc" />
     <text
        xml:space="preserve"
        style="font-size:144px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
@@ -2349,7 +2337,7 @@
          y="3021.9224">ПАРКИНГ 1</tspan></text>
     <path
        style="fill:#cca7ff;fill-opacity:0.6627451;stroke:none"
-       d="M 2820.25,2739.625 3100,2653 l 0,-299 -280,83 z"
+       d="m 2820.2629,2739.7235 281.3281,-87.1875 0,-299 -280.9502,83.2651 z"
        id="path4278"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
@@ -3798,33 +3786,58 @@
        d="m 319.82586,525.84982 0,-73.62516"
        id="path5961-2"
        inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#cca7ff;fill-opacity:0.6627451;stroke:#cca7ff;stroke-width:0.40000001;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:0.6627451;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 249.34352,3572.5 0.21491,-329.926 570.94157,0.3285 0,329.4398 z"
+       id="path6026"
+       inkscape:connector-curvature="0"
+       transform="translate(-210,-91.5)"
+       sodipodi:nodetypes="ccccc" />
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
+     inkscape:label="Надписи"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <text
+       xml:space="preserve"
+       style="font-size:144px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="55.70179"
+       y="3550.4399"
+       id="text6105"
+       sodipodi:linespacing="125%"
+       transform="matrix(0.93364013,-0.35821239,0.35821239,0.93364013,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan6107"
+         x="55.70179"
+         y="3550.4399">ул. Барклая</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="g748"
      inkscape:label="A1-001"
      style="display:inline"
-     sodipodi:insensitive="true"
-     transform="translate(210,91.5)">
+     sodipodi:insensitive="true">
     <path
-       style="fill:#567abc;fill-opacity:1;stroke:#567abc;stroke-width:9.25832558;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 193.16327,3045.1418 -0.19767,-58.9067 263.86825,0 21.5443,17.7258 0,44.2248 -285.41255,0.358 z"
+       style="fill:#567abc;fill-opacity:1;stroke:#567abc;stroke-width:9.25800037;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 404.16327,3136.6418 -0.19767,-58.9067 263.86825,0 21.5443,17.7258 0,44.2248 -285.41255,0.358 z"
        id="path4033"
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-size:22px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="195.46994"
-       y="3003.166"
+       x="405.46994"
+       y="3094.666"
        id="text4054"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4056"
-         x="195.46994"
-         y="3003.166">A1-001</tspan><tspan
+         x="405.46994"
+         y="3094.666">A1-001</tspan><tspan
          sodipodi:role="line"
-         x="195.46994"
-         y="3025.166"
+         x="405.46994"
+         y="3116.666"
          id="tspan4058">БЫТОВАЯ ТЕХНИКА</tspan></text>
   </g>
   <g
@@ -4785,7 +4798,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer42"
-     inkscape:label="002A"
+     inkscape:label="A1-002A"
      sodipodi:insensitive="true"
      transform="translate(210,91.5)">
     <path
@@ -4835,7 +4848,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer44"
-     inkscape:label="001A"
+     inkscape:label="B1-001A"
      sodipodi:insensitive="true"
      transform="translate(210,91.5)">
     <path
@@ -4860,7 +4873,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer45"
-     inkscape:label="001B"
+     inkscape:label="B1-001B"
      sodipodi:insensitive="true"
      transform="translate(210,91.5)">
     <path
@@ -4885,7 +4898,7 @@
   <g
      inkscape:groupmode="layer"
      id="layer46"
-     inkscape:label="003A"
+     inkscape:label="B1-003A"
      sodipodi:insensitive="true"
      transform="translate(210,91.5)">
     <path
@@ -4918,19 +4931,19 @@
        d="m 213.92347,2077.1734 36.43224,0.2328 0.22082,67.7185 -36.65306,24.2019 z"
        id="path4378"
        inkscape:connector-curvature="0" />
-  </g>
-  <text
-     xml:space="preserve"
-     style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-     x="-2227.3857"
-     y="440.27246"
-     id="text4380"
-     sodipodi:linespacing="125%"
-     transform="matrix(0,-1,1,0,0,0)"><tspan
-       sodipodi:role="line"
-       id="tspan4382"
+    <text
+       xml:space="preserve"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
        x="-2227.3857"
-       y="440.27246">B1-031</tspan></text>
+       y="440.27246"
+       id="text4380"
+       sodipodi:linespacing="125%"
+       transform="matrix(0,-1,1,0,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan4382"
+         x="-2227.3857"
+         y="440.27246">B1-031</tspan></text>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer48"
