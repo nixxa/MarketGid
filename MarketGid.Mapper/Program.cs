@@ -226,7 +226,28 @@ namespace MarketGid.Mapper
 				
 				pathD = pathD.Substring(0, start) + newX.ToString().Replace(',','.') + "," + newY.ToString().Replace(',','.') + " " + pathD.Substring(end + 1);
 			}
-			
+			else 
+			{
+				start = pathD.StartsWith("M") ? 2 : 0; // absolute coords
+				string[] groups = pathD.Split(' ');
+				pathD = "";
+				for (int i = 0; i < groups.Length; i++)
+				{
+					string[] coords = groups[i].Split(',');
+					if (coords.Length == 2)
+					{
+						decimal x = Convert.ToDecimal(coords[0], CultureInfo.InvariantCulture) + shiftX;
+						decimal y = Convert.ToDecimal(coords[1], CultureInfo.InvariantCulture) + shiftY;
+						pathD = pathD + x.ToString().Replace(',','.') + "," + y.ToString().Replace(',','.') + " ";
+					}
+					else
+					{
+						pathD = pathD + groups[i] + " ";
+					}
+				}
+				pathD = pathD.Substring(0, pathD.Length - 1);
+				return pathD;
+			}
 			start = pathD.IndexOf("L "); // absolute lineto
 			if (start > 0)
 			{

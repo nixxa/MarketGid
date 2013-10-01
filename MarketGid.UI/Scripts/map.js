@@ -148,13 +148,15 @@ function Map(options) {
 			if (PathData[id].text != undefined && PathData[id].text != null) {
 				var scaleX = scaleY = 1.0;
 				var angle = null;
+				var newx = PathData[id].x;
+				var newy = PathData[id].y - PathData[id].fontSize * 0.8;
 				
 				if (PathData[id].matrix != undefined && PathData[id].matrix != null) {
-					var tf = new Kinetic.Transform();
-					tf.m = PathData[id].matrix.split(',');
+					var m = PathData[id].matrix.split(','); 
 					
-					var translation = tf.getTranslation();
-					var m = tf.getMatrix(); // or tf.m
+					newx = PathData[id].x * m[0] + Math.abs((PathData[id].y - PathData[id].fontSize * 0.8) * m[1]) + m[4];
+					newy = Math.abs(PathData[id].x * m[2]) + (PathData[id].y - PathData[id].fontSize * 0.8) * m[3] + m[5] ;
+					
 					scaleX = Math.sqrt(m[0]*m[0] + m[1]*m[1]);
 					scaleY = Math.sqrt(m[2]*m[2] + m[3]*m[3]);
 					
@@ -172,8 +174,8 @@ function Map(options) {
 				}
 				
 				var textObject = new Kinetic.Text({
-					x: PathData[id].x + translation.x,
-					y: PathData[id].y + translation.y - PathData[id].fontSize,
+					x: newx,
+					y: newy,
 					fontSize: PathData[id].fontSize,
 					fontFamily: PathData[id].fontFamily,
 					fontWeight: PathData[id].fontWeight,
