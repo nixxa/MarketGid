@@ -79,6 +79,15 @@ namespace MarketGid.Mapper
 					}
 				}
 			}
+			else
+			{
+				using (var reader = new StreamReader (sourceObjectsFilename))
+				{
+					string data = reader.ReadToEnd ();
+					data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
+					mapObjects = JsonConvert.DeserializeObject<MapObject[]> (data);
+				}				
+			}
 			
 			string[] filenames = sourceMapsFilenames.Split(',');
 			List<PathData> list = new List<PathData> ();
@@ -116,16 +125,10 @@ namespace MarketGid.Mapper
 					if (labelAttr == null) continue;
 					
 					var transformAttr = layer.Attribute("transform");
-					decimal shiftX = 0;
-					decimal shiftY = 0;
-					string attrArgs = string.Empty;
+					MatrixTransform transform = null;
 					if (transformAttr != null && fixTranslate)
 					{
-						if (transformAttr.Value.Contains("translate"))
-						{
-							shiftX = ParseTransform(transformAttr).X;
-							shiftY = ParseTransform(transformAttr).Y;
-						}
+						transform = MatrixTransform.Parse (transformAttr.Value);
 					}
 					
 					string objectName = labelAttr.Value;
@@ -138,22 +141,20 @@ namespace MarketGid.Mapper
 						foreach (var path in layer.Elements("{" + xdoc.Root.Name.NamespaceName + "}path"))
 						{
 							string pathD = path.Attribute ("d").Value;
-							if (fixTranslate && (shiftX > 0 || shiftY > 0))
-							{
-								pathD = TranslatePath(pathD, shiftX, shiftY);
-							}
-							routes.Add(new PathData { path = pathD, map = mapName });
+							PathData route = new PathData { path = pathD, map = mapName };
+							if (transform != null)
+								route.matrix = transform.ToString ();
+							routes.Add(route);
 						}
 						continue;
 					}
-					
 					
 					// добавляем в объекты
 					MapObject mapObject = (mapObjects != null)
 						? mapObjects.FirstOrDefault(m => string.Equals(m.Name, objectName, StringComparison.InvariantCultureIgnoreCase))
 						: null;
 
-					List<PathData> paths = CreatePaths(layer, shiftX, shiftY);
+					List<PathData> paths = CreatePaths(layer, transform);
 					paths.ForEach(data => {
 	                 	data.name = objectName;
 	                 	data.map = mapName;
@@ -161,7 +162,7 @@ namespace MarketGid.Mapper
 	                 });
 					list.AddRange(paths);
 					
-					List<PathData> texts = CreateTexts(layer, shiftX, shiftY);
+					List<PathData> texts = CreateTexts(layer, transform);
 					texts.ForEach(data => {
 					    data.name = objectName;
 					    data.map = mapName;
@@ -199,86 +200,24 @@ namespace MarketGid.Mapper
 			}
 		}
 		
-		static dynamic ParseTransform(XAttribute attr)
-		{
-			if (!attr.Value.StartsWith("translate")) return new { X = 0, Y = 0 };
-			int start = attr.Value.IndexOf("(");
-			int end = attr.Value.IndexOf(")");
-			int length = end - start;
-			string attrArgs = attr.Value.Substring(attr.Value.IndexOf("(") + 1, length - 1);
-			
-			return new {
-				X = Convert.ToDecimal(attrArgs.Split(',')[0].Trim(), CultureInfo.InvariantCulture),
-				Y = Convert.ToDecimal(attrArgs.Split(',')[1].Trim(), CultureInfo.InvariantCulture)
-			};
-		}
-		
-		static string TranslatePath(string pathD, decimal shiftX, decimal shiftY)
-		{
-			int start = pathD.StartsWith("m") ? 2 : 0; // relative moveto
-			if (start > 0)
-			{
-				int end = pathD.IndexOf(" ", start);
-				int length = end - start;
-				string attrArgs = pathD.Substring(start, length);
-				decimal newX = Convert.ToDecimal(attrArgs.Split(',')[0].Trim(), CultureInfo.InvariantCulture) + shiftX;
-				decimal newY = Convert.ToDecimal(attrArgs.Split(',')[1].Trim(), CultureInfo.InvariantCulture) + shiftY;
-				
-				pathD = pathD.Substring(0, start) + newX.ToString().Replace(',','.') + "," + newY.ToString().Replace(',','.') + " " + pathD.Substring(end + 1);
-			}
-			else 
-			{
-				start = pathD.StartsWith("M") ? 2 : 0; // absolute coords
-				string[] groups = pathD.Split(' ');
-				pathD = "";
-				for (int i = 0; i < groups.Length; i++)
-				{
-					string[] coords = groups[i].Split(',');
-					if (coords.Length == 2)
-					{
-						decimal x = Convert.ToDecimal(coords[0], CultureInfo.InvariantCulture) + shiftX;
-						decimal y = Convert.ToDecimal(coords[1], CultureInfo.InvariantCulture) + shiftY;
-						pathD = pathD + x.ToString().Replace(',','.') + "," + y.ToString().Replace(',','.') + " ";
-					}
-					else
-					{
-						pathD = pathD + groups[i] + " ";
-					}
-				}
-				pathD = pathD.Substring(0, pathD.Length - 1);
-				return pathD;
-			}
-			start = pathD.IndexOf("L "); // absolute lineto
-			if (start > 0)
-			{
-				int end = pathD.IndexOf(" ", start+2);
-				int length = end - start - 2;
-				string args = pathD.Substring(start + 2, length);
-				decimal newX = Convert.ToDecimal(args.Split(',')[0].Trim(), CultureInfo.InvariantCulture) + shiftX;
-				decimal newY = Convert.ToDecimal(args.Split(',')[1].Trim(), CultureInfo.InvariantCulture) + shiftY;
-				
-				pathD = pathD.Substring(0, start) + "L " + newX.ToString().Replace(',','.') + "," + newY.ToString().Replace(',','.') + " " + pathD.Substring(end + 1);
-			}
-			
-			return pathD;
-		}
-		
-		static PathData CreatePathData(XElement pathElem, decimal shiftX, decimal shiftY)
+		static PathData CreatePathData(XElement pathElem, MatrixTransform parentTransform)
 		{
 			if (pathElem == null) return null;
 
 			string objectPath = pathElem.Attribute ("d").Value;
 			var transformAttr = pathElem.Attribute ("transform");
+			MatrixTransform transform = null;
 			if (transformAttr != null)
 			{
-				shiftX += ParseTransform(transformAttr).X;
-				shiftY += ParseTransform(transformAttr).Y;
+				transform = MatrixTransform.Parse (transformAttr.Value);
+				if (parentTransform != null)
+					transform = parentTransform.Multiply (transform);
 			}
-			if (shiftX > 0 || shiftY > 0)
+			else 
 			{
-				objectPath = TranslatePath(objectPath, shiftX, shiftY);
+				transform = parentTransform;
 			}
-			
+
 			PathData pathData = new PathData { path = objectPath };
 			var attr = pathElem.Attribute ("style");
 			if (attr != null && !string.IsNullOrWhiteSpace(attr.Value))
@@ -296,11 +235,16 @@ namespace MarketGid.Mapper
 					if (rawStyle.StartsWith("stroke-linejoin:")) pathData.borderJoin = val;
 				}
 			}
+			if (transform != null)
+			{
+				//pathData.matrix = transform.ToString ();
+				transform.Apply(pathData);
+			}
 			
 			return pathData;
 		}
 		
-		static List<PathData> CreatePaths(XElement layer, decimal shiftX, decimal shiftY)
+		static List<PathData> CreatePaths(XElement layer, MatrixTransform transform)
 		{
 			var pathElems = layer.Elements ("{" + layer.Name.NamespaceName + "}path");
 			if (pathElems == null || !pathElems.Any()) return new List<PathData> ();
@@ -308,13 +252,13 @@ namespace MarketGid.Mapper
 			List<PathData> list = new List<PathData> ();
 			foreach (var pathElem in pathElems)
 			{
-				PathData pathData = CreatePathData(pathElem, shiftX, shiftY);
+				PathData pathData = CreatePathData(pathElem, transform);
 				list.Add(pathData);
 			}
 			return list;
 		}
 		
-		static List<PathData> CreateTextData(XElement textElem, decimal shiftX, decimal shiftY)
+		static List<PathData> CreateTextData(XElement textElem, MatrixTransform parentTransform)
 		{
 			if (textElem == null) return null;
 			
@@ -335,28 +279,41 @@ namespace MarketGid.Mapper
 					if (rawStyle.StartsWith("font-weight:")) globalData.fontWeight = val;
 				}
 			}
-			if (textElem.Attribute ("transform") != null && textElem.Attribute ("transform").Value.StartsWith("matrix"))
+			
+			MatrixTransform transform = null;
+			if (textElem.Attribute ("transform") != null)
 			{
-				var val = textElem.Attribute ("transform").Value;
-				globalData.matrix = val.Substring (7, val.Length - 8);
+				transform = MatrixTransform.Parse (textElem.Attribute ("transform").Value);
+				if (parentTransform != null)
+					transform = parentTransform.Multiply (transform);
 			}
+			else
+			{
+				transform = parentTransform;
+			}
+			//if (transform != null)
+			//	globalData.matrix = transform.ToString ();
 			
 			List<PathData> list = new List<PathData>();
 			foreach (var spanElem in textElem.Elements ("{" + textElem.Name.NamespaceName + "}tspan"))
 			{
 				PathData pathData = globalData.Clone();
 				attr = spanElem.Attribute ("x");
-				pathData.x = shiftX > 0 ? Convert.ToDouble(attr.Value.Replace("px",""), CultureInfo.InvariantCulture) + Convert.ToDouble(shiftX) : Convert.ToDouble(attr.Value.Replace("px",""), CultureInfo.InvariantCulture);
+				pathData.x = Convert.ToDouble (attr.Value.Replace("px",""), CultureInfo.InvariantCulture);
 				attr = spanElem.Attribute ("y");
-				pathData.y = shiftY > 0 ? Convert.ToDouble(attr.Value.Replace("px",""), CultureInfo.InvariantCulture) + Convert.ToDouble(shiftY) : Convert.ToDouble(attr.Value.Replace("px",""), CultureInfo.InvariantCulture);
+				pathData.y = Convert.ToDouble (attr.Value.Replace("px",""), CultureInfo.InvariantCulture);
 				pathData.text = spanElem.Value;
+				
+				if (transform != null)
+					transform.Apply(pathData);
+				
 				list.Add(pathData);
 			}
 			
 			return list;
 		}
 		
-		static List<PathData> CreateTexts(XElement layer, decimal shiftX, decimal shiftY)
+		static List<PathData> CreateTexts(XElement layer, MatrixTransform parentTransform)
 		{
 			var textElems = layer.Elements ("{" + layer.Name.NamespaceName + "}text");
 			if (textElems == null || !textElems.Any()) return new List<PathData> ();
@@ -364,7 +321,7 @@ namespace MarketGid.Mapper
 			List<PathData> list = new List<PathData> ();
 			foreach (var textElem in textElems)
 			{
-				List<PathData> pathData = CreateTextData(textElem, shiftX, shiftY);
+				List<PathData> pathData = CreateTextData(textElem, parentTransform);
 				list.AddRange(pathData);
 			}
 			return list;
@@ -388,6 +345,7 @@ namespace MarketGid.Mapper
 		public string text;
 		public double x;
 		public double y;
+		public double angle;
 		public double fontSize;
 		public string fontFamily;
 		public string fontWeight;
@@ -404,5 +362,192 @@ namespace MarketGid.Mapper
 	{
 		public string name;
 		public string backgroundImage;
+	}
+
+	class MatrixTransform
+	{
+		double A;
+		double B;
+		double C;
+		double D;
+		double E;
+		double F;
+
+		public static MatrixTransform Parse(string value)
+		{
+			try
+			{
+				string[] vals;
+				if (value.StartsWith ("matrix"))
+				{
+					vals = value.Substring ("matrix".Length + 1, value.Length - 2 - "matrix".Length).Split (',');
+					return new MatrixTransform { 
+						A = double.Parse(vals[0], CultureInfo.InvariantCulture),
+						B = double.Parse(vals[1], CultureInfo.InvariantCulture),
+						C = double.Parse(vals[2], CultureInfo.InvariantCulture),
+						D = double.Parse(vals[3], CultureInfo.InvariantCulture),
+						E = double.Parse(vals[4], CultureInfo.InvariantCulture),
+						F = double.Parse(vals[5], CultureInfo.InvariantCulture)
+					};
+				}
+				if (value.StartsWith ("translate"))
+				{
+					vals = value.Substring ("translate".Length + 1, value.Length - 2 - "translate".Length).Split (',');
+					return new MatrixTransform { 
+						A = 1, B = 0, C = 0, D = 1, E = double.Parse(vals[0], CultureInfo.InvariantCulture), F = double.Parse(vals[1], CultureInfo.InvariantCulture)
+					};
+				}
+				if (value.StartsWith ("scale"))
+				{
+					vals = value.Substring ("scale".Length + 1, value.Length - 2 - "scale".Length).Split (',');
+					return new MatrixTransform { 
+						A = double.Parse(vals[0], CultureInfo.InvariantCulture), B = 0, C = 0, D = double.Parse(vals[1], CultureInfo.InvariantCulture), E = 0, F = 0
+					};
+				}
+				if (value.StartsWith ("rotate"))
+				{
+					vals = value.Substring ("rotate".Length + 1, value.Length - 2 - "rotate".Length).Split (',');
+					double angle = double.Parse (vals [0], CultureInfo.InvariantCulture);
+					return new MatrixTransform {
+						A = Math.Cos(angle),
+						B = Math.Sin(angle),
+						C = -Math.Sin(angle),
+						D = Math.Cos(angle),
+						E = 0,
+						F = 0
+					};
+				}
+				return null;
+			}
+			catch (Exception e) {
+				Console.WriteLine ("Error in value: '" + value + "':\n" + e.ToString ());
+				throw;
+			}
+		}
+
+		public MatrixTransform Multiply(MatrixTransform matrix)
+		{
+			if (matrix == null)
+				return this;
+			/*
+			 * "matrix("+(a1*a2+c1*b2)+","+
+				      (b1*a2+d1*b2)+","+
+				      (a1*c2+c1*d2)+","+
+				      (b1*c2+d1*d2)+","+
+				      (a1*e2+c1*g2+e1)+","+
+				      (b1*e2+d1*g2+g1)+")"
+			 */
+			return new MatrixTransform { 
+				A = this.A * matrix.A + this.C * matrix.B,
+				B = this.B * matrix.A + this.D * matrix.B,
+				C = this.A * matrix.C + this.C * matrix.D,
+				D = this.B * matrix.C + this.D * matrix.D,
+				E = this.A * matrix.E + this.C * matrix.F + this.E,
+				F = this.B * matrix.E + this.D * matrix.F + this.F
+			};
+		}
+
+		public void Apply(PathData pathData)
+		{
+			if (pathData.path != null)
+				ApplyToPath(pathData);
+			else
+				ApplyToText(pathData);
+		}
+		
+		public void ApplyToPath(PathData pathData)
+		{
+			string result = "";
+			bool needApply = false;
+			bool isAbsolute = false;
+			string[] path = pathData.path.Split(' ');
+			for (int i = 0; i < path.Length; i++)
+			{
+				string[] coords = path[i].Split(',');
+				if (coords.Length == 1)
+				{
+					// это команда
+					if (coords[0].ToUpper() == coords[0])
+					{
+						// с абсолютными координатами
+						needApply = true;
+						isAbsolute = true;
+					}
+					else if (coords[0] == "m")
+					{
+						needApply = true;
+						isAbsolute = false;
+					}
+					result += coords[0] + " ";
+				}
+				else
+				{
+					if (needApply)
+					{
+						double x = double.Parse(coords[0], CultureInfo.InvariantCulture);
+						double y = double.Parse(coords[1], CultureInfo.InvariantCulture);
+						result += (x * A + y * C + E).ToString().Replace(',','.') + ",";
+						result += (x * B + y * D + F).ToString().Replace(',','.') + " ";
+						needApply = isAbsolute;
+					}
+					else
+					{
+						result += coords[0] + ",";
+						result += coords[1] + " ";
+					}
+				}
+			}
+			pathData.path = result;
+		}
+		
+		public void ApplyToText(PathData pathData)
+		{
+			double x = pathData.x;
+			double y = pathData.y;
+			pathData.x = (x * A + y * C + E);
+			pathData.y = (x * B + y * D + F);
+			pathData.angle = Math.Asin(B) * 180/Math.PI;
+			
+			double delta = 0.01;
+			if (Math.Abs(pathData.angle - 0) <= delta)
+			{
+				pathData.y -= pathData.fontSize * 0.8;
+			}
+			else if ((Math.Abs(pathData.angle) - 90.0) <= delta)
+			{
+				if (pathData.angle > 0)
+				{
+					pathData.x += pathData.fontSize * 0.8;
+				}
+				else
+				{
+					pathData.x -= pathData.fontSize * 0.8;
+				}
+			}
+			else
+			{
+				if (pathData.angle > 0)
+				{
+					pathData.x += pathData.fontSize * Math.Sin(pathData.angle);
+					pathData.y += pathData.fontSize * Math.Cos(pathData.angle);
+				}
+				else
+				{
+					pathData.x -= pathData.fontSize * Math.Sin(pathData.angle);
+					pathData.y -= pathData.fontSize * Math.Cos(pathData.angle);
+				}
+			}
+		}
+		
+		public override string ToString()
+		{
+			return string.Format ("matrix({0},{1},{2},{3},{4},{5})", 
+			                      A.ToString().Replace(',','.'), 
+			                      B.ToString().Replace(',','.'), 
+			                      C.ToString().Replace(',','.'), 
+			                      D.ToString().Replace(',','.'), 
+			                      E.ToString().Replace(',','.'), 
+			                      F.ToString().Replace(',','.'));
+		}
 	}
 }
