@@ -83,7 +83,7 @@ function MapManager (options) {
 		
 		var targetObject = targetMap.findObject(targetName);
 		Graph.StartVertex = Graph.findVertex({ x: currentMap.Settings.x, y: currentMap.Settings.y }, currentMap.Settings.mapName);
-		//this.route = Graph.navigateTo(targetObject.path, targetMap.Settings.mapName);
+		this.route = Graph.navigateTo(targetObject.path, targetMap.Settings.mapName);
 		
 		for (var i = 0; i < this.route.length; i++) {
 			if (this.routeMaps.indexOf(this.route[i].mapName) >= 0) continue;
@@ -142,20 +142,20 @@ function MapManager (options) {
 			};
 		}
 		
-		//currentMap.setStartPosition(startPosition);
+		currentMap.setStartPosition(startPosition);
 		currentMap.show();
-		//currentMap.showRoute(this.route, mapName, targetShape, tooltips);
-		//currentMap.showSelectedShape(targetShape);
+		currentMap.showRoute(this.route, mapName, targetShape, tooltips);
+		currentMap.showSelectedShape(targetShape);
 		// центрируем карту
 		if ( ! currentMap.centered ) {
-			//var size = currentMap.stage.getSize();
-			//currentMap.stage.move(size.width/2 - (currentMap.bounds.right/2 + currentMap.bounds.left/2), size.height/2 - (currentMap.bounds.bottom/2 + currentMap.bounds.top/2));
-			//currentMap.stage.draw();
+			var size = currentMap.stage.getSize();
+			currentMap.stage.move(size.width/2 - (currentMap.bounds.right/2 + currentMap.bounds.left/2), size.height/2 - (currentMap.bounds.bottom/2 + currentMap.bounds.top/2));
+			currentMap.stage.draw();
 			currentMap.centered = true;
 		}
 		// увеличиваем или уменьшаем карту
 		if ( currentMap.scale != this.scale ) {
-			//this.scaleUp(this.scale);
+			this.scaleUp(this.scale);
 		}
 	};
 	

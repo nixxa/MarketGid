@@ -40,7 +40,9 @@ function Map(options) {
         // цвет всех границ объектов
         borderColor: 'black',
         // цвет всех теней
-        shadowColor: 'black'
+        shadowColor: 'black',
+		// показывать или нет текст на конце маршрута
+		showEndTooltip: false
     };
 
     this.Objects = {};
@@ -126,6 +128,7 @@ function Map(options) {
 			if (PathData[id].map != this.Settings.mapName) {
 				continue;
 			}
+			
 			// если объект - фигура, добавляем
 			if (PathData[id].path != undefined && PathData[id].path != null) {
 				var pathObject = new Kinetic.Path({
@@ -137,58 +140,37 @@ function Map(options) {
 					lineJoin: PathData[id].borderJoin,
 					id: id
 				});
+				pathObject.objectId = PathData[id].objectId;
 				this.Objects[id] = {
 					path: pathObject,
 					name: PathData[id].name,
 					bgColor: PathData[id].bgColor,
+					borderColor: PathData[id].borderColor,
+					opacity: PathData[id].opacity,
 					objectId: PathData[id].objectId
 				};
 			}
 			// если объект - текст, добавляем
 			if (PathData[id].text != undefined && PathData[id].text != null) {
-				var scaleX = scaleY = 1.0;
-				var angle = null;
-				var newx = PathData[id].x;
-				var newy = PathData[id].y - PathData[id].fontSize * 0.8;
-				
-				if (PathData[id].matrix != undefined && PathData[id].matrix != null) {
-					var m = PathData[id].matrix.split(','); 
-					
-					newx = PathData[id].x * m[0] + Math.abs((PathData[id].y - PathData[id].fontSize * 0.8) * m[1]) + m[4];
-					newy = Math.abs(PathData[id].x * m[2]) + (PathData[id].y - PathData[id].fontSize * 0.8) * m[3] + m[5] ;
-					
-					scaleX = Math.sqrt(m[0]*m[0] + m[1]*m[1]);
-					scaleY = Math.sqrt(m[2]*m[2] + m[3]*m[3]);
-					
-					if (m[0]*m[3] - m[1]*m[2] < 0) {
-						scaleY = -scaleY;
-					}
-					if (m[0] < 0) {
-						scaleX = -scaleX;
-						scaleY = -scaleY;
-					}
-					var angle = Math.acos(m[3] / scaleY);
-					if (m[2]/scaleY > 0) {
-						angle = -angle;
-					}					
-				}
-				
 				var textObject = new Kinetic.Text({
-					x: newx,
-					y: newy,
+					x: PathData[id].x,
+					y: PathData[id].y,
 					fontSize: PathData[id].fontSize,
 					fontFamily: PathData[id].fontFamily,
 					fontWeight: PathData[id].fontWeight,
 					fill: PathData[id].color,
 					opacity: PathData[id].opacity,
 					text: PathData[id].text,
-					scaleX: scaleX,
-					scaleY: scaleY
+					id: id
 				});
-				textObject.rotate(angle);
+				textObject.objectId = PathData[id].objectId;
+				if (PathData[id].angle != undefined && PathData[id].angle != 0.0) {
+					textObject.rotateDeg(PathData[id].angle);
+				}
 				this.Objects[id] = {
 					text: textObject,
-					objectId: PathData[id].objectId
+					objectId: PathData[id].objectId,
+					id: id
 				};
 			}
         }
@@ -309,6 +291,13 @@ function Map(options) {
 			}
 			var text = this.Objects[t].text;
 			if (text != undefined) {
+				var self = this;
+				text.on('click tap', function (evt) {
+					var mapObj = self.findByObjectId(evt.targetNode.objectId);
+					if (mapObj != null) {
+						self.showPath({ targetNode: mapObj.path });
+					}
+				});
 				this.mapLayer.add(text);
 			}
         }
@@ -343,20 +332,41 @@ function Map(options) {
 	};
 	
 	/**
-	* Ищет объект по его координатам
+	* Ищет объект по его фигуре (text или shape)
 	* @private
 	*/
 	this.findByPath = function (objectPath) {
 		var mapObject = null;
 		
 		for (var key in this.Objects) {
-            if (this.Objects[key].path == objectPath) {
+            if (this.Objects[key].path != null && this.Objects[key].path == objectPath) {
+                mapObject = this.Objects[key];
+                break;
+            }
+			if (this.Objects[key].text != null && this.Objects[key].text == objectPath) {
                 mapObject = this.Objects[key];
                 break;
             }
         }
 		
 		return mapObject;
+	};
+	
+	/**
+	* Ищет объект по идентификатору
+	* @private
+	*/
+	this.findByObjectId = function (objectId) {
+		var mapObject = null;
+		
+		for (var key in this.Objects) {
+            if (this.Objects[key].path != null && this.Objects[key].objectId == objectId) {
+                mapObject = this.Objects[key];
+                break;
+            }
+        }
+		
+		return mapObject;	
 	};
 	
     /**
@@ -457,7 +467,7 @@ function Map(options) {
 		
 		this.showRoute(vertexes, mapName, path);
 		
-		var mapObject = this.findByPath(path);
+		var mapObject = this.findByObjectId(path.objectId);
 		if (mapObject != null && this.objectSelected != undefined && this.objectSelected != null) {
 			this.objectSelected.apply(this, [mapObject]);
 		}
@@ -469,10 +479,14 @@ function Map(options) {
 	
 		// скрываем старый объект
 		if (oldSelected != null) {
-			oldSelected.setFill(this.Settings.inactiveObjectBgColor);
-			oldSelected.setStrokeWidth(1);
-			oldSelected.setStroke('transparent');
-			oldSelected.setOpacity(this.Settings.inactiveObjectOpacity);
+			var mapObj = this.findByObjectId(oldSelected.objectId);
+			//oldSelected.setFill(this.Settings.inactiveObjectBgColor);
+			oldSelected.setFill(mapObj.bgColor);
+			//oldSelected.setStrokeWidth(1);
+			//oldSelected.setStroke('transparent');
+			oldSelected.setStroke(mapObj.borderColor);
+			//oldSelected.setOpacity(this.Settings.inactiveObjectOpacity);
+			oldSelected.setOpacity(mapObj.opacity);
 			oldSelected.setShadowOffset(0);
 			oldSelected.setShadowOpacity(0);
 			oldSelected.setShadowBlur(0);
@@ -482,8 +496,9 @@ function Map(options) {
 		// показываем новый объект
 		if (newSelected != null) {
 			newSelected.setFill(this.Settings.activeObjectBgColor);
-			newSelected.setStroke(this.Settings.borderColor);
-			newSelected.setStrokeWidth(1);
+			newSelected.setStroke(this.Settings.activeObjectBgColor);
+			//newSelected.setStroke(this.Settings.borderColor);
+			//newSelected.setStrokeWidth(1);
 			newSelected.setOpacity(this.Settings.activeObjectOpacity);
 			newSelected.setShadowColor(this.Settings.shadowColor);
 			newSelected.setShadowBlur(5);
@@ -586,6 +601,21 @@ function Map(options) {
 			}
 		}
 		
+		// подготавливаем тултип для конца маршрута
+		if (mapObject != null) text = mapObject.name;
+        rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 60, d: 'down' };
+		
+        if (this.checkCollide(points, rect)) {
+            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' });
+        } else {
+            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' });
+        }
+		if (tooltips != undefined && tooltips.stopAction != undefined) {
+			tooltip.on('mousedown touchstart', function (evt) {
+				tooltips.stopAction(evt);
+			});
+		}
+
 		// select target shape
 		if (targetShape != undefined)
 		{
@@ -596,27 +626,16 @@ function Map(options) {
 						break;
 					}
 				}
+				if (this.Settings.showEndTooltip) {
+					this.navLayer.add(tooltip);
+				}
 			} else {
 				// targetShape is on another map. Clear current selectedObject
 				if (this.selectedObject != null) {
 					this.showSelectedShape(null);
 				}
+				this.navLayer.add(tooltip);
 			}
-		}
-        if (mapObject != null) text = mapObject.name;
-        rect = { x1: x - 250 / 2, y1: y + 10, x2: x + 250 / 2, y2: y + 60, d: 'down' };
-		
-        if (this.checkCollide(points, rect)) {
-            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'down', bgColor: 'black' });
-        } else {
-            tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' });
-        }
-		this.navLayer.add(tooltip);
-		
-		if (tooltips != undefined && tooltips.stopAction != undefined) {
-			tooltip.on('mousedown touchstart', function (evt) {
-				tooltips.stopAction(evt);
-			});
 		}
 		
         // show navLayer

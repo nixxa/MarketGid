@@ -12,11 +12,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,2410.0165 0,15.2335",
@@ -31,11 +32,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,2410.0165 78.84241,0",
@@ -50,11 +52,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 615.89001,2410.0165 0,15.4835",
@@ -69,11 +72,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 615.89001,2410.0165 46.31549,0",
@@ -88,11 +92,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2410.0165 0,30.052",
@@ -107,11 +112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2440.0685 -7.2055,0",
@@ -126,11 +132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2440.0685 0,33.5876",
@@ -145,11 +152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2473.6561 -7.9555,0",
@@ -164,11 +172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2473.6561 7.5445,0",
@@ -183,11 +192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2473.6561 0,33.5875",
@@ -202,11 +212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2507.2436 -7.2055,0",
@@ -221,11 +232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2507.2436 0,32.1734",
@@ -240,11 +252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2539.417 -7.7055,0",
@@ -259,11 +272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2539.417 8.2945,0",
@@ -278,11 +292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2539.417 0,32.8805",
@@ -297,11 +312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2572.2975 -7.4555,0",
@@ -316,11 +332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2572.2975 0,30.7591",
@@ -335,11 +352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2603.0566 -7.4555,0",
@@ -354,11 +372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2603.0566 7.7945,0",
@@ -373,11 +392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2603.0566 0,32.5269",
@@ -392,11 +412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2635.5835 -7.2055,0",
@@ -411,11 +432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2635.5835 0,31.8198",
@@ -430,11 +452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2667.4033 -7.7055,0",
@@ -449,11 +472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2667.4033 0,18.0312",
@@ -468,11 +492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2685.4345 8.0445,0",
@@ -487,11 +512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2685.4345 0,13.4351",
@@ -506,11 +532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2698.8696 -8.4555,0",
@@ -525,11 +552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2698.8696 0,35.0018",
@@ -544,11 +572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2733.8714 -46.31549,0",
@@ -563,11 +592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 615.89001,2733.8714 0,-18.6214",
@@ -582,11 +612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 615.89001,2733.8714 -78.84241,0",
@@ -601,11 +632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,2733.8714 0,-18.6214",
@@ -620,11 +652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 615.89001,2733.8714 0,17.3786",
@@ -639,11 +672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,2733.8714 -52.3259,0",
@@ -658,11 +692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2733.8714 0,-22.6275",
@@ -677,11 +712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2711.2439 -17.32412,0",
@@ -696,11 +732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2711.2439 0,-12.3743",
@@ -715,11 +752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2698.8696 16.26346,0",
@@ -734,11 +772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2698.8696 0,-31.4663",
@@ -753,11 +792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2667.4033 16.26346,0",
@@ -772,11 +812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2667.4033 0,-18.1533",
@@ -791,11 +832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2649.25 -17.32412,0",
@@ -810,11 +852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2648.75 0,-13.1665",
@@ -829,11 +872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2635.5835 16.26346,0",
@@ -848,11 +892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2635.5835 0,-32.5269",
@@ -867,11 +912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2603.0566 16.26346,0",
@@ -886,11 +932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2603.0566 0,-14.8492",
@@ -905,11 +952,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2588.2074 -17.32412,0",
@@ -924,11 +972,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2588.2074 0,-15.9099",
@@ -943,11 +992,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2572.2975 16.26346,0",
@@ -962,11 +1012,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2572.2975 0,-32.8805",
@@ -981,11 +1032,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2539.417 16.26346,0",
@@ -1000,11 +1052,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2539.417 0,-15.2028",
@@ -1019,11 +1072,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2524.2142 -17.32412,0",
@@ -1038,11 +1092,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2524.2142 0,-16.9706",
@@ -1057,11 +1112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2507.2436 16.26346,0",
@@ -1076,11 +1132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2507.2436 0,-33.5875",
@@ -1095,11 +1152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2473.6561 16.26346,0",
@@ -1114,11 +1172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2473.6561 0,-8.1318",
@@ -1133,11 +1192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2465.5243 -17.32412,0",
@@ -1152,11 +1212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2465.5243 0,-25.4558",
@@ -1171,11 +1232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2440.0685 16.26346,0",
@@ -1190,11 +1252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2440.0685 0,-30.052",
@@ -1209,11 +1272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2410.0165 16.26346,0",
@@ -1228,11 +1292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2410.0165 -30.05204,0",
@@ -1247,11 +1312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 454.66966,2410.0165 0,-112.0165",
@@ -1266,11 +1332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2267.1809 0,30.8191",
@@ -1285,11 +1352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2298 -46.3155,0",
@@ -1304,11 +1372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2298 0,112.0165",
@@ -1323,11 +1392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 454.66966,2298 398.5,2298",
@@ -1342,11 +1412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 398.5,2298 -24,0",
@@ -1361,11 +1432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 374.5,2298 0,14.75",
@@ -1380,11 +1452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 374.5,2298 -17.25,0",
@@ -1399,11 +1472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 357.25,2298 -35,0",
@@ -1418,11 +1492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 454.66966,2267.1809 -56.16966,0",
@@ -1437,11 +1512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 398.5,2267.1809 0,-4.1809",
@@ -1456,11 +1532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 398.5,2267.1809 -24,0",
@@ -1475,11 +1552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 374.5,2267.1809 0,30.8191",
@@ -1494,11 +1572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 374.5,2267.1809 -17.25,0",
@@ -1513,11 +1592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 357.25,2267.1809 0,-4.1809",
@@ -1532,11 +1612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 357.25,2267.1809 -42.25,0",
@@ -1551,11 +1632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 315,2267.1809 315,2263",
@@ -1570,11 +1652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2733.8714 0,64.7002",
@@ -1589,11 +1672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2798.5716 25.8094,0",
@@ -1608,11 +1692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2798.5716 0,25.8094",
@@ -1627,11 +1712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2824.381 25.10229,0",
@@ -1646,11 +1732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2824.381 0,8.8389",
@@ -1665,11 +1752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2833.2199 -30.05204,0",
@@ -1684,11 +1772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2833.2199 0,24.0416",
@@ -1703,11 +1792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2857.2615 24.74874,0",
@@ -1722,11 +1812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2857.2615 0,11.3137",
@@ -1741,11 +1832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2868.5752 -30.05204,0",
@@ -1760,11 +1852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2868.5752 0,20.1525",
@@ -1779,11 +1872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2888.7277 25.8094,0",
@@ -1798,11 +1892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2888.7277 0,16.9706",
@@ -1817,11 +1912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2905.6983 -30.05204,0",
@@ -1836,11 +1932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2905.6983 0,10.9602",
@@ -1855,11 +1952,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2916.6585 25.8094,0",
@@ -1874,11 +1972,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2916.6585 0,27.2236",
@@ -1893,11 +1992,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2943.8821 -17.32412,0",
@@ -1912,11 +2012,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 467.39758,2943.8821 -12.72792,0",
@@ -1931,11 +2032,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2943.8821 16.26346,0",
@@ -1950,11 +2052,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2943.8821 10.25304,0",
@@ -1969,11 +2072,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2943.8821 0,79.5495",
@@ -1988,11 +2092,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 467.39758,2943.8821 0,79.5495",
@@ -2007,11 +2112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 467.39758,3023.4316 33.58758,0",
@@ -2026,11 +2132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,3023.5 36.06244,0",
@@ -2045,11 +2152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,3023.5 0,50.1362 0,0 0,0",
@@ -2064,11 +2172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,3023.5 102.88404,0",
@@ -2083,11 +2192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 639.93164,3023.5 0,-65.8293",
@@ -2102,11 +2212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 639.93164,3023.5 22.27386,0",
@@ -2121,11 +2232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,3023.5 0,-95.5",
@@ -2140,11 +2252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 500.98516,2267.1809 -16.26346,0",
@@ -2159,11 +2272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2267.1809 -30.05204,0",
@@ -2178,11 +2292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 454.66966,2267.1809 0,30.8191",
@@ -2197,11 +2312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 564.5,2134.5 0,132.5",
@@ -2216,11 +2332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 564.5,2267 -63.51484,0",
@@ -2235,11 +2352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 564.5,2267 97.7055,0",
@@ -2254,11 +2372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2267 0,-57.5",
@@ -2273,11 +2392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2209.5 -20.9717,0",
@@ -2292,11 +2412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2209.5 0,-86.5",
@@ -2311,11 +2432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2123 -21.4717,0",
@@ -2330,11 +2452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2123 0,-55",
@@ -2349,11 +2472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2068 20.5283,0",
@@ -2368,11 +2492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2068 0,-22",
@@ -2387,11 +2512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2046 -20.4717,0",
@@ -2406,11 +2532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,2046 0,-71.5",
@@ -2425,11 +2552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1974.5 -21.2217,0 0,0 0,0",
@@ -2444,11 +2572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1974.5 0,-27",
@@ -2463,11 +2592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1947.5 20.7783,0",
@@ -2482,11 +2612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1947.5 0,-40 0,0 0,0",
@@ -2501,11 +2632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 484.7217,1907.5 463,1907.5",
@@ -2520,11 +2652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1907.5 0,-39",
@@ -2539,11 +2672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1868.5 21.0283,0",
@@ -2558,11 +2692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1868.5 0,-35",
@@ -2577,11 +2712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 484.7217,1833.5 463,1833.5",
@@ -2596,11 +2732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1833.5 0,-14",
@@ -2615,11 +2752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1819.5 52.3259,0",
@@ -2634,11 +2772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,1819.5 0,10.5",
@@ -2653,11 +2792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,1819.5 0,-13.75",
@@ -2672,11 +2812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,1819.5 63.2024,0",
@@ -2691,11 +2832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 600.25,1819.5 0,-13.25",
@@ -2710,11 +2852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 600,1819.5 0,10.5",
@@ -2729,11 +2872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 600.25,1819.5 75.25,0",
@@ -2748,11 +2892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 675.5,1819.5 0,-13.75",
@@ -2767,11 +2912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 675.25,1819.5 0,10.5",
@@ -2786,11 +2932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 674.5,1819.5 51,0",
@@ -2805,11 +2952,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 662.2055,2267 63.2945,0 0,-98.5",
@@ -2824,11 +2972,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2168.5 56.5,0",
@@ -2843,11 +2992,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2168.5 0,-100.5",
@@ -2862,11 +3012,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2068 0,-64",
@@ -2881,11 +3032,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2004 -16.5,0",
@@ -2900,11 +3052,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2004 19.5,0",
@@ -2919,11 +3072,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2004 0,-71.5",
@@ -2938,11 +3092,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1932.5 -15,0",
@@ -2957,11 +3112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1932.5 15.5,0",
@@ -2976,11 +3132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1932.5 0,-43",
@@ -2995,11 +3152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1889.5 -15.5,0",
@@ -3014,11 +3172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1889.5 14.5,0",
@@ -3033,11 +3192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1889.5 0,-43",
@@ -3052,11 +3212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1846.5 -15.5,0",
@@ -3071,11 +3232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1846.5 14.5,0 0,0 0,0",
@@ -3090,11 +3252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1846.5 0,-27",
@@ -3109,11 +3272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2068 49.5,0",
@@ -3128,11 +3292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 775,2068 0,-27",
@@ -3147,11 +3312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 775,2068 45.5,0",
@@ -3166,11 +3332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,2267 95,0",
@@ -3185,11 +3352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,2267 0,-22",
@@ -3204,11 +3372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,2267 75,0",
@@ -3223,11 +3392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2267 0,-20.5",
@@ -3242,11 +3412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2267 0,19",
@@ -3261,11 +3432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2267 77,0",
@@ -3280,11 +3452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,2267 0,-21",
@@ -3299,11 +3472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,2267 76,0",
@@ -3318,11 +3492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,2267 0,-22",
@@ -3337,11 +3512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,2068 0,27.5",
@@ -3356,11 +3532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,2068 21.5,0",
@@ -3375,11 +3552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 842,2068 0,-27.5",
@@ -3394,11 +3572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 842,2068 53.5,0",
@@ -3413,11 +3592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2068 0,27.5",
@@ -3432,11 +3612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2068 0,-27.5",
@@ -3451,11 +3632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,2068 77,0",
@@ -3470,11 +3652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,2068 0,27",
@@ -3489,11 +3672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,2068 0,-28 0,0 0,0",
@@ -3508,11 +3692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,2068 76,0",
@@ -3527,11 +3712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,2068 0,27.5",
@@ -3546,11 +3732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,2068 0,-28",
@@ -3565,11 +3752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,2267 56,0",
@@ -3584,11 +3772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2267 60,0",
@@ -3603,11 +3792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,2267 0,17.5",
@@ -3622,11 +3812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,2267 0,-22",
@@ -3641,11 +3832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2267 0,-57.5",
@@ -3660,11 +3852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2209.5 -22,0",
@@ -3679,11 +3872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2209.5 0,-41",
@@ -3698,11 +3892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2168.5 18.5,0",
@@ -3717,11 +3912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2168.5 0,-45.5",
@@ -3736,11 +3932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2123 18.5,0",
@@ -3755,11 +3952,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2123 0,-55",
@@ -3774,11 +3972,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2068 -56,0",
@@ -3793,11 +3992,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2068 60,0",
@@ -3812,11 +4012,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,2068 0,26",
@@ -3831,11 +4032,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,2068 0,-27.5",
@@ -3850,11 +4052,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1819.5 35,0",
@@ -3869,11 +4072,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 760.5,1819.5 0,-13.5",
@@ -3888,11 +4092,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 760,1819.5 60.5,0",
@@ -3907,11 +4112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,1819.5 0,-14.5",
@@ -3926,11 +4132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1819.5 0,-61",
@@ -3945,11 +4152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1758.5 21.7783,0",
@@ -3964,11 +4172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1758.5 0,-56.5",
@@ -3983,11 +4192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 484.7217,1702 52.3259,0",
@@ -4002,11 +4212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,1702 0,-8.5",
@@ -4021,11 +4232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 537.0476,1702 0,8.5",
@@ -4040,11 +4252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 537.0476,1702 600,1702",
@@ -4059,11 +4272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 600,1702 0,9",
@@ -4078,11 +4292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 600.5,1702 39.43164,0",
@@ -4097,11 +4312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 639.93164,1702 0,-13.5",
@@ -4116,11 +4332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 639.93164,1702 671,1702",
@@ -4135,11 +4352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 671,1702 0,9.5",
@@ -4154,11 +4372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 671,1702 54.5,0",
@@ -4173,11 +4392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1819.5 0,-37",
@@ -4192,11 +4412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1782.5 -16,0",
@@ -4211,11 +4432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1782.5 0,-50",
@@ -4230,11 +4452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1732.5 -15.5,0",
@@ -4249,11 +4472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1732.5 0,-30.5",
@@ -4268,11 +4492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1702 0,-45",
@@ -4287,11 +4512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 725.5,1657 14,0",
@@ -4306,11 +4532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,1819.5 22,0",
@@ -4325,11 +4552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 842.5,1819.5 0,7.5069",
@@ -4344,11 +4572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 842.5,1819.5 46.5,0",
@@ -4363,11 +4592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 889,1819.5 0,8.9211",
@@ -4382,11 +4612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 889,1819.5 6.5,0",
@@ -4401,11 +4632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,1819.5 0,-14.4134",
@@ -4420,11 +4652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,1819.5 26.5,0",
@@ -4439,11 +4672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 922,1819.5 0,8.214",
@@ -4458,11 +4692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 922,1819.5 34.5,0",
@@ -4477,11 +4712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 956.5,1819.5 0,8.214",
@@ -4496,11 +4732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 956.5,1819.5 16,0",
@@ -4515,11 +4752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,1819.5 0,-14.0598",
@@ -4534,11 +4772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,1819.5 21.5,0",
@@ -4553,11 +4792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 994,1819.5 0,8.9211",
@@ -4572,11 +4812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 994,1819.5 54.5,0",
@@ -4591,11 +4832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1819.5 0,-13.7063",
@@ -4610,11 +4852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1819.5 0,8.5676",
@@ -4629,11 +4872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1819.5 56,0",
@@ -4648,11 +4892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2068 0,-42.5",
@@ -4667,11 +4912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2025.5 19.0927,0",
@@ -4686,11 +4932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,2025.5 0,-31.5",
@@ -4705,11 +4952,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1994 18.7391,0",
@@ -4724,11 +4972,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1994 0,-19.5",
@@ -4743,11 +4992,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1974.5 -19.0911,0",
@@ -4762,11 +5012,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1974.5 0,-11.5",
@@ -4781,11 +5032,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1963 19.4462,0",
@@ -4800,11 +5052,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1963 0,-30.5",
@@ -4819,11 +5072,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1932.5 -19.7982,0",
@@ -4838,11 +5092,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1932.5 19.4462,0",
@@ -4857,11 +5112,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1932.5 0,-30",
@@ -4876,11 +5132,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1902.5 18.7391,0",
@@ -4895,11 +5152,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1902.5 0,-13",
@@ -4914,11 +5172,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1889.5 -19.0911,0",
@@ -4933,11 +5192,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1889.5 0,-15",
@@ -4952,11 +5212,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1874.5 18.032,0",
@@ -4971,11 +5232,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1874.5 0,-28",
@@ -4990,11 +5252,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1846.5 -19.4446,0",
@@ -5009,11 +5272,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1846.5 18.3856,0",
@@ -5028,11 +5292,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1846.5 0,-27",
@@ -5047,11 +5312,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1819.5 60,0",
@@ -5066,11 +5332,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,1819.5 0,10.3353",
@@ -5085,11 +5352,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,1819.5 0,-14.767",
@@ -5104,11 +5372,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1819.5 0,-37",
@@ -5123,11 +5392,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1782.5 -20.1517,0",
@@ -5142,11 +5412,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1782.5 18.032,0",
@@ -5161,11 +5432,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1782.5 0,-50 0,0 0,0",
@@ -5180,11 +5452,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1732.5 -20.1517,0",
@@ -5199,11 +5472,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1732.5 18.7391,0",
@@ -5218,11 +5492,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1732.5 0,-30.5",
@@ -5237,11 +5512,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1702 60,0",
@@ -5256,11 +5532,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1164.5,1702 0,15.0518",
@@ -5275,11 +5552,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1702 -56,0",
@@ -5294,11 +5572,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1702 0,8.6878",
@@ -5313,11 +5592,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1702 0,-14.6467",
@@ -5332,11 +5612,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1048.5,1702 -45.1155,0",
@@ -5351,11 +5632,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1003.3845,1702 0,-14.6467",
@@ -5370,11 +5652,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 1002.6774,1702 972.5,1702",
@@ -5389,11 +5672,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,1702 0,8.3343",
@@ -5408,11 +5692,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 972.5,1702 -32.40153,0",
@@ -5427,11 +5712,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 940.09847,1702 0,-14.6467",
@@ -5446,11 +5732,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "M 939.74491,1702 895.5,1702",
@@ -5465,11 +5752,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,1702 0,8.3343",
@@ -5484,11 +5772,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 895.5,1702 -6.5,0",
@@ -5503,11 +5792,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 889,1702 0,-14.2931",
@@ -5522,11 +5812,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 889,1702 -68.5,0",
@@ -5541,11 +5832,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,1702 0,8.6878",
@@ -5560,11 +5852,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,1702 0,-15.0002",
@@ -5579,11 +5872,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 820.5,1702 -95,0",
@@ -5598,11 +5892,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1702 0,-45",
@@ -5617,11 +5912,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1657 51,0",
@@ -5636,11 +5932,12 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   },
   {
     "path": "m 1104.5,1657 -34,0",
@@ -5655,10 +5952,11 @@
     "text": null,
     "x": 0.0,
     "y": 0.0,
+    "angle": 0.0,
     "fontSize": 0.0,
     "fontFamily": null,
     "fontWeight": null,
     "color": null,
-    "matrix": null
+    "matrix": "matrix(1,0,0,1,0,-0.5)"
   }
 ];
