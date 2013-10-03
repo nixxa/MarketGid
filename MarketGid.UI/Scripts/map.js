@@ -177,9 +177,9 @@ function Map(options) {
 
 		this.startObject = this.setupStartObject();
 		
-		var minLeft = 1000, maxRight = 1, minTop = 1000, maxBottom = 1;
+		var minLeft = 100000, maxRight = 1, minTop = 100000, maxBottom = 1;
 		for (var key in this.Objects) {
-			var left = 1000, right = 1, top = 1000, bottom = 1;
+			var left = 100000, right = 1, top = 100000, bottom = 1;
 			if (this.Objects[key].path == undefined || this.Objects[key].path == null) {
 				continue;
 			}

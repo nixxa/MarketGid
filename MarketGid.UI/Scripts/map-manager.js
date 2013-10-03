@@ -7,7 +7,7 @@ function MapManager (options) {
 	this.route = [];
 	this.routeMaps = [];
 	this.targetName = '';
-	this.zoomFactor = 0.25;
+	this.zoomFactor = 0.75;
 	this.scale = 1.0;
 	this.origin = { x: 0, y: 0 };
 	this.objectSelected = null;
@@ -99,7 +99,7 @@ function MapManager (options) {
 		
 		if (currentMap != null && targetMap != null) {
 			currentMap.hide();
-			currentMap.centered = false;
+			currentMap.position = null;
 			currentMap.scale = 1.0;
 			currentMap.origin = { x: 0, y: 0 };
 			targetMap.show();
@@ -146,18 +146,72 @@ function MapManager (options) {
 		currentMap.show();
 		currentMap.showRoute(this.route, mapName, targetShape, tooltips);
 		currentMap.showSelectedShape(targetShape);
+		
+		var size = currentMap.stage.getSize();
+		var bounds = this.calcRouteBounds(this.route, mapName);
+		var maxWidth = Math.max(bounds.right - bounds.left, size.width);
+		var minWidth = Math.min(bounds.right - bounds.left, size.width);
+		var maxHeight = Math.max(bounds.bottom - bounds.top, size.height);
+		var minHeight = Math.min(bounds.bottom - bounds.top, size.height);
+		
+		var boundsWidth = bounds.right - bounds.left + 400;
+		var boundsHeight = bounds.bottom - bounds.top + 400;
+		
+		if (boundsWidth < size.width && boundsHeight < size.height) {
+			// квадрат маршрута меньше видимой области - нужно увеличить карту
+			this.scale = Math.min(size.width / boundsWidth, size.height / boundsHeight);
+		}
+		if (boundsWidth < size.width && boundsHeight > size.height) {
+			// квадрат маршрута больше видимой области по высоте - уменьшаем карту
+			this.scale = size.height / boundsHeight;
+		}
+		if (boundsWidth > size.width && boundsHeight < size.height) {
+			// квадрат маршрута больше видимой области по ширине - уменьшаем карту
+			this.scale = size.width / boundsWidth;
+		}
+		if (boundsWidth > size.width && boundsHeight > size.height) {
+			// квадрат маршрута больше видимой области - уменьшаем карту
+			this.scale = Math.min(size.width / boundsWidth, size.height / boundsHeight);
+		}
+		//this.scale = this.scale * 0.75;
+		
 		// центрируем карту
-		if ( ! currentMap.centered ) {
-			var size = currentMap.stage.getSize();
-			currentMap.stage.move(size.width/2 - (currentMap.bounds.right/2 + currentMap.bounds.left/2), size.height/2 - (currentMap.bounds.bottom/2 + currentMap.bounds.top/2));
-			currentMap.stage.draw();
-			currentMap.centered = true;
+		var position = { 
+			x: size.width/2 - (bounds.left + bounds.right)/2, 
+			y: size.height/2 - (bounds.top + bounds.bottom)/2
+		};
+		if ( currentMap.position != position ) {
+			if (currentMap.position != undefined && currentMap.position != null) {
+				currentMap.stage.move(-currentMap.position.x, -currentMap.position.y);
+			}
+			currentMap.stage.move(position.x, position.y);
+			currentMap.stage.batchDraw();
+			currentMap.position = position;
 		}
 		// увеличиваем или уменьшаем карту
 		if ( currentMap.scale != this.scale ) {
 			this.scaleUp(this.scale);
 		}
 	};
+	
+	/**
+	* Возвращает квадрат вокруг маршрута
+	* @private
+	*/
+	this.calcRouteBounds = function (route, mapName) {
+		var minLeft = 100000, maxRight = 1, minTop = 100000, maxBottom = 1;
+		for (var i = 0; i < route.length; i++) {
+			if (route[i] == undefined || route[i].position == null || route[i].mapName != mapName) {
+				continue;
+			}
+			minLeft = Math.min(minLeft, route[i].position.x);
+			maxRight = Math.max(maxRight, route[i].position.x);
+			minTop = Math.min(minTop, route[i].position.y);
+			maxBottom = Math.max(maxBottom, route[i].position.y);
+		}
+		
+		return { left: minLeft, top: minTop, right: maxRight, bottom: maxBottom };
+	}
 	
     /**
     * Увеличить масштаб
@@ -171,7 +225,7 @@ function MapManager (options) {
 		
 		var scale = currentMap.stage.getScale();
 		if (newscale == undefined) {
-			newscale = scale.x + this.zoomFactor;
+			newscale = scale.x * (1 + (1 - this.zoomFactor));
 		}
 		
 		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
@@ -180,7 +234,7 @@ function MapManager (options) {
 		
 		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
 		currentMap.stage.setScale({x: newscale, y: newscale });
-		currentMap.stage.draw();
+		currentMap.stage.batchDraw();
 		
 		currentMap.scale = newscale;
 		this.scale = newscale;
@@ -198,7 +252,7 @@ function MapManager (options) {
 		
 		var scale = currentMap.stage.getScale();
 		if (newscale == undefined) {
-			newscale = scale.x - this.zoomFactor;
+			newscale = scale.x * this.zoomFactor;
 		}
 		
 		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
@@ -207,7 +261,7 @@ function MapManager (options) {
 		
 		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
 		currentMap.stage.setScale({x: newscale, y: newscale });
-		currentMap.stage.draw();
+		currentMap.stage.batchDraw();
 		
 		currentMap.scale = newscale;
 		this.scale = newscale;

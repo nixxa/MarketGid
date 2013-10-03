@@ -10,6 +10,13 @@
 	<link href="~/Content/styles.css" rel="stylesheet" />
 	<link href="~/Content/keyboard.css" rel="stylesheet" />
 	<link href="~/Content/antiscroll.css" rel="stylesheet" />
+
+</head>
+<body class="animated fadeIn">
+	<div class="container">
+		@RenderBody()
+	</div>
+
 	<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/jquery-ui-1.10.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
@@ -18,12 +25,7 @@
 	<script type="text/javascript" src="~/Scripts/animation.js"></script>
 	<script type="text/javascript" src="~/Scripts/antiscroll.js"></script>
 	<script type="text/javascript" src="~/Scripts/menu.js"></script>
-</head>
-<body class="animated fadeIn">
-	<div class="container">
-		@RenderBody()
-	</div>
-
+	
 	<script type="text/javascript">
 		var timedout = false;
 

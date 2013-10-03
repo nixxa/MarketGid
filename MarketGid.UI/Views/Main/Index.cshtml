@@ -32,24 +32,30 @@
 	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
 </div>
 
-<script type="text/javascript" src="~/Scripts/map.js"></script>
-<script type="text/javascript" src="~/Scripts/graph.js"></script>
-<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
+@section scripts {
+	<script type="text/javascript" src="~/Scripts/map.js"></script>
+	<script type="text/javascript" src="~/Scripts/graph.js"></script>
+	<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
+	<script type="text/javascript" src="~/Scripts/edges.js"></script>
+	<script type="text/javascript" src="~/Scripts/paths.js"></script>
+	<script type="text/javascript" src="~/Scripts/junctions.js"></script>
+	<script type="text/javascript" src="~/Scripts/maps.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		Menu.init({
-			mainMenuUri: '@Url.Content("~/main/category/")',
-			subMenuUri: '@Url.Content("~/main/category/")',
-			titleUri: '@Url.Content("~/main/title")',
-			objectUri: '@Url.Content("~/main/object/")',
-			objectDetailsUri: '@Url.Content("~/main/objectdetails/")',
-			homeUri: '@Url.Content("~/home")',
-			findUri: '@Url.Content("~/main/find?q=")',
-			thumbnailsContainer: '.thumbnails',
-			thumbnails: '.mgid-thumb',
-			backButton: '#back-link',
-			title: '.main-content-title'
+	<script type="text/javascript">
+		$(document).ready(function () {
+			Menu.init({
+				mainMenuUri: '@Url.Content("~/main/category/")',
+				subMenuUri: '@Url.Content("~/main/category/")',
+				titleUri: '@Url.Content("~/main/title")',
+				objectUri: '@Url.Content("~/main/object/")',
+				objectDetailsUri: '@Url.Content("~/main/objectdetails/")',
+				homeUri: '@Url.Content("~/home")',
+				findUri: '@Url.Content("~/main/find?q=")',
+				thumbnailsContainer: '.thumbnails',
+				thumbnails: '.mgid-thumb',
+				backButton: '#back-link',
+				title: '.main-content-title'
+			});
 		});
-	});
-</script>
+	</script>
+}
