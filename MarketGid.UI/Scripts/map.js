@@ -283,21 +283,25 @@ function Map(options) {
         for (t in this.Objects) {
             var path = this.Objects[t].path;
 			if (path != undefined) {
-				var self = this;
-				path.on('click tap', function (evt) {
-					self.showPath(evt);
-				});
+				if (this.Objects[t].objectId > 0) {
+					var self = this;
+					path.on('mousedown touchstart', function (evt) {
+						self.showPath(evt);
+					});
+				}
 				this.mapLayer.add(path);
 			}
 			var text = this.Objects[t].text;
 			if (text != undefined) {
-				var self = this;
-				text.on('click tap', function (evt) {
-					var mapObj = self.findByObjectId(evt.targetNode.objectId);
-					if (mapObj != null) {
-						self.showPath({ targetNode: mapObj.path });
-					}
-				});
+				if (this.Objects[t].objectId > 0) {
+					var self = this;
+					text.on('mousedown touchstart', function (evt) {
+						var mapObj = self.findByObjectId(evt.targetNode.objectId);
+						if (mapObj != null) {
+							self.showPath({ targetNode: mapObj.path });
+						}
+					});
+				}
 				this.mapLayer.add(text);
 			}
         }
@@ -490,7 +494,7 @@ function Map(options) {
 			oldSelected.setShadowOffset(0);
 			oldSelected.setShadowOpacity(0);
 			oldSelected.setShadowBlur(0);
-			oldSelected.getLayer().drawScene();
+			oldSelected.getLayer().batchDraw();
 		}
 	
 		// показываем новый объект
@@ -504,7 +508,7 @@ function Map(options) {
 			newSelected.setShadowBlur(5);
 			newSelected.setShadowOffset(5);
 			newSelected.setShadowOpacity(0.5);
-			newSelected.getLayer().drawScene();
+			newSelected.getLayer().batchDraw();
 		}
 		
 		this.selectedObject = newSelected;
@@ -702,7 +706,7 @@ function Map(options) {
     */
     this.moveUp = function () {
         this.stage.move(0, -100);
-        this.stage.draw();
+        this.stage.batchDraw();
     };
 
     /**
@@ -711,7 +715,7 @@ function Map(options) {
     */
     this.moveDown = function () {
         this.stage.move(0, 100);
-        this.stage.draw();
+        this.stage.batchDraw();
     };
 
     /**
@@ -720,7 +724,7 @@ function Map(options) {
     */
     this.moveLeft = function () {
 		this.stage.move(-100, 0);
-        this.stage.draw();
+        this.stage.batchDraw();
     };
 
     /**
@@ -729,7 +733,7 @@ function Map(options) {
     */
     this.moveRight = function () {
         this.stage.move(100, 0);
-        this.stage.draw();
+        this.stage.batchDraw();
     };
 	
 	/**
@@ -738,7 +742,7 @@ function Map(options) {
 	this.move = function (x,y) {
 		if (x != undefined && y != undefined) {
 			this.stage.move(x,y);
-			this.stage.draw();
+			this.stage.batchDraw();
 		}
 	};
 
