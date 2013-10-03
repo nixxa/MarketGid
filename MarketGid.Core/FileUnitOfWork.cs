@@ -66,10 +66,10 @@ namespace MarketGid.Core
 			// merge categories & objects
 			foreach (var mapObject in mapObjects)
 			{
-				Category category = categories.SingleOrDefault (c => c.Id == mapObject.CategoryId);
-				mapObject.Category = category;
-				if (category != null)
-					category.Objects.Add (mapObject);
+				List<Category> list = categories.Where (c => mapObject.CategoryIds.Contains(c.Id)).ToList ();
+				mapObject.Categories = list;
+				if (list != null)
+					list.ForEach(c => c.Objects.Add (mapObject));
 			}
 		}
 

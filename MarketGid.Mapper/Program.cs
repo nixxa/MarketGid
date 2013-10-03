@@ -228,11 +228,24 @@ namespace MarketGid.Mapper
 				{
 					string name = rawStyle.Split(':')[0];
 					string val = rawStyle.Split(':')[1];
-					if (rawStyle.StartsWith("fill:")) pathData.bgColor = val;
-					if (rawStyle.StartsWith("fill-opacity:")) pathData.opacity = Convert.ToDouble(val, CultureInfo.InvariantCulture);
-					if (rawStyle.StartsWith("stroke:")) pathData.borderColor = val;
-					if (rawStyle.StartsWith("stroke-width:")) pathData.borderWidth = Convert.ToDouble(val.Replace("px",""), CultureInfo.InvariantCulture);
-					if (rawStyle.StartsWith("stroke-linejoin:")) pathData.borderJoin = val;
+					switch (name)
+					{
+					case "fill":
+						pathData.bgColor = val;
+						break;
+					case "fill-opacity":
+						pathData.opacity = Convert.ToDouble (val, CultureInfo.InvariantCulture);
+						break;
+					case "stroke":
+						pathData.borderColor = val;
+						break;
+					case "stroke-width":
+						pathData.borderWidth = Convert.ToDouble (val.Replace ("px", ""), CultureInfo.InvariantCulture);
+						break;
+					case "stroke-linejoin":
+						pathData.borderJoin = val;
+						break;
+					}
 				}
 			}
 			if (transform != null)

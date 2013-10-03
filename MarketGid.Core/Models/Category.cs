@@ -25,6 +25,10 @@ namespace MarketGid.Core.Models
 		/// Путь к иконке
 		/// </summary>
 		public string IconPath;
+		/// <summary>
+		/// Цвет фона кнопки категории
+		/// </summary>
+		public string StyleName;
 
 		/// <summary>
 		/// Список объектов в категории

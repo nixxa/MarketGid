@@ -92,7 +92,7 @@ namespace MarketGid.UI.Controllers
 					var mapObject = db.Query<MapObject> ().SingleOrDefault (o => o.Id == objectId.Value);
 					if (mapObject != null) 
 					{
-						ViewBag.Category = mapObject.Category;
+						ViewBag.Category = mapObject.Categories.First();
 						ViewBag.MapObject = mapObject;
 					}
 				}

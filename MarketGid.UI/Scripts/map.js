@@ -133,13 +133,17 @@ function Map(options) {
 			if (PathData[id].path != undefined && PathData[id].path != null) {
 				var pathObject = new Kinetic.Path({
 					data: PathData[id].path,
-					fill: PathData[id].bgColor,
 					opacity: PathData[id].opacity,
-					stroke: PathData[id].borderColor,
-					strokeWidth: PathData[id].borderWidth,
-					lineJoin: PathData[id].borderJoin,
 					id: id
 				});
+				if (PathData[id].bgColor != 'none') {
+					pathObject.setFill(PathData[id].bgColor);
+				}
+				if (PathData[id].borderColor != 'none') {
+					pathObject.setStroke(PathData[id].borderColor);
+					pathObject.setStrokeWidth(PathData[id].borderWidth);
+					pathObject.setLineJoin(PathData[id].borderJoin);
+				}
 				pathObject.objectId = PathData[id].objectId;
 				this.Objects[id] = {
 					path: pathObject,

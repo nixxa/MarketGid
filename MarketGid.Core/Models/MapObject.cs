@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
 namespace MarketGid.Core.Models
 {
@@ -13,9 +14,9 @@ namespace MarketGid.Core.Models
 		/// </summary>
 		public int Id;
 		/// <summary>
-		/// Идентификатор категории
+		/// Идентификаторы категории
 		/// </summary>
-		public int CategoryId;
+		public List<int> CategoryIds;
 		/// <summary>
 		/// Наименование объекта
 		/// </summary>
@@ -30,10 +31,10 @@ namespace MarketGid.Core.Models
 		public string Description;
 
 		/// <summary>
-		/// Категория объекта
+		/// Категории объекта
 		/// </summary>
 		[JsonIgnore]
-		public Category Category;
+		public List<Category> Categories;
 	}
 }
 
