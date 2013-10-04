@@ -4,7 +4,22 @@
 </head>
 <body>
 <script type="text/javascript">
-	
+	$(document).ready(function () {
+		console.info($('td[class=row]').length);
+		
+		var arr = [];
+		var data = $('td[class=row]');
+		for (var i = 0; i < data.length; i++) {
+			var cells = $(data[i]).text().trim().split(',');
+			for (var k = 0; k < cells.length; k++) {
+				cells[k] = cells[k].trim();
+				if (cells[k] == '') continue;
+				if (arr.indexOf(cells[k]) >= 0) continue;
+				arr.push(cells[k]);
+				console.info(cells[k]);
+			}
+		}
+	});
 </script>
 
 <table width="100%" border="0" cellspacing="0" cellpadding="5">

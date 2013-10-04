@@ -128,6 +128,24 @@ var Menu = {
 
 	initKeyboard: function () {
 		// init virtual keyboard
+		$('#ipad').keypress(function (event) {
+			var elem = $(this);
+			if (event.keyCode == 13) {
+				var cont = $('#container');
+				Animation.fadeOut(cont);
+				$.get(Menu.Settings.findUri + elem.val(), function (data) {
+					// отсылаем данные в GA
+					if (_gaq) {
+						_gaq.push(['_trackPageview', Menu.Settings.findUri + elem.val()]);
+					}
+					cont.html(data);
+					Menu.initThumbs();
+					Menu.initKeyboard();
+					Animation.fadeIn(cont);
+				});
+			}
+		});
+		/*
 		$('#ipad').keyboard({ 
  		    display: { 
 		        'bksp'   :  "\u2190", 
@@ -180,5 +198,6 @@ var Menu = {
 				});
 			}
 		});
+		*/
 	}
 };

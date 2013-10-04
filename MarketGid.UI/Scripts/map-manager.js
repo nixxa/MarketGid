@@ -11,6 +11,7 @@ function MapManager (options) {
 	this.scale = 1.0;
 	this.origin = { x: 0, y: 0 };
 	this.objectSelected = null;
+	this.lastDist = 0;
 
 	/**
 	 * Инициализирует объект
@@ -91,6 +92,28 @@ function MapManager (options) {
 		}
 
 		this.showRoute(this.currentMapName, targetName);
+		
+		// enable multitouch scaling
+		var self = this;
+		currentMap.stage.getContent().addEventListener('touchmove', function (evt) {
+			if (evt.touches.length < 2) return;
+			var touch1 = evt.touches[0];
+			var touch2 = evt.touches[1];
+			
+			if (touch1 && touch2) {
+				var dist = Graph.getDistance({ x: touch1.clientX, y: touch1.clientY }, { x: touch2.clientX, y: touch2.clientY });
+				if (!self.lastDist) {
+					self.lastDist = dist;
+				}
+				var scale = self.scale * dist / self.lastDist;
+				self.scaleUp(scale);
+				self.lastDist = dist;
+			}
+		}, false);
+		
+		currentMap.stage.getContent().addEventListener('touchend', function (evt) {
+			self.lastDist = 0;
+		}, false);
 	};
 	
 	this.selectMap = function (mapName) {
