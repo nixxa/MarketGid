@@ -36,6 +36,7 @@
 	});
 
 	function rotate() {
+		//Animation.fadeOut('.content');
 		$.post('/Home/Rotate', function (data) {
 			// отсылаем данные в GA
 			if (_gaq) {
@@ -43,6 +44,7 @@
 			}
 		
 			$('#adImage').attr('src', data.imageSource);
+			//Animation.fadeIn('.content');
 			setTimeout(function () { rotate(); }, data.duration);
 		});
 	}

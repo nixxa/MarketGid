@@ -29,8 +29,8 @@ namespace MarketGid.UI.Controllers
 			using (var db = Factory.Create()) 
 			{
 				var advertisement = db.Query<Advertisement> ().First (item => item.Places.Contains (PLACE_NAME));
-				ViewData["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
-				ViewData["imageName"] = advertisement.Name;
+				ViewData ["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
+				ViewData ["imageName"] = advertisement.Name;
 				ViewData ["duration"] = advertisement.Duration.TotalMilliseconds;
 			}
 

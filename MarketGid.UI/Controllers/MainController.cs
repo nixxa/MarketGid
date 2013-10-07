@@ -111,7 +111,9 @@ namespace MarketGid.UI.Controllers
 			using (var db = Factory.Create()) 
 			{
 				ViewBag.MapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
-				ViewBag.Kiosk = db.Query<Kiosk> ().First ();
+				ViewBag.Kiosk = db.Query<Kiosk> ().FirstOrDefault (o => o.Id == KioskId);
+				if (ViewBag.Kiosk == null)
+					ViewBag.Kiosk = db.Query<Kiosk> ().First ();
 			}
 			return PartialView ("_MapObject");
 		}

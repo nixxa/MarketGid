@@ -8,6 +8,10 @@ namespace MarketGid.Core.Models
 	public class Kiosk
 	{
 		/// <summary>
+		/// Идентификатор киоска
+		/// </summary>
+		public int Id;
+		/// <summary>
 		/// The x.
 		/// </summary>
 		public double X;

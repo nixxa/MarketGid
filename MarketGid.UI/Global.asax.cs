@@ -30,5 +30,29 @@ namespace MarketGid.UI
 			FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
 			RouteConfig.RegisterRoutes(RouteTable.Routes);
 		}
+
+		protected void Application_BeginRequest (object sender, EventArgs e)
+		{
+			string kioskId = Request.Params ["kiosk"];
+			if (string.IsNullOrWhiteSpace (kioskId))
+			{
+				// в запросе идентификатора нет, ищем в куках
+				HttpCookie cookie = Request.Cookies ["marketgid_kiosk_id"];
+				if (cookie == null || string.IsNullOrWhiteSpace (cookie.Value))
+				{
+					// в куках тоже нет, берем первый попавшийся
+					kioskId = "1";
+				}
+				else
+				{
+					kioskId = cookie.Value;
+				}
+			}
+
+			Context.Items ["kioskId"] = kioskId;
+
+			Response.Cookies ["marketgid_kiosk_id"].Value = kioskId;
+			Response.Cookies ["marketgid_kiosk_id"].Expires = DateTime.UtcNow.AddYears (1);
+		}
 	}
 }
