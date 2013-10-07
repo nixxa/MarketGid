@@ -359,6 +359,8 @@ namespace MarketGid.Mapper
 		public double x;
 		public double y;
 		public double angle;
+		public double scaleX;
+		public double scaleY;
 		public double fontSize;
 		public string fontFamily;
 		public string fontWeight;
@@ -515,13 +517,44 @@ namespace MarketGid.Mapper
 		
 		public void ApplyToText(PathData pathData)
 		{
+			double delta = 0.01;
 			double x = pathData.x;
 			double y = pathData.y;
 			pathData.x = (x * A + y * C + E);
 			pathData.y = (x * B + y * D + F);
-			pathData.angle = Math.Asin(B) * 180/Math.PI;
-			
-			double delta = 0.01;
+			// если A == 0 или D == 0, то значит угол 90 либо -90
+			if (Math.Abs (A - 0.0) <= delta || Math.Abs (D - 0.0) <= delta)
+			{
+				if (B < 0)
+				{
+					pathData.angle = -90;
+				}
+				else
+				{
+					pathData.angle = 90;
+				}
+				// переставляем местами, потому что scale выполняется до rotate, значит scaleX - это по высоте
+				pathData.scaleY = -C / Math.Sin (pathData.angle * Math.PI/180);
+				pathData.scaleX = B / Math.Sin (pathData.angle * Math.PI/180);
+			}
+			else
+			{
+				pathData.angle = Math.Atan (-C/A) * 180 / Math.PI;
+				// если угол поворота больше нуля, то считаем через синус угла
+				if (Math.Abs (pathData.angle - 0.0) >= delta)
+				{
+					pathData.scaleX = -C / Math.Sin (pathData.angle * Math.PI / 180);
+					pathData.scaleY = B / Math.Sin (pathData.angle * Math.PI / 180);
+				}
+				else
+				{
+					pathData.scaleX = A / Math.Cos (pathData.angle * Math.PI / 180);
+					pathData.scaleY = D / Math.Cos (pathData.angle * Math.PI / 180);
+				}
+			}			
+
+			// учитываем тот факт, что в svg координаты текста - это координаты baseline текста,
+			// а в canvas - нижний левый угол ограничивающего прямоугольника)
 			if (Math.Abs(pathData.angle - 0) <= delta)
 			{
 				pathData.y -= pathData.fontSize * 0.8;

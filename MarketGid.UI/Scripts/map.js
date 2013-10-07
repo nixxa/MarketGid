@@ -171,6 +171,12 @@ function Map(options) {
 				if (PathData[id].angle != undefined && PathData[id].angle != 0.0) {
 					textObject.rotateDeg(PathData[id].angle);
 				}
+				if (PathData[id].scaleX > 0) {
+					textObject.setScaleX(PathData[id].scaleX);
+				}
+				if (PathData[id].scaleY > 0) {
+					textObject.setScaleY(PathData[id].scaleY);
+				}
 				this.Objects[id] = {
 					text: textObject,
 					objectId: PathData[id].objectId,

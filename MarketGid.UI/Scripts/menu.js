@@ -58,8 +58,13 @@ var Menu = {
 	},
 	
 	catTitle: function () {
+		// стараемся вместить меню в одну строку
 		if ($('.breadcrumb').height() > 65) {
-			$('#mgid-menu-mosfilm').text('...');
+			//$('#mgid-menu-mosfilm').text('...');
+			$('.breadcrumb li').first().next().find('a').first().text('...');
+			if ($('.breadcrumb').height() > 65) {
+				$('.breadcrumb li').first().next().next().find('a').first().text('...');
+			}
 		}
 	},
 	
