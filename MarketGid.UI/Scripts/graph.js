@@ -1,4 +1,30 @@
 /// <reference path="_references.js" />
+/*global Graph*/
+
+function Point(x, y) {
+	this.x = x;
+	this.y = y;
+}
+
+function Edge(begin, end, shape, mapName) {
+	this.weight = 1;
+	this.begin = begin;
+	this.end = end;
+	this.beginVertex = null;
+	this.endVertex = null;
+	this.shape = shape;
+	this.length = 0;
+	this.mapName = mapName;
+}
+
+function Vertex() {
+	this.id = 'v' + Graph.Vertexes.length;
+	this.position = null;
+	this.incomingEdges = [];
+	this.outgoingEdges = [];
+	this.shape = null;
+	this.mapName = '';
+}
 
 var Graph = {
 
@@ -303,31 +329,6 @@ var Graph = {
 		}
 		return null;
 	}
-};
-
-function Point(x, y) {
-	this.x = x;
-	this.y = y;
-};
-
-function Edge(begin, end, shape, mapName) {
-	this.weight = 1;
-	this.begin = begin;
-	this.end = end;
-	this.beginVertex = null;
-	this.endVertex = null;
-	this.shape = shape;
-	this.length = 0;
-	this.mapName = mapName;
-};
-
-function Vertex() {
-	this.id = 'v' + Graph.Vertexes.length;
-	this.position = null;
-	this.incomingEdges = [];
-	this.outgoingEdges = [];
-	this.shape = null;
-	this.mapName = '';
 };
 
 //var indexOf = function(needle) {

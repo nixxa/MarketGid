@@ -1,8 +1,11 @@
-﻿/// <reference path="jquery-2.0.3.vsdoc.js" />
+/// <reference path="jquery-2.0.3.vsdoc.js" />
 /// <reference path="animation.js" />
+/*jslint nomen: true*/
+/*global $,Animation,_gaq,mapManager,kioskOptions*/
+/*jslint nomen: false */
 
 var Menu = {
-
+	
 	Settings: {
 		mainMenuUri: '',
 		subMenuUri: '',
@@ -20,17 +23,37 @@ var Menu = {
 	title: null,
 
 	init: function (options) {
-		if (options != undefined) {
-			if (options.mainMenuUri != undefined) Menu.Settings.mainMenuUri = options.mainMenuUri;
-			if (options.subMenuUri != undefined) Menu.Settings.subMenuUri = options.subMenuUri;
-			if (options.objectUri != undefined) Menu.Settings.objectUri = options.objectUri;
-			if (options.objectDetailsUri != undefined) Menu.Settings.objectDetailsUri = options.objectDetailsUri;
-			if (options.homeUri != undefined) Menu.Settings.homeUri = options.homeUri;
-			if (options.findUri != undefined) Menu.Settings.findUri = options.findUri;
-			if (options.thumbnailsContainer != undefined) Menu.Settings.thumbnailsContainer = options.thumbnailsContainer;
-			if (options.thumbnails != undefined) Menu.Settings.thumbnails = options.thumbnails;
-			if (options.title != undefined) Menu.Settings.title = options.title;
-			if (options.titleUri != undefined) Menu.Settings.titleUri = options.titleUri;
+		if (options !== undefined) {
+			if (options.mainMenuUri !== undefined) {
+                Menu.Settings.mainMenuUri = options.mainMenuUri;
+            }
+			if (options.subMenuUri !== undefined) {
+                Menu.Settings.subMenuUri = options.subMenuUri;
+            }
+			if (options.objectUri !== undefined) {
+                Menu.Settings.objectUri = options.objectUri;
+            }
+			if (options.objectDetailsUri !== undefined) {
+                Menu.Settings.objectDetailsUri = options.objectDetailsUri;
+            }
+			if (options.homeUri !== undefined) {
+                Menu.Settings.homeUri = options.homeUri;
+            }
+			if (options.findUri !== undefined) {
+                Menu.Settings.findUri = options.findUri;
+            }
+			if (options.thumbnailsContainer !== undefined) {
+                Menu.Settings.thumbnailsContainer = options.thumbnailsContainer;
+            }
+			if (options.thumbnails !== undefined) {
+                Menu.Settings.thumbnails = options.thumbnails;
+            }
+			if (options.title !== undefined) {
+                Menu.Settings.title = options.title;
+            }
+			if (options.titleUri !== undefined) {
+                Menu.Settings.titleUri = options.titleUri;
+            }
 		}
 
 		Menu.thumbnailsContainer = $(Menu.Settings.thumbnailsContainer);
@@ -43,15 +66,17 @@ var Menu = {
 	// добавляет обработчик события 'mousedown' & 'mouseup' для тайлов
 	// По клику будут получаться данные по адресу ~/main/category/{id}
 	initThumbs: function () {
-		$(Menu.Settings.thumbnails).mousedown( function () {
+		$(Menu.Settings.thumbnails).mousedown(function () {
 			$(this).toggleClass('clicked');
 		});
-		$(Menu.Settings.thumbnails).mouseup( function () {
-			if ($(this).hasClass('clicked') == false) return;
+		$(Menu.Settings.thumbnails).mouseup(function () {
+			if ($(this).hasClass('clicked') === false) {
+                return;
+            }
 			$(this).toggleClass('clicked');
-			if ( $(this).data('category') != undefined) {
+			if ($(this).data('category') !== undefined) {
 				Menu.showCategory($(this).data('category'));
-			} else if ( $(this).data('object') != undefined) {
+			} else if ($(this).data('object') !== undefined) {
 				Menu.showObject($(this).data('object'));
 			}
 		});
@@ -73,9 +98,7 @@ var Menu = {
 		Animation.fadeOut(Menu.Settings.thumbnailsContainer);
 		$.post(Menu.Settings.subMenuUri + id, function (data) {
 			// отсылаем данные в GA
-			if (_gaq) {
-				_gaq.push(['_trackPageview', Menu.Settings.subMenuUri + id]);
-			}
+			Menu.trackPageview(Menu.Settings.subMenuUri + id);
 			cont.html(data);
 			Menu.initThumbs();
 			Menu.initKeyboard();
@@ -83,9 +106,7 @@ var Menu = {
 		});
 		$.post(Menu.Settings.titleUri + '?id=' + id, function (data) {
 			// отсылаем данные в GA
-			if (_gaq) {
-				_gaq.push(['_trackPageview', Menu.Settings.titleUri + '?id=' + id]);
-			}		
+			Menu.trackPageview(Menu.Settings.titleUri + '?id=' + id);
 			Menu.title.html(data);
 			Menu.catTitle();
 		});
@@ -93,13 +114,11 @@ var Menu = {
 	
 	showObject: function (id, name) {
 		var cont = $('#container');
-		if (name == undefined) {
+		if (name === undefined) {
 			Animation.fadeOut(cont);
 			$.post(Menu.Settings.objectUri + id, function (data) {
 				// отсылаем данные в GA
-				if (_gaq) {
-					_gaq.push(['_trackPageview', Menu.Settings.objectUri + id]);
-				}
+				Menu.trackPageview(Menu.Settings.objectUri + id);
 				cont.html(data);
 				Animation.fadeIn(cont);
 			});
@@ -113,9 +132,7 @@ var Menu = {
 	showObjectTitle: function (objectId) {
 		$.post(Menu.Settings.titleUri + '?objectId=' + objectId, function (data) {
 			// отсылаем данные в GA
-			if (_gaq) {
-				_gaq.push(['_trackPageview', Menu.Settings.titleUri + '?objectId=' + objectId]);
-			}
+			Menu.trackPageview(Menu.Settings.titleUri + '?objectId=' + objectId);
 			Menu.title.html(data);
 			Menu.catTitle();
 		});
@@ -124,25 +141,21 @@ var Menu = {
 	showObjectDetails: function (objectId) {
 		$.post(Menu.Settings.objectDetailsUri + '?id=' + objectId, function (data) {
 			// отсылаем данные в GA
-			if (_gaq) {
-				_gaq.push(['_trackPageview', Menu.Settings.objectDetailsUri + '?id=' + objectId]);
-			}		
+			Menu.trackPageview(Menu.Settings.objectDetailsUri + '?id=' + objectId);
 			$('.mgid-panel').html(data);
-		});	
+		});
 	},
 
 	initKeyboard: function () {
 		// init virtual keyboard
 		$('#ipad').keypress(function (event) {
-			var elem = $(this);
-			if (event.keyCode == 13) {
-				var cont = $('#container');
+			var elem = $(this), cont = $('#container');
+			if (event.keyCode === 13) {
+				//var cont = $('#container');
 				Animation.fadeOut(cont);
 				$.get(Menu.Settings.findUri + elem.val(), function (data) {
 					// отсылаем данные в GA
-					if (_gaq) {
-						_gaq.push(['_trackPageview', Menu.Settings.findUri + elem.val()]);
-					}
+                    Menu.trackPageview(Menu.Settings.findUri + elem.val());
 					cont.html(data);
 					Menu.initThumbs();
 					Menu.initKeyboard();
@@ -204,5 +217,13 @@ var Menu = {
 			}
 		});
 		*/
+	},
+	
+	trackPageview: function (uri) {
+		/*jslint nomen: true*/
+		if (_gaq) {
+			_gaq.push(['_trackPageview', uri]);
+		}
+		/*jslint nomen: false*/
 	}
 };

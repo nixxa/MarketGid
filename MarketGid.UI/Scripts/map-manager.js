@@ -1,6 +1,8 @@
-﻿// map-manager.js
+// map-manager.js
 
-function MapManager (options) {
+function MapManager(options) {
+	"use strict";
+	
 	this.maps = [];
 	this.currentMapName = '';
 	this.kioskPosition = {};
@@ -18,8 +20,8 @@ function MapManager (options) {
 	 * @private
 	 */
 	this.init = function (options) {
-		if (options != undefined) {
-			if (options.kioskPosition != undefined) {
+		if (options !== undefined) {
+			if (options.kioskPosition !== undefined) {
 				this.kioskPosition = options.kioskPosition;
 				this.currentMapName = this.kioskPosition.mapName;
 			}
@@ -28,7 +30,7 @@ function MapManager (options) {
 		this.setupMaps();
 		
 		var mapName = this.currentMapName;
-		var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == mapName; } );
+		var currentMap = this.firstOrDefault(function (m) { return m.Settings.mapName === mapName; });
 		currentMap.setStartPosition(this.kioskPosition);
 		
 		this.scale = 0.3;
