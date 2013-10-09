@@ -21,7 +21,7 @@ h1, h2, h3, h4 {
 	height: 1920px !important;
 	margin: 0px 0px 0px 0px !important;
 	padding: 0px 0px 0px 0px !important;
-	background-color: #390700;
+	background-color: #F3F5F9;
 	background-image: url('images/background.jpg');
 }
 
@@ -33,9 +33,9 @@ h1, h2, h3, h4 {
 	height: 90px;
 	background-color: #F3F5F9;
 	padding: 10px 20px;
-	color: #333333;
+	color: #D02329;
 	line-height: normal;
-	
+	font-weight: bold;	
 }
 	.logo img {
 		margin-right: 10px;
