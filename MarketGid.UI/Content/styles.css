@@ -32,11 +32,12 @@ h1, h2, h3, h4 {
 	font-size: 58pt;
 	height: 90px;
 	background-color: #F8F600;
-	padding: 10px;
+	padding: 10px 20px;
 	color: #333333;
+	line-height: normal;
 }
 	.logo img {
-		margin: 10px;
+		margin-right: 10px;
 		height: 85px;
 	}
 
@@ -54,8 +55,8 @@ h1, h2, h3, h4 {
 	padding: 10px;
 	color: #000;
 	background-image: url('images/plan3.jpg');
-	background-position-x: right;
 	background-repeat: no-repeat;
+	background-position: center;
 }
 	.footer span {
 		padding: 20px 10px 20px 10px;
@@ -80,9 +81,12 @@ h1, h2, h3, h4 {
 	padding: 20px;
 }
 
-.main-content {
+.main-content-container {
 	height: 1070px;
 	padding: 0px 20px 0px 20px;
+}
+
+.main-content {
 }
 	.main-content .main-content-title {
 		font-size: 23pt;
@@ -158,22 +162,6 @@ h1, h2, h3, h4 {
 			padding: 20px;
 			height: 946px;
 			opacity: 1;
-		}
-		.main-content .main-container .left-column {
-			width: 100px;
-			float: left;
-		}
-			.main-content .main-container .left-column .panel {
-				background-color: #2776EC;
-				height: 400px;
-				margin-bottom: 10px;
-			}
-				.main-content .main-container .left-column .panel.opened {
-					width: 400px !important;
-				}
-		.main-content .main-container .right-column {
-			width: 930px;
-			float: right;
 		}
 
 .main-footer {

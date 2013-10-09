@@ -7,24 +7,26 @@
 <div class="main-header">
 	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" />
 </div>
-<div class="main-content">
-	<div class="main-content-title">
-		@Html.Partial("_Title")
-		<!--a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">МОСФИЛЬМ</span-->
-	</div>
-	<div class="main-container">
-		<div class="main-menu" id="container"> <!--style="padding-left: 110px;"-->
-			<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
-			<ul class="thumbnails">
-				@foreach (Category category in ViewBag.Categories) {
-					<li class="mgid-tile">
-						<div class="thumbnail mgid-thumb" data-category="@category.Id">
-							<h3>@category.Name</h3>
-							<p></p>
-						</div>
-					</li>
-				}
-			</ul>
+<div class="main-content-container">	
+	<div class="main-content">
+		<div class="main-content-title">
+			@Html.Partial("_Title")
+			<!--a href="/" id="back-link"><img src="~/Content/images/black_arrow_left.png" alt="Back" /></a> <span id="title">МОСФИЛЬМ</span-->
+		</div>
+		<div class="main-container">
+			<div class="main-menu" id="container"> <!--style="padding-left: 110px;"-->
+				<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
+				<ul class="thumbnails">
+					@foreach (Category category in ViewBag.Categories) {
+						<li class="mgid-tile">
+							<div class="thumbnail mgid-thumb" data-category="@category.Id">
+								<h3>@category.Name</h3>
+								<p></p>
+							</div>
+						</li>
+					}
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>
