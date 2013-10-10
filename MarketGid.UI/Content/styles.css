@@ -1,6 +1,7 @@
 ﻿body {
 	/*font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;*/
 	color: #fff;
+	overflow: hidden;
 }
 
 header, footer, nav, section {
