@@ -1,6 +1,6 @@
 /* keyboard - jQuery UI Widget */
 .ui-keyboard { 
-	padding: .3em; 
+	padding-bottom: .5em; 
 	position: absolute; 
 	left: 0; 
 	top: 0; 

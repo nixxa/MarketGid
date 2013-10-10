@@ -5,7 +5,11 @@
 	int count = 0;
 }
 
-<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
+@if (string.IsNullOrWhiteSpace(ViewBag.QueryString)) {
+	<input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
+} else {
+	<input type="text" class="mgid-keyboard" id="ipad" value="@ViewBag.QueryString" />
+}
 <div class="mgid-box-wrap antiscroll-wrap">
 	<div class="mgid-box antiscroll-inner">
 		<ul class="thumbnails">

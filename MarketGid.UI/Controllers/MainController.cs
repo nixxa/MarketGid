@@ -148,6 +148,7 @@ namespace MarketGid.UI.Controllers
 
 			using (var db = Factory.Create())
 			{
+				ViewBag.QueryString = q;
 				ViewBag.Category = new Category ();
 				ViewBag.Category.Children = db.Query<Category> ().Where (c => c.Name.Contains (q)).ToList ();
 				ViewBag.Category.Objects = db.Query<MapObject> ().Where (o => 
