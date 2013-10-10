@@ -27,14 +27,14 @@
 }
 
 .antiscroll-scrollbar-horizontal {
-  height: 7px;
+  height: 10px;
   margin-left: 2px;
   bottom: 2px;
   left: 0;
 }
 
 .antiscroll-scrollbar-vertical {
-  width: 7px;
+  width: 10px;
   margin-top: 2px;
   right: 2px;
   top: 0;

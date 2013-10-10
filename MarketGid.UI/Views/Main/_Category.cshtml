@@ -1,36 +1,49 @@
 ﻿@using MarketGid.Core.Models
 
 @{
-	const int MAX_TOTAL = 20;
+	const int MAX_TOTAL = 140;
 	int count = 0;
 }
 
 <input type="text" class="mgid-keyboard" placeholder="Введите название или услугу..." id="ipad" />
-<ul class="thumbnails">
-@foreach (Category category in ViewBag.Category.Children) {
-	count += 1;
-	if (count >= MAX_TOTAL) 
-	{
-		continue;
+<div class="mgid-box-wrap antiscroll-wrap">
+	<div class="mgid-box antiscroll-inner">
+		<ul class="thumbnails">
+		@foreach (Category category in ViewBag.Category.Children) {
+			count += 1;
+			if (count >= MAX_TOTAL) 
+			{
+				continue;
+			}
+			<li class="mgid-tile">
+				<div class="thumbnail mgid-thumb" data-category="@category.Id">
+					<h3>@category.Name</h3>
+					<p></p>
+				</div>
+			</li>
+		}
+		@foreach (MapObject mapObject in ViewBag.Category.Objects) {
+			count += 1;
+			if (count >= MAX_TOTAL) 
+			{
+				continue;
+			}
+			<li class="mgid-tile">
+				<div class="thumbnail mgid-thumb" data-object="@(mapObject.Id)">
+					<h4>@mapObject.Name</h4>
+					<p>@Html.Raw(mapObject.TileDescription)</p>
+				</div>
+			</li>
+		}
+		</ul>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var el = $('.antiscroll-wrap');
+	var inner = el.find('.antiscroll-inner');
+	if (inner.get(0).scrollHeight - 20 > el.height()) {
+		el.antiscroll({ autoHide: false });
+		$('.mgid-tile').css('width', '228px');
 	}
-	<li class="mgid-tile">
-		<div class="thumbnail mgid-thumb" data-category="@category.Id">
-			<h3>@category.Name</h3>
-			<p></p>
-		</div>
-	</li>
-}
-@foreach (MapObject mapObject in ViewBag.Category.Objects) {
-	count += 1;
-	if (count >= MAX_TOTAL) 
-	{
-		continue;
-	}
-	<li class="mgid-tile">
-		<div class="thumbnail mgid-thumb" data-object="@(mapObject.Id)">
-			<h4>@mapObject.Name</h4>
-			<p>@Html.Raw(mapObject.TileDescription)</p>
-		</div>
-	</li>
-}
-</ul>
+</script>

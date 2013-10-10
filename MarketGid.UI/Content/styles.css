@@ -332,3 +332,13 @@ h1, h2, h3, h4 {
 	color: #333333 !important;
 	background-color: #CDCED0 !important;
 }
+
+.mgid-box-wrap {
+	width: 989px;
+	height: 890px;
+}
+
+.mgid-box {
+	width:1008px; 
+	height:910px;
+}

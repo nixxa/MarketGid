@@ -59,6 +59,8 @@
 				title: '.main-content-title'
 			});
 		
+			$('.antiscroll-wrap').antiscroll();
+		
 			setTimeout(function () { rotate('MainScreenTop'); }, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
 			setTimeout(function () { rotate('MainScreenBottom'); }, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
 		
