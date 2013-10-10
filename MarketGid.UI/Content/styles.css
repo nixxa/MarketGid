@@ -1,7 +1,5 @@
 ﻿body {
-	/*font-family: "Segoe UI Light", "Helvetica Neue", "Segoe UI", "Segoe WP", sans-serif;*/
 	color: #fff;
-	overflow: hidden;
 }
 
 header, footer, nav, section {
@@ -24,6 +22,7 @@ h1, h2, h3, h4 {
 	padding: 0px 0px 0px 0px !important;
 	background-color: #F3F5F9;
 	background-image: url('images/background.jpg');
+	overflow:hidden;
 }
 
 /*
@@ -37,6 +36,7 @@ h1, h2, h3, h4 {
 	color: #D02329;
 	line-height: normal;
 	font-weight: bold;	
+	line-height: normal;
 }
 	.logo img {
 		margin-right: 10px;
@@ -326,13 +326,21 @@ h1, h2, h3, h4 {
 		}
 
 .mgid-keyboard {
-	width: 975px !important; 
-	height: auto !important; 
+	width: 979px !important; 
+	height: 40px !important; 
 	font-size: 1.9em !important; 
 	line-height: normal !important; 
 	color: #333333 !important;
 	background-color: #CDCED0 !important;
+
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 5px;
+	margin-bottom: 10px;
 }
+	.mgid-keyboard .active {
+		color: #fff;
+	}
 
 .mgid-box-wrap {
 	width: 989px;

@@ -148,6 +148,7 @@ var Menu = {
 
 	initKeyboard: function () {
 		// init virtual keyboard
+		/*
 		$('#ipad').keypress(function (event) {
 			var elem = $(this), cont = $('#container');
 			if (event.keyCode === 13) {
@@ -163,14 +164,14 @@ var Menu = {
 				});
 			}
 		});
-		/*
+		*/
 		$('#ipad').keyboard({ 
  		    display: { 
 		        'bksp'   :  "\u2190", 
 		        'accept' : 'Поиск', 
-		        'default': 'АБВ', 
+		        'default': 'Рус', 
 		        'meta1'  : '.?123', 
-		        'meta2'  : '#+=',
+		        'meta2'  : 'Лат',
 		        'enter'  : 'Поиск'
 		    }, 
 		    layout: 'custom', 
@@ -179,26 +180,32 @@ var Menu = {
 		            'й ц у к е н г ш щ з х {bksp}', 
 		            'ф ы в а п р о л д ж {accept}', 
 		            'я ч с м и т ь б ю э ъ .', 
-		            '{s} {meta1} {space} {meta1}' 
+		            '{s} {meta1} {space} {meta2}' 
 		        ], 
 		        'shift': [ 
 		            'Й Ц У К Е Н Г Ш Щ З Х {bksp}', 
 		            'Ф Ы В А П Р О Л Д Ж {accept}', 
 		            'Я Ч С М И Т Ь Б Ю Э Ъ .', 
-		            '{s} {meta1} {space} {meta1}' 
+		            '{s} {meta1} {space} {meta2}' 
 		        ], 
 		        'meta1': [ 
 		            '1 2 3 4 5 6 7 8 9 0 {bksp}', 
-		            '- / : ; ( ) \u20ac & @@ {accept}', 
-		            '{meta2} . , ? ! \' " {meta2}', 
-		            '{default} {space} {default}' 
+		            '- / : ; ( ) \u20ac & @ {accept}', 
+		            '. , ? ! \' "', 
+		            '{default} {space} {meta2}' 
 		        ], 
 		        'meta2': [ 
-		            '[ ] { } # % ^ * + = {bksp}', 
-		            '_ \\ | ~ < > $ \u00a3 \u00a5 {accept}', 
-		            '{meta1} . , ? ! \' " {meta1}', 
-		            '{default} {space} {default}' 
-		        ] 
+		            'q w e r t y u i o p {bksp}', 
+		            'a s d f g h j k l {accept}', 
+		            '{s} z x c v b n m , . /', 
+		            '{meta1} {space} {default}' 
+		        ],
+				'meta2-shift': [
+		            'Q W E R T Y U I O P {bksp}', 
+		            'A S D F G H J K L {accept}', 
+		            '{s} Z X C V B N M , . /', 
+		            '{meta1} {space} {default}'
+				]
 		    },
 			accepted : function(e, keyboard, el) {
 				if (el.value == '') return;
@@ -216,7 +223,6 @@ var Menu = {
 				});
 			}
 		});
-		*/
 	},
 	
 	trackPageview: function (uri) {
