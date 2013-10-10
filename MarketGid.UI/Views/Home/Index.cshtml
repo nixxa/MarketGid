@@ -5,7 +5,7 @@
 	ТК &laquo;Горбушкин Двор&raquo;
 </div>
 <div class="content">
-	<img id="adImage" src="@ViewData["imageSource"]" alt="advertise" />
+	<img id="LockScreen" src="@Url.Content(ViewBag.Advertisement.Uri)" alt="advertise" />
 </div>
 <div class="footer">
 	<span>
@@ -21,7 +21,7 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		setTimeout(function () { rotate(); }, @ViewData["duration"]);
+		setTimeout(function () { rotate(); }, @ViewBag.Advertisement.Duration.TotalMilliseconds);
 		$(document).click(function () {
 			$('body').addClass('animated fadeOut');
 			window.location.href = '/Main/Index';
@@ -32,21 +32,23 @@
 		
 		// отсылаем данные в GA
 		if (_gaq) {
-			_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewData["imageName"]']);
+			_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.Advertisement.Name']);
 		}
 	});
 
 	function rotate() {
-		//Animation.fadeOut('.content');
+		Animation.fadeOut('.content');
 		$.post('/Home/Rotate', function (data) {
 			// отсылаем данные в GA
 			if (_gaq) {
 				_gaq.push(['_trackEvent', 'Images', 'Show', data.name]);
 			}
 		
-			$('#adImage').attr('src', data.imageSource);
-			//Animation.fadeIn('.content');
-			setTimeout(function () { rotate(); }, data.duration);
+			setTimeout(function () { 
+				$('#LockScreen').attr('src', data.imageSource);
+				Animation.fadeIn('.content'); 
+				setTimeout(function () { rotate(); }, data.duration);
+			}, 1000);
 		});
 	}
 </script>

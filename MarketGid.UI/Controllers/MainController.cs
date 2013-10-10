@@ -29,8 +29,12 @@ namespace MarketGid.UI.Controllers
         {
 			using (var db = Factory.Create())
 			{
-				var topAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (TOP_PLACE_NAME));
-				var bottomAdvertisement = db.Query<Advertisement> ().FirstOrDefault (item => item.Places.Contains (BOTTOM_PLACE_NAME));
+				var topAdvertisement = GetAdvert (TOP_PLACE_NAME);
+				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+				if (bottomAdvertisement.Equals(topAdvertisement))
+				{
+					bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+				}
 				var categories = db.Query<Category> ().Where (c => c.Level == 0);
 
 				ViewBag.TopAdvertisement = topAdvertisement;
@@ -153,6 +157,19 @@ namespace MarketGid.UI.Controllers
 					.ToList ();
 			}
 			return PartialView("_Category");
+		}
+
+		/// <summary>
+		/// Возвращает следующий рекламный материал
+		/// </summary>
+		public JsonResult Rotate(string place)
+		{
+			var advertisement = GetAdvert (place);
+			return Json(new { 
+				imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
+				name = advertisement.Name,
+				duration = advertisement.Duration.TotalMilliseconds 
+			});
 		}
 
 		const string TOP_PLACE_NAME = "MainScreenTop";

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MarketGid.Core;
+using MarketGid.Core.Models;
 
 namespace MarketGid.UI.Controllers
 {
@@ -35,6 +36,26 @@ namespace MarketGid.UI.Controllers
 				if (string.IsNullOrWhiteSpace (value))
 					return 1;
 				return int.Parse (value);
+			}
+		}
+
+		/// <summary>
+		/// Возвращает следующий рекламный материал для указанной области
+		/// </summary>
+		/// <returns>The advert.</returns>
+		/// <param name="place">Place.</param>
+		protected Advertisement GetAdvert(string place)
+		{
+			using (var db = Factory.Create())
+			{
+				var collection = db.Query<Advertisement> ().Where (item => item.Places.Contains (place));
+
+				int currentIndex = Session [place + "_advertIndex"] != null ? (int) Session[place + "_advertIndex"] : 0;
+				currentIndex += 1;
+				if (currentIndex > collection.Count ()) currentIndex = 1;
+				Session [place + "_advertIndex"] = currentIndex;
+
+				return collection.Skip (currentIndex > 0 ? currentIndex - 1 : 0).First ();
 			}
 		}
     }

@@ -28,10 +28,8 @@ namespace MarketGid.UI.Controllers
 		{
 			using (var db = Factory.Create()) 
 			{
-				var advertisement = db.Query<Advertisement> ().First (item => item.Places.Contains (PLACE_NAME));
-				ViewData ["imageSource"] = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext);
-				ViewData ["imageName"] = advertisement.Name;
-				ViewData ["duration"] = advertisement.Duration.TotalMilliseconds;
+				var advertisement = GetAdvert (PLACE_NAME);
+				ViewBag.Advertisement = advertisement;
 			}
 
 			return View("Index");
@@ -42,20 +40,12 @@ namespace MarketGid.UI.Controllers
 		/// </summary>
 		public JsonResult Rotate()
 		{
-			using (var db = Factory.Create())
-			{
-				var collection = db.Query<Advertisement> ().Where (item => item.Places.Contains (PLACE_NAME));
-
-				_currentIndex += 1;
-				if (_currentIndex > collection.Count ()) _currentIndex = 1;
-
-				var advertisement = collection.Skip (_currentIndex > 0 ? _currentIndex - 1 : 0).First ();
-				return Json(new { 
-					imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
-					name = advertisement.Name,
-					duration = advertisement.Duration.TotalMilliseconds 
-				});
-			}
+			var advertisement = GetAdvert (PLACE_NAME);
+			return Json(new { 
+				imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
+				name = advertisement.Name,
+				duration = advertisement.Duration.TotalMilliseconds 
+			});
 		}
 
 		/// <summary>
@@ -63,11 +53,9 @@ namespace MarketGid.UI.Controllers
 		/// </summary>
 		public ActionResult Timedout()
 		{
-			_currentIndex = 1;
 			return Index();
 		}
 
 		private const string PLACE_NAME = "LockScreen";
-		private static int _currentIndex = 1;
 	}
 }

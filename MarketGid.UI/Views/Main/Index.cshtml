@@ -5,7 +5,7 @@
 }
 
 <div class="main-header">
-	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" />
+	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" id="MainScreenTop" />
 </div>
 <div class="main-content-container">
 	<div class="main-content">
@@ -31,7 +31,7 @@
 	</div>
 </div>
 <div class="main-footer">
-	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" />
+	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" id="MainScreenBottom" />
 </div>
 
 @section scripts {
@@ -58,6 +58,31 @@
 				backButton: '#back-link',
 				title: '.main-content-title'
 			});
+		
+			setTimeout(function () { rotate('MainScreenTop'); }, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
+			setTimeout(function () { rotate('MainScreenBottom'); }, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
+		
+			// отсылаем данные в GA
+			if (_gaq) {
+				_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.TopAdvertisement.Name']);
+				_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.BottomAdvertisement.Name']);
+			}
 		});
+					
+		function rotate(place) {
+			Animation.fadeOut('#' + place);
+			$.post('/Main/Rotate', { place: place }, function (data) {
+				// отсылаем данные в GA
+				if (_gaq) {
+					_gaq.push(['_trackEvent', 'Images', 'Show', data.name]);
+				}
+			
+				setTimeout(function () {
+					$('#' + place).attr('src', data.imageSource);
+					Animation.fadeIn('#' + place);
+					setTimeout(function () { rotate(place); }, data.duration);
+				}, 1000);
+			});
+		}
 	</script>
 }
