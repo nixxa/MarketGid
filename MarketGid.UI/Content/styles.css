@@ -330,7 +330,7 @@ h1, h2, h3, h4 {
 	height: 40px; 
 	font-size: 27px; 
 	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-	line-height: normal;
+	line-height: 40px;
 	margin-bottom: 10px;
 	background: #ccc;
 	color: #808080;
