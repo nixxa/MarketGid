@@ -148,6 +148,22 @@ var Menu = {
 
 	initKeyboard: function () {
 		// init virtual keyboard
+		var name = '#ipad';
+		var text = 'Введите текст...';
+		$(name).html(text);
+		$.keyboard($(name),text,'ru',function (t) {
+			if (t === '') return;
+			var cont = $('#container');
+			Animation.fadeOut(cont);
+			$.get(Menu.Settings.findUri + t, function (data) {
+				// отсылаем данные в GA
+				Menu.trackPageview(Menu.Settings.findUri + t);
+				cont.html(data);
+				Menu.initThumbs();
+				Menu.initKeyboard();
+				Animation.fadeIn(cont);
+			});
+		});
 		/*
 		$('#ipad').keypress(function (event) {
 			var elem = $(this), cont = $('#container');
@@ -165,6 +181,7 @@ var Menu = {
 			}
 		});
 		*/
+		/*
 		$('#ipad').keyboard({ 
  		    display: { 
 		        'bksp'   :  "\u2190", 
@@ -223,6 +240,7 @@ var Menu = {
 				});
 			}
 		});
+		*/
 	},
 	
 	trackPageview: function (uri) {

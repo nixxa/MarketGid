@@ -1,163 +1,97 @@
-/* keyboard - jQuery UI Widget */
-.ui-keyboard { 
-	padding-bottom: .5em; 
-	position: absolute; 
-	left: 0; 
-	top: 0; 
-	z-index: 16000; 
+.input {
+}
+.input-active {
+    color: #fff;
 }
 
-.ui-keyboard-has-focus { 
-	z-index: 16001; 
+.keyboard-wrap {
+    background: #7D7D82;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#97979C), to(#67676C));
+    background-image: -webkit-linear-gradient(#97979C, #67676C);
+    background-image: -moz-linear-gradient(#97979C, #67676C);
+    background-image: -o-linear-gradient(#97979C, #67676C);
+    background-image: linear-gradient(#97979C, #67676C);
+    position: absolute;
+    display: block;
+    padding: 20px;
+    border-radius: 5px;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.65);
+	width: 949px;
 }
-
-.ui-keyboard div { 
-	font-size: 1.1em; 
+.keyboard {
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
 }
-
-.ui-keyboard-button { 
-	height: 2em; 
-	width: 2em; 
-	min-width: 1em; 
-	margin: .1em; 
-	cursor: pointer; 
-	overflow: hidden; 
-	line-height: 2em; 
-	-moz-user-focus: ignore; 
-	font-size: 2em !important; 
-}
-
-.ui-keyboard-button span { 
-	padding: 0; 
-	margin: 0; 
-	white-space:nowrap; 
-	display: inline-block; 
-}
-
-.ui-keyboard-button-endrow { 
-	clear: left; 
-}
-
-.ui-keyboard-widekey { 
-	min-width: 4em; 
-	width: auto; 
-}
-
-.ui-keyboard-space { 
-	width: 15em; 
-}
-
-.ui-keyboard-space span, .ui-keyboard-empty span { 
-	font: 0/0 a; 
-	text-shadow: none; 
-	color: transparent; 
-} /* see http://nicolasgallagher.com/another-css-image-replacement-technique/ */
-
-.ui-keyboard-preview-wrapper { 
-	text-align: center; 
-}
-
-.ui-keyboard-preview { 
-	text-align: left; 
-	margin: 0 0 3px 0; 
-	display: inline; 
-	width: 99%;
-} /* width is calculated in IE, since 99% = 99% full browser width =( */ 
-
-.ui-keyboard-keyset { 
-	text-align: center; 
-	white-space: nowrap; 
-}
-
-.ui-keyboard-input { 
-	text-align: left; 
-}
-
-.ui-keyboard-input-current { 
-	-moz-box-shadow: 1px 1px 10px #00f; 
-	-webkit-box-shadow: 1px 1px 10px #00f; 
-	box-shadow: 1px 1px 10px #00f; 
-}
-.ui-keyboard-placeholder { 
-	color: #888; 
-}
-.ui-keyboard-nokeyboard { 
-	color: #888; 
-	border-color: #888; 
-} /* disabled or readonly inputs, or use input[disabled='disabled'] { color: #f00; } */
-
-.ui-keyboard-button.disabled { 
-	opacity: 0.5; 
-	filter: alpha(opacity=50); 
-} /* used by the acceptValid option to make the accept button appear faded */
-
-.ui-keyboard-spacer { 
-	display: inline-block; 
-	width: 1px; 
-	height: 0; 
-}
-
-/* combo key styling - toggles diacritics on/off */
-.ui-keyboard-button.ui-keyboard-combo.ui-state-default { 
-	border-color: #ffaf0f; 
-}
-
-/* (in)valid inputs */
-button.ui-keyboard-accept.ui-keyboard-valid-input { 
-	border-color: #0c0; 
-	background: #080; 
-	color: #fff; 
-}
-
-button.ui-keyboard-accept.ui-keyboard-valid-input:hover { 
-	background: #0a0; 
-}
-
-button.ui-keyboard-accept.ui-keyboard-invalid-input { 
-	border-color: #c00; 
-	background: #800; 
-	color: #fff; 
-}
-
-button.ui-keyboard-accept.ui-keyboard-invalid-input:hover { 
-	background: #a00; 
-}
-
-/*** jQuery Mobile definitions ***/
-/* jQuery Mobile styles - need wider buttons because of font size and text-overflow:ellipsis */
-.ui-bar .ui-keyboard-button { 
-	width: 3em; 
-	display: inline-block; 
-}
-
-.ui-bar .ui-keyboard-widekey { 
-	width: 5.5em; 
-}
-
-.ui-bar .ui-keyboard-space { 
-	width: 15em; 
-}
-
-.ui-bar .ui-keyboard-space span { 
-	visibility: hidden; 
-} /* hides the ellipsis */
-
-.ui-bar .ui-keyboard-keyset { 
-	line-height: 0.5em; 
-}
-
-.ui-bar input.ui-input-text, .ui-bar textarea.ui-input-text { 
-	width: 95%; 
-}
-
-/* over-ride padding set by mobile ui theme - needed because the mobile script wraps button text with several more spans */
-.ui-bar .ui-btn-inner { 
-	height: 2em; 
-	padding: 0.2em 0; 
-	margin: 0; 
-}
-
-.ui-bar .ui-btn {
-	margin: 0; 
-	font-size: 13px; 
-} /* mobile default size is 13px */
+    .keyboard li {
+        display: inline-block;
+        background: #EEEEF3;
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#F7F7FC), to(#E7E7EC));
+        background-image: -webkit-linear-gradient(#F7F7FC, #E7E7EC);
+        background-image: -moz-linear-gradient(#F7F7FC, #E7E7EC);
+        background-image: -o-linear-gradient(#F7F7FC, #E7E7EC);
+        background-image: linear-gradient(#F7F7FC, #E7E7EC);
+        font-size: 22px;
+        line-height: 40px;
+        padding: 10px;
+        border: 1px solid black;
+        box-shadow: inset 0 1px #FFF, 0 2px 2px #000;
+        margin: 5px;
+        border-radius: 5px;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+		color: #000;
+        text-shadow: 0 1px #FFF;
+        cursor: pointer;
+    }
+    .keyboard li:active {
+        background: #000;
+        box-shadow: inset 0 1px #000, 0 2px 2px #000;
+        color: #fff;
+    }
+    .keyboard > .uppercase {
+        text-transform: uppercase;
+    }
+	.keyboard .backspace {
+		width: 115px;
+		text-align: right;
+	}
+	.keyboard .enter {
+		width: 115px;
+		text-align: right;
+	}
+    .keyboard .space {
+    }
+	.keyboard .mini-space {
+		width: 255px;
+	}
+    .keyboard .lang {
+        width: 115px;
+    }
+	.keyboard .shift {
+        width: 115px;
+		text-align: right;
+    }
+		.keyboard .b1 {
+		width: 40px;
+	}
+	.keyboard .b2 {
+		width: 115px;
+	}
+	.keyboard .b3 {
+		width: 185px;
+	}
+	.keyboard .b4 {
+		width: 255px;
+	}
+	.keyboard .b5 {
+		width: 330px;
+	}
+	.keyboard .b6 {
+		width: 400px;
+	}
+	.keyboard .offset3 {
+		margin-left: 220px;
+	}
