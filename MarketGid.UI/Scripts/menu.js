@@ -155,7 +155,7 @@ var Menu = {
 			if (t === '') return;
 			var cont = $('#container');
 			Animation.fadeOut(cont);
-			$.get(Menu.Settings.findUri + t, function (data) {
+			$.post(Menu.Settings.findUri + t, function (data) {
 				// отсылаем данные в GA
 				Menu.trackPageview(Menu.Settings.findUri + t);
 				cont.html(data);
