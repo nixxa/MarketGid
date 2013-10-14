@@ -202,6 +202,8 @@
     <None Include="Views\Main\_Details.cshtml" />
     <None Include="Views\Main\_MapObject.cshtml" />
     <None Include="Views\Main\_Title.cshtml" />
+    <Content Include="Scripts\video.js" />
+    <Content Include="Views\Shared\_Advertisement.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
