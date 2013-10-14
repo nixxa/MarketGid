@@ -12,14 +12,21 @@
 		var currentLang = lang;
         var shifted = false;
 		
-		el.on('mouseup touchend', function (e) {
+		var mouseupEvt = 'mouseup', mousedownEvt = 'mousedown';
+		var isTouchSupported = 'ontouchstart' in window;
+		if (isTouchSupported) {
+			mouseupEvt = 'touchend';
+			mousedownEvt = 'touchstart';
+		}
+		
+		el.on(mouseupEvt, function (e) {
 			if (!el.opened) {
 				$('#keyboard-' + currentLang).slideDown(100);
 				el.opened = true;
 			}
 		});
 		
-		$(document).on('mousedown touchstart', function (e) {
+		$(document).on(mousedownEvt, function (e) {
 			var $this = $(e.target);
 			if ($this.hasClass('.keyboard') || $this.hasClass('.keyboard-wrap')) 
 			{
@@ -39,7 +46,7 @@
 		});
 		
         $('.keyboard li').disableSelection();
-        $('.keyboard li').on('mouseup touchend', function (evt) {
+        $('.keyboard li').on(mouseupEvt, function (evt) {
             var character = $(this).html();
             if (shifted) {
                 character = character.toUpperCase();
