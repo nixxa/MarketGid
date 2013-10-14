@@ -31,6 +31,14 @@ namespace MarketGid.Core.Models
 		/// Место показа
 		/// </summary>
 		public List<string> Places;
+		/// <summary>
+		/// Тип рекламы [ "image" | "video" ]
+		/// </summary>
+		public string DataType = "image";
+		/// <summary>
+		/// Текущее место показа
+		/// </summary>
+		public string CurrentPlace;
 	}
 }
 

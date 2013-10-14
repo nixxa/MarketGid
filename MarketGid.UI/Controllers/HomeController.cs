@@ -29,6 +29,7 @@ namespace MarketGid.UI.Controllers
 			using (var db = Factory.Create()) 
 			{
 				var advertisement = GetAdvert (PLACE_NAME);
+				advertisement.CurrentPlace = PLACE_NAME;
 				ViewBag.Advertisement = advertisement;
 			}
 
@@ -38,14 +39,11 @@ namespace MarketGid.UI.Controllers
 		/// <summary>
 		/// Возвращает следующий рекламный материал
 		/// </summary>
-		public JsonResult Rotate()
+		public ActionResult Rotate()
 		{
 			var advertisement = GetAdvert (PLACE_NAME);
-			return Json(new { 
-				imageSource = UrlHelper.GenerateContentUrl (advertisement.Uri, this.HttpContext), 
-				name = advertisement.Name,
-				duration = advertisement.Duration.TotalMilliseconds 
-			});
+			advertisement.CurrentPlace = PLACE_NAME;
+			return PartialView ("_Advertisement", advertisement);
 		}
 
 		/// <summary>
@@ -56,6 +54,6 @@ namespace MarketGid.UI.Controllers
 			return Index();
 		}
 
-		private const string PLACE_NAME = "LockScreen";
+		const string PLACE_NAME = "LockScreen";
 	}
 }

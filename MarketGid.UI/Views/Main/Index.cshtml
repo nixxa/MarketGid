@@ -4,8 +4,10 @@
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
+<script type="text/javascript" src="~/Scripts/video.js"></script>
+
 <div class="main-header">
-	<img src="@Url.Content(ViewBag.TopAdvertisement.Uri)" alt="top advertisement" id="MainScreenTop" />
+	@Html.Partial("_Advertisement", (Advertisement) ViewBag.TopAdvertisement)
 </div>
 <div class="main-content-container">	
 	<div class="main-content">
@@ -63,7 +65,7 @@
 	</div>
 </div>
 <div class="main-footer">
-	<img src="@Url.Content(ViewBag.BottomAdvertisement.Uri)" alt="bottom advertisement" id="MainScreenBottom" />
+	@Html.Partial("_Advertisement", (Advertisement) ViewBag.BottomAdvertisement)
 </div>
 
 @section scripts {
@@ -98,24 +100,45 @@
 		
 			// отсылаем данные в GA
 			if (_gaq) {
-				_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.TopAdvertisement.Name']);
-				_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.BottomAdvertisement.Name']);
+				var catName = 'Изображение';
+				@if (ViewBag.TopAdvertisement.DataType == "video") {
+				<text>catName = 'Видео';</text>
+				}			
+				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
+				catName = 'Изображение';
+				@if (ViewBag.BottomAdvertisement.DataType == "video") {
+				<text>catName = 'Видео';</text>
+				}
+				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.BottomAdvertisement.Name']);
 			}
 		});
 					
 		function rotate(place) {
 			Animation.fadeOut('#' + place);
 			$.post('/Main/Rotate', { place: place }, function (data) {
-				// отсылаем данные в GA
-				if (_gaq) {
-					_gaq.push(['_trackEvent', 'Images', 'Show', data.name]);
+				$('#' + place).parent().html(data);
+			});
+		}
+		
+		function removePlayer(playerId) {
+			var videoEl = $('#' + playerId);
+			if (videoEl.length > 0) {
+				var player = _V_(playerId);
+				if (player.techName === 'html5') {
+					player.tag.src = '';
+					player.tech.removeTriggers();
+					player.load();
 				}
-			
-				setTimeout(function () {
-					$('#' + place).attr('src', data.imageSource);
-					Animation.fadeIn('#' + place);
-					setTimeout(function () { rotate(place); }, data.duration);
-				}, 1000);
+				player.dispose();
+				$(player.el).remove();
+			}			
+		}
+		
+		function startPlayer(playerId) {
+			_V_(playerId).ready(function () {
+				this.width(1040);
+				this.height(385);
+				this.play();
 			});
 		}
 	</script>

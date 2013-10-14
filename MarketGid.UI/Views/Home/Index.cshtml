@@ -1,11 +1,12 @@
-﻿@{
+﻿@using MarketGid.Core.Models
+@{
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="logo">
 	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
 </div>
 <div class="content">
-	<img id="LockScreen" src="@Url.Content(ViewBag.Advertisement.Uri)" alt="advertise" />
+	@Html.Partial("_Advertisement", (Advertisement) ViewBag.Advertisement)
 </div>
 <div class="footer">
 	<span>
@@ -30,24 +31,19 @@
 		});
 		
 		// отсылаем данные в GA
+		var catName = 'Изображение';
+		@if (ViewBag.Advertisement.DataType == "video") {
+		<text>catName = 'Видео';</text>
+		}
 		if (_gaq) {
-			_gaq.push(['_trackEvent', 'Images', 'Show', '@ViewBag.Advertisement.Name']);
+			_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.Advertisement.Name']);
 		}
 	});
 
 	function rotate() {
-		Animation.fadeOut('.content');
+		Animation.fadeOut('#@ViewBag.Advertisement.CurrentPlace');
 		$.post('/Home/Rotate', function (data) {
-			// отсылаем данные в GA
-			if (_gaq) {
-				_gaq.push(['_trackEvent', 'Images', 'Show', data.name]);
-			}
-		
-			setTimeout(function () { 
-				$('#LockScreen').attr('src', data.imageSource);
-				Animation.fadeIn('.content'); 
-				setTimeout(function () { rotate(); }, data.duration);
-			}, 1000);
+			$('.content').html(data);
 		});
 	}
 </script>
