@@ -13,6 +13,11 @@ h1, h2, h3, h4 {
 * {
 	-ms-touch-action: none;
 	-ms-content-zooming: none;
+	-webkit-user-select: none;  /* Chrome all / Safari all */
+	-moz-user-select: none;     /* Firefox all */
+	-ms-user-select: none;      /* IE 10+ */
+	-o-user-select: none;
+	user-select: none; 	
 }
 
 .container {
@@ -190,53 +195,30 @@ h1, h2, h3, h4 {
 	margin-left: 20px !important;
 	margin-right: 0px;
 	margin-bottom: 20px;
-	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-	border-radius: 20px;
-	-ms-border-radius: 20px;
-	-webkit-border-radius: 20px;
 }
 	.mgid-tile .mgid-thumb {
 		border: 0px;
-		height: 140px;
-		padding: 10px 20px 10px 20px;
-		background-image: linear-gradient(top, #F3795B 10%, #D02329 55%);
-		background-image: -o-linear-gradient(top, #F3795B 10%, #D02329 55%);
-		background-image: -moz-linear-gradient(top, #F3795B 10%, #D02329 55%);
-		background-image: -webkit-linear-gradient(top, #F3795B 10%, #D02329 55%);
-		background-image: -ms-linear-gradient(top, #F3795B 10%, #D02329 55%);
-		background-image: -webkit-gradient(
-			linear,
-			left top,
-			left bottom,
-			color-stop(0.10, #F3795B),
-			color-stop(0.55, #D02329)
-		);
-		border-radius: 20px;
-		-ms-border-radius: 20px;
-		-webkit-border-radius: 20px;
-		display: table-cell;
+		border-radius: 0px;
+		background: transparent;
+		box-shadow: none;
 		vertical-align: middle;
 		text-align: center;
-		width: inherit;
-	}
-	.mgid-tile .mgid-thumb > h4 {
-		line-height: 30px;
-		font-size: 16pt;
+		padding: 30px;
+		height: 100px;
+		background: url('/Content/images/thumb_button.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		box-shadow: none;
 	}
 	.mgid-tile .clicked {
-		background-image: linear-gradient(top, #F3795B 10%, #91181E 58%);
-		background-image: -o-linear-gradient(top, #F3795B 10%, #91181E 58%);
-		background-image: -moz-linear-gradient(top, #F3795B 10%, #91181E 58%);
-		background-image: -webkit-linear-gradient(top, #F3795B 10%, #91181E 58%);
-		background-image: -ms-linear-gradient(top, #F3795B 10%, #91181E 58%);
-		
-		background-image: -webkit-gradient(
-			linear,
-			left top,
-			left bottom,
-			color-stop(0.10, #F3795B),
-			color-stop(0.58, #91181E)
-		);
+		background: url('/Content/images/thumb_button_active.png');
+		background-size: contain;
+		background-repeat: no-repeat;
+		box-shadow: none;
+	}
+	.mgid-tile .mgid-thumb > h3 {
+		line-height: 30px;
+		font-size: 14pt;
 	}
 
 .mgid-tile-large {
