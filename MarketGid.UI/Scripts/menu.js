@@ -104,7 +104,7 @@ var Menu = {
 			Menu.initKeyboard();
 			Animation.fadeIn(Menu.Settings.thumbnailsContainer);
 		});
-		$.post(Menu.Settings.titleUri + '?id=' + id, function (data) {
+		$.post(Menu.Settings.titleUri, { id: id }, function (data) {
 			// отсылаем данные в GA
 			Menu.trackPageview(Menu.Settings.titleUri + '?id=' + id);
 			Menu.title.html(data);
@@ -155,8 +155,7 @@ var Menu = {
 			if (t === '') return;
 			var cont = $('#container');
 			Animation.fadeOut(cont);
-			var s = Menu.Settings.findUri.substring(0, Menu.Settings.findUri.length - 3);
-			$.post(s, { q: t }, function (data) {
+			$.post(Menu.Settings.findUri, { q: t }, function (data) {
 				// отсылаем данные в GA
 				Menu.trackPageview(Menu.Settings.findUri + t);
 				cont.html(data);

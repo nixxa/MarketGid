@@ -34,7 +34,7 @@ namespace MarketGid.Core.Models
 		/// <summary>
 		/// Тип рекламы [ "image" | "video" ]
 		/// </summary>
-		public string DataType = "image";
+		public string MimeType = "image/jpeg";
 		/// <summary>
 		/// Текущее место показа
 		/// </summary>
