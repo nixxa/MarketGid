@@ -20,7 +20,7 @@ namespace MarketGid.Core
 			using (var reader = new StreamReader (basePath + "/App_Data/ads.config"))
 			{
 				string data = reader.ReadToEnd ();
-				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				//data = Regex.Replace(data, "(.*)//(.*)\\n", "$1/*$2*/\n");
 				var collection = JsonConvert.DeserializeObject<Advertisement[]> (data);
 				_objects.Add (typeof(Advertisement), collection);
 			}

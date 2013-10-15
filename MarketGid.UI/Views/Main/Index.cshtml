@@ -101,12 +101,12 @@
 			// отсылаем данные в GA
 			if (_gaq) {
 				var catName = 'Изображение';
-				@if (ViewBag.TopAdvertisement.DataType == "video") {
+				@if (ViewBag.TopAdvertisement.MimeType.Contains("video")) {
 				<text>catName = 'Видео';</text>
 				}			
 				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
 				catName = 'Изображение';
-				@if (ViewBag.BottomAdvertisement.DataType == "video") {
+				@if (ViewBag.BottomAdvertisement.MimeType.Contains("video")) {
 				<text>catName = 'Видео';</text>
 				}
 				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.BottomAdvertisement.Name']);

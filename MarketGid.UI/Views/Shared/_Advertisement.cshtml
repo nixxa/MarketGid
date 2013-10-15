@@ -1,10 +1,10 @@
 @model MarketGid.Core.Models.Advertisement
 
-@if (Model.DataType == "video") {
+@if (Model.MimeType.Contains("video")) {
 	<video id="@Model.CurrentPlace" preload autoplay width="1040" height="385" style="background: #000">
-		<source src="@Url.Content(Model.Uri)" type="video/mp4" />
+		<source src="@Url.Content(Model.Uri)" type="@Model.MimeType" />
 	</video>
-} else if (Model.DataType == "image") {
+} else if (Model.MimeType.Contains("image")) {
 	<img id="@Model.CurrentPlace" src="@Url.Content(Model.Uri)" alt="@Model.Name" class="animated fadeIn" />
 }
 
@@ -14,7 +14,7 @@
 		// отсылаем данные в GA
 		if (_gaq) {
 			var catName = 'Изображение';
-			@if (Model.DataType == "video") {
+			@if (Model.MimeType.Contains("video")) {
 			<text>catName = 'Видео';</text>
 			}
 			_gaq.push(['_trackEvent', catName, 'Show', '@Model.Name']);
