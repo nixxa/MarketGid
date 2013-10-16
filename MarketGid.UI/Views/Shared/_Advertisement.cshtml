@@ -11,14 +11,21 @@
 @if (IsAjax) {
 	<script type="text/javascript">
 		setTimeout(function () { rotate('@Model.CurrentPlace'); }, @Model.Duration.TotalMilliseconds);
+
 		// отсылаем данные в GA
 		if (_gaq) {
-			var catName = 'Изображение';
-			@if (Model.MimeType.Contains("video")) {
-			<text>catName = 'Видео';</text>
-			}
-			_gaq.push(['_trackEvent', catName, 'Show', '@Model.Name']);
+			_gaq.push(['_trackEvent', '@Model.GAEventCategory', 'Show', '@Model.Name']);
 		}
+	</script>
+}
 
+@if (Model.ObjectId > 0) {
+	<script type="text/javascript">
+		$('#@Model.CurrentPlace').on('click tap', function () {
+			if (_gaq) {
+				_gaq.push(['_trackEvent', '@Model.GAEventCategory', 'Click', '@Model.Name']);
+			}
+			window.location = '@Url.Content("~/Main/Map/" + Model.ObjectId)';
+		});	
 	</script>
 }

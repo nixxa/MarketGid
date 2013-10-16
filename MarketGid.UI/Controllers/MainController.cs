@@ -48,6 +48,42 @@ namespace MarketGid.UI.Controllers
             return View();
         }
 
+		/// <summary>
+		/// Страница с картой (переход по рекламе)
+		/// </summary>
+		/// <param name="id">Identifier.</param>
+		public ActionResult Map(int? id)
+		{
+			using (var db = Factory.Create()) 
+			{
+				var topAdvertisement = GetAdvert (TOP_PLACE_NAME);
+				topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
+
+				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+				if (bottomAdvertisement.Equals(topAdvertisement))
+				{
+					bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+				}
+				bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
+
+				ViewBag.TopAdvertisement = topAdvertisement;
+				ViewBag.BottomAdvertisement = bottomAdvertisement;
+
+				MapObject mapObject = db.Query<MapObject> ().SingleOrDefault (item => item.Id == id.Value);
+				ViewBag.Kiosk = db.Query<Kiosk> ().FirstOrDefault (o => o.Id == KioskId);
+				if (ViewBag.Kiosk == null)
+					ViewBag.Kiosk = db.Query<Kiosk> ().First ();
+
+				if (mapObject != null) 
+				{
+					ViewBag.Category = mapObject.Categories.First();
+				}
+				ViewBag.MapObject = mapObject;
+				ViewBag.AllCategories = db.Query<Category> ().ToList();
+			}
+			return View ();
+		}
+
         /// <summary>
         /// Дочерние категории
         /// </summary>
@@ -104,7 +140,7 @@ namespace MarketGid.UI.Controllers
 						ViewBag.MapObject = mapObject;
 					}
 				}
-					ViewBag.AllCategories = db.Query<Category> ().ToList();
+				ViewBag.AllCategories = db.Query<Category> ().ToList();
 			}
 			return PartialView("_Title");
 		}

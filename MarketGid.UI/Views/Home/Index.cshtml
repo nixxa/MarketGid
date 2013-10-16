@@ -32,10 +32,7 @@
 		});
 		
 		// отсылаем данные в GA
-		var catName = 'Изображение';
-		@if (ViewBag.Advertisement.MimeType.Contains("video")) {
-		<text>catName = 'Видео';</text>
-		}
+		var catName = '@ViewBag.Advertisement.GAEventCategory';
 		if (_gaq) {
 			_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.Advertisement.Name']);
 		}

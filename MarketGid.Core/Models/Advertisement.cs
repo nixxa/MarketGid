@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 using System.Xml;
 using System.ComponentModel;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MarketGid.Core.Models
 {
@@ -39,6 +40,23 @@ namespace MarketGid.Core.Models
 		/// Текущее место показа
 		/// </summary>
 		public string CurrentPlace;
+		/// <summary>
+		/// Идентификатор объекта, которму принадлежит реклама
+		/// </summary>
+		public int ObjectId;
+
+		/// <summary>
+		/// Gets the GA event category.
+		/// </summary>
+		/// <value>The GA event category.</value>
+		[JsonIgnore]
+		public string GAEventCategory
+		{
+			get 
+			{
+				return MimeType.Contains("image") ? "Изображение" : "Видео";
+			}
+		}
 	}
 }
 
