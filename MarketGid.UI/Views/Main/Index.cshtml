@@ -4,142 +4,16 @@
 	Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<script type="text/javascript" src="~/Scripts/video.js"></script>
+<div class="mgid-keyboard input" id="ipad"></div>
+@Html.Partial("_Keyboard")
 
-<div class="main-header">
-	@Html.Partial("_Advertisement", (Advertisement) ViewBag.TopAdvertisement)
-</div>
-<div class="main-content-container">	
-	<div class="main-content">
-		<div class="main-content-title">
-			@Html.Partial("_Title")
-		</div>
-		<div class="main-container">
-			<div class="main-menu" id="container">
-				<div class="mgid-keyboard input" id="ipad"></div>
-				
-				<div class="keyboard-wrap" id="keyboard-en" style="display:none">
-					<ul class="keyboard">
-						<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>-</li><li class="backspace">⌫</li>
-					</ul>
-					<ul class="keyboard">
-						<li>q</li><li>w</li><li>e</li><li>r</li><li>t</li><li>y</li><li>u</li><li>i</li><li>o</li><li>p</li><li>/</li><li class="enter">⏎</li>
-					</ul>
-					<ul class="keyboard">
-						<li>a</li><li>s</li><li>d</li><li>f</li><li>g</li><li>h</li><li>j</li><li>k</li><li>l</li><li>,</li><li>.</li><li class="shift">⇪</li>
-					</ul>
-					<ul class="keyboard">
-						<li>z</li><li>x</li><li>c</li><li>v</li><li>b</li><li>n</li><li>m</li><li class="mini-space">space</li><li class="lang" data-lang="ru">RU</li>
-					</ul>
-				</div>
-				<div class="keyboard-wrap" id="keyboard-ru" style="display:none">
-					<ul class="keyboard">
-						<li>1</li><li>2</li><li>3</li><li>4</li><li>5</li><li>6</li><li>7</li><li>8</li><li>9</li><li>0</li><li>-</li><li class="backspace">⌫</li>
-					</ul>
-					<ul class="keyboard">
-						<li>й</li><li>ц</li><li>у</li><li>к</li><li>е</li><li>н</li><li>г</li><li>ш</li><li>щ</li><li>з</li><li>х</li><li class="enter">⏎</li>
-					</ul>
-					<ul class="keyboard">
-						<li>ф</li><li>ы</li><li>в</li><li>а</li><li>п</li><li>р</li><li>о</li><li>л</li><li>д</li><li>ж</li><li>э</li><li class="shift">⇪</li>
-					</ul>
-					<ul class="keyboard">
-						<li>я</li><li>ч</li><li>с</li><li>м</li><li>и</li><li>т</li><li>ь</li><li>б</li><li>ю</li><li>ъ</li><li>.</li><li class="lang" data-lang="en">EN</li>
-					</ul>
-					<ul class="keyboard">
-						<li class="space b6 offset3">пробел</li>
-					</ul>
-				</div>
-				
-				<ul class="thumbnails">
-					@foreach (Category category in ViewBag.Categories) {
-						<li class="mgid-tile">
-							<div class="thumbnail mgid-thumb" data-category="@category.Id">
-								<h3>@category.Name</h3>
-								<p></p>
-							</div>
-						</li>
-					}
-				</ul>
+<ul class="thumbnails">
+	@foreach (Category category in ViewBag.Categories) {
+		<li class="mgid-tile">
+			<div class="thumbnail mgid-thumb" data-category="@category.Id">
+				<h3>@category.Name</h3>
+				<p></p>
 			</div>
-		</div>
-	</div>
-</div>
-<div class="main-footer">
-	@Html.Partial("_Advertisement", (Advertisement) ViewBag.BottomAdvertisement)
-</div>
-
-@section scripts {
-	<script type="text/javascript" src="~/Scripts/map.js"></script>
-	<script type="text/javascript" src="~/Scripts/graph.js"></script>
-	<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
-	<script type="text/javascript" src="~/Scripts/edges.js"></script>
-	<script type="text/javascript" src="~/Scripts/paths.js"></script>
-	<script type="text/javascript" src="~/Scripts/junctions.js"></script>
-	<script type="text/javascript" src="~/Scripts/maps.js"></script>
-
-	<script type="text/javascript">
-		$(document).ready(function () {
-			Menu.init({
-				mainMenuUri: '@Url.Content("~/main/category/")',
-				subMenuUri: '@Url.Content("~/main/category/")',
-				titleUri: '@Url.Content("~/main/title")',
-				objectUri: '@Url.Content("~/main/object/")',
-				objectDetailsUri: '@Url.Content("~/main/objectdetails/")',
-				homeUri: '@Url.Content("~/home")',
-				findUri: '@Url.Content("~/main/find")',
-				thumbnailsContainer: '.thumbnails',
-				thumbnails: '.mgid-thumb',
-				backButton: '#back-link',
-				title: '.main-content-title'
-			});
-		
-			$('.antiscroll-wrap').antiscroll();
-		
-			setTimeout(function () { rotate('MainScreenTop'); }, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
-			setTimeout(function () { rotate('MainScreenBottom'); }, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
-		
-			// отсылаем данные в GA
-			if (_gaq) {
-				var catName = 'Изображение';
-				@if (ViewBag.TopAdvertisement.MimeType.Contains("video")) {
-				<text>catName = 'Видео';</text>
-				}			
-				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
-				catName = 'Изображение';
-				@if (ViewBag.BottomAdvertisement.MimeType.Contains("video")) {
-				<text>catName = 'Видео';</text>
-				}
-				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.BottomAdvertisement.Name']);
-			}
-		});
-					
-		function rotate(place) {
-			Animation.fadeOut('#' + place);
-			$.post('/Main/Rotate', { place: place }, function (data) {
-				$('#' + place).parent().html(data);
-			});
-		}
-		
-		function removePlayer(playerId) {
-			var videoEl = $('#' + playerId);
-			if (videoEl.length > 0) {
-				var player = _V_(playerId);
-				if (player.techName === 'html5') {
-					player.tag.src = '';
-					player.tech.removeTriggers();
-					player.load();
-				}
-				player.dispose();
-				$(player.el).remove();
-			}			
-		}
-		
-		function startPlayer(playerId) {
-			_V_(playerId).ready(function () {
-				this.width(1040);
-				this.height(385);
-				this.play();
-			});
-		}
-	</script>
-}
+		</li>
+	}
+</ul>
