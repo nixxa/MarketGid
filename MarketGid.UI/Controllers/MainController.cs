@@ -48,6 +48,14 @@ namespace MarketGid.UI.Controllers
             return View();
         }
 
+		/// <summary>
+		/// Страница с картой (переход по рекламе)
+		/// </summary>
+		/// <param name="id">Identifier.</param>
+		public ActionResult Map(int? id)
+		{
+		}
+
         /// <summary>
         /// Дочерние категории
         /// </summary>

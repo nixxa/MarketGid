@@ -39,6 +39,10 @@ namespace MarketGid.Core.Models
 		/// Текущее место показа
 		/// </summary>
 		public string CurrentPlace;
+		/// <summary>
+		/// Идентификатор объекта, которму принадлежит реклама
+		/// </summary>
+		public int ObjectId;
 	}
 }
 

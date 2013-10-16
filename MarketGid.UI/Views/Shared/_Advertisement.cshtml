@@ -20,5 +20,11 @@
 			_gaq.push(['_trackEvent', catName, 'Show', '@Model.Name']);
 		}
 
+		$('#@Model.CurrentPlace').on('click tap', function () {
+			if (_gaq) {
+				_gaq.push(['_trackEvent', '', 'Click', '@Model.Name']);
+			}
+			window.location = '@Url.Content("~/Main/Map/" + Model.ObjectId)';
+		});
 	</script>
 }
