@@ -264,6 +264,10 @@ h1, h2, h3, h4 {
 		-ms-touch-action: pinch-zoom;
 		-ms-content-zooming: zoom;
 	}
+	.mgid-map * {
+		-ms-touch-action: pinch-zoom;
+		-ms-content-zooming: zoom;
+	}
 
 .mgid-map-control-panel {
     position: relative; 
