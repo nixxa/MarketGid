@@ -37,11 +37,13 @@
 				kbLifetime.init({
 					timeoutInterval: 5000,
 					timedout: function () {
-						if (el.html() !== text) {
-							accepted(el.html());
-							el.html(text);
+						if (el.opened) {
+							if (el.html() !== text) {
+								accepted(el.html());
+								el.html(text);
+							}
+							kbClose();
 						}
-						kbClose();
 					}
 				});
 			}
