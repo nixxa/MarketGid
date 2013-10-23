@@ -1,7 +1,8 @@
 @model MarketGid.Core.Models.Advertisement
 
 @if (Model.MimeType.Contains("video")) {
-	<video id="@Model.CurrentPlace" preload autoplay width="1040" height="385" style="background: #000">
+	<!-- width="1040" height="385" -->
+	<video id="@Model.CurrentPlace" preload autoplay style="background: #000;">
 		<source src="@Url.Content(Model.Uri)" type="@Model.MimeType" />
 	</video>
 } else if (Model.MimeType.Contains("image")) {

@@ -1,8 +1,11 @@
 ﻿@using MarketGid.Core.Models
+@using System.Linq
 
 @{
 	IEnumerable<Category> categories = ViewBag.AllCategories;
 	string homeTitle = "МОСФИЛЬМ";
+	const int MAX_TOTAL = 20;
+	int count = 0;
 }
 <ul class="breadcrumb">
 	@if (ViewBag.Category == null) {
@@ -39,7 +42,10 @@
 			}
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">@ViewBag.Category.Branch[i].Name</a> <b class="caret"></b>
 			<ul class="dropdown-menu">
-				@foreach (var category in ViewBag.Category.Branch[i].Children)
+				@{
+					IEnumerable<Category> subcats = ViewBag.Category.Branch[i].Children;
+				}
+				@foreach (var category in subcats.Take(MAX_TOTAL))
 				{
 					<li><a href="#" onclick="Menu.showCategory('@category.Id'); return false;">@category.Name</a></li>
 				}
@@ -51,7 +57,10 @@
 		} else {
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">@ViewBag.Category.Branch[ViewBag.Category.Branch.Count - 1].Name</a> <b class="caret"></b>
 			<ul class="dropdown-menu">
-				@foreach (var obj in ViewBag.MapObject.Categories[0].Objects) {
+				@{
+					IEnumerable<MapObject> objects = ViewBag.MapObject.Categories[0].Objects;
+				}
+				@foreach (var obj in objects.Take(MAX_TOTAL)) {
 					<li><a href="#" onclick="Menu.showObject('@obj.Id', '@obj.Name'); return false;">@obj.Name</a></li>
 				}
 			</ul>
