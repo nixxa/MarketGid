@@ -12,7 +12,6 @@
 	<script type="text/javascript">
 		setTimeout(function () { rotate('@Model.CurrentPlace'); }, @Model.Duration.TotalMilliseconds);
 
-		// отсылаем данные в GA
 		if (_gaq) {
 			_gaq.push(['_trackEvent', '@Model.GAEventCategory', 'Show', '@Model.Name']);
 		}
@@ -25,7 +24,12 @@
 			if (_gaq) {
 				_gaq.push(['_trackEvent', '@Model.GAEventCategory', 'Click', '@Model.Name']);
 			}
-			window.location = '@Url.Content("~/Main/Map/" + Model.ObjectId)';
+		
+			if ($('#container').length > 0) {
+				Menu.showObject(@Model.Id);
+			} else {
+				window.location = '@Url.Content("~/Main/Map/" + Model.ObjectId)';
+			}
 		});	
 	</script>
 }

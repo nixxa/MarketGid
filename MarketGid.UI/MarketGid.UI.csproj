@@ -206,6 +206,7 @@
     <Content Include="Views\Shared\_Advertisement.cshtml" />
     <Content Include="Views\Main\Map.cshtml" />
     <Content Include="Views\Shared\_Keyboard.cshtml" />
+    <Content Include="Scripts\lifetime.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

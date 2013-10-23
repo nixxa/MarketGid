@@ -57,6 +57,12 @@ namespace MarketGid.Core.Models
 				return MimeType.Contains("image") ? "Изображение" : "Видео";
 			}
 		}
+
+		/// <summary>
+		/// The map object.
+		/// </summary>
+		[JsonIgnore]
+		public MapObject MapObject;
 	}
 }
 

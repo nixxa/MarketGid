@@ -57,6 +57,7 @@ function Map(options) {
     this.navObjectName = null;
 	this.bounds = { left: 0, top: 0, right: 0, bottom: 0};
 	//this.originalOptions = null;
+	this.pageLifetime = null;
 
     /**
     * Init map and draw objects
@@ -92,6 +93,7 @@ function Map(options) {
 			this.show();
 		}
 
+		this.pageLifetime = window.pageLifetime;
         //Map.stage._mousemove = function () {};
 		return this;
     };
@@ -396,6 +398,9 @@ function Map(options) {
         }
 
         this.navObjectName = objectName;
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -484,6 +489,10 @@ function Map(options) {
 		var mapObject = this.findByObjectId(path.objectId);
 		if (mapObject != null && this.objectSelected != undefined && this.objectSelected != null) {
 			this.objectSelected.apply(this, [mapObject]);
+		}
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
 		}
     };
 
@@ -654,6 +663,10 @@ function Map(options) {
 		
         // show navLayer
         this.stage.add(this.navLayer);
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
 	};
 	
 	/**
@@ -693,6 +706,10 @@ function Map(options) {
 		this.Settings.y = (this.Settings.y / oldScale) * newScale;
 		
 		this.setupObjects();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -708,6 +725,10 @@ function Map(options) {
 		this.Settings.y = (this.Settings.y / oldScale) * newScale;
 		
 		this.setupObjects();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -717,6 +738,10 @@ function Map(options) {
     this.moveUp = function () {
         this.stage.move(0, -100);
         this.stage.batchDraw();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -726,6 +751,10 @@ function Map(options) {
     this.moveDown = function () {
         this.stage.move(0, 100);
         this.stage.batchDraw();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -735,6 +764,10 @@ function Map(options) {
     this.moveLeft = function () {
 		this.stage.move(-100, 0);
         this.stage.batchDraw();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 
     /**
@@ -744,6 +777,10 @@ function Map(options) {
     this.moveRight = function () {
         this.stage.move(100, 0);
         this.stage.batchDraw();
+		
+		if (this.pageLifetime != null) {
+			this.pageLifetime.update();
+		}
     };
 	
 	/**
