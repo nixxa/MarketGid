@@ -93,8 +93,13 @@
 		
 			$('.antiscroll-wrap').antiscroll();
 		
-			setTimeout(function () { rotate('MainScreenTop'); }, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
-			setTimeout(function () { rotate('MainScreenBottom'); }, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
+			setTimeout(function () { 
+				rotate('MainScreenTop'); 
+			}, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
+	 
+			setTimeout(function () { 
+				rotate('MainScreenBottom'); 
+			}, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
 		
 			// отсылаем данные в GA
 			if (_gaq) {
