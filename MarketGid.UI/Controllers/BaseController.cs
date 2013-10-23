@@ -55,7 +55,10 @@ namespace MarketGid.UI.Controllers
 				if (currentIndex > collection.Count ()) currentIndex = 1;
 				Session [place + "_advertIndex"] = currentIndex;
 
-				return collection.Skip (currentIndex > 0 ? currentIndex - 1 : 0).First ();
+				var advert = collection.Skip (currentIndex > 0 ? currentIndex - 1 : 0).First ();
+				advert.MapObject = db.Query<MapObject>().SingleOrDefault(m => m.Id == advert.ObjectId);
+
+				return advert;
 			}
 		}
     }

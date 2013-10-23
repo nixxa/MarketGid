@@ -21,6 +21,7 @@ var Menu = {
 
 	thumbnailsContainer: null,
 	title: null,
+	pageLifetime: null,
 
 	init: function (options) {
 		if (options !== undefined) {
@@ -61,6 +62,7 @@ var Menu = {
 
 		Menu.initThumbs();
 		Menu.initKeyboard();
+		Menu.pageLifetime = window.pageLifetime;
 	},
 
 	// добавляет обработчик события 'mousedown' & 'mouseup' для тайлов
@@ -85,7 +87,6 @@ var Menu = {
 	catTitle: function () {
 		// стараемся вместить меню в одну строку
 		if ($('.breadcrumb').height() > 65) {
-			//$('#mgid-menu-mosfilm').text('...');
 			$('.breadcrumb li').first().next().find('a').first().text('...');
 			if ($('.breadcrumb').height() > 65) {
 				$('.breadcrumb li').first().next().next().find('a').first().text('...');
@@ -94,6 +95,10 @@ var Menu = {
 	},
 	
 	showCategory: function (id) {
+		if (Menu.pageLifetime != null) {
+			Menu.pageLifetime.update();
+		}
+		
 		var cont = $('#container');
 		Animation.fadeOut(Menu.Settings.thumbnailsContainer);
 		$.post(Menu.Settings.subMenuUri + id, function (data) {
@@ -113,6 +118,10 @@ var Menu = {
 	},
 	
 	showObject: function (id, name) {
+		if (Menu.pageLifetime != null) {
+			Menu.pageLifetime.update();
+		}
+		
 		var cont = $('#container');
 		if (name === undefined) {
 			Animation.fadeOut(cont);
@@ -153,6 +162,11 @@ var Menu = {
 		$(name).html(text);
 		$.keyboard($(name),text,'ru',function (t) {
 			if (t === '') return;
+
+			if (Menu.pageLifetime != null) {
+				Menu.pageLifetime.update();
+			}
+
 			var cont = $('#container');
 			Animation.fadeOut(cont);
 			$.post(Menu.Settings.findUri, { q: t }, function (data) {
@@ -164,83 +178,6 @@ var Menu = {
 				Animation.fadeIn(cont);
 			});
 		});
-		/*
-		$('#ipad').keypress(function (event) {
-			var elem = $(this), cont = $('#container');
-			if (event.keyCode === 13) {
-				//var cont = $('#container');
-				Animation.fadeOut(cont);
-				$.get(Menu.Settings.findUri + elem.val(), function (data) {
-					// отсылаем данные в GA
-                    Menu.trackPageview(Menu.Settings.findUri + elem.val());
-					cont.html(data);
-					Menu.initThumbs();
-					Menu.initKeyboard();
-					Animation.fadeIn(cont);
-				});
-			}
-		});
-		*/
-		/*
-		$('#ipad').keyboard({ 
- 		    display: { 
-		        'bksp'   :  "\u2190", 
-		        'accept' : 'Поиск', 
-		        'default': 'Рус', 
-		        'meta1'  : '.?123', 
-		        'meta2'  : 'Лат',
-		        'enter'  : 'Поиск'
-		    }, 
-		    layout: 'custom', 
-		    customLayout: { 
-		        'default': [ 
-		            'й ц у к е н г ш щ з х {bksp}', 
-		            'ф ы в а п р о л д ж {accept}', 
-		            'я ч с м и т ь б ю э ъ .', 
-		            '{s} {meta1} {space} {meta2}' 
-		        ], 
-		        'shift': [ 
-		            'Й Ц У К Е Н Г Ш Щ З Х {bksp}', 
-		            'Ф Ы В А П Р О Л Д Ж {accept}', 
-		            'Я Ч С М И Т Ь Б Ю Э Ъ .', 
-		            '{s} {meta1} {space} {meta2}' 
-		        ], 
-		        'meta1': [ 
-		            '1 2 3 4 5 6 7 8 9 0 {bksp}', 
-		            '- / : ; ( ) \u20ac & @ {accept}', 
-		            '. , ? ! \' "', 
-		            '{default} {space} {meta2}' 
-		        ], 
-		        'meta2': [ 
-		            'q w e r t y u i o p {bksp}', 
-		            'a s d f g h j k l {accept}', 
-		            '{s} z x c v b n m , . /', 
-		            '{meta1} {space} {default}' 
-		        ],
-				'meta2-shift': [
-		            'Q W E R T Y U I O P {bksp}', 
-		            'A S D F G H J K L {accept}', 
-		            '{s} Z X C V B N M , . /', 
-		            '{meta1} {space} {default}'
-				]
-		    },
-			accepted : function(e, keyboard, el) {
-				if (el.value == '') return;
-				var cont = $('#container');
-				Animation.fadeOut(cont);
-				$.get(Menu.Settings.findUri + el.value, function (data) {
-					// отсылаем данные в GA
-					if (_gaq) {
-						_gaq.push(['_trackPageview', Menu.Settings.findUri + el.value]);
-					}
-					cont.html(data);
-					Menu.initThumbs();
-					Menu.initKeyboard();
-					Animation.fadeIn(cont);
-				});
-			}
-		});
-		*/
 	},
 	
 	trackPageview: function (uri) {

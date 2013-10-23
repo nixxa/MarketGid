@@ -13,11 +13,12 @@ h1, h2, h3, h4 {
 * {
 	-ms-touch-action: none;
 	-ms-content-zooming: none;
-	-webkit-user-select: none;  /* Chrome all / Safari all */
-	-moz-user-select: none;     /* Firefox all */
-	-ms-user-select: none;      /* IE 10+ */
-	-o-user-select: none;
-	user-select: none; 	
+	user-select: none;
+	-ms-user-select: none;
+	-o-user-select:none;
+   -moz-user-select: none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;	
 }
 
 .container {

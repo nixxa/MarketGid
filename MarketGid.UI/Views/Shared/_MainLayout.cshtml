@@ -21,6 +21,7 @@
 	<script type="text/javascript" src="~/Scripts/animation.js"></script>
 	<script type="text/javascript" src="~/Scripts/antiscroll.js"></script>
 	<script type="text/javascript" src="~/Scripts/menu.js"></script>
+	<script type="text/javascript" src="~/Scripts/lifetime.js"></script>
 	
 	<script type="text/javascript" src="~/Scripts/video.js"></script>
 	<script type="text/javascript" src="~/Scripts/map.js"></script>
@@ -55,17 +56,11 @@
 	</div>
 
 	<script type="text/javascript">
-		var timedout = false;
+	 	var pageLifetime = new Lifetime();
 
 		$(document).ready(function () {
-			//setInterval(sessionTimedout, 30000);
+			pageLifetime.init();
 		});
-
-		function sessionTimedout() {
-			if (timedout)
-				window.location.href = "/Home/Timedout";
-			//timedout = true;
-		}
 	</script>
 	
 	<script type="text/javascript">

@@ -11,7 +11,18 @@
     $.keyboard = function (el, text, lang, accepted) {
 		var currentLang = lang;
         var shifted = false;
+		var pageLifetime = window.pageLifetime;
+		var kbLifetime = new Lifetime();
+
+		var kbClose = function () {
+			$('#keyboard-'+currentLang).hide();
+			el.opened = false;
+		};
 		
+		var kbOpen = function () {
+			$('#keyboard-' + currentLang).slideDown(100);
+			el.opened = true;
+		};
 		var mouseupEvt = 'mouseup', mousedownEvt = 'mousedown';
 		var isTouchSupported = 'ontouchstart' in window;
 		if (isTouchSupported) {
@@ -21,8 +32,18 @@
 		
 		el.on(mouseupEvt, function (e) {
 			if (!el.opened) {
-				$('#keyboard-' + currentLang).slideDown(100);
-				el.opened = true;
+				kbOpen();
+
+				kbLifetime.init({
+					timeoutInterval: 5000,
+					timedout: function () {
+						if (el.html() !== text) {
+							accepted(el.html());
+							el.html(text);
+						}
+						kbClose();
+					}
+				});
 			}
 		});
 		
@@ -40,13 +61,19 @@
 				}
 			}
 			if (el.opened) {
-				$('#keyboard-' + currentLang).slideUp(100);
-				el.opened = false;
+				kbClose();
 			}
 		});
 		
         $('.keyboard li').disableSelection();
         $('.keyboard li').on(mouseupEvt, function (evt) {
+			if (pageLifetime != null) {
+				pageLifetime.update();
+			}
+			if (kbLifetime != null) {
+				kbLifetime.update();
+			}
+			
             var character = $(this).html();
             if (shifted) {
                 character = character.toUpperCase();
@@ -67,8 +94,7 @@
                 $('.keyboard li').toggleClass('uppercase');
                 shifted = !shifted;
             } else if ($this.hasClass('enter')) {
-				$('#keyboard-'+currentLang).hide();
-				el.opened = false;
+				kbClose();
 				if (accepted !== undefined) {
 					accepted(currentText);
 				}
