@@ -14,6 +14,7 @@ h1, h2, h3, h4 {
 	-ms-touch-action: none;
 	-ms-content-zooming: none;
 	user-select: none;
+	-ms-user-select: none;
 	-o-user-select:none;
    -moz-user-select: none;
    -khtml-user-select: none;

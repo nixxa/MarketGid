@@ -28,7 +28,7 @@ function Lifetime () {
 
 		setInterval (function () { 
 			var current = new Date();
-			if (Math.abs(current.getTime() - self.last.getTime()) > self.timeoutInterval) {
+			if ((current.getTime() - self.last.getTime()) > self.timeoutInterval) {
 				self.timedout();
 			}
 		}, 1000);
@@ -42,8 +42,20 @@ function Lifetime () {
 	* Обновляет время последнего действия на странице
 	* @public
 	*/
-	this.update = function () {
-		this.last = new Date();
+	this.update = function (millis) {
+		var current = new Date();
+		if (millis !== undefined) {
+			if (this.last != null) {
+				current = new Date(this.last.getTime() + millis);
+			} else {
+				current = new Date(new Date().getTime() + millis);
+			}			
+		}
+		if (this.last == null) {
+			this.last = current;
+		} else if (current > this.last) {
+			this.last = current;
+		}
 	};
 	
 	/**
