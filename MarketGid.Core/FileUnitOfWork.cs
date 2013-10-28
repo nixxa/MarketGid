@@ -7,6 +7,7 @@ using System.IO;
 using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using MarketGid.Core.Models;
+using NLog;
 
 namespace MarketGid.Core
 {
@@ -16,70 +17,37 @@ namespace MarketGid.Core
 		{
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
 
-			// load advertisements
-			using (var reader = new StreamReader (basePath + "/App_Data/ads.config"))
+			lock (_objects)
 			{
-				string data = reader.ReadToEnd ();
-				//data = Regex.Replace(data, "(.*)//(.*)\\n", "$1/*$2*/\n");
-				var collection = JsonConvert.DeserializeObject<Advertisement[]> (data);
-				_objects.Add (typeof(Advertisement), collection);
+				try
+				{
+					InitObjects (basePath, _objects);
+				}
+				catch (Exception ex)
+				{
+					Logger.Error (ex.ToString ());
+				}
 			}
 
-			// load categories
-			Category[] categories = null;
-			using (var reader = new StreamReader (basePath + "/App_Data/categories.config"))
-			{
-				string data = reader.ReadToEnd ();
-				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
-				categories = JsonConvert.DeserializeObject<Category[]> (data);
-				_objects.Add (typeof(Category), categories);
-			}
-
-			// load objects
-			MapObject[] mapObjects = null;
-			using (var reader = new StreamReader (basePath + "/App_Data/objects.config"))
-			{
-				string data = reader.ReadToEnd ();
-				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
-				mapObjects = JsonConvert.DeserializeObject<MapObject[]> (data);
-				_objects.Add (typeof(MapObject), mapObjects);
-			}
-
-			// Load kiosk
-			Kiosk[] kiosks = null;
-			using (var reader = new StreamReader (basePath + "/App_Data/kiosk.config"))
-			{
-				string data = reader.ReadToEnd ();
-				data = Regex.Replace(data, "(.*)//(.*)\n", "$1/*$2*/\n");
-				kiosks = JsonConvert.DeserializeObject<Kiosk[]> (data);
-				_objects.Add (typeof(Kiosk), kiosks);
-			}
-
-			// organize categories
-			foreach (var category in categories.Where (c => c.ParentId.HasValue))
-			{
-				var parent = categories.SingleOrDefault (c => c.Id == category.ParentId.Value);
-				category.Parent = parent;
-				parent.Children.Add (category);
-			}
-
-			// merge categories & objects
-			foreach (var mapObject in mapObjects)
-			{
-				List<Category> list = categories.Where (c => mapObject.CategoryIds.Contains(c.Id)).ToList ();
-				mapObject.Categories = list;
-				if (list != null)
-					list.ForEach(c => c.Objects.Add (mapObject));
-			}
+			// configure watcher
+			_watcher.Changed += HandleChanged;
+			_watcher.NotifyFilter = NotifyFilters.Size | NotifyFilters.LastWrite | NotifyFilters.FileName;
+			_watcher.Path = basePath + "/App_Data";
+			_watcher.Filter = "*.config";
+			_watcher.EnableRaisingEvents = true;
 		}
 
 		#region IUnitOfWork implementation
 
 		public IQueryable<T> Query<T> () where T : class
 		{
-			if (!_objects.ContainsKey(typeof(T))) return (new T[0]).AsQueryable();
-			var collection = _objects [typeof(T)];
-			return collection.OfType<T> ().AsQueryable ();
+			lock (_objects)
+			{
+				if (!_objects.ContainsKey (typeof(T)))
+					return (new T[0]).AsQueryable ();
+				var collection = _objects [typeof(T)];
+				return collection.OfType<T> ().AsQueryable ();
+			}
 		}
 
 		public IUnitOfWork BeginTransaction (IsolationLevel level = IsolationLevel.ReadCommitted)
@@ -128,8 +96,89 @@ namespace MarketGid.Core
 
 		#region Private members
 
-		private static Dictionary<Type, IEnumerable<object>> _objects = new Dictionary<Type, IEnumerable<object>> ();
+		static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+		static Dictionary<Type, IEnumerable<object>> _objects = new Dictionary<Type, IEnumerable<object>> ();
+		static readonly FileSystemWatcher _watcher = new FileSystemWatcher();
 
+		static void HandleChanged (object sender, FileSystemEventArgs e)
+		{
+			try
+			{
+				lock (_objects)
+				{
+					Dictionary<Type, IEnumerable<object>> temp = new Dictionary<Type, IEnumerable<object>> ();
+					InitObjects (AppDomain.CurrentDomain.BaseDirectory, temp);
+					if (temp != null && temp.Any())
+					{
+						_objects = temp;
+					}
+				}
+			}
+			catch (Exception ex) 
+			{
+				// log exception
+				Logger.Error(e.FullPath + " " + ex.Message);
+			}
+		}
+
+		/// <summary>
+		/// Инициализирует все объекты киоска
+		/// </summary>
+		/// <param name="basePath">Base path.</param>
+		/// <param name = "tempCollection"></param>
+		static void InitObjects (string basePath, IDictionary<Type, IEnumerable<object>> tempCollection)
+		{
+			// load advertisements
+			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/ads.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			{
+				string data = reader.ReadToEnd ();
+				//data = Regex.Replace(data, "(.*)//(.*)\\n", "$1/*$2*/\n");
+				var collection = JsonConvert.DeserializeObject<Advertisement[]> (data);
+				tempCollection.Add (typeof(Advertisement), collection);
+			}
+			// load categories
+			Category[] categories = null;
+			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/categories.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			{
+				string data = reader.ReadToEnd ();
+				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				categories = JsonConvert.DeserializeObject<Category[]> (data);
+				tempCollection.Add (typeof(Category), categories);
+			}
+			// load objects
+			MapObject[] mapObjects = null;
+			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/objects.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			{
+				string data = reader.ReadToEnd ();
+				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				mapObjects = JsonConvert.DeserializeObject<MapObject[]> (data);
+				tempCollection.Add (typeof(MapObject), mapObjects);
+			}
+			// Load kiosk
+			Kiosk[] kiosks = null;
+			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/kiosk.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			{
+				string data = reader.ReadToEnd ();
+				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");
+				kiosks = JsonConvert.DeserializeObject<Kiosk[]> (data);
+				tempCollection.Add (typeof(Kiosk), kiosks);
+			}
+			// organize categories
+			foreach (var category in categories.Where (c => c.ParentId.HasValue))
+			{
+				var parent = categories.SingleOrDefault (c => c.Id == category.ParentId.Value);
+				category.Parent = parent;
+				parent.Children.Add (category);
+			}
+			// merge categories & objects
+			foreach (var mapObject in mapObjects)
+			{
+				List<Category> list = categories.Where (c => mapObject.CategoryIds.Contains (c.Id)).ToList ();
+				mapObject.Categories = list;
+				if (list != null)
+					list.ForEach (c => c.Objects.Add (mapObject));
+			}
+		}
 		#endregion
 	}
 }
