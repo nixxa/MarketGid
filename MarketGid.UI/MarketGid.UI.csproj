@@ -112,6 +112,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -206,12 +207,14 @@
     <Content Include="Views\Main\Map.cshtml" />
     <Content Include="Views\Shared\_Keyboard.cshtml" />
     <Content Include="Scripts\lifetime.js" />
+    <Content Include="Views\Error\General.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="Content\ui-darkness\" />
     <Folder Include="Content\maps\" />
+    <Folder Include="Views\Error\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
