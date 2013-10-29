@@ -62,6 +62,12 @@ h1, h2, h3, h4 {
 		height: 1570px;
 	}
 
+.error-content {
+	background-color: rgba(248, 246, 0, 0.35);
+	width: 1040px;
+	height: 1560px;
+}
+
 .footer {
 	font-size: 38pt;
 	height: 220px;
@@ -330,4 +336,13 @@ h1, h2, h3, h4 {
 .mgid-box {
 	width:1008px; 
 	height:910px;
+}
+
+.mgid-alert {
+	padding-top: 40%;
+	padding-left: 40px;
+	padding-right: 40px;
+	font-size: 150%;
+	font-weight: bold;
+	color: #333;
 }
