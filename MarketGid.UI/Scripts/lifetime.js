@@ -8,6 +8,7 @@ function Lifetime () {
 	
 	this.last = {};
 	this.timeoutInterval = 20000;
+	this.intervalFunc = null;
 	
 	/**
 	* Инициализирует объект
@@ -26,9 +27,10 @@ function Lifetime () {
 		this.last = new Date();
 		var self = this;
 
-		setInterval (function () { 
+		this.intervalFunc = setInterval (function () { 
 			var current = new Date();
 			if ((current.getTime() - self.last.getTime()) > self.timeoutInterval) {
+				clearInterval(self.intervalFunc);
 				self.timedout();
 			}
 		}, 1000);
@@ -64,6 +66,6 @@ function Lifetime () {
 	this.timedout = function () {
 		window.location = '/home/timedout';
 	};
-	
+
 	return this;
 }

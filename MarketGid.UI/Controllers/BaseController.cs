@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MarketGid.Core;
 using MarketGid.Core.Models;
+using NLog;
 
 namespace MarketGid.UI.Controllers
 {
@@ -61,5 +62,45 @@ namespace MarketGid.UI.Controllers
 				return advert;
 			}
 		}
+
+		/// <summary>
+		/// Базовая обработка запросов
+		/// </summary>
+		/// <param name="filterContext">Information about the current request and action.</param>
+		protected override void OnActionExecuting(ActionExecutingContext filterContext)
+		{
+			base.OnActionExecuting(filterContext);
+
+			try
+			{
+				using (var db = Factory.Create())
+				{
+					Kiosk kiosk = db.Query<Kiosk> ().FirstOrDefault (k => k.Id == KioskId);
+					if (kiosk == null)
+						throw new ApplicationException ("No kiosk configured");
+				}
+			}
+			catch (Exception ex)
+			{
+				Logger.Error (ex.ToString ());
+				filterContext.Result = new RedirectResult ("/Error/NoConfig");
+			}
+		}
+
+		/// <summary>
+		/// Обработка ошибок
+		/// </summary>
+		/// <param name="filterContext">Information about the current request and action.</param>
+		protected override void OnException(ExceptionContext filterContext)
+		{
+			Logger.Error (filterContext.Exception.ToString ());
+			base.OnException(filterContext);
+		}
+
+		#region Private members
+
+		static readonly Logger Logger = LogManager.GetCurrentClassLogger();
+
+		#endregion
     }
 }

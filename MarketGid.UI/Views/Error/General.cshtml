@@ -1,0 +1,48 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="logo">
+	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
+</div>
+<div class="content">
+	<div class="error-content">
+		<div class="mgid-alert">
+			<div class="alert alert-warning">
+			<h3>Производится обновление данных, работа скоро будет восстановлена.</h3>
+			<div class="progress progress-striped active">
+				<div class="bar" style="width: 0%;"></div>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="footer">
+	<span>
+		<!--Навигация по МОСФИЛЬМУ <a href="~/main"><img src="~/Content/images/black_arrow_rigth.png" alt="arrow" /></a>-->
+	</span>
+	<span class="help-message">
+		<!--Коснитесь экрана, что бы начать работу-->
+	</span>
+</div>
+
+<script type="text/javascript">
+	setInterval(function () { 
+		$.get('/', function (data) {
+			var htmlData = $(data);
+			if (htmlData.find('.error-content').length == 0) {
+				$('.bar').attr('style', 'width: 100%');
+				window.location='/'; 
+			}
+		});
+	}, 10000);
+
+	var initValue = 0;
+	setInterval(function () {
+		initValue += 1;
+		if (initValue == 100) {
+			initValue = 0;
+		}
+		$('.bar').attr('style', 'width: ' + initValue + '%;');
+	}, 1000);
+</script>
