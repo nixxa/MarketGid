@@ -27,10 +27,15 @@
 </div>
 
 <script type="text/javascript">
-	setTimeout(function () { 
-		$('.bar').attr('style', 'width: 100%');
-		window.location='/'; 
-	}, 5000);
+	setInterval(function () { 
+		$.get('/', function (data) {
+			var htmlData = $(data);
+			if (htmlData.find('.error-content').length == 0) {
+				$('.bar').attr('style', 'width: 100%');
+				window.location='/'; 
+			}
+		});
+	}, 10000);
 
 	var initValue = 0;
 	setInterval(function () {
