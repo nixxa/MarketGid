@@ -50,16 +50,16 @@ h1, h2, h3, h4 {
 .content {
 	padding: 20px 20px 20px 20px;
 	width: 1080px;
-	height: 1570px;
+	height: 1530px;
 }
 	.content > img {
-		height: 1570px;
+		height: 1530px;
 		width: 1040px;
 	}
 	.content > video {
 		width: 1040px;
 		/*height: 585px;*/
-		height: 1570px;
+		height: 1530px;
 	}
 
 .error-content {
