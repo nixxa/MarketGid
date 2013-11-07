@@ -1,4 +1,4 @@
-/// <reference path="_references.js" />
+﻿/// <reference path="_references.js" />
 /*global Graph*/
 
 function Point(x, y) {
@@ -108,27 +108,53 @@ var Graph = {
 
 		// соединяем вместе карты маршрутов разных этажей через точки пересечения (лифты, эскалаторы, лестницы)
 		for (var j = 0; j < JunctionData.length; j++) {
-			var liftPoint = new Point(
+			var fromPoint = new Point(
 				JunctionData[j].x, // * Graph.Settings.globalScale, 
 				JunctionData[j].y  // * Graph.Settings.globalScale
 			);
-			var junctions = [];
-			for (var i = 0; i < Graph.MapNames.length; i++) {
-				var liftVertex = Graph.findVertex(liftPoint, Graph.MapNames[i]);
-				if (liftVertex == null) {
-					continue;
-				}
-				for (var k = 0; k < junctions.length; k++) {
-					junctions[k].incomingEdges = junctions[k].incomingEdges.concat(liftVertex.incomingEdges);
-					junctions[k].outgoingEdges = junctions[k].outgoingEdges.concat(liftVertex.outgoingEdges);
-				}
-				junctions.push(liftVertex);
-				
-				if (junctions.length > 0) {
-					liftVertex.incomingEdges = junctions[0].incomingEdges;
-					liftVertex.outgoingEdges = junctions[0].outgoingEdges;
+			fromPoint.mapName = JunctionData[j].from;
+			var toPoint = null;
+			for (var k = 0; k < JunctionData.length; k++) {
+				if (JunctionData[k].from === JunctionData[j].to && JunctionData[k].to === JunctionData[j].from) {
+					toPoint = new Point(
+						JunctionData[k].x, // * Graph.Settings.globalScale, 
+						JunctionData[k].y  // * Graph.Settings.globalScale
+					);
+					toPoint.mapName = JunctionData[k].from;
 				}
 			}
+			if (fromPoint == null || toPoint == null) {
+				continue;
+			}
+			
+			//var junctions = [];
+			//for (var i = 0; i < Graph.MapNames.length; i++) {
+				var fromVertex = Graph.findVertex(fromPoint, fromPoint.mapName);
+				var toVertex = Graph.findVertex(toPoint, toPoint.mapName);
+				if (fromVertex == null || toVertex == null) {
+					continue;
+				}
+				
+				fromVertex.incomingEdges = fromVertex.incomingEdges.concat(toVertex.incomingEdges);
+				fromVertex.outgoingEdges = fromVertex.incomingEdges.concat(toVertex.outgoingEdges);
+				
+				toVertex.incomingEdges = fromVertex.incomingEdges;
+				toVertex.outgoingEdges = fromVertex.outgoingEdges;
+				
+				//junctions.push(fromVertex);
+				//junctions.push(toVertex);
+				
+				//for (var k = 0; k < junctions.length; k++) {
+				//	junctions[k].incomingEdges = junctions[k].incomingEdges.concat(liftVertex.incomingEdges);
+				//	junctions[k].outgoingEdges = junctions[k].outgoingEdges.concat(liftVertex.outgoingEdges);
+				//}
+				//junctions.push(liftVertex);
+								
+				//if (junctions.length > 0) {
+				//	liftVertex.incomingEdges = junctions[0].incomingEdges;
+				//	liftVertex.outgoingEdges = junctions[0].outgoingEdges;
+				//}
+			//}
 		}
     },
 

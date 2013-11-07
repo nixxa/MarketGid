@@ -8,6 +8,7 @@ using Newtonsoft.Json;
 using System.Text.RegularExpressions;
 using MarketGid.Core.Models;
 using NLog;
+using System.Configuration;
 
 namespace MarketGid.Core
 {
@@ -16,12 +17,13 @@ namespace MarketGid.Core
 		static FileUnitOfWork() 
 		{
 			string basePath = AppDomain.CurrentDomain.BaseDirectory;
+			string themePath = basePath + "App_Data" + Path.DirectorySeparatorChar;
 
 			lock (_objects)
 			{
 				try
 				{
-					InitObjects (basePath, _objects);
+					InitObjects (themePath, _objects);
 				}
 				catch (Exception ex)
 				{
@@ -32,7 +34,7 @@ namespace MarketGid.Core
 			// configure watcher
 			_watcher.Changed += HandleChanged;
 			_watcher.NotifyFilter = NotifyFilters.Size | NotifyFilters.LastWrite | NotifyFilters.FileName;
-			_watcher.Path = basePath + "/App_Data";
+			_watcher.Path = themePath;
 			_watcher.Filter = "*.config";
 			_watcher.EnableRaisingEvents = true;
 		}
@@ -129,7 +131,7 @@ namespace MarketGid.Core
 		static void InitObjects (string basePath, IDictionary<Type, IEnumerable<object>> tempCollection)
 		{
 			// load advertisements
-			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/ads.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			using (var reader = new StreamReader (new FileStream(basePath + Path.DirectorySeparatorChar + "ads.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
 			{
 				string data = reader.ReadToEnd ();
 				//data = Regex.Replace(data, "(.*)//(.*)\\n", "$1/*$2*/\n");
@@ -138,7 +140,7 @@ namespace MarketGid.Core
 			}
 			// load categories
 			Category[] categories = null;
-			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/categories.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			using (var reader = new StreamReader (new FileStream(basePath + Path.DirectorySeparatorChar + "categories.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
 			{
 				string data = reader.ReadToEnd ();
 				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");
@@ -147,7 +149,7 @@ namespace MarketGid.Core
 			}
 			// load objects
 			MapObject[] mapObjects = null;
-			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/objects.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			using (var reader = new StreamReader (new FileStream(basePath + Path.DirectorySeparatorChar + "objects.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
 			{
 				string data = reader.ReadToEnd ();
 				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");
@@ -156,7 +158,7 @@ namespace MarketGid.Core
 			}
 			// Load kiosk
 			Kiosk[] kiosks = null;
-			using (var reader = new StreamReader (new FileStream(basePath + "/App_Data/kiosk.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
+			using (var reader = new StreamReader (new FileStream(basePath + Path.DirectorySeparatorChar + "kiosk.config", FileMode.Open, FileAccess.Read, FileShare.ReadWrite)))
 			{
 				string data = reader.ReadToEnd ();
 				data = Regex.Replace (data, "(.*)//(.*)\n", "$1/*$2*/\n");

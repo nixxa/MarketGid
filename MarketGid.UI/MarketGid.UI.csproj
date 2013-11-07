@@ -172,11 +172,6 @@
     <Content Include="Content\keyboard.css" />
     <Content Include="Scripts\kineticjs-4.6.0.js" />
     <Content Include="Scripts\kineticjs-4.6.0.min.js" />
-    <Content Include="App_Data\ads.config" />
-    <Content Include="App_Data\categories.config" />
-    <Content Include="App_Data\kiosk.config" />
-    <Content Include="App_Data\specialOffers.config" />
-    <Content Include="App_Data\objects.config" />
     <Content Include="Scripts\jquery-2.0.3-vsdoc.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
@@ -208,6 +203,11 @@
     <Content Include="Views\Shared\_Keyboard.cshtml" />
     <Content Include="Scripts\lifetime.js" />
     <Content Include="Views\Error\General.cshtml" />
+    <Content Include="App_Data\ads.config" />
+    <Content Include="App_Data\categories.config" />
+    <Content Include="App_Data\kiosk.config" />
+    <Content Include="App_Data\objects.config" />
+    <Content Include="App_Data\specialOffers.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
