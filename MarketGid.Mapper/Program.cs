@@ -30,7 +30,7 @@ namespace MarketGid.Mapper
 			string sourceMapsFilenames = string.Empty;
 			string sourceObjectsFilename = string.Empty;
 			
-			string[] excludedNames = new string[0];
+			string[] excludedNames = new string[] { "Переходы" };
 			
 			string outObjectsFilename = "paths.js";
 			string outEdgesFilename = "edges.js";
@@ -46,7 +46,7 @@ namespace MarketGid.Mapper
 				{ "m|maps=", "output maps filename.", v => outMapsFilename = v },
 				{ "v", "verbose output", v => verbose = (v != null) },
 				{ "f|fix", "fix transform='translate(x,y)' layer attribute", v => fixTranslate = (v != null) },
-				{ "e|exclude", "exclude layer with specified names (comma separated)", v => excludedNames = v.Split(',') }
+				{ "e|exclude", "exclude layer with specified names (comma separated)", v => excludedNames = string.IsNullOrWhiteSpace(v) ? excludedNames : v.Split(',') }
 			};
 
 			try
@@ -107,14 +107,16 @@ namespace MarketGid.Mapper
 				XDocument xdoc = XDocument.Load (filenames[i]);
 				// находим фоновое изображение
 				var imageNode = xdoc.Root.Element("{" + xdoc.Root.Name.NamespaceName + "}image");
+				string backgroundImage = null;
 				if (imageNode != null)
 				{
 					var hrefAttr = imageNode.Attribute("{http://www.w3.org/1999/xlink}href");
 					if (hrefAttr != null)
 					{
-						maps.Add(new MapData { name = mapName, backgroundImage = "/Content/maps/" + hrefAttr.Value });
+						backgroundImage = "/Content/maps/" + hrefAttr.Value;
 					}
 				}
+				maps.Add(new MapData { name = mapName, backgroundImage = backgroundImage });
 				
 				// находим все слои
 				var layers = xdoc.Root.Descendants("{" + xdoc.Root.Name.NamespaceName + "}g").Where (t => t.Attribute ("{http://www.inkscape.org/namespaces/inkscape}groupmode").Value == "layer");
@@ -133,7 +135,7 @@ namespace MarketGid.Mapper
 					
 					string objectName = labelAttr.Value;
 					
-					if (excludedNames.Any(s => objectName.IndexOf(s) > 0)) continue;
+					if (excludedNames.Any(s => objectName.IndexOf(s) >= 0)) continue;
 					
 					// добавляем в маршруты
 					if (objectName.Equals(RoutesElement, StringComparison.InvariantCultureIgnoreCase))

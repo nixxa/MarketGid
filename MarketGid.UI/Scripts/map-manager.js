@@ -1,4 +1,4 @@
-// map-manager.js
+﻿// map-manager.js
 
 function MapManager(options) {
 	"use strict";
@@ -34,6 +34,8 @@ function MapManager(options) {
 		currentMap.setStartPosition(this.kioskPosition);
 		
 		this.scale = 0.3;
+		
+		Graph.init(currentMap.Settings);
 		
 		return this;
 	};

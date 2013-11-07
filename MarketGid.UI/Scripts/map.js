@@ -1,4 +1,4 @@
-/// <reference path="_references.js" />
+﻿/// <reference path="_references.js" />
 /// <reference path="graph.js" />
 /// <reference path="kineticjs-4.6.0.js" />
 
@@ -84,8 +84,6 @@ function Map(options) {
 
 			//this.originalOptions = options;
         }
-
-        Graph.init(options);
 
         this.setupObjects();
 
@@ -581,8 +579,8 @@ function Map(options) {
         this.navLayer.add(this.startObject);
 		
 		var text = 'Вы здесь';
-		if (tooltips != undefined) {
-			if (tooltips.start != undefined) {
+		if (tooltips !== undefined) {
+			if (tooltips.start !== undefined) {
 				text = tooltips.start;
 			}
 		}
@@ -608,7 +606,7 @@ function Map(options) {
 					bgColor: 'black' 
 				});
         }
-		if (tooltips != undefined && tooltips.startAction != undefined) {
+		if (tooltips !== undefined && tooltips.startAction !== undefined) {
 			tooltip.on('mousedown touchstart', function (evt) {
 				tooltips.startAction(evt);
 			});
@@ -640,7 +638,7 @@ function Map(options) {
 		}
 
 		// select target shape
-		if (targetShape != undefined)
+		if (targetShape !== undefined)
 		{
 			if (targetShape != null) {
 				for (var key in this.Objects) {
