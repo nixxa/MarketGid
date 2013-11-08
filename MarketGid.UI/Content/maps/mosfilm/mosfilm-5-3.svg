@@ -24,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="-269.74247"
-     inkscape:cy="609.39339"
+     inkscape:zoom="2.8"
+     inkscape:cx="235.04629"
+     inkscape:cy="188.0744"
      inkscape:document-units="px"
-     inkscape:current-layer="layer20"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1018"
@@ -42,7 +42,7 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-grids="false"
-     inkscape:snap-to-guides="true">
+     inkscape:snap-to-guides="false">
     <sodipodi:guide
        orientation="1,0"
        position="286.88332,323.24881"
@@ -108,7 +108,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -421,18 +421,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.58499432px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="402.28937"
+       style="font-size:14.58499432px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="347.13986"
        y="157.60277"
        id="text4323"
        sodipodi:linespacing="100%"
        transform="scale(0.91156215,1.0970179)"><tspan
          sodipodi:role="line"
          id="tspan4325"
-         x="402.28937"
+         x="347.13986"
          y="157.60277">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="402.28937"
+         x="347.13986"
          y="172.18776"
          id="tspan4327">№418</tspan></text>
   </g>
@@ -448,18 +448,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.54831505px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="402.74838"
+       style="font-size:14.54831505px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="347.73758"
        y="245.61215"
        id="text4298"
        sodipodi:linespacing="100%"
        transform="scale(0.90926969,1.0997837)"><tspan
          sodipodi:role="line"
          id="tspan4300"
-         x="402.74838"
+         x="347.73758"
          y="245.61215">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="402.74838"
+         x="347.73758"
          y="260.16046"
          id="tspan4302">№417</tspan></text>
   </g>
@@ -475,18 +475,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.62158108px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="400.17706"
+       style="font-size:14.62158108px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="344.88922"
        y="313.0834"
        id="text4273"
        sodipodi:linespacing="100%"
        transform="scale(0.91384886,1.0942729)"><tspan
          sodipodi:role="line"
          id="tspan4275"
-         x="400.17706"
+         x="344.88922"
          y="313.0834">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="400.17706"
+         x="344.88922"
          y="327.70499"
          id="tspan4277">№416</tspan></text>
   </g>
@@ -502,18 +502,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.74666023px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="224.71841"
+       style="font-size:14.74666023px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="168.95761"
        y="131.53493"
        id="text4248"
        sodipodi:linespacing="100%"
        transform="scale(0.92166628,1.0849914)"><tspan
          sodipodi:role="line"
          id="tspan4250"
-         x="224.71841"
+         x="168.95761"
          y="131.53493">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="224.71841"
+         x="168.95761"
          y="146.28159"
          id="tspan4252">№438</tspan></text>
   </g>
@@ -529,18 +529,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.72101879px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="225.69228"
+       style="font-size:14.72101879px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="170.02843"
        y="193.41052"
        id="text4223"
        sodipodi:linespacing="100%"
        transform="scale(0.92006365,1.0868813)"><tspan
          sodipodi:role="line"
          id="tspan4225"
-         x="225.69228"
+         x="170.02843"
          y="193.41052">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="225.69228"
+         x="170.02843"
          y="208.13155"
          id="tspan4227">№437</tspan></text>
   </g>
@@ -556,18 +556,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.69533157px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="225.89252"
+       style="font-size:14.69533157px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="170.32579"
        y="259.66129"
        id="text4198"
        sodipodi:linespacing="100%"
        transform="scale(0.91845823,1.0887811)"><tspan
          sodipodi:role="line"
          id="tspan4200"
-         x="225.89252"
+         x="170.32579"
          y="259.66129">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="225.89252"
+         x="170.32579"
          y="274.35663"
          id="tspan4202">№436</tspan></text>
   </g>
@@ -583,21 +583,21 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="366.00504"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="326.13004"
        y="925.21429"
        id="text4171"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4173"
-         x="366.00504"
+         x="326.13004"
          y="925.21429">Монтажная</tspan><tspan
          sodipodi:role="line"
-         x="366.00504"
+         x="326.13004"
          y="941.21429"
          id="tspan4175">комната</tspan><tspan
          sodipodi:role="line"
-         x="366.00504"
+         x="326.13004"
          y="957.21429"
          id="tspan4177">№409</tspan></text>
   </g>
@@ -613,18 +613,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.7722578px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="224.90907"
+       style="font-size:14.7722578px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="169.05147"
        y="326.63837"
        id="text4146"
        sodipodi:linespacing="100%"
        transform="scale(0.92326611,1.0831113)"><tspan
          sodipodi:role="line"
          id="tspan4148"
-         x="224.90907"
+         x="169.05147"
          y="326.63837">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="224.90907"
+         x="169.05147"
          y="341.41061"
          id="tspan4150">№435</tspan></text>
   </g>
@@ -640,18 +640,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.27806187px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="409.39178"
+       style="font-size:14.27806187px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="355.40286"
        y="370.20975"
        id="text4121"
        sodipodi:linespacing="100%"
        transform="scale(0.89237886,1.1206003)"><tspan
          sodipodi:role="line"
          id="tspan4123"
-         x="409.39178"
+         x="355.40286"
          y="370.20975">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="409.39178"
+         x="355.40286"
          y="384.48782"
          id="tspan4125">№415</tspan></text>
   </g>
@@ -667,21 +667,21 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="366.005"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="326.13"
        y="1043.4285"
        id="text4094"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4096"
-         x="366.005"
+         x="326.13"
          y="1043.4285">Монтажная</tspan><tspan
          sodipodi:role="line"
-         x="366.005"
+         x="326.13"
          y="1059.4285"
          id="tspan4098">комната</tspan><tspan
          sodipodi:role="line"
-         x="366.005"
+         x="326.13"
          y="1075.4285"
          id="tspan4100">№408</tspan></text>
   </g>
@@ -697,21 +697,21 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="366.00504"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="326.13004"
        y="1164.8572"
        id="text4013"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4015"
-         x="366.00504"
+         x="326.13004"
          y="1164.8572">Монтажная</tspan><tspan
          sodipodi:role="line"
-         x="366.00504"
+         x="326.13004"
          y="1180.8572"
          id="tspan4017">комната</tspan><tspan
          sodipodi:role="line"
-         x="366.00504"
+         x="326.13004"
          y="1196.8572"
          id="tspan4019">№407</tspan></text>
   </g>
@@ -727,18 +727,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.54025841px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="402.40067"
+       style="font-size:14.54025841px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="347.42032"
        y="446.78839"
        id="text4040"
        sodipodi:linespacing="100%"
        transform="scale(0.90876616,1.1003931)"><tspan
          sodipodi:role="line"
          id="tspan4042"
-         x="402.40067"
+         x="347.42032"
          y="446.78839">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="402.40067"
+         x="347.42032"
          y="461.32864"
          id="tspan4044">№414</tspan></text>
   </g>
@@ -754,26 +754,26 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="207.1077"
-       y="554.5"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="160.71428"
+       y="556.28571"
        id="text4065"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4067"
-         x="207.1077"
-         y="554.5">Начальник</tspan><tspan
+         x="160.71428"
+         y="556.28571">Начальник</tspan><tspan
          sodipodi:role="line"
-         x="207.1077"
-         y="570.5"
+         x="160.71428"
+         y="570.28571"
          id="tspan4069">монтажно-</tspan><tspan
          sodipodi:role="line"
-         x="207.1077"
-         y="586.5"
+         x="160.71428"
+         y="584.28571"
          id="tspan4071">тонировочного</tspan><tspan
          sodipodi:role="line"
-         x="207.1077"
-         y="602.5"
+         x="160.71428"
+         y="598.28571"
          id="tspan4073">цеха</tspan></text>
   </g>
   <g
@@ -788,18 +788,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.62158203px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="399.90073"
+       style="font-size:14.62158203px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="344.61288"
        y="518.24829"
        id="text3988"
        sodipodi:linespacing="100%"
        transform="scale(0.91384885,1.0942729)"><tspan
          sodipodi:role="line"
          id="tspan3990"
-         x="399.90073"
+         x="344.61288"
          y="518.24829">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="399.90073"
+         x="344.61288"
          y="532.86987"
          id="tspan3992">№413</tspan></text>
   </g>
@@ -815,27 +815,27 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:15.38737106px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="215.8221"
-       y="902.40796"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="164.9393"
+       y="903.09491"
        id="text3950"
        sodipodi:linespacing="100%"
-       transform="scale(0.96171072,1.0398137)"><tspan
+       transform="scale(0.96171073,1.0398137)"><tspan
          sodipodi:role="line"
          id="tspan3952"
-         x="215.8221"
-         y="902.40796">Комплекс</tspan><tspan
+         x="164.9393"
+         y="903.09491">Комплекс</tspan><tspan
          sodipodi:role="line"
-         x="215.8221"
-         y="917.79535"
+         x="164.9393"
+         y="917.09491"
          id="tspan3954">цветокоррекции</tspan><tspan
          sodipodi:role="line"
-         x="215.8221"
-         y="933.18268"
+         x="164.9393"
+         y="931.09491"
          id="tspan3956">для кино</tspan><tspan
          sodipodi:role="line"
-         x="215.8221"
-         y="948.57007"
+         x="164.9393"
+         y="945.09491"
          id="tspan3958">№444</tspan></text>
   </g>
   <g
@@ -850,19 +850,19 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:14.73079872px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="397.48364"
-       y="1171.9724"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="344.88611"
+       y="1172.2351"
        id="text3897"
        sodipodi:linespacing="100%"
-       transform="scale(0.92067491,1.0861597)"><tspan
+       transform="scale(0.92067492,1.0861597)"><tspan
          sodipodi:role="line"
          id="tspan3899"
-         x="397.48364"
-         y="1171.9724">Видеомонтажная</tspan><tspan
+         x="344.88611"
+         y="1172.2351">Видеомонтажная</tspan><tspan
          sodipodi:role="line"
-         x="397.48364"
-         y="1186.7032"
+         x="344.88611"
+         y="1186.2351"
          id="tspan3901">№406</tspan></text>
   </g>
   <g
@@ -877,23 +877,23 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:15.81448746px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="210.06374"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="160.98788"
        y="1292.6361"
        id="text3922"
        sodipodi:linespacing="100%"
-       transform="scale(0.98840549,1.0117305)"><tspan
+       transform="scale(0.9884055,1.0117305)"><tspan
          sodipodi:role="line"
          id="tspan3924"
-         x="210.06374"
+         x="160.98788"
          y="1292.6361">Мастеринговый</tspan><tspan
          sodipodi:role="line"
-         x="210.06374"
-         y="1308.4506"
+         x="160.98788"
+         y="1306.6361"
          id="tspan3926">просмотровый</tspan><tspan
          sodipodi:role="line"
-         x="210.06374"
-         y="1324.2651"
+         x="160.98788"
+         y="1320.6361"
          id="tspan3928">зал №18</tspan></text>
   </g>
 </svg>

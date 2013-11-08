@@ -24,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="935.59759"
-     inkscape:cy="364.56377"
+     inkscape:zoom="1.4"
+     inkscape:cx="944.19005"
+     inkscape:cy="309.96509"
      inkscape:document-units="px"
-     inkscape:current-layer="layer9"
+     inkscape:current-layer="layer4"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1018"
@@ -926,25 +926,25 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="1330.6841"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="1311.0024"
        y="342.2854"
        id="text4054"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4056"
-         x="1330.6841"
+         x="1311.0024"
          y="342.2854">Студия</tspan><tspan
          sodipodi:role="line"
-         x="1330.6841"
+         x="1311.0024"
          y="354.2854"
          id="tspan4058">записи</tspan><tspan
          sodipodi:role="line"
-         x="1330.6841"
+         x="1311.0024"
          y="366.2854"
          id="tspan4060">музыки</tspan><tspan
          sodipodi:role="line"
-         x="1330.6841"
+         x="1311.0024"
          y="378.2854"
          id="tspan4062">№2</tspan></text>
   </g>
@@ -982,21 +982,21 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="1313.0873"
+       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="1269.056"
        y="682.69641"
        id="text4076"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4078"
-         x="1313.0873"
+         x="1269.056"
          y="682.69641">Микшерская</tspan><tspan
          sodipodi:role="line"
-         x="1313.0873"
+         x="1269.056"
          y="698.69641"
          id="tspan4080">студия</tspan><tspan
          sodipodi:role="line"
-         x="1313.0873"
+         x="1269.056"
          y="714.69641"
          id="tspan4082">записи №2</tspan></text>
   </g>
@@ -1012,21 +1012,21 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="857.89624"
+       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="797.51538"
        y="624.11798"
        id="text4124"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4126"
-         x="857.89624"
+         x="797.51538"
          y="624.11798">Микшерская</tspan><tspan
          sodipodi:role="line"
-         x="857.89624"
+         x="797.51538"
          y="644.11798"
          id="tspan4128">студия записи</tspan><tspan
          sodipodi:role="line"
-         x="857.89624"
+         x="797.51538"
          y="664.11798"
          id="tspan4130">№1</tspan></text>
   </g>
