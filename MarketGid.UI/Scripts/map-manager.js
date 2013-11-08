@@ -90,9 +90,19 @@ function MapManager(options) {
 		var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
 		var targetMap = this.firstOrDefault( function (m) { return m.contains(targetName); } );
 		
+		if (targetMap === null) {
+			currentMap.show();
+			return;
+		}
+		
 		var targetObject = targetMap.findObject(targetName);
 		Graph.StartVertex = Graph.findVertex({ x: currentMap.Settings.x, y: currentMap.Settings.y }, currentMap.Settings.mapName);
-		this.route = Graph.navigateTo(targetObject.path, targetMap.Settings.mapName);
+		try {
+			this.route = Graph.navigateTo(targetObject.path, targetMap.Settings.mapName);
+		} catch (e) {
+			currentMap.show();
+			return;
+		}
 		
 		for (var i = 0; i < this.route.length; i++) {
 			if (this.routeMaps.indexOf(this.route[i].mapName) >= 0) continue;

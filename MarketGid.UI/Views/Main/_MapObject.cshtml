@@ -66,7 +66,7 @@
 			kioskPosition: kioskOptions,
 			boundsSpacer: 600
 		});
-		mapManager.navigateTo('@ViewBag.MapObject.Name', kioskOptions);
+		mapManager.navigateTo('@Html.Raw(ViewBag.MapObject.Name)', kioskOptions);
 		mapManager.objectSelected = function (obj) {
 			if (obj != null && obj.objectId != undefined) {
 				Menu.showObjectTitle(obj.objectId);
