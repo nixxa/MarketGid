@@ -199,6 +199,19 @@ var Graph = {
         }
         return null;
     },
+	
+	/**
+	 * Ищет переход с одной карты на другую
+	 * @public
+	 */
+	findJunction: function (fromMap, toMap) {
+		for (var i = 0; i < JunctionData.length; i++) {
+			if (JunctionData[i].from === fromMap && JunctionData[i].to === toMap) {
+				return JunctionData[i];
+			}
+		}
+		return null;
+	},
 
 	/**
 	 * Создает вершину

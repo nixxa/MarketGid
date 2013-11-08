@@ -154,14 +154,24 @@ function MapManager(options) {
 		var tooltips = {};
 		var mapIndex = this.routeMaps.indexOf(mapName);
 		if (mapIndex > 0) {
-			tooltips.start = 'Эскалатор на этаж №1\nНажмите для возврата';
+			var junction = Graph.findJunction(mapName, this.routeMaps[this.routeMaps.indexOf(mapName) - 1]);
+			if (junction !== null) {
+				tooltips.start = junction.name + '\nНажмите для возврата';
+			} else {
+				tooltips.start = 'Нажмите для возврата';
+			}
 			tooltips.startAction = function () {
 				self.selectMap(self.routeMaps[self.routeMaps.indexOf(mapName) - 1]);
 				self.showRoute(self.routeMaps[self.routeMaps.indexOf(mapName) - 1], targetName);
 			};
 		}
 		if (mapIndex < this.routeMaps.length - 1) {
-			tooltips.stop = 'Эскалатор на этаж №2\nНажмите для продолжения', 
+			var junction = Graph.findJunction(mapName, this.routeMaps[this.routeMaps.indexOf(mapName) + 1]);
+			if (junction !== null) {
+				tooltips.stop = junction.name + '\nНажмите для продолжения';
+			} else {
+				tooltips.stop = 'Нажмите для продолжения';
+			}
 			tooltips.stopAction = function () {
 				var selectedMapName = self.routeMaps[self.routeMaps.indexOf(mapName) + 1];
 				self.selectMap(selectedMapName);
