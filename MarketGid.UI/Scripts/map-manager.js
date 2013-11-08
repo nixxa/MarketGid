@@ -14,6 +14,7 @@ function MapManager(options) {
 	this.origin = { x: 0, y: 0 };
 	this.objectSelected = null;
 	this.lastDist = 0;
+	this.boundsSpacer = 400;
 
 	/**
 	 * Инициализирует объект
@@ -24,6 +25,9 @@ function MapManager(options) {
 			if (options.kioskPosition !== undefined) {
 				this.kioskPosition = options.kioskPosition;
 				this.currentMapName = this.kioskPosition.mapName;
+			}
+			if (options.boundsSpacer !== undefined) {
+				this.boundsSpacer = options.boundsSpacer;
 			}
 		}
 	
@@ -191,8 +195,8 @@ function MapManager(options) {
 		var maxHeight = Math.max(bounds.bottom - bounds.top, size.height);
 		var minHeight = Math.min(bounds.bottom - bounds.top, size.height);
 		
-		var boundsWidth = bounds.right - bounds.left + 400;
-		var boundsHeight = bounds.bottom - bounds.top + 400;
+		var boundsWidth = bounds.right - bounds.left + this.boundsSpacer;
+		var boundsHeight = bounds.bottom - bounds.top + this.boundsSpacer;
 		
 		if (boundsWidth < size.width && boundsHeight < size.height) {
 			// квадрат маршрута меньше видимой области - нужно увеличить карту

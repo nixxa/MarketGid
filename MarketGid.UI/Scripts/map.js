@@ -143,6 +143,7 @@ function Map(options) {
 					pathObject.setStroke(PathData[id].borderColor);
 					pathObject.setStrokeWidth(PathData[id].borderWidth);
 					pathObject.setLineJoin(PathData[id].borderJoin);
+					pathObject.setLineCap(PathData[id].borderCap);
 				}
 				pathObject.objectId = PathData[id].objectId;
 				this.Objects[id] = {
@@ -165,6 +166,7 @@ function Map(options) {
 					fill: PathData[id].color,
 					opacity: PathData[id].opacity,
 					text: PathData[id].text,
+					align: PathData[id].align,
 					id: id
 				});
 				textObject.objectId = PathData[id].objectId;

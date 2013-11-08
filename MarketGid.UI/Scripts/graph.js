@@ -135,11 +135,26 @@ var Graph = {
 					continue;
 				}
 				
-				fromVertex.incomingEdges = fromVertex.incomingEdges.concat(toVertex.incomingEdges);
-				fromVertex.outgoingEdges = fromVertex.incomingEdges.concat(toVertex.outgoingEdges);
+				var fromConnEdge = new Edge(fromVertex.position, toVertex.position, null, fromVertex.mapName);
+				fromConnEdge.beginVertex = fromVertex;
+				fromConnEdge.endVertex = toVertex;
+				fromConnEdge.length = 1;
+				var toConnEdge = new Edge(toVertex.position, fromVertex.position, null, toVertex.mapName);
+				toConnEdge.beginVertex = toVertex;
+				toConnEdge.endVertex = fromVertex;
+				toConnEdge.length = 1;
 				
-				toVertex.incomingEdges = fromVertex.incomingEdges;
-				toVertex.outgoingEdges = fromVertex.outgoingEdges;
+				fromVertex.incomingEdges = fromVertex.incomingEdges.concat([ toConnEdge ]);
+				fromVertex.outgoingEdges = fromVertex.outgoingEdges.concat([ fromConnEdge ]);
+				
+				toVertex.incomingEdges = toVertex.incomingEdges.concat([ fromConnEdge ]);
+				toVertex.outgoingEdges = toVertex.outgoingEdges.concat([ toConnEdge ]);
+				
+				//fromVertex.incomingEdges = fromVertex.incomingEdges.concat(toVertex.incomingEdges);
+				//fromVertex.outgoingEdges = fromVertex.outgoingEdges.concat(toVertex.outgoingEdges);
+				
+				//toVertex.incomingEdges = fromVertex.incomingEdges;
+				//toVertex.outgoingEdges = fromVertex.outgoingEdges;
 				
 				//junctions.push(fromVertex);
 				//junctions.push(toVertex);
