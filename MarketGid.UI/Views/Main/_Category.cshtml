@@ -36,7 +36,7 @@
 			}
 			<li class="mgid-tile">
 				<div class="thumbnail mgid-thumb" data-object="@(mapObject.Id)">
-					<h4>@mapObject.Name</h4>
+					<h4>@(string.IsNullOrWhiteSpace(mapObject.TileName) ? mapObject.Name : mapObject.TileName)</h4>
 					<p>@Html.Raw(mapObject.TileDescription)</p>
 				</div>
 			</li>

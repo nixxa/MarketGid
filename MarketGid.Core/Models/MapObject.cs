@@ -22,6 +22,10 @@ namespace MarketGid.Core.Models
 		/// </summary>
 		public string Name;
 		/// <summary>
+		/// Наименование объекта, отображаемое на плитке
+		/// </summary>
+		public string TileName;
+		/// <summary>
 		/// Описание для плитки в меню
 		/// </summary>
 		public string TileDescription;
