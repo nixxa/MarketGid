@@ -247,6 +247,9 @@ namespace MarketGid.Mapper
 					case "stroke-linejoin":
 						pathData.borderJoin = val;
 						break;
+					case "stroke-linecap":
+						pathData.borderCap = val;
+						break;
 					}
 				}
 			}
@@ -292,6 +295,7 @@ namespace MarketGid.Mapper
 					if (rawStyle.StartsWith("font-size:")) globalData.fontSize = Convert.ToDouble(val.Replace("px",""), CultureInfo.InvariantCulture);
 					if (rawStyle.StartsWith("font-family:")) globalData.fontFamily = val;
 					if (rawStyle.StartsWith("font-weight:")) globalData.fontWeight = val;
+					if (rawStyle.StartsWith("text-align:")) globalData.align = val;
 				}
 			}
 			
@@ -356,8 +360,10 @@ namespace MarketGid.Mapper
 		public string borderColor;
 		public double borderWidth;
 		public string borderJoin;
+		public string borderCap;
 		
 		public string text;
+		public string align;
 		public double x;
 		public double y;
 		public double angle;

@@ -63,7 +63,8 @@
 		});
 
 		mapManager = new MapManager({
-			kioskPosition: kioskOptions
+			kioskPosition: kioskOptions,
+			boundsSpacer: 600
 		});
 		mapManager.navigateTo('@ViewBag.MapObject.Name', kioskOptions);
 		mapManager.objectSelected = function (obj) {
