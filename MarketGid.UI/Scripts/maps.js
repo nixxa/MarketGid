@@ -42,5 +42,13 @@
   {
     "name": "mosfilm-27-2",
     "backgroundImage": null
+  },
+  {
+    "name": "mosfilm-20-1",
+    "backgroundImage": null
+  },
+  {
+    "name": "mosfilm-3-1",
+    "backgroundImage": null
   }
 ];

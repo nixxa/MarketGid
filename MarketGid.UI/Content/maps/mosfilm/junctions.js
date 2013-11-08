@@ -156,10 +156,24 @@ var JunctionData = [
 		"to": "mosfilm-27-2"
 	},
 	{
-		"x": 560,
-		"y": 651,
+		"x": 600,
+		"y": 235,
 		"name": "Этаж 1",
 		"from": "mosfilm-27-2",
 		"to": "mosfilm-27-1"
+	},
+	{
+		"x": 745,
+		"y": 1092,
+		"name": "Главный корпус",
+		"from": "mosfilm-3-1",
+		"to": "mosfilm-1"
+	},
+	{
+		"x": 462,
+		"y": 106,
+		"name": "Главный корпус",
+		"from": "mosfilm-20-1",
+		"to": "mosfilm-1"
 	}
 ];
