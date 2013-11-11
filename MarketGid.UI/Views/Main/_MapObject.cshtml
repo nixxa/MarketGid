@@ -64,7 +64,7 @@
 
 		mapManager = new MapManager({
 			kioskPosition: kioskOptions,
-			boundsSpacer: 600
+			boundsSpacer: 400
 		});
 		mapManager.navigateTo('@Html.Raw(ViewBag.MapObject.Name)', kioskOptions);
 		mapManager.objectSelected = function (obj) {

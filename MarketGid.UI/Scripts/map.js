@@ -157,9 +157,14 @@ function Map(options) {
 			}
 			// если объект - текст, добавляем
 			if (PathData[id].text != undefined && PathData[id].text != null) {
+				var textX = PathData[id].x;
+				var textY = PathData[id].y;
+				if (PathData[id].scaleX == 0 && PathData[id].scaleY == 0 && PathData[id].matrix == null) {
+					textY = textY - PathData[id].fontSize * 2/3;
+				}
 				var textObject = new Kinetic.Text({
-					x: PathData[id].x,
-					y: PathData[id].y,
+					x: textX,
+					y: textY,
 					fontSize: PathData[id].fontSize,
 					fontFamily: PathData[id].fontFamily,
 					fontWeight: PathData[id].fontWeight,

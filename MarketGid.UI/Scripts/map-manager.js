@@ -225,6 +225,11 @@ function MapManager(options) {
 			this.scale = Math.min(size.width / boundsWidth, size.height / boundsHeight);
 		}
 		//this.scale = this.scale * 0.75;
+
+		// увеличиваем или уменьшаем карту
+		if ( currentMap.scale != this.scale ) {
+			this.scaleUp(this.scale);
+		}
 		
 		// центрируем карту
 		var position = { 
@@ -238,10 +243,6 @@ function MapManager(options) {
 			currentMap.stage.move(position.x, position.y);
 			currentMap.stage.batchDraw();
 			currentMap.position = position;
-		}
-		// увеличиваем или уменьшаем карту
-		if ( currentMap.scale != this.scale ) {
-			this.scaleUp(this.scale);
 		}
 	};
 	
@@ -280,8 +281,8 @@ function MapManager(options) {
 		}
 		
 		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
-		currentMap.origin.x = this.kioskPosition.x / scale.x + currentMap.origin.x - this.kioskPosition.x / newscale;
-		currentMap.origin.y = this.kioskPosition.y / scale.y + currentMap.origin.y - this.kioskPosition.y / newscale;
+		currentMap.origin.x = currentMap.Settings.x / scale.x + currentMap.origin.x - currentMap.Settings.x / newscale;
+		currentMap.origin.y = currentMap.Settings.y / scale.y + currentMap.origin.y - currentMap.Settings.y / newscale;
 		
 		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
 		currentMap.stage.setScale({x: newscale, y: newscale });
@@ -307,8 +308,8 @@ function MapManager(options) {
 		}
 		
 		if (currentMap.origin == undefined) currentMap.origin = { x: 0, y: 0 };
-		currentMap.origin.x = this.kioskPosition.x / scale.x + currentMap.origin.x - this.kioskPosition.x / newscale;
-		currentMap.origin.y = this.kioskPosition.y / scale.y + currentMap.origin.y - this.kioskPosition.y / newscale;
+		currentMap.origin.x = currentMap.Settings.x / scale.x + currentMap.origin.x - currentMap.Settings.x / newscale;
+		currentMap.origin.y = currentMap.Settings.y / scale.y + currentMap.origin.y - currentMap.Settings.y / newscale;
 		
 		currentMap.stage.setOffset(currentMap.origin.x, currentMap.origin.y);
 		currentMap.stage.setScale({x: newscale, y: newscale });
