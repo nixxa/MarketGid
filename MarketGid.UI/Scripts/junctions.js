@@ -157,7 +157,7 @@ var JunctionData = [
 	},
 	{
 		"x": 600,
-		"y": 235,
+		"y": 650,
 		"name": "Этаж 1",
 		"from": "mosfilm-27-2",
 		"to": "mosfilm-27-1"

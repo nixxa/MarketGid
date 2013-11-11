@@ -1,7 +1,7 @@
 ﻿var MapsData = [
   {
     "name": "mosfilm-1",
-    "backgroundImage": "/Content/maps/map050.jpg"
+    "backgroundImage": null
   },
   {
     "name": "mosfilm-2-3",

@@ -24,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="7.9195959"
-     inkscape:cx="614.41468"
-     inkscape:cy="264.5951"
+     inkscape:zoom="1.979899"
+     inkscape:cx="1017.8037"
+     inkscape:cy="441.52277"
      inkscape:document-units="px"
-     inkscape:current-layer="layer11"
+     inkscape:current-layer="layer7"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1018"
@@ -85,12 +85,20 @@
        id="guide4286" />
     <sodipodi:guide
        orientation="0,1"
-       position="1237.1429,457.14286"
+       position="972.77691,479.31738"
        id="guide4288" />
     <sodipodi:guide
        orientation="1,0"
        position="511.38973,358.85669"
        id="guide4312" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="1198.2935,388.65619"
+       id="guide3219" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="1189.2021,355.06862"
+       id="guide3221" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -440,12 +448,6 @@
        style="fill:#c4c4c4;fill-opacity:1;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
        d="m 1128.5714,402.42856 20.3572,0 0,71.78571 -20.3572,0 z"
        id="rect3162"
-       inkscape:connector-curvature="0" />
-    <path
-       transform="translate(-2024.2142,-530.63782)"
-       style="fill:#c4c4c4;fill-opacity:1;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
-       d="m 1152.5,401.71429 103.9286,0 0,72.85714 -103.9286,0 z"
-       id="rect3165"
        inkscape:connector-curvature="0" />
     <path
        transform="translate(-2024.2142,-530.63782)"
@@ -892,11 +894,6 @@
        inkscape:connector-curvature="0" />
     <path
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
-       d="m 1068.5714,497.42857 207.8572,0"
-       id="path4334"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d="m 1276.4286,497.42857 0,-68.57143"
        id="path4336"
        inkscape:connector-curvature="0" />
@@ -904,6 +901,21 @@
        style="fill:none;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        d="m 1276.4286,428.85714 17.8571,0"
        id="path4338"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1068.5714,497.34381 120.6307,0"
+       id="path3223"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1189.2021,497.34381 87.2265,0"
+       id="path3225"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1189.2021,497.34381 0,-21.71828"
+       id="path3227"
        inkscape:connector-curvature="0" />
   </g>
   <g
@@ -942,18 +954,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="200"
-       y="400.11661"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="117.73926"
+       y="392.11661"
        id="text4344"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4346"
-         x="200"
-         y="400.11661">Студия перезаписи</tspan><tspan
+         x="117.73926"
+         y="392.11661">Студия перезаписи</tspan><tspan
          sodipodi:role="line"
-         x="200"
-         y="425.11661"
+         x="117.73926"
+         y="414.61661"
          id="tspan4348">№6</tspan></text>
   </g>
   <g
@@ -969,18 +981,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:20px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="410.62125"
-       y="400.09631"
+       style="font-size:18px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="336.58658"
+       y="392.09631"
        id="text4350"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4352"
-         x="410.62125"
-         y="400.09631">Студия перезаписи</tspan><tspan
+         x="336.58658"
+         y="392.09631">Студия перезаписи</tspan><tspan
          sodipodi:role="line"
-         x="410.62125"
-         y="425.09631"
+         x="336.58658"
+         y="414.59631"
          id="tspan4354">№7</tspan></text>
   </g>
   <g
@@ -996,24 +1008,55 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:19.57435226px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="1091.245"
-       y="410.7818"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="1040.6996"
+       y="406.86694"
        id="text4356"
        sodipodi:linespacing="125%"
        transform="scale(0.97871769,1.0217451)"><tspan
          sodipodi:role="line"
          id="tspan4358"
-         x="1091.245"
-         y="410.7818">Студия</tspan><tspan
+         x="1040.6996"
+         y="406.86694">Студия</tspan><tspan
          sodipodi:role="line"
-         x="1091.245"
-         y="435.24973"
+         x="1040.6996"
+         y="424.36694"
          id="tspan4360">озвучивания</tspan><tspan
          sodipodi:role="line"
-         x="1091.245"
-         y="459.71768"
+         x="1040.6996"
+         y="441.86694"
          id="tspan4362">№10</tspan></text>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer12"
+     inkscape:label="Студия озвучивания №11"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <path
+       style="fill:#c4c4c4;fill-opacity:1;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;display:inline"
+       d="m 1152.3214,401.71429 103.9286,0 0,72.85714 -103.9286,0 z"
+       id="rect3165"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;display:inline;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="1158.3928"
+       y="416.42856"
+       id="text3181"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3183"
+         x="1158.3928"
+         y="416.42856">Студия</tspan><tspan
+         sodipodi:role="line"
+         x="1158.3928"
+         y="433.92856"
+         id="tspan3185">озвучивания</tspan><tspan
+         sodipodi:role="line"
+         x="1158.3928"
+         y="451.42856"
+         id="tspan3187">№11</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -1028,23 +1071,23 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:19.40339851px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="919.97662"
-       y="408.44153"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="871.38434"
+       y="404.56085"
        id="text4364"
        sodipodi:linespacing="125%"
-       transform="scale(0.97016997,1.0307472)"><tspan
+       transform="scale(0.97016998,1.0307472)"><tspan
          sodipodi:role="line"
          id="tspan4366"
-         x="919.97662"
-         y="408.44153">Студия</tspan><tspan
+         x="871.38434"
+         y="404.56085">Студия</tspan><tspan
          sodipodi:role="line"
-         x="919.97662"
-         y="432.69577"
+         x="871.38434"
+         y="422.06085"
          id="tspan4368">озвучивания</tspan><tspan
          sodipodi:role="line"
-         x="919.97662"
-         y="456.95001"
+         x="871.38434"
+         y="439.56085"
          id="tspan4370">№9</tspan></text>
   </g>
   <g
@@ -1060,18 +1103,18 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:13.39988041px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="1388.6545"
+       style="font-size:13.39988041px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="1356.0577"
        y="404.32089"
        id="text4372"
        sodipodi:linespacing="125%"
        transform="scale(0.95713434,1.0447854)"><tspan
          sodipodi:role="line"
          id="tspan4374"
-         x="1388.6545"
+         x="1356.0577"
          y="404.32089">Комната</tspan><tspan
          sodipodi:role="line"
-         x="1388.6545"
+         x="1356.0577"
          y="421.07074"
          id="tspan4376">инженеров</tspan></text>
   </g>
@@ -1088,26 +1131,26 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:16px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="731.73059"
-       y="419.57144"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="704.24231"
+       y="415.57144"
        id="text4378"
        sodipodi:linespacing="100%"><tspan
          sodipodi:role="line"
          id="tspan4380"
-         x="731.73059"
-         y="419.57144">Студия</tspan><tspan
+         x="704.24231"
+         y="415.57144">Студия</tspan><tspan
          sodipodi:role="line"
-         x="731.73059"
-         y="435.57144"
+         x="704.24231"
+         y="429.57144"
          id="tspan4382">записи</tspan><tspan
          sodipodi:role="line"
-         x="731.73059"
-         y="451.57144"
+         x="704.24231"
+         y="443.57144"
          id="tspan4384">шумов</tspan><tspan
          sodipodi:role="line"
-         x="731.73059"
-         y="467.57144"
+         x="704.24231"
+         y="457.57144"
          id="tspan4386">№8</tspan></text>
   </g>
   <g
