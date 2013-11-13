@@ -15,6 +15,7 @@ function MapManager(options) {
 	this.objectSelected = null;
 	this.lastDist = 0;
 	this.boundsSpacer = 400;
+	this.maxScale = 1.5;
 
 	/**
 	 * Инициализирует объект
@@ -200,10 +201,6 @@ function MapManager(options) {
 		
 		var size = currentMap.stage.getSize();
 		var bounds = this.calcRouteBounds(this.route, mapName);
-		var maxWidth = Math.max(bounds.right - bounds.left, size.width);
-		var minWidth = Math.min(bounds.right - bounds.left, size.width);
-		var maxHeight = Math.max(bounds.bottom - bounds.top, size.height);
-		var minHeight = Math.min(bounds.bottom - bounds.top, size.height);
 		
 		var boundsWidth = bounds.right - bounds.left + this.boundsSpacer;
 		var boundsHeight = bounds.bottom - bounds.top + this.boundsSpacer;
@@ -224,7 +221,10 @@ function MapManager(options) {
 			// квадрат маршрута больше видимой области - уменьшаем карту
 			this.scale = Math.min(size.width / boundsWidth, size.height / boundsHeight);
 		}
-		//this.scale = this.scale * 0.75;
+		
+		if (this.scale > this.maxScale) {
+			this.scale = this.maxScale;
+		}
 
 		// увеличиваем или уменьшаем карту
 		if ( currentMap.scale != this.scale ) {
