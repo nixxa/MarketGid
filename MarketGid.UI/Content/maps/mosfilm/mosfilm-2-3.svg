@@ -24,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.12374369"
-     inkscape:cx="-1484.4489"
-     inkscape:cy="2019.088"
+     inkscape:zoom="0.70000002"
+     inkscape:cx="-7.3499285"
+     inkscape:cy="539.71205"
      inkscape:document-units="px"
-     inkscape:current-layer="layer10"
+     inkscape:current-layer="layer5"
      showgrid="false"
      inkscape:window-width="1920"
      inkscape:window-height="1018"
@@ -92,7 +92,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -615,8 +615,8 @@
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Диспетчерская"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="color:#000000;fill:#c4c4c4;fill-opacity:1;fill-rule:nonzero;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="m 107.18348,3033.2143 0,108.5714 123.84732,125 84.64286,-85.3571 -62.14286,-59.2858 -31.42857,-89.6428 z"
@@ -638,8 +638,8 @@
      inkscape:groupmode="layer"
      id="layer3"
      inkscape:label="Центральное производственное управление №314"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        style="color:#000000;fill:#c4c4c4;fill-opacity:1;fill-rule:nonzero;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="m 281.3709,2961.2501 115.66247,0 23.73859,115 -68.94283,69.6428 -43.57142,-41.0714 -26.88681,-92.8572 z"
@@ -647,35 +647,35 @@
        inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
-       style="font-size:15.20307732px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="367.20694"
-       y="2862.9634"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="312.44659"
+       y="2854.325"
        id="text3977"
        sodipodi:linespacing="125%"
        transform="scale(0.95019234,1.0524185)"><tspan
          sodipodi:role="line"
          id="tspan3979"
-         x="367.20694"
-         y="2862.9634">Центральное</tspan><tspan
+         x="312.44659"
+         y="2854.325">Центральное</tspan><tspan
          sodipodi:role="line"
-         x="367.20694"
-         y="2881.9673"
+         x="312.44659"
+         y="2871.825"
          id="tspan3981">производственное</tspan><tspan
          sodipodi:role="line"
-         x="367.20694"
-         y="2900.9712"
+         x="312.44659"
+         y="2889.325"
          id="tspan3983">управление</tspan><tspan
          sodipodi:role="line"
-         x="367.20694"
-         y="2919.9749"
+         x="312.44659"
+         y="2906.825"
          id="tspan3985">№314</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer4"
      inkscape:label="Центральное производственное управление №316"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
        style="color:#000000;fill:#c4c4c4;fill-opacity:1;fill-rule:nonzero;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
@@ -683,31 +683,31 @@
        id="rect3791" />
     <text
        xml:space="preserve"
-       style="font-size:14.68002796px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="179.22438"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:100%;letter-spacing:0px;word-spacing:0px;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="120.18888"
        y="2669.7664"
        id="text3987"
        sodipodi:linespacing="100%"
        transform="scale(0.91750174,1.0899162)"><tspan
          sodipodi:role="line"
          id="tspan3989"
-         x="179.22438"
+         x="120.18888"
          y="2669.7664">Центральное</tspan><tspan
          sodipodi:role="line"
-         x="179.22438"
-         y="2684.4463"
+         x="120.18888"
+         y="2683.7664"
          id="tspan3991">производственное</tspan><tspan
          sodipodi:role="line"
-         x="179.22438"
-         y="2699.1265"
+         x="120.18888"
+         y="2697.7664"
          id="tspan3993">управление №316</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
      id="layer5"
      inkscape:label="Центральное производственное управление №321"
-     sodipodi:insensitive="true"
-     style="display:inline">
+     style="display:inline"
+     sodipodi:insensitive="true">
     <path
        inkscape:connector-curvature="0"
        style="color:#000000;fill:#c4c4c4;fill-opacity:1;fill-rule:nonzero;stroke:#c4c4c4;stroke-width:2;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"

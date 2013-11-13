@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.8101934"
-     inkscape:cx="1698.3"
-     inkscape:cy="495.82699"
+     inkscape:zoom="1.28"
+     inkscape:cx="1042.4954"
+     inkscape:cy="252.77243"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -43,7 +43,7 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:snap-grids="false"
-     inkscape:snap-to-guides="false">
+     inkscape:snap-to-guides="true">
     <sodipodi:guide
        orientation="0,1"
        position="1339.8438,745.3125"
@@ -82,7 +82,7 @@
        id="guide3020" />
     <sodipodi:guide
        orientation="1,0"
-       position="1294.8893,837.47959"
+       position="1332.0312,296.48437"
        id="guide3034" />
     <sodipodi:guide
        orientation="0,1"
@@ -92,6 +92,22 @@
        orientation="0,1"
        position="1412.0039,991.88299"
        id="guide3057" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="1341.0156,385.54687"
+       id="guide3059" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="1314.4531,257.42187"
+       id="guide3061" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="1271.875,126.17187"
+       id="guide3063" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="1202.7343,169.14062"
+       id="guide3065" />
   </sodipodi:namedview>
   <metadata
      id="metadata7">
@@ -133,15 +149,15 @@
     <text
        xml:space="preserve"
        style="font-size:22.67455482px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="384.8584"
-       y="998.28271"
+       x="310.43576"
+       y="1170.261"
        id="text3035"
        sodipodi:linespacing="125%"
        transform="scale(0.94477318,1.0584551)"><tspan
          sodipodi:role="line"
          id="tspan3037"
-         x="384.8584"
-         y="998.28271">Бюро пропусков</tspan></text>
+         x="310.43576"
+         y="1170.261">Бюро пропусков</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:24px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Sans Bold"
@@ -329,6 +345,36 @@
        d="m 1294.8893,527.11701 81.0873,0"
        id="path3065"
        inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1228.5156,1349.8594 43.3594,0"
+       id="path3071"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1271.875,1349.8594 0,-88.2813"
+       id="path3073"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1271.875,1261.5781 60.1562,0"
+       id="path3075"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1332.0312,1261.5781 0,-128.125"
+       id="path3077"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1332.0312,1133.4531 12.5001,0"
+       id="path3079"
+       inkscape:connector-curvature="0" />
+    <path
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1344.5313,1133.4531 0,-150.3906"
+       id="path3081"
+       inkscape:connector-curvature="0" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -427,6 +473,29 @@
        width="3.9151068"
        height="3.7079463"
        x="1215.8682"
-       y="772.09442" />
+       y="772.09442">
+      <title
+         id="title3053">Киоск 1</title>
+    </rect>
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3055"
+       width="1.1230469"
+       height="1.0742188"
+       x="1027.5391"
+       y="773.24805">
+      <title
+         id="title3057">Киоск 3</title>
+    </rect>
+    <rect
+       style="color:#000000;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       id="rect3067"
+       width="3.125"
+       height="4.296875"
+       x="1225.7812"
+       y="1347.9062">
+      <title
+         id="title3069">Киоск 2</title>
+    </rect>
   </g>
 </svg>
