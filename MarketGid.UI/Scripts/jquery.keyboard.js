@@ -24,7 +24,7 @@
 			el.opened = true;
 		};
 		
-		el.on('mouseup touchend', function (e) {
+		el.on('mouseup', function (e) {
 			if (!el.opened) {
 				kbOpen();
 
@@ -43,7 +43,7 @@
 			}
 		});
 		
-		$(document).on('mousedown touchstart', function (e) {
+		$(document).on('mousedown', function (e) {
 			var $this = $(e.target);
 			if ($this.hasClass('.keyboard') || $this.hasClass('.keyboard-wrap')) 
 			{
@@ -62,7 +62,7 @@
 		});
 		
         $('.keyboard li').disableSelection();
-        $('.keyboard li').on('mouseup touchend', function (evt) {
+        $('.keyboard li').on('mouseup', function (evt) {
 			if (pageLifetime != null) {
 				pageLifetime.update();
 			}
@@ -88,6 +88,7 @@
                 }
             } else if ($this.hasClass('shift')) {
                 $('.keyboard li').toggleClass('uppercase');
+				$('.keyboard li.backspace').toggleClass('uppercase');
                 shifted = !shifted;
             } else if ($this.hasClass('enter')) {
 				kbClose();
