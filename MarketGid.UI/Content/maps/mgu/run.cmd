@@ -1,0 +1,1 @@
+C:\Projects\MarketGid\Solution\MarketGid.Mapper\bin\Debug\mapper.exe -so objects.config -sm mgu-1.svg,mgu-2.svg,mgu-3.svg -f
