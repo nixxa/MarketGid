@@ -8,6 +8,8 @@ function MapManager(options) {
 	this.kioskPosition = {};
 	this.route = [];
 	this.routeMaps = [];
+	this.routeParts = [];
+	this.currentPartIndex = 0;
 	this.targetName = '';
 	this.zoomFactor = 0.75;
 	this.scale = 1.0;
@@ -91,6 +93,9 @@ function MapManager(options) {
 		var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == this.currentMapName; } );
 		var targetMap = this.firstOrDefault( function (m) { return m.contains(targetName); } );
 		
+		this.currentPartIndex = 0;
+		this.routeParts = [];
+		
 		if (targetMap === null) {
 			currentMap.show();
 			return;
@@ -105,12 +110,30 @@ function MapManager(options) {
 			return;
 		}
 		
+		var part = [];
+		var prevMap = null;
+		var currMap = null;
+		// делим весь маршрут на части
 		for (var i = 0; i < this.route.length; i++) {
-			if (this.routeMaps.indexOf(this.route[i].mapName) >= 0) continue;
+			currMap = this.route[i].mapName;
+			if (prevMap === null) {
+				prevMap = currMap;
+			}
+			part.push(this.route[i]);
+			if (prevMap !== currMap) {
+				this.routeParts.push({ mapName: prevMap, route: part });
+				part = [ this.route[i-1], this.route[i] ];
+				prevMap = currMap;
+			}
+			if (this.routeMaps.indexOf(this.route[i].mapName) >= 0) {
+				continue;
+			}
 			this.routeMaps.push(this.route[i].mapName);
 		}
-
-		this.showRoute(this.currentMapName, targetName);
+		this.routeParts.push({ mapName: currMap, route: part });
+		
+		// показываем первую часть маршрута
+		this.showRoute(this.currentMapName, targetName, this.currentPartIndex);
 		
 		// enable multitouch scaling
 		var self = this;
@@ -149,17 +172,28 @@ function MapManager(options) {
 		}
 	};
 	
-	this.showRoute = function (mapName, targetName) {
+	this.showRoute = function (mapName, targetName, routePartIndex) {
 		var currentMap = this.firstOrDefault( function (m) { return m.Settings.mapName == mapName; } );
 		var targetObject = currentMap.findObject(targetName);
 		var targetShape = targetObject != null ? targetObject.path : null;
 		
+		// если часть маршрута не указана, то используем весь маршрут
+		var route = null;
+		if (routePartIndex === undefined || routePartIndex === null) {
+			route = this.route;
+			this.routeParts = { mapName: mapName, route: this.route };
+			this.currentPartIndex = 0;
+		} else {
+			route = this.routeParts[routePartIndex].route;
+		}
+		
+		// определяем начальную позицию
 		var startPosition = null;
-		for (var i = 0; i < this.route.length; i++) {
-			if (startPosition == null && this.route[i].mapName == mapName) {
+		for (var i = 0; i < route.length; i++) {
+			if (startPosition == null && route[i].mapName == mapName) {
 				startPosition = {
-					x: this.route[i].position.x,
-					y: this.route[i].position.y
+					x: route[i].position.x,
+					y: route[i].position.y
 				};
 				break;
 			}
@@ -167,40 +201,50 @@ function MapManager(options) {
 		
 		var self = this;
 		var tooltips = {};
-		var mapIndex = this.routeMaps.indexOf(mapName);
-		if (mapIndex > 0) {
-			var junction = Graph.findJunction(mapName, this.routeMaps[this.routeMaps.indexOf(mapName) - 1]);
+		var junction = null;
+		// если это не первая часть маршрута, то формируем в точке возврата тултип
+		if (routePartIndex > 0) {
+			junction = route[0].junction;
 			if (junction !== null) {
-				tooltips.start = junction.name + '\nНажмите для возврата';
+				tooltips.start = junction.name + ' на ' + junction.title.toLowerCase() + '\nНажмите для возврата';
 			} else {
 				tooltips.start = 'Нажмите для возврата';
 			}
 			tooltips.startAction = function () {
-				self.selectMap(self.routeMaps[self.routeMaps.indexOf(mapName) - 1]);
-				self.showRoute(self.routeMaps[self.routeMaps.indexOf(mapName) - 1], targetName);
+				self.currentPartIndex -= 1;
+				self.selectMap(self.routeParts[self.currentPartIndex].mapName);
+				self.showRoute(self.routeParts[self.currentPartIndex].mapName, targetName, self.currentPartIndex);
 			};
 		}
-		if (mapIndex < this.routeMaps.length - 1) {
-			var junction = Graph.findJunction(mapName, this.routeMaps[this.routeMaps.indexOf(mapName) + 1]);
+		// если это не последняя часть маршрута, то формируем в точке перехода тултип
+		if (routePartIndex < this.routeParts.length - 1) {
+			junction = route[route.length - 1].junction;
 			if (junction !== null) {
-				tooltips.stop = junction.name + '\nНажмите для продолжения';
+				tooltips.stop = junction.name + ' на ' + junction.title.toLowerCase() + '\nНажмите для продолжения';
 			} else {
 				tooltips.stop = 'Нажмите для продолжения';
 			}
 			tooltips.stopAction = function () {
-				var selectedMapName = self.routeMaps[self.routeMaps.indexOf(mapName) + 1];
-				self.selectMap(selectedMapName);
-				self.showRoute(selectedMapName, targetName);
+				self.currentPartIndex += 1;
+				self.selectMap(self.routeParts[self.currentPartIndex].mapName);
+				self.showRoute(self.routeParts[self.currentPartIndex].mapName, targetName, self.currentPartIndex);
 			};
+		}
+		
+		// если это последняя часть маршрута, то тултип в конце отключаем
+		if (routePartIndex === this.routeParts.length - 1) {
+			currentMap.Settings.showEndTooltip = false;
+		} else {
+			currentMap.Settings.showEndTooltip = true;
 		}
 		
 		currentMap.setStartPosition(startPosition);
 		currentMap.show();
-		currentMap.showRoute(this.route, mapName, targetShape, tooltips);
+		currentMap.showRoute(route, mapName, targetShape, tooltips);
 		currentMap.showSelectedShape(targetShape);
 		
 		var size = currentMap.stage.getSize();
-		var bounds = this.calcRouteBounds(this.route, mapName);
+		var bounds = this.calcRouteBounds(route, mapName);
 		
 		var boundsWidth = bounds.right - bounds.left + this.boundsSpacer;
 		var boundsHeight = bounds.bottom - bounds.top + this.boundsSpacer;

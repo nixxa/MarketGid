@@ -302,7 +302,7 @@ function Map(options) {
 			if (path != undefined) {
 				if (this.Objects[t].objectId > 0) {
 					var self = this;
-					path.on('mousedown touchstart', function (evt) {
+					path.on('mousedown', function (evt) {
 						self.showPath(evt);
 					});
 				}
@@ -312,7 +312,7 @@ function Map(options) {
 			if (text != undefined) {
 				if (this.Objects[t].objectId > 0) {
 					var self = this;
-					text.on('mousedown touchstart', function (evt) {
+					text.on('mousedown', function (evt) {
 						var mapObj = self.findByObjectId(evt.targetNode.objectId);
 						if (mapObj != null) {
 							self.showPath({ targetNode: mapObj.path });
@@ -546,7 +546,7 @@ function Map(options) {
         // show route
         var points = [];
         for (var i = 0; i < vertexes.length; i++) {
-			if (vertexes[i].mapName != mapName) {
+			if (vertexes[i].mapName !== mapName) {
 				continue;
 			}
             points = points.concat([vertexes[i].position.x, vertexes[i].position.y]);
@@ -614,7 +614,7 @@ function Map(options) {
 				});
         }
 		if (tooltips !== undefined && tooltips.startAction !== undefined) {
-			tooltip.on('mousedown touchstart', function (evt) {
+			tooltip.on('mousedown', function (evt) {
 				tooltips.startAction(evt);
 			});
 		}
@@ -639,7 +639,7 @@ function Map(options) {
             tooltip = this.setupTooltip({ x: x, y: y, text: text, pointerDirection: 'up', bgColor: 'black' });
         }
 		if (tooltips != undefined && tooltips.stopAction != undefined) {
-			tooltip.on('mousedown touchstart', function (evt) {
+			tooltip.on('mousedown', function (evt) {
 				tooltips.stopAction(evt);
 			});
 		}
