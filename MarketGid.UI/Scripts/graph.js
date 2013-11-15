@@ -113,27 +113,27 @@ var Graph = {
 				JunctionData[j].y  // * Graph.Settings.globalScale
 			);
 			fromPoint.mapName = JunctionData[j].from;
-			var toPoint = null;
-			for (var k = 0; k < JunctionData.length; k++) {
-				if (JunctionData[k].from === JunctionData[j].to && JunctionData[k].to === JunctionData[j].from) {
-					toPoint = new Point(
-						JunctionData[k].x, // * Graph.Settings.globalScale, 
-						JunctionData[k].y  // * Graph.Settings.globalScale
-					);
-					toPoint.mapName = JunctionData[k].from;
-				}
-			}
-			if (fromPoint == null || toPoint == null) {
-				continue;
-			}
 			
-			//var junctions = [];
-			//for (var i = 0; i < Graph.MapNames.length; i++) {
+			var toJunk = null, toPoint = null;
+			for (var k = 0; k < JunctionData[j].connectedTo.length; k++) {
+				toJunk = Graph.findJunctionById(JunctionData[j].connectedTo[k]);
+				if (toJunk === null) {
+					continue;
+				}
+				
+				toPoint = new Point(
+					toJunk.x,
+					toJunk.y
+				);
+				toPoint.mapName = toJunk.from;
+				
 				var fromVertex = Graph.findVertex(fromPoint, fromPoint.mapName);
 				var toVertex = Graph.findVertex(toPoint, toPoint.mapName);
 				if (fromVertex == null || toVertex == null) {
 					continue;
 				}
+				fromVertex.junction = JunctionData[j];
+				toVertex.junction = toJunk;
 				
 				var fromConnEdge = new Edge(fromVertex.position, toVertex.position, null, fromVertex.mapName);
 				fromConnEdge.beginVertex = fromVertex;
@@ -148,28 +148,8 @@ var Graph = {
 				fromVertex.outgoingEdges = fromVertex.outgoingEdges.concat([ fromConnEdge ]);
 				
 				toVertex.incomingEdges = toVertex.incomingEdges.concat([ fromConnEdge ]);
-				toVertex.outgoingEdges = toVertex.outgoingEdges.concat([ toConnEdge ]);
-				
-				//fromVertex.incomingEdges = fromVertex.incomingEdges.concat(toVertex.incomingEdges);
-				//fromVertex.outgoingEdges = fromVertex.outgoingEdges.concat(toVertex.outgoingEdges);
-				
-				//toVertex.incomingEdges = fromVertex.incomingEdges;
-				//toVertex.outgoingEdges = fromVertex.outgoingEdges;
-				
-				//junctions.push(fromVertex);
-				//junctions.push(toVertex);
-				
-				//for (var k = 0; k < junctions.length; k++) {
-				//	junctions[k].incomingEdges = junctions[k].incomingEdges.concat(liftVertex.incomingEdges);
-				//	junctions[k].outgoingEdges = junctions[k].outgoingEdges.concat(liftVertex.outgoingEdges);
-				//}
-				//junctions.push(liftVertex);
-								
-				//if (junctions.length > 0) {
-				//	liftVertex.incomingEdges = junctions[0].incomingEdges;
-				//	liftVertex.outgoingEdges = junctions[0].outgoingEdges;
-				//}
-			//}
+				toVertex.outgoingEdges = toVertex.outgoingEdges.concat([ toConnEdge ]);				
+			}
 		}
     },
 
@@ -214,19 +194,6 @@ var Graph = {
         }
         return null;
     },
-	
-	/**
-	 * Ищет переход с одной карты на другую
-	 * @public
-	 */
-	findJunction: function (fromMap, toMap) {
-		for (var i = 0; i < JunctionData.length; i++) {
-			if (JunctionData[i].from === fromMap && JunctionData[i].to === toMap) {
-				return JunctionData[i];
-			}
-		}
-		return null;
-	},
 
 	/**
 	 * Создает вершину
@@ -380,6 +347,15 @@ var Graph = {
 	findVertexById: function (vertexId) {
 		for (var i = 0; i < Graph.Vertexes.length; i++) {
 			if (Graph.Vertexes[i].id == vertexId) return Graph.Vertexes[i];
+		}
+		return null;
+	},
+	
+	findJunctionById: function (junkId) {
+		for (var i = 0; i < JunctionData.length; i++) {
+			if (JunctionData[i].id === junkId) {
+				return JunctionData[i];
+			}
 		}
 		return null;
 	}
