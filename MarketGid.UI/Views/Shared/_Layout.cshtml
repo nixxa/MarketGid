@@ -10,7 +10,15 @@
 </head>
 <body class="animated fadeIn">
 	<div class="container">
-		@RenderBody()
+		<div class="main-header">
+			<img src="~/Content/images/top.png" />
+		</div>
+		<div class="main-content-container">
+			@RenderBody()
+		</div>
+		<div class="main-footer">
+			<img src="~/Content/images/bottom.png" />
+		</div>
 	</div>
 	
 	<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>

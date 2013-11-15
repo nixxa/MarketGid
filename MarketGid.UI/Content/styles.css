@@ -110,21 +110,20 @@ h1, h2, h3, h4 {
 }
 
 .main-content {
+	border: 3px solid #176fc1;
+	border-radius: 20px;
 }
 	.main-content .main-content-title {
 		font-size: 23pt;
-		background-color: #F8F600;
-		color: black;
+		background-color: #E2E3EC;
+		color: #176fc1;
 		height: 84px;
-		/*overflow: hidden;*/
+		border-top-left-radius: 20px;
+		border-top-right-radius: 20px;
+		border-bottom: 1px solid rgba(0,0,0,0.2);
 	}
-		.main-content .main-content-title img {
-			/*padding: 10px;*/
-			/*vertical-align: baseline;*/
-		}
 		.main-content .main-content-title ul {
-			/*padding: 0px;*/
-			background-color: #F8F600;
+			background-color: transparent;
 		}
 		.main-content .main-content-title ul > li {
 			line-height: normal;
@@ -141,13 +140,13 @@ h1, h2, h3, h4 {
 		.main-content .main-content-title > .breadcrumb > li > a {
 			text-decoration: none;
 			text-shadow: none;
-			color: #333333;
+			color: #176fc1;
 			vertical-align: middle;
 		}
 		.main-content .main-content-title ul > li > .dropdown-toggle {
 			text-decoration: none;
 			text-shadow: none;
-			color: #333333;
+			color: #176fc1;
 			vertical-align: middle;
 		}
 		.main-content .main-content-title .caret {
@@ -174,15 +173,15 @@ h1, h2, h3, h4 {
 			content: " ";
 		}
 		.main-content .main-content-title .dropdown-menu {
-			background-color: #F7F56A;
+			background-color: #E2E3EC;
 		}
 	.main-content .main-container {
 		padding: 0px 0px 0px 0px;
-		background-color: rgba(248, 246, 0, 0.35);
+		background-color: transparent;
 		height: 986px;
 	}
 		.main-content .main-container .main-menu {
-			padding: 20px;
+			padding: 17px;
 			height: 946px;
 			opacity: 1;
 		}
@@ -205,17 +204,23 @@ h1, h2, h3, h4 {
 	margin-left: 20px !important;
 	margin-right: 0px;
 	margin-bottom: 20px;
+	border-radius: 20px;
 	box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 	.mgid-tile .mgid-thumb {
 		border: 0px;
 		height: 140px;
-		background: #4682B4;
+		border-radius: 20px;
+		background: #fff98c;
+		color: #176fc1;
 		padding: 10px 20px 10px 20px;
+		text-align: center;
+		vertical-align: middle;
 	}
 	.mgid-tile .mgid-thumb > h4 {
 		line-height: 30px;
 		font-size: 16pt;
+		color: #176fc1;
 	}
 	.mgid-tile .clicked {
 		background: #2C5372;
@@ -275,10 +280,9 @@ h1, h2, h3, h4 {
 	}
 
 .mgid-map {
-	background-color: #EDEDED;
+	background-color: transparent;
 	height: 820px;
 	width: 1000px;
-	border-right: 4px solid #F8F600;
 	-ms-touch-action: pinch-zoom;
 	-ms-content-zooming: zoom;
 }
@@ -319,8 +323,8 @@ h1, h2, h3, h4 {
 	font-size: 27px;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	line-height: 40px; 
-	color: #ccc;
-	background-color: black;
+	color: rgba(23,111,193,0.35);
+	background-color: white;
     border-radius: 5px;
     border: 1px solid #808080;
     padding: 5px;
@@ -345,4 +349,31 @@ h1, h2, h3, h4 {
 	font-size: 150%;
 	font-weight: bold;
 	color: #333;
+}
+
+.mgu-content {
+	height: 1070px;
+	border: 3px solid #176fc1;
+	border-radius: 20px;
+}
+
+.mgu-logo-center {
+	margin-top: 20px;
+	margin-bottom: 60px;
+	text-align: center;
+}
+
+.mgu-home-menu-item {
+	font-size: 40pt;
+	font-weight: bold;
+	color: #176fc1;
+	text-align: right;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	margin-left: 100px;
+	margin-right: 200px;
+}
+
+.mgu-home-btn-round {
+	margin-left: 40px;
 }

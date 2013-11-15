@@ -2,44 +2,32 @@
 @{
 	Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<div class="logo">
-	<img src="~/Content/images/mflogo.png" alt="Mosfilm logo" /> МОСФИЛЬМ
+
+<div class="mgu-content">
+	<div class="mgu-logo-center">
+		<img src="~/Content/images/flogo.png" />
+	</div>
+	<div class="mgu-home-menu-item">
+		ИНФОРМАЦИЯ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+	</div>
+	<div class="mgu-home-menu-item">
+		ПЛАНЫ ЭТАЖЕЙ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+	</div>
+	<div class="mgu-home-menu-item">
+		ПОСТУПАЮЩИМ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+	</div>
 </div>
-<div class="content">
-	@Html.Partial("_Advertisement", (Advertisement) ViewBag.Advertisement)
-</div>
-<div class="footer">
-	<span>
-		Навигация по МОСФИЛЬМУ <a href="~/main"><img src="~/Content/images/black_arrow_rigth.png" alt="arrow" /></a>
-	</span>
-	<span class="help-message">
-		Коснитесь экрана, что бы начать работу
-	</span>
-</div>
+
 
 @section scripts {
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		setTimeout(function () { rotate(); }, @ViewBag.Advertisement.Duration.TotalMilliseconds);
 		$(document).click(function () {
 			$('body').addClass('animated fadeOut');
 			window.location.href = '/Main/Index';
 		});
-		
-		// отсылаем данные в GA
-		var catName = '@ViewBag.Advertisement.GAEventCategory';
-		if (_gaq) {
-			_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.Advertisement.Name']);
-		}
 	});
-
-	function rotate() {
-		Animation.fadeOut('#@ViewBag.Advertisement.CurrentPlace');
-		$.post('/Home/Rotate', function (data) {
-			$('.content').html(data);
-		});
-	}
 </script>
 
 }
