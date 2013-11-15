@@ -24,9 +24,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.49497475"
-     inkscape:cx="306.45463"
-     inkscape:cy="686.08505"
+     inkscape:zoom="1.979899"
+     inkscape:cx="934.28609"
+     inkscape:cy="305.56213"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -335,10 +335,10 @@
        inkscape:connector-curvature="0" />
     <path
        style="color:#000000;fill:#f6f23a;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m -316.89295,163.3931 -23.94678,0 -0.21552,-217.640707 c 50.59992,0 50.41976,-0.06209 126.00376,-0.06209 l 0,217.702797 -83.66017,0"
+       d="m -340.83973,163.3931 -0.21552,-217.640707 c 50.59992,0 50.41976,-0.06209 126.00376,-0.06209 l -0.33439,217.739777 c -41.81797,-0.0266 -83.63589,-0.0786 -125.45385,-0.037 z"
        id="path32220"
        inkscape:connector-curvature="0"
-       sodipodi:nodetypes="cccccc" />
+       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#bfdf14;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.97923672;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="m -397.56274,322.79048 0,-77.39856 -28.25414,0 0,45.50649 6.51257,0 z"
@@ -673,24 +673,28 @@
        inkscape:connector-curvature="0" />
     <path
        style="color:#000000;fill:#b3e6fa;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 256.67783,599.20823 -38.3858,0 0,-65.15484 56.1897,0 0,65.15484"
+       d="m 218.29203,599.20823 0,-65.15484 56.1897,0 0.10825,65.28111 z"
        id="path12452"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#b3e6fa;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 58.036571,599.20823 41.16071,0 0,-65.15484 -56.875,0 0,65.15484"
+       d="m 99.197281,599.20823 0,-65.15484 -56.875,0 0.09926,65.15484 z"
        id="path12458"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#b3e6fa;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 57.425231,224.86167 c 0.63135,0 41.77205,0 41.77205,0 l 0,71.07143 -56.875,0 0,-71.07143"
+       d="m 99.197281,224.86167 0,71.07143 -56.875,0 -0.0062,-71.10841 c 55.299613,0.0893 56.881243,0.037 56.881243,0.037 z"
        id="path12460"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#b3e6fa;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m 257.43543,224.86167 -39.1434,0 0,71.07143 56.1897,0 0,-71.07143"
+       d="m 218.29203,224.86164 0,71.07143 56.1897,0 0.0893,-71.05563 z"
        id="path12462"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc" />
     <path
        style="color:#000000;fill:#b390cf;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
        d="m 10.358011,534.0534 31.96429,0 0,10.89757 -31.96429,0 z"
@@ -1944,15 +1948,13 @@
      inkscape:groupmode="layer"
      id="layer13"
      inkscape:label="Бухгалтерия"
-     sodipodi:insensitive="true"
-     style="display:inline">
-    <rect
-       style="color:#000000;fill:#bfdf14;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <path
+       style="color:#000000;fill:#bfdf14;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 1229.3206,621.13226 72.2959,0 0,96.78572 -72.2959,0 z"
        id="rect4088"
-       width="72.295898"
-       height="96.785713"
-       x="1229.3206"
-       y="621.13226" />
+       inkscape:connector-curvature="0" />
     <text
        xml:space="preserve"
        style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Calibri;-inkscape-font-specification:Sans Bold"

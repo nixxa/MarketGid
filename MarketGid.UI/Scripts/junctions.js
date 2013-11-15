@@ -7,7 +7,7 @@ var JunctionData = [
 		"y": 378,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [15,27]
 	},
 	{
@@ -16,7 +16,7 @@ var JunctionData = [
 		"y": 492,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [13,25]
 	},
 	{
@@ -25,7 +25,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [17,29]
 	},
 	{
@@ -34,7 +34,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [19,31]
 	},
 	{
@@ -43,7 +43,7 @@ var JunctionData = [
 		"y": 958,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [21,33]
 	},
 	{
@@ -52,7 +52,7 @@ var JunctionData = [
 		"y": 958,
 		"name": "Лифт",
 		"from": "mgu-1",
-		title: "Этаж 1",
+		title: " на этаж 1",
 		connectedTo: [23,35]
 	},
 	{
@@ -61,7 +61,7 @@ var JunctionData = [
 		"y": 492,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [3,25]
 	},
 	{
@@ -70,7 +70,7 @@ var JunctionData = [
 		"y": 377,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [1,27]
 	},
 	{
@@ -79,7 +79,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [5,29]
 	},
 	{
@@ -88,7 +88,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [7,31]
 	},
 	{
@@ -97,7 +97,7 @@ var JunctionData = [
 		"y": 957,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [9,33]
 	},
 	{
@@ -106,7 +106,7 @@ var JunctionData = [
 		"y": 957,
 		"name": "Лифт",
 		"from": "mgu-2",
-		title: "Этаж 2",
+		title: " на этаж 2",
 		connectedTo: [11,35]
 	},
 	{
@@ -115,7 +115,7 @@ var JunctionData = [
 		"y": 493,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [3,13]
 	},
 	{
@@ -124,7 +124,7 @@ var JunctionData = [
 		"y": 376,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [1,15]
 	},
 	{
@@ -133,7 +133,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [5,17]
 	},
 	{
@@ -142,7 +142,7 @@ var JunctionData = [
 		"y": 589,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [7,19]
 	},
 	{
@@ -151,7 +151,7 @@ var JunctionData = [
 		"y": 957,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [9,21]
 	},
 	{
@@ -160,7 +160,7 @@ var JunctionData = [
 		"y": 957,
 		"name": "Лифт",
 		"from": "mgu-3",
-		title: "Этаж 3",
+		title: " на этаж 3",
 		connectedTo: [11,23]
 	}
 ];
