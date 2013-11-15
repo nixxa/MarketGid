@@ -206,7 +206,11 @@ function MapManager(options) {
 		if (routePartIndex > 0) {
 			junction = route[0].junction;
 			if (junction !== null) {
-				tooltips.start = junction.name + ' на ' + junction.title.toLowerCase() + '\nНажмите для возврата';
+				tooltips.start = junction.name;
+				if (junction.title !== undefined && junction.title !== null) {
+					tooltips.start = tooltips.start + junction.title.toLowerCase();
+				}
+				tooltips.start = tooltips.start + '\nНажмите для возврата';
 			} else {
 				tooltips.start = 'Нажмите для возврата';
 			}
@@ -220,7 +224,11 @@ function MapManager(options) {
 		if (routePartIndex < this.routeParts.length - 1) {
 			junction = route[route.length - 1].junction;
 			if (junction !== null) {
-				tooltips.stop = junction.name + ' на ' + junction.title.toLowerCase() + '\nНажмите для продолжения';
+				tooltips.stop = junction.name;
+				if (junction.title !== undefined && junction.title !== null) {
+					tooltips.stop = tooltips.stop + junction.title.toLowerCase();
+				}
+				tooltips.stop = tooltips.stop + '\nНажмите для продолжения';
 			} else {
 				tooltips.stop = 'Нажмите для продолжения';
 			}
