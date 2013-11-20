@@ -8,26 +8,17 @@
 		<img src="~/Content/images/flogo.png" />
 	</div>
 	<div class="mgu-home-menu-item">
-		ИНФОРМАЦИЯ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+		<a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');">ИНФОРМАЦИЯ</a> <a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
 	</div>
 	<div class="mgu-home-menu-item">
-		ПЛАНЫ ЭТАЖЕЙ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+		<a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');">ПЛАНЫ ЭТАЖЕЙ</a> <a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
 	</div>
 	<div class="mgu-home-menu-item">
-		ПОСТУПАЮЩИМ <img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" />
+		<a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');">ПОСТУПАЮЩИМ</a> <a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
 	</div>
 </div>
 
 
 @section scripts {
-
-<script type="text/javascript">
-	$(document).ready(function () {
-		$(document).click(function () {
-			$('body').addClass('animated fadeOut');
-			window.location.href = '/Main/Index';
-		});
-	});
-</script>
 
 }

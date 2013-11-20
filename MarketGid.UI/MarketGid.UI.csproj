@@ -113,6 +113,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -208,6 +209,8 @@
     <Content Include="App_Data\kiosk.config" />
     <Content Include="App_Data\objects.config" />
     <Content Include="App_Data\specialOffers.config" />
+    <Content Include="Views\About\Info.cshtml" />
+    <Content Include="Views\About\Abiturient.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -215,6 +218,7 @@
     <Folder Include="Content\ui-darkness\" />
     <Folder Include="Content\maps\" />
     <Folder Include="Views\Error\" />
+    <Folder Include="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
