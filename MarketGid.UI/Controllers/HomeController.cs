@@ -36,6 +36,18 @@ namespace MarketGid.UI.Controllers
 			return View("Index");
 		}
 
+		public ActionResult Launch()
+		{
+			using (var db = Factory.Create()) 
+			{
+				var advertisement = GetAdvert (PLACE_NAME);
+				advertisement.CurrentPlace = PLACE_NAME;
+				ViewBag.Advertisement = advertisement;
+			}
+
+			return View("Launch");
+		}
+
 		/// <summary>
 		/// Возвращает следующий рекламный материал
 		/// </summary>

@@ -211,6 +211,8 @@
     <Content Include="App_Data\specialOffers.config" />
     <Content Include="Views\About\Info.cshtml" />
     <Content Include="Views\About\Abiturient.cshtml" />
+    <Content Include="Views\Home\Launch.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -222,9 +224,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_Layout.cshtml" />

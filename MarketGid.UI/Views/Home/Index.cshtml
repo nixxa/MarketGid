@@ -1,24 +1,75 @@
 ﻿@using MarketGid.Core.Models
 @{
-	Layout = "~/Views/Shared/_Layout.cshtml";
+        Layout = null;
 }
 
-<div class="mgu-content">
-	<div class="mgu-logo-center">
-		<img src="~/Content/images/flogo.png" />
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<title></title>
+	<link href="~/Content/bootstrap.css" rel="stylesheet" />
+	<link href="~/Content/animate.css" rel="stylesheet" />
+	<link href="~/Content/styles.css" rel="stylesheet" />
+	<link href="~/Content/antiscroll.css" rel="stylesheet" />
+</head>
+<body class="animated fadeIn">
+	<div class="container">
+			<div class="logo">
+			        <img src="~/Content/images/flogo.png" alt="Mosfilm logo" /> ЮРИДИЧЕСКИЙ ФАКУЛЬТЕТ
+			</div>
+			<div class="content">
+			        @Html.Partial("_Advertisement", (Advertisement) ViewBag.Advertisement)
+			</div>
+			<div class="footer">
+		        <p>
+		                Навигация по МГУ <a href="~/main"><img src="~/Content/images/black_arrow_rigth.png" alt="arrow" /></a>
+		        </p>
+		        <p class="help-message">
+		                Демо-версия
+		        </p>
+			</div>
 	</div>
-	<div class="mgu-home-menu-item">
-		<a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');">ИНФОРМАЦИЯ</a> <a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
-	</div>
-	<div class="mgu-home-menu-item">
-		<a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');">ПЛАНЫ ЭТАЖЕЙ</a> <a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
-	</div>
-	<div class="mgu-home-menu-item">
-		<a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');">ПОСТУПАЮЩИМ</a> <a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
-	</div>
-</div>
+	
+	<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
+	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="~/Scripts/animation.js"></script>
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-44339793-1']);
+		_gaq.push(['_trackPageview']);
 
-@section scripts {
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
-}
+	<script type="text/javascript">
+        $(document).ready(function () {
+                setTimeout(function () { rotate(); }, @ViewBag.Advertisement.Duration.TotalMilliseconds);
+                $(document).click(function () {
+                        $('body').addClass('animated fadeOut');
+                        window.location.href = '/Home/Launch';
+                });
+                
+                // отсылаем данные в GA
+                var catName = '@ViewBag.Advertisement.GAEventCategory';
+                if (_gaq) {
+                        _gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.Advertisement.Name']);
+                }
+        });
+
+        function rotate() {
+                Animation.fadeOut('#@ViewBag.Advertisement.CurrentPlace');
+                $.post('/Home/Rotate', function (data) {
+                        $('.content').html(data);
+                });
+        }
+	</script>
+	
+</body>
+</html>

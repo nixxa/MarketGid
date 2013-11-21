@@ -24,11 +24,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7"
-     inkscape:cx="949.56043"
-     inkscape:cy="493.59987"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="212.33418"
+     inkscape:cy="796.14061"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer12"
      showgrid="false"
      fit-margin-top="0"
      fit-margin-left="0"
@@ -128,6 +128,7 @@
      inkscape:groupmode="layer"
      id="layer1"
      transform="translate(890.1875,361.91125)"
+     style="display:inline"
      sodipodi:insensitive="true">
     <path
        style="color:#000000;fill:none;stroke:#000000;stroke-width:4;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
@@ -1761,27 +1762,6 @@
          id="tspan4189"
          x="-744.47321"
          y="690.06104">Ближайший переход между секторами на 3-м этаже</tspan></text>
-    <path
-       style="color:#000000;fill:#bfdf14;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
-       d="m -638.28071,-142.88874 32.57742,0 0,63.387065 -32.57742,0 z"
-       id="rect32126"
-       inkscape:connector-curvature="0" />
-    <text
-       xml:space="preserve"
-       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Calibri;-inkscape-font-specification:Sans Bold"
-       x="83.787392"
-       y="-624.24701"
-       id="text32182"
-       sodipodi:linespacing="100%"
-       transform="matrix(0,-1,1,0,0,0)"><tspan
-         sodipodi:role="line"
-         id="tspan32184"
-         x="83.787392"
-         y="-624.24701">Приемная</tspan><tspan
-         sodipodi:role="line"
-         x="83.787392"
-         y="-612.24701"
-         id="tspan32186">комиссия</tspan></text>
   </g>
   <g
      inkscape:groupmode="layer"
@@ -2067,7 +2047,30 @@
      inkscape:groupmode="layer"
      id="layer12"
      inkscape:label="Приемная комиссия"
-     sodipodi:insensitive="true" />
+     style="display:inline"
+     sodipodi:insensitive="true">
+    <path
+       style="color:#000000;fill:#bfdf14;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:2;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
+       d="m 251.747,219.18647 32.57742,0 0,63.38706 -32.57742,0 z"
+       id="rect32126"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Calibri;-inkscape-font-specification:Sans Bold"
+       x="-278.28781"
+       y="265.7807"
+       id="text32182"
+       sodipodi:linespacing="100%"
+       transform="matrix(0,-1,1,0,0,0)"><tspan
+         sodipodi:role="line"
+         id="tspan32184"
+         x="-278.28781"
+         y="265.7807">Приемная</tspan><tspan
+         sodipodi:role="line"
+         x="-278.28781"
+         y="277.7807"
+         id="tspan32186">комиссия</tspan></text>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer5"

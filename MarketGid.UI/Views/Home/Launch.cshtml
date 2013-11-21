@@ -1,0 +1,24 @@
+﻿@using MarketGid.Core.Models
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="mgu-content">
+	<div class="mgu-logo-center">
+		<img src="~/Content/images/flogo.png" />
+	</div>
+	<div class="mgu-home-menu-item">
+		<a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');">ИНФОРМАЦИЯ</a> <a href="~/About/Info" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
+	</div>
+	<div class="mgu-home-menu-item">
+		<a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');">ПЛАНЫ ЭТАЖЕЙ</a> <a href="~/Main/Index" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
+	</div>
+	<div class="mgu-home-menu-item">
+		<a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');">ПОСТУПАЮЩИМ</a> <a href="~/About/Abiturient" onclick="$('body').addClass('animated fadeOut');"><img src="~/Content/images/btn_round.png" class="mgu-home-btn-round" /></a>
+	</div>
+</div>
+
+
+@section scripts {
+
+}

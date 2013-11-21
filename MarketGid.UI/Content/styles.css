@@ -35,11 +35,11 @@ h1, h2, h3, h4 {
 	BEGIN Lock screen classes
 */
 .logo {
-	font-size: 58pt;
+	font-size: 40pt;
 	height: 90px;
-	background-color: #F8F600;
 	padding: 10px 20px;
-	color: #333333;
+	color: #176fc1;
+	background-color: #E2E3EC;
 	line-height: normal;
 }
 	.logo img {
@@ -70,25 +70,25 @@ h1, h2, h3, h4 {
 
 .footer {
 	font-size: 38pt;
+	line-height: normal;
 	height: 220px;
 	padding: 10px;
-	color: #000;
-	background-image: url('images/plan3.jpg');
+	color: #176fc1;
+	background-image: url('images/footer.png');
 	background-repeat: no-repeat;
 	background-position: center;
 }
-	.footer span {
+	.footer p {
 		padding: 20px 10px 20px 10px;
+		margin: 0;
 	}
 	.footer img {
 		vertical-align: sub;
 	}
 	.footer .help-message {
-		float: left;
-		position: relative;
-		top: 50%;
+		margin-top: 60px;
 		font-size: 20pt;
-		color: #404040;
+		color: #176fc1;
 	}
 
 /*
