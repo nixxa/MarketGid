@@ -1,5 +1,9 @@
 @model MarketGid.Core.Models.Advertisement
 
+@if (Model == null) {
+	return;
+}
+
 @if (Model.MimeType.Contains("video")) {
 	<!-- width="1040" height="385" -->
 	<video id="@Model.CurrentPlace" preload autoplay style="background: #000;">

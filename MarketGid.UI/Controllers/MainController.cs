@@ -30,14 +30,19 @@ namespace MarketGid.UI.Controllers
 			using (var db = Factory.Create())
 			{
 				var topAdvertisement = GetAdvert (TOP_PLACE_NAME);
-				topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
+				if (topAdvertisement != null)
+					topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
 
 				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
-				if (bottomAdvertisement.Equals(topAdvertisement))
+				if (bottomAdvertisement != null)
 				{
-					bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+					if (bottomAdvertisement.Equals (topAdvertisement))
+					{
+						bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+					}
+					if (bottomAdvertisement != null)
+						bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 				}
-				bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 
 				var categories = db.Query<Category> ().Where (c => c.Level == 0);
 
@@ -57,14 +62,19 @@ namespace MarketGid.UI.Controllers
 			using (var db = Factory.Create()) 
 			{
 				var topAdvertisement = GetAdvert (TOP_PLACE_NAME);
-				topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
+				if (topAdvertisement != null)
+					topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
 
 				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
-				if (bottomAdvertisement.Equals(topAdvertisement))
+				if (bottomAdvertisement != null)
 				{
-					bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+					if (bottomAdvertisement.Equals (topAdvertisement))
+					{
+						bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
+					}
+					if (bottomAdvertisement != null)
+						bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 				}
-				bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 
 				ViewBag.TopAdvertisement = topAdvertisement;
 				ViewBag.BottomAdvertisement = bottomAdvertisement;
