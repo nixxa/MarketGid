@@ -20,5 +20,13 @@
 
 
 @section scripts {
+	<script type="text/javascript" src="~/Scripts/lifetime.js"></script>
+	
+	<script type="text/javascript">
+	 	var pageLifetime = new Lifetime();
 
+		$(document).ready(function () {
+			pageLifetime.init();
+		});
+	</script>
 }

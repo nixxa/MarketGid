@@ -93,20 +93,37 @@
 		
 			$('.antiscroll-wrap').antiscroll();
 		
+			@if (ViewBag.TopAdvertisement != null) {
+				<text>
 			setTimeout(function () { 
 				rotate('MainScreenTop'); 
 			}, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
-	 
+				</text>
+			}
+	 		
+	 		@if (ViewBag.BottomAdvertisement != null) {
+	 			<text>
 			setTimeout(function () { 
 				rotate('MainScreenBottom'); 
 			}, @ViewBag.BottomAdvertisement.Duration.TotalMilliseconds);
+				</text>
+			}
 		
 			// отсылаем данные в GA
 			if (_gaq) {
+				@if (ViewBag.TopAdvertisement != null) {
+				<text>
 				var catName = '@ViewBag.TopAdvertisement.GAEventCategory';
 				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
-				catName = '@ViewBag.BottomAdvertisement.GAEventCategory';
-				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.BottomAdvertisement.Name']);
+				</text>
+				}
+				
+				@if (ViewBag.BottomAdvertisement != null) {
+				<text>
+				var catName2 = '@ViewBag.BottomAdvertisement.GAEventCategory';
+				_gaq.push(['_trackEvent', catName2, 'Show', '@ViewBag.BottomAdvertisement.Name']);
+				</text>
+				}
 			}
 		});
 					
