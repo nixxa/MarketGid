@@ -27,7 +27,7 @@
 		                Навигация по МГУ <a href="~/main"><img src="~/Content/images/black_arrow_rigth.png" alt="arrow" /></a>
 		        </p>
 		        <p class="help-message">
-		                Демо-версия
+		                Демонстрационная версия
 		        </p>
 			</div>
 	</div>
@@ -51,7 +51,8 @@
 	<script type="text/javascript">
         $(document).ready(function () {
                 setTimeout(function () { rotate(); }, @ViewBag.Advertisement.Duration.TotalMilliseconds);
-                $(document).click(function () {
+
+                $(document).on('mousedown', function (e) {
                         $('body').addClass('animated fadeOut');
                         window.location.href = '/Home/Launch';
                 });
