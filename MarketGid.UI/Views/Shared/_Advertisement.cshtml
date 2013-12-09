@@ -6,7 +6,7 @@
 
 @if (Model.MimeType.Contains("video")) {
 	<!-- width="1040" height="385" -->
-	<video id="@Model.CurrentPlace" preload autoplay style="background: #000;">
+	<video id="@Model.CurrentPlace" preload autoplay>
 		<source src="@Url.Content(Model.Uri)" type="@Model.MimeType" />
 	</video>
 } else if (Model.MimeType.Contains("image")) {
