@@ -86,7 +86,7 @@ namespace MarketGid.UI.Controllers
 
 				if (mapObject != null) 
 				{
-					ViewBag.Category = mapObject.Categories.First();
+					ViewBag.Category = mapObject.Categories[0];
 				}
 				ViewBag.MapObject = mapObject;
 				ViewBag.AllCategories = db.Query<Category> ().ToList();
@@ -124,6 +124,7 @@ namespace MarketGid.UI.Controllers
 		/// Меню страницы
 		/// </summary>
 		/// <param name="id"></param>
+		/// <param name = "objectId"></param>
 		/// <returns></returns>
 		public ActionResult Title(int? id, int? objectId)
 		{
@@ -146,7 +147,7 @@ namespace MarketGid.UI.Controllers
 					var mapObject = db.Query<MapObject> ().SingleOrDefault (o => o.Id == objectId.Value);
 					if (mapObject != null) 
 					{
-						ViewBag.Category = mapObject.Categories.First();
+						ViewBag.Category = mapObject.Categories[0];
 						ViewBag.MapObject = mapObject;
 					}
 				}
