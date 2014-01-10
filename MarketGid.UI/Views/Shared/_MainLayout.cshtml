@@ -20,10 +20,11 @@
 	<script type="text/javascript" src="~/Scripts/kinetic-v4.7.4.js"></script>
 	<script type="text/javascript" src="~/Scripts/animation.js"></script>
 	<script type="text/javascript" src="~/Scripts/antiscroll.js"></script>
+	<script type="text/javascript" src="~/Scripts/log4javascript.js"></script>
+	<script type="text/javascript" src="~/Scripts/video.js"></script>
+
 	<script type="text/javascript" src="~/Scripts/menu.js"></script>
 	<script type="text/javascript" src="~/Scripts/lifetime.js"></script>
-	
-	<script type="text/javascript" src="~/Scripts/video.js"></script>
 	<script type="text/javascript" src="~/Scripts/map.js"></script>
 	<script type="text/javascript" src="~/Scripts/graph.js"></script>
 	<script type="text/javascript" src="~/Scripts/map-manager.js"></script>
@@ -57,9 +58,15 @@
 
 	<script type="text/javascript">
 	 	var pageLifetime = new Lifetime();
+	 	var logger = log4javascript.getLogger('main');
+	 	var appender = new log4javascript.AjaxAppender('http://' + window.location.hostname + ':' + window.location.port + '/clientlogger');
+	 	logger.addAppender(appender);
+	 	window.onerror = function (errorMsg, url, lineNumber) {
+	 		logger.fatal('Uncaught error ' + errorMsg + ' in ' + url + ', line ' + lineNumber);
+	 	};
 
 		$(document).ready(function () {
-			//pageLifetime.init();
+			pageLifetime.init();
 		});
 	</script>
 	
