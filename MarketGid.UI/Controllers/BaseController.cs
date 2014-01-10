@@ -15,10 +15,10 @@ namespace MarketGid.UI.Controllers
     public abstract class BaseController : Controller
     {
 		/// <summary>
-		/// Initializes a new instance of the <see cref="MvcApplication1.Controllers.BaseController"/> class.
+		/// Initializes a new instance of the <see cref="MarketGid.UI.Controllers.BaseController"/> class.
 		/// </summary>
 		/// <param name="factory">Factory.</param>
-        public BaseController(IUnitOfWorkFactory factory)
+		protected BaseController(IUnitOfWorkFactory factory)
 		{
 			Factory = factory;
 		}
@@ -51,7 +51,7 @@ namespace MarketGid.UI.Controllers
 			{
 				var collection = db.Query<Advertisement> ().Where (item => item.Places.Contains (place));
 
-				int currentIndex = Session [place + "_advertIndex"] != null ? (int) Session[place + "_advertIndex"] : 0;
+				int currentIndex = (int) (Session[place + "_advertIndex"] ?? 0);
 				currentIndex += 1;
 				if (currentIndex > collection.Count ()) currentIndex = 1;
 				Session [place + "_advertIndex"] = currentIndex;

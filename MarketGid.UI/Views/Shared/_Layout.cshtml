@@ -25,8 +25,16 @@
 	<script type="text/javascript" src="~/Scripts/jquery-2.0.3.js"></script>
 	<script type="text/javascript" src="~/Scripts/bootstrap.js"></script>
 	<script type="text/javascript" src="~/Scripts/animation.js"></script>
+	<script type="text/javascript" src="~/Scripts/log4javascript.js"></script>
 
 	<script type="text/javascript">
+	 	var logger = log4javascript.getLogger('main');
+	 	var appender = new log4javascript.AjaxAppender('http://' + window.location.hostname + ':' + window.location.port + '/clientlogger');
+	 	logger.addAppender(appender);
+	 	window.onerror = function (errorMsg, url, lineNumber) {
+	 		logger.fatal('Uncaught error ' + errorMsg + ' in ' + url + ', line ' + lineNumber);
+	 	};
+
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-44339793-1']);
 		_gaq.push(['_trackPageview']);
@@ -36,6 +44,7 @@
 			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		})();
+
 	</script>
 	
 	@RenderSection("scripts", false)
