@@ -34,11 +34,7 @@ namespace MarketGid.UI.Controllers
 					topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
 
 				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
-<<<<<<< HEAD
-				if (bottomAdvertisement != null && bottomAdvertisement.Equals(topAdvertisement))
-=======
 				if (bottomAdvertisement != null)
->>>>>>> Fix
 				{
 					if (bottomAdvertisement.Equals (topAdvertisement))
 					{
@@ -47,11 +43,6 @@ namespace MarketGid.UI.Controllers
 					if (bottomAdvertisement != null)
 						bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 				}
-<<<<<<< HEAD
-				if (bottomAdvertisement != null)
-					bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
-=======
->>>>>>> Fix
 
 				var categories = db.Query<Category> ().Where (c => c.Level == 0);
 
@@ -75,11 +66,7 @@ namespace MarketGid.UI.Controllers
 					topAdvertisement.CurrentPlace = TOP_PLACE_NAME;
 
 				var bottomAdvertisement = GetAdvert (BOTTOM_PLACE_NAME);
-<<<<<<< HEAD
-				if (bottomAdvertisement != null && bottomAdvertisement.Equals(topAdvertisement))
-=======
 				if (bottomAdvertisement != null)
->>>>>>> Fix
 				{
 					if (bottomAdvertisement.Equals (topAdvertisement))
 					{
@@ -88,11 +75,6 @@ namespace MarketGid.UI.Controllers
 					if (bottomAdvertisement != null)
 						bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
 				}
-<<<<<<< HEAD
-				if (bottomAdvertisement != null)
-					bottomAdvertisement.CurrentPlace = BOTTOM_PLACE_NAME;
-=======
->>>>>>> Fix
 
 				ViewBag.TopAdvertisement = topAdvertisement;
 				ViewBag.BottomAdvertisement = bottomAdvertisement;

@@ -100,11 +100,7 @@
 			}, @ViewBag.TopAdvertisement.Duration.TotalMilliseconds);
 				</text>
 			}
-<<<<<<< HEAD
-	 		
-=======
-	 
->>>>>>> Fix
+
 	 		@if (ViewBag.BottomAdvertisement != null) {
 	 			<text>
 			setTimeout(function () { 
@@ -116,19 +112,6 @@
 			// отсылаем данные в GA
 			if (_gaq) {
 				@if (ViewBag.TopAdvertisement != null) {
-<<<<<<< HEAD
-				<text>
-				var catName = '@ViewBag.TopAdvertisement.GAEventCategory';
-				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
-				</text>
-				}
-				
-				@if (ViewBag.BottomAdvertisement != null) {
-				<text>
-				var catName2 = '@ViewBag.BottomAdvertisement.GAEventCategory';
-				_gaq.push(['_trackEvent', catName2, 'Show', '@ViewBag.BottomAdvertisement.Name']);
-				</text>
-=======
 					<text>
 				var catName = '@ViewBag.TopAdvertisement.GAEventCategory';
 				_gaq.push(['_trackEvent', catName, 'Show', '@ViewBag.TopAdvertisement.Name']);
@@ -139,7 +122,6 @@
 				var catName2 = '@ViewBag.BottomAdvertisement.GAEventCategory';
 				_gaq.push(['_trackEvent', catName2, 'Show', '@ViewBag.BottomAdvertisement.Name']);
 					</text>
->>>>>>> Fix
 				}
 			}
 		});

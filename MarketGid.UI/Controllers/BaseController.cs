@@ -58,13 +58,9 @@ namespace MarketGid.UI.Controllers
 
 				var advert = collection.Skip (currentIndex > 0 ? currentIndex - 1 : 0).FirstOrDefault ();
 				if (advert != null)
-<<<<<<< HEAD
 				{
 					advert.MapObject = db.Query<MapObject> ().SingleOrDefault (m => m.Id == advert.ObjectId);
 				}
-=======
-					advert.MapObject = db.Query<MapObject>().SingleOrDefault(m => m.Id == advert.ObjectId);
->>>>>>> Fix
 
 				return advert;
 			}
